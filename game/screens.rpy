@@ -1287,7 +1287,6 @@ screen nvl(dialogue, items=None):
 
     window:
         style "nvl_window"
-
         has vbox:
             spacing gui.nvl_spacing
 
@@ -1316,12 +1315,9 @@ screen nvl(dialogue, items=None):
 
 
 screen nvl_dialogue(dialogue):
-
     for d in dialogue:
-
         window:
             id d.window_id
-
             fixed:
                 yfit gui.nvl_height is None
 
