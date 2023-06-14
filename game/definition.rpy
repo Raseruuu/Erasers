@@ -1,5 +1,5 @@
 define b = Character("Breeze")
-define s = Character("Sofi")
+define s = Character("Sofi", image="sofiside")
 define f = Character("Flair")
 define a = Character("Azmaveth")
 define k = Character("Kizuna")
@@ -18,30 +18,31 @@ define n = nvl_narrator
 image sofi = im.FactorScale("images/sofi.png", 0.26)
 image breeze = im.FactorScale("images/breeze.png", 0.26)
 
-
 image cc = im.Flip(im.FactorScale("images/cc-temp.png", 1.5), horizontal=True)
 
-
-
+##sideimage xanchor 0.5 xpos 250 yalign 1.0
+image side sofiside = im.FactorScale(im.Crop("images/sofi.png", (850, 530, 1700, 2000)), 0.25)
 
 image bgpark = "images/bgpark.jpg"
-image bgcafe = "images/bg_cafe.webm"
+image bgcafe = "images/bg_cafe.webp"
 
 image white:
     Solid("#FFF")
 image black:
     Solid("#000")
+
+image bgcafesepia = im.Sepia("bg_cafe.webp")
 ################
 ## MUSIC ##
 ################
-define train = "sound/youfulca-train-1min.mp3"
-define horror = "youfulca-Horror-ginen_loop.ogg"
-define daily = "sound/youfulca-tea-time_loop.ogg"
-
 define flairtheme = "sound/Flairs_Theme_2_ogg.ogg"
 define guildtheme = "sound/Guild_Theme_ogg.ogg"
 define tomotheme = "sound/Tomos_Theme_ogg.ogg"
 
+
+define train = "sound/youfulca-train-1min.mp3"
+define horror = "youfulca-Horror-ginen_loop.ogg"
+define daily = "sound/youfulca-tea-time_loop.ogg"
 
 ###############
 ## Transform ##

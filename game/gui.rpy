@@ -97,8 +97,7 @@ define gui.game_menu_background = "gui/game_menu.png"
 ## The height of the textbox containing dialogue.
 define gui.textbox_height = 370
 
-## The placement of the textbox vertically on the screen. 0.0 is the top, 0.5 is
-## center, and 1.0 is the bottom.
+## The placement of the textbox vertically on the screen.
 define gui.textbox_yalign = 1.0
 
 

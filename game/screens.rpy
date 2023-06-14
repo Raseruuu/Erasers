@@ -114,7 +114,8 @@ screen say(who, what):
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
-        add SideImage() xalign 0.0 yalign 1.0
+        add SideImage() xanchor 0.5 xpos 200 yalign 1.0
+        # add SideImage() xanchor 0.5 xpos 330 yanchor 0.0 ypos 800
 
 
 ## Make the namebox available for styling through the Character object.
@@ -264,7 +265,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = True
+default quick_menu = False
 
 style quick_button is default
 style quick_button_text is button_text

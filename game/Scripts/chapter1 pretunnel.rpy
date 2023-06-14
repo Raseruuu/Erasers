@@ -2,7 +2,7 @@ label pretunnel:
 
     ## Meeting Breeze
     ##EXT. Cafe
-    scene bg_cafe
+    scene bgcafe
     show white:
         alpha 0.5
     play music flairtheme fadein 2.0 volume 0.2
@@ -24,10 +24,19 @@ label pretunnel:
     show sofi:
         linear 5 xoffset -400
     cc "It’s fine, though with all that energy, it makes me wonder why you would even go to a coffee shop in the first place…"
+    hide sofi
+    show bgcafesepia:
+        alpha 0.5
+    show black:
+        alpha 0.5
+    show sofi at scenter:
+        xoffset -400 xzoom -1.0
     s "Ha ha right, I mean this is a coffee shop after all."
     s "People come here for a pick-me-up to survive the daily grind."
     s "I mean why else would a responsible young lady like myself go to a coffee shop like this if they're full of so much energy?"
     s "It’s for coffee of course, and totally not some secret organization that’s-"
+    hide bgcafesepia with dissolve
+    hide black with dissolve
     cc "Ma’am you’re holding up the line."
     cc "So please order something otherwise my boss'll kill me."
     show sofi:
