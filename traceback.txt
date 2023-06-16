@@ -1,26 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/Scripts/chapter0 prologue.rpy", line 6, in script
-    show intro_text at centered
-Exception: Character expects its what argument to be a string, got <renpy.display.image.ImageReference object ('intro_text',) at 0x00000000047e0a90>.
+  File "game/combat/combat screen.rpy", line 23, in script call
+    pause
+  File "game/combat/combat screen.rpy", line 86, in script
+    label damage:
+Exception: Could not find return label ('game/combat/combat screen.rpy', 1686925612, 7, 'end_translate').
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/Scripts/chapter0 prologue.rpy", line 6, in script
-    show intro_text at centered
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 1428, in execute
-    show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 1391, in show_imspec
-    renpy.config.show(name,
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\exports.py", line 745, in show
-    img = i(img) # type: ignore
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\character.py", line 1266, in __call__
-    raise Exception("Character expects its what argument to be a string, got %r." % (what,))
-Exception: Character expects its what argument to be a string, got <renpy.display.image.ImageReference object ('intro_text',) at 0x00000000047e0a90>.
+  File "game/combat/combat screen.rpy", line 23, in script call
+    pause
+  File "game/combat/combat screen.rpy", line 86, in script
+    label damage:
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 1762, in execute
+    next_node(renpy.game.context().lookup_return(pop=True))
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\execution.py", line 726, in lookup_return
+    raise Exception("Could not find return label {!r}.".format(self.return_stack[-1]))
+Exception: Could not find return label ('game/combat/combat screen.rpy', 1686925612, 7, 'end_translate').
 
 Windows-10-10.0.19045 AMD64
-Ren'Py 8.1.1.23052503+nightly
+Ren'Py 8.0.0.22062402
 Erasers 1.0
-Wed Jun 14 15:39:50 2023
+Fri Jun 16 22:27:40 2023

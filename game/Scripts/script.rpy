@@ -1,3 +1,7 @@
 ﻿label start:
-    jump prologue
+    menu:
+        "Start":
+            jump prologue
+        "Combat":
+            jump combat
     return

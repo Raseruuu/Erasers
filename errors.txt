@@ -1,0 +1,11 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/combat/combat screen.rpy", line 91: invalid syntax
+    = 0click
+     ^
+    
+
+Ren'Py Version: Ren'Py 8.0.0.22062402
+Fri Jun 16 22:27:18 2023

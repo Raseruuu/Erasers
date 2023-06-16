@@ -12,6 +12,7 @@ define ms = Character("Magic Scientist")
 define fi = Character("Intercom")
 
 define n = nvl_narrator
+
 ################
 ## SPRITES ##
 ###############
@@ -23,8 +24,8 @@ image cc = im.Flip(im.FactorScale("images/cc-temp.png", 1.5), horizontal=True)
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
 image side sofiside = im.FactorScale(im.Crop("images/sofi.png", (850, 530, 1700, 2000)), 0.25)
 
-image bgpark = "images/bgpark.jpg"
-image bgcafe = "images/bg_cafe.webp"
+image bgpark = "images/bg/bgpark.jpg"
+image bgcafe = "images/bg/temp_bg_cafe.webp"
 
 image white:
     Solid("#FFF")
@@ -40,9 +41,8 @@ define guildtheme = "sound/Guild_Theme_ogg.ogg"
 define tomotheme = "sound/Tomos_Theme_ogg.ogg"
 
 
-define train = "sound/youfulca-train-1min.mp3"
-define horror = "youfulca-Horror-ginen_loop.ogg"
-define daily = "sound/youfulca-tea-time_loop.ogg"
+define horror = "sound/temp-youfulca/youfulca-Horror-ginen_loop.ogg"
+define daily = "sound/temp-youfulca/youfulca-tea-time_loop.ogg"
 
 ###############
 ## Transform ##
