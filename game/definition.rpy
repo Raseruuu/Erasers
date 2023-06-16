@@ -16,13 +16,13 @@ define n = nvl_narrator
 ################
 ## SPRITES ##
 ###############
-image sofi = im.FactorScale("images/sofi.png", 0.26)
-image breeze = im.FactorScale("images/breeze.png", 0.26)
+image sofi = im.FactorScale("images/sprite/sofi.png", 0.26)
+image breeze = im.FactorScale("images/sprite/breeze.png", 0.26)
 
-image cc = im.Flip(im.FactorScale("images/cc-temp.png", 1.5), horizontal=True)
+image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
-image side sofiside = im.FactorScale(im.Crop("images/sofi.png", (850, 530, 1700, 2000)), 0.25)
+image side sofiside = im.FactorScale(im.Crop("images/sprite/sofi.png", (850, 530, 1700, 2000)), 0.25)
 
 image bgpark = "images/bg/bgpark.jpg"
 image bgcafe = "images/bg/temp_bg_cafe.webp"
@@ -32,7 +32,7 @@ image white:
 image black:
     Solid("#000")
 
-image bgcafesepia = im.Sepia("bg_cafe.webp")
+image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
 ################
 ## MUSIC ##
 ################
