@@ -1,25 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.MatrixColor object at 0x0000000005215a60>:
-  File "game/Scripts/chapter1 pretunnel.rpy", line 34, in script
-    s "Ha ha right, I mean this is a coffee shop after all."
-OSError: Couldn't find file 'temp_bg_cafe.webp'.
+While loading <renpy.display.im.FactorScale object at 0x0000000005b4bac0>:
+  File "game/combat/combat screen.rpy", line 23, in script
+    pause
+  File "renpy/common/000statements.rpy", line 455, in execute_pause
+    renpy.pause()
+OSError: Couldn't find file 'breeze.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/Scripts/chapter1 pretunnel.rpy", line 34, in script
-    s "Ha ha right, I mean this is a coffee shop after all."
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 901, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\exports.py", line 1373, in say
-    who(what, *args, **kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\character.py", line 1253, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\character.py", line 914, in do_display
-    display_say(who,
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\character.py", line 653, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "game/combat/combat screen.rpy", line 23, in script
+    pause
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2212, in execute
+    self.call("execute")
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2200, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 455, in execute_pause
+    renpy.pause()
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\exports.py", line 1533, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
@@ -42,9 +44,17 @@ Full traceback:
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\transform.py", line 747, in render
-    return transform_render(self, width, height, st, at)
-  File "accelerator.pyx", line 187, in renpy.display.accelerator.transform_render
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 704, in render
+    child = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\image.py", line 505, in render
     return wrap_render(self.target, width, height, st, at)
@@ -56,8 +66,12 @@ Full traceback:
     return cache.get(self, render=True)
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\im.py", line 295, in get
     surf = image.load()
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\im.py", line 1355, in load
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\im.py", line 951, in load
     surf = cache.get(self.image)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\im.py", line 295, in get
+    surf = image.load()
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\im.py", line 1101, in load
+    return cache.get(self.image).subsurface((self.x, self.y,
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\im.py", line 295, in get
     surf = image.load()
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\im.py", line 723, in load
@@ -66,9 +80,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename)
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\loader.py", line 820, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'temp_bg_cafe.webp'.
+OSError: Couldn't find file 'breeze.png'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.0.22062402
 Erasers 1.0
-Fri Jun 16 23:00:18 2023
+Fri Jun 16 23:30:33 2023

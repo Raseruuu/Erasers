@@ -1,5 +1,5 @@
-image breezecombat = im.FactorScale(im.Crop("images/breeze.png", (1200, 300, 1700, 2000)), 0.15)
-image flairmob = im.FactorScale(im.Crop("images/flair.png", (800, 200, 3400, 6000)), 0.125)
+image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze.png", (1200, 300, 1700, 2000)), 0.15)
+image flairmob = im.FactorScale(im.Crop("images/sprite/flair.png", (800, 200, 3400, 6000)), 0.125)
 
 label combat:
     python:
@@ -16,20 +16,19 @@ label combat:
     show black:
         alpha 0.8
     "Combat test"
-
     window hide
     show screen combat
+    show screen testbutton
 
     pause
-    return
+    # return
 
 screen combat:
-    button:
-        action NullAction()
+    # button:
+    #     action NullAction()
     use breeze
     use mob
-    use testbutton
-    # use damage
+    # use testbutton
 
     # timer 0.05 action Function(tick) repeat True
 
@@ -72,24 +71,27 @@ screen mob:
 
 screen testbutton:
     button:
+        action Return("damagephase")
         xysize (100, 50)
         pos(25, 25)
         text "DDD":
             xalign 0.5 yalign 0.5
-        action Call("damage")
+
+
+label damagephase:
+    ##damage calculation
+    show screen damagecalc
+
+    $ renpy.pause(1.0)
+    # $ click = 0
+    "done"
+    hide screen damagecalc
+    window hide
+    return
 
 screen damagecalc:
     frame:
         xysize (300, 100)
         pos (100, 200)
-        text "5 Damage":
+        text "5 taken":
             xalign 0.5 yalign 0.5
-
-label damage:
-    show screen damagecalc
-    ##damage calculation
-    $ renpy.pause(2.0)
-    $ click = 0
-    hide screen damagecalc
-    window hide
-    return
