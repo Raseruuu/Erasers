@@ -74,3 +74,21 @@ transform test1:
 
 transform flipflip:
     linear 0.1 xzoom -1
+
+transform combat1: ##1enemy placement
+    xalign 0.5 ypos 50
+
+transform mobhurt:
+    parallel: #Horizontal shake
+        pause 0.1
+        ease 0.05 xoffset 10
+        ease 0.05 xoffset -10
+        ease 0.05 xoffset 8
+        ease 0.05 xoffset -8
+        ease 0.05 xoffset 5
+        ease 0.05 xoffset -5
+        ease 0.05 xoffset 0
+    parallel:
+        linear 0.05 zoom 0.98 yoffset 10
+        linear 0.15 zoom 1.02 yoffset -5
+        easeout 0.1 zoom 1.0 yoffset 0

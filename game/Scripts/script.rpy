@@ -3,5 +3,5 @@
         "Start":
             jump prologue
         "Combat":
-            jump combat
+            jump combattest
     return

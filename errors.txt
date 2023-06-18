@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat screen.rpy", line 89: expected statement.
-    Return("damagephase")
-                         ^
+File "game/combat/combat python.rpy", line 89: end of line expected.
+    hide screen mobicon(target, combat1)
+                       ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Sat Jun 17 00:00:37 2023
+Mon Jun 19 01:00:01 2023
