@@ -47,6 +47,6 @@ init -50 python:
                 # "Alv2": [alv21, alv22, alv23],
                 # "Az": [Az],
                 "Rattest": [ratmob],
-                "Rat": [ratmob, ratmob2]}
+                "Rat": [ratmob, ratmob]}
 
     mobpos = {1:[960], 2: [650, 1270], 3: [400, 960, 1520]}

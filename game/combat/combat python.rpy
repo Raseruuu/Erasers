@@ -9,6 +9,7 @@ init python:
         global clickmax
         global mobhp
         global mobattacker
+        global mobaction
 
         global slow
         global burn
@@ -44,8 +45,16 @@ init python:
             pass
         for i,j in enumerate(mob):
             if click[i] == mob[i].cd:
-                mobattacker = i
-                renpy.call("breezehurt")
+
+                timerpause = True
+                for i,j in enumerate(mob):
+                    if click[i] == mob[i].cd:
+                        mobaction.append(i)
+                renpy.call("mobaction")
+
+                ##### OLD CODE for this section
+                # mobattacker = i
+                # renpy.call("breezehurt")
     def autoattack():
         global mobstat
         mobstat[target][1] -= 700
@@ -85,7 +94,7 @@ label damagephase:
     if mobstat[target][1]>0:
         jump combatloop
     else:
-        jump mobdeath
+        jump victory
 
 ####################
 ## Hurt animation ##
@@ -103,29 +112,33 @@ label flairhurt: ##TODO: to targetted
     # show screen mobicon(target, mobhurt) #at mobhurt
     return
 
+label mobaction:
+    python:
+        for i, j in enumerate(mobaction):
+            mobattacker = i
+            renpy.call("breezehurt")
+            renpy.pause(1.0)
+        mobaction = []
+    jump combatloop
 
-label breezehurt:
+label breezehurt: ##Each mob action
     $ timerpause = True
     $ click[mobattacker] = 0
-
     $ hp=int(max(min(hp,hp-mob[mobattacker].dmg+shield), 0)+0.8)
     $ shield = max(shield-mob[mobattacker].dmg, 0)
-
     show screen damageincoming(mob[mobattacker].dmg)
 
     with vpunch
     # show breezecombat at mobhurt
 
     $ renpy.pause(1.0)
-
     $ timerpause = False
     hide screen damageincoming
 
     ## gameover check
     if hp ==0:
         jump gameover
-    else:
-        jump combatloop
+    return
 
 ####################
 ## BATTLE OUTCOME ##

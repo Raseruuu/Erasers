@@ -22,7 +22,7 @@ label combat:
         combattalk = False
         hpmax = 350
         hp = 320
-        shield = 10.00
+        shield = 0 #10.00
 
         fhpmax = 800
         fhp = 751
@@ -32,6 +32,7 @@ label combat:
         clickmax = 140 ## 20clicks/second
 
         mob = moblist[encounter]
+        mobaction = [0, 1]
 
         click = []
         # slow = []
@@ -102,12 +103,12 @@ screen combat:
     use actbutton
 
     ##test button
-    # frame:
-    #     xysize (200, 100)
-    #     pos (1150, 850)
-    #     textbutton "TEST" align (0.5, 0.5):
-    #         # action Function(autoattack)
-    #         action Function(autoattack)
+    frame:
+        xysize (200, 100)
+        pos (1150, 850)
+        textbutton "TEST" align (0.5, 0.5):
+            # action Function(autoattack)
+            action Jump("mobaction")
 
 screen breeze: ##hp bar
     # fixed: ##Icon

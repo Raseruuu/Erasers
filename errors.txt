@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 136: expected statement.
-    for i, j in enumerate(mobstat):
+File "game/combat/combat python.rpy", line 120: invalid syntax
+        $ renpy.pause(1.0)
          ^
+    
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Mon Jun 19 22:06:03 2023
+Mon Jun 19 23:45:35 2023
