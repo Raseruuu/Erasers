@@ -1,15 +1,13 @@
 init python:
     import pygame
-    import math
+    import math ## This one is probably not used. TODO: consider removal.
     def tick():
         ## Defining global variables ##
         global timerpause
 
-        global click
-        global clickmax
-        global mobhp
-        global mobattacker
-        global mobaction
+        global click ## individual monster's timer TODO:standardise into mobstat
+        global mobattacker ## which incoming attack. TODO: streamline/remove here.
+        global mobaction ## for attempting queuing up mob actions.
 
         global slow
         global burn
@@ -20,7 +18,7 @@ init python:
         global shield
 
         if timerpause == False:
-            for i, j in enumerate(mob):
+            for i, j in enumerate(mob): ## individual timer.
                 if click[i] < mob[i].cd:
                     if mobstat[i][2] > 0:
                         click+=0.25
@@ -32,18 +30,19 @@ init python:
             #     mobstat[i][3] -= 1
             #     mobstat[i][1] -= 0.05
 
+            ## Commmand card timers.
             if breezecd < max(breeze.cost):
                 breezecd +=0.05
             if soficd <max(sofi.cost):
                 soficd +=0.05
             if flaircd <max(flair.cost):
                 flaircd +=0.05
-
-            if shield > 0:
-                shield -=0.1
+            if shield > 0: ## Shield Decay
+                shield -=0.05
         else:
             pass
-        for i,j in enumerate(mob):
+
+        for i,j in enumerate(mob): ## Assigning mob actions when timer up.
             if click[i] == mob[i].cd:
 
                 timerpause = True
@@ -55,10 +54,11 @@ init python:
                 ##### OLD CODE for this section
                 # mobattacker = i
                 # renpy.call("breezehurt")
+
+    ## Functions for testing purposes.
     def autoattack():
         global mobstat
         mobstat[target][1] -= 700
-
     def burning():
         global mobstat
         mobstat[target][3] +=400
@@ -68,7 +68,7 @@ init python:
 
 label sofiphase:
     # $ timerpause = True
-    show screen damageincoming(skillvalues[act])
+    show screen damageincoming(skillvalues[act]) ##TODO change to green textcolor.
 
     if act == "Shield":
         $ shield += skillvalues["Shield"]
@@ -81,14 +81,12 @@ label sofiphase:
     jump combatloop
 
 label damagephase:
-    call flairhurt ##TODO: charge to targeted one.
-    show screen damagecalc(skillvalues[act])
-    # show screen targetting
+    call mobhurt
+    show screen damagecalc(skillvalues[act]) ##damage numbers
 
     $ renpy.pause(1.0)
     $ timerpause = False
     hide screen damagecalc
-
 
     ## Condition Check
     if mobstat[target][1]>0:
@@ -99,15 +97,17 @@ label damagephase:
 ####################
 ## Hurt animation ##
 ####################
-label flairhurt: ##TODO: to targetted
+label mobhurt: ##TODO: to targetted
+    ## HP
+    $ mobstat[target][1] = max(0, mobstat[target][1] - skillvalues[act])
+    ## Currently no debuff stacking
     # if act == "Shard":
     #     $ slow[target] = 100
     # if act == "Firebolt":
     #     $ burn[target] = 400
-    # $ mobhp[target] -= skillvalues[act]
-    $ mobstat[target][1] = max(0, mobstat[target][1] - skillvalues[act])
 
-    ## Cancel due to unable to hide specific one
+    ## Defunct due to unable to hide specific one.
+    ## TODO: find a way to show mob hurt shaking animation.
     # hide screen mobicon
     # show screen mobicon(target, mobhurt) #at mobhurt
     return
@@ -123,7 +123,8 @@ label mobaction:
 
 label breezehurt: ##Each mob action
     $ timerpause = True
-    $ click[mobattacker] = 0
+    $ click[mobattacker] = 0 ##reset the cd of the attacking mob.
+    ## hp and shield value adjustment. & damage number.
     $ hp=int(max(min(hp,hp-mob[mobattacker].dmg+shield), 0)+0.8)
     $ shield = max(shield-mob[mobattacker].dmg, 0)
     show screen damageincoming(mob[mobattacker].dmg)
@@ -143,7 +144,7 @@ label breezehurt: ##Each mob action
 ####################
 ## BATTLE OUTCOME ##
 ####################
-label mobdeath:
+label mobdeath: ## if multiple enemies.
     # if len(mobstat)>0:
     $ mobstat.pop(target)
     if len(mobstat) == 0:
