@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 89: end of line expected.
-    hide screen mobicon(target, combat1)
-                       ^
+File "game/combat/combat python.rpy", line 136: expected statement.
+    for i, j in enumerate(mobstat):
+         ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Mon Jun 19 01:00:01 2023
+Mon Jun 19 22:06:03 2023

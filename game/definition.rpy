@@ -76,7 +76,11 @@ transform flipflip:
     linear 0.1 xzoom -1
 
 transform combat1: ##1enemy placement
-    xalign 0.5 ypos 50
+    xalign 0.5 yanchor 0.5 ypos 350
+
+transform combat2:
+    anchor (0.5, 0.5)
+    ypos 400
 
 transform mobhurt:
     parallel: #Horizontal shake

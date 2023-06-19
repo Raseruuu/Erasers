@@ -24,9 +24,8 @@ init -50 python:
     sofi = fighter("Sofi", ["Shield", "Heal"], [6.0, 10.0], [10, 100])
     flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 10.0], [30, 70])
 
-    skillvalues = {
-                    "Attack": 15, "Shard": 20,
-                    "Shield": 6, "Heal": 10,
+    skillvalues = {"Attack": 1500, "Shard": 20,
+                    "Shield": 10, "Heal": 100,
                     "Firebolt": 30, "Inferno": 70
                     }
 
@@ -40,6 +39,7 @@ init -50 python:
 
     flairmob = mob("Flair", 800, 140, 65, "flairmob")
     ratmob = mob("Rat", 300, 100, 20, "ratmob")
+    ratmob2 = mob("Rat2", 300, 101, 20, "ratmob")
 
     moblist = {"Flair": [flairmob],
                 # "Goons": [goon, goon],
@@ -47,6 +47,6 @@ init -50 python:
                 # "Alv2": [alv21, alv22, alv23],
                 # "Az": [Az],
                 "Rattest": [ratmob],
-                "Rat": [ratmob, ratmob, ratmob]}
+                "Rat": [ratmob, ratmob2]}
 
-    mobpos1 = []
+    mobpos = {1:[960], 2: [650, 1270], 3: [400, 960, 1520]}

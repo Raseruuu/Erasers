@@ -1,13 +1,16 @@
 image targetsign = im.FactorScale("gui/target.png", 0.3)
 image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze.png", (1200, 300, 1700, 2000)), 0.15)
-image flairmob = im.FactorScale(im.Crop("images/sprite/flair.png", (800, 200, 3400, 6000)), 0.11)
-image ratmob = im.FactorScale("images/sprite/rat.png", 1.0)
+image flairmob = im.FactorScale(im.Crop("images/sprite/flair.png", (500, 200, 3500, 6000)), 0.08)
+image ratmob = im.FactorScale("images/sprite/rat.png", 0.8)
+
+image fire = im.FactorScale("gui/fire.png", 0.3)
+image ice = im.FactorScale("gui/ice.png", 0.05)
 
 
 label combattest:
     "entering combat"
     # $ combatant = [breeze, sofi, flair]
-    $ encounter = "Rattest"
+    $ encounter = "Rat"
     call combat
     "combat end"
     # $ renpy.fix_rollback()
@@ -31,14 +34,16 @@ label combat:
         mob = moblist[encounter]
 
         click = []
-        slow = []
-        burn = []
+        # slow = []
+        # burn = []
         mobhp = []
+        mobstat = []
         for i in mob:
             click.append(0)
-            slow.append(0)
-            burn.append(0)
+            # slow.append(0)
+            # burn.append(0)
             mobhp.append(i.hp)
+            mobstat.append([i.name, i.hp, 0, 0]) ##slow/burn
 
         breezecd = soficd = flaircd = 0.00
 
@@ -55,10 +60,7 @@ label combat:
         alpha 0.8
     window hide
 
-
-
     show screen combat
-    # show ratmob at combat1
     show breezecombat:
         xpos 450
         yanchor 1.0 ypos 1050
@@ -68,18 +70,19 @@ label combat:
 
     label combatloop:
         # $ renpy.block_rollback()
-        ## TODO: enemy targeting
-        if mobhp[0] < 50 and flairlow == False:
+
+        ## Midfight Narration
+        if encounter == "Flair" and mobhp[0] < 50 and flairlow == False:
             $ timerpause = True
             $ combattalk = True
-            # hide screen nobutton
+
+            $ flairlow = True
             f "Oh no"
             b "Haha"
             window hide
-            $ flairlow = True
+
             $ combattalk = False
             $ timerpause = False
-
         pass
     pause ##gameplay here
     return
@@ -93,10 +96,18 @@ screen combat:
     timer 0.05 action Function(tick) repeat True
     use breeze
     for i, j in enumerate(mob):
-        use mob(i)
-        use mobicon(i, combat1)
+        use mob(i,mobpos[len(mob)][i])
+
+    use targetting(mobpos[len(mob)][target])
     use actbutton
-    use targetting
+
+    ##test button
+    # frame:
+    #     xysize (200, 100)
+    #     pos (1150, 850)
+    #     textbutton "TEST" align (0.5, 0.5):
+    #         # action Function(autoattack)
+    #         action Function(autoattack)
 
 screen breeze: ##hp bar
     # fixed: ##Icon
@@ -123,30 +134,49 @@ screen breeze: ##hp bar
         if shield >=1:
             text "Shield: "+str(int(shield)) xpos 10 yoffset -2 size 20 color "#000"
 
-screen mob(i):
+screen mob(i, position): ##TODO: current values are of 1 single enemy
     fixed: ##mob hp
         xysize (300, 20)
-        xalign 0.5 ypos 30
+        at combat2 yoffset -300 xpos position
         bar:
-            value mobhp[i]
+            value mobstat[i][1]
             range mob[i].hp
             xysize (300, 20)
+        text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
+
+    use mobicon(i, position)
 
     fixed: ##mob click
         xysize (300, 30)
-        xalign 0.5 ypos 720
+        at combat2 yoffset 250 xpos position
         bar:
             value click[i]
             range mob[i].cd
             xysize (300, 30)
         # text "(enemy attack cooldown)" xalign 0.5 yalign 0.5
 
+    fixed:
+        at combat2 xpos position yoffset -175 xoffset -50
+        xysize (300, 300)
+        if mobstat[i][3]>0:
+            add "fire" xoffset 360 yoffset -10
+        if mobstat[i][2]>0:
+            add "ice"
+
+
 screen mobicon(i, position):
-    button: ##to target
-        xysize (425, 750)
-        at position
-        add mob[i].img xalign 0.5
-        action SetVariable("target", i)
+    fixed:
+        xysize (400, 550)
+        at combat2 xpos position
+        # add "white"
+        add mob[i].img xalign 0.5 yalign 1.0 yoffset -50
+        button: ##to target
+            action SetVariable("target", i)
+
+
+screen targetting(position):
+    fixed:
+        add "targetsign" at combat2 xpos position
 
 screen actbutton:
 
@@ -219,20 +249,14 @@ screen actbutton:
                         text str(int(flaircd)) align (1.0, 1.0) offset (-10, -10)
     # timer 0.05 action Function(tick) repeat True
 
-screen targetting:
-    fixed:
-        add "targetsign":
-            xalign 0.5 yanchor 0.5 ypos 0.4
 
 # screen main message
 
 screen damagecalc(value): ##on target
     fixed:
         xysize (300, 100)
-        # pos (100, 200)
         xpos 850 ypos 200
         text str(value) size 100 bold True color "#FF0000"
-            # xalign 0.5 yalign 0.5
 
 screen damageincoming(value): ##on breeze
     fixed:
