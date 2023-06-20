@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 120: invalid syntax
-        $ renpy.pause(1.0)
-         ^
-    
+File "game/combat/combat python.rpy", line 88: expected statement.
+    for i in mobstat:
+          ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Mon Jun 19 23:45:35 2023
+Tue Jun 20 22:41:32 2023

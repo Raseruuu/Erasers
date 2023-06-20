@@ -6,11 +6,13 @@ image ratmob = im.FactorScale("images/sprite/rat.png", 0.8)
 image fire = im.FactorScale("gui/fire.png", 0.3)
 image ice = im.FactorScale("gui/ice.png", 0.05)
 
+define battle = "sound/Battle_Theme_ogg.ogg"
 
-label combattest:
+
+label combattest: ## simulate going into a combat from story.
     "entering combat"
     # $ combatant = [breeze, sofi, flair]
-    $ encounter = "Flair"
+    $ encounter = "Rat"
     call combat
     "combat end"
     # $ renpy.fix_rollback()
@@ -24,20 +26,20 @@ label combat:
         hpmax = 350
         hp = 320
         shield = 0 #10.00
+        breezeaction = ["Inferno"]
+        act = "Inferno"
 
         ## To trigger midcombat narrative
         flairlow = False
 
         mob = moblist[encounter] ## copying the monsters from encounter tag. (check combat data)
         mobaction = []
+        mobphase = False
 
-        click = [] ## 20clicks/second
-        mobhp = []
+
         mobstat = []
         for i in mob:
-            click.append(0)
-            mobhp.append(i.hp)
-            mobstat.append([i.name, i.hp, 0, 0]) ##slow/burn
+            mobstat.append([i.name, i.hp, 0, 0, 0, i.dmg, i.cd]) ##slow/burn/click/dmg/cdmax
 
         breezecd = soficd = flaircd = 0.00
 
@@ -52,6 +54,7 @@ label combat:
         alpha 0.8
     window hide
 
+    play music battle volume 1.0 fadein 0.5
     show screen combat ## main screen
     show breezecombat: ## breeze icon
         xpos 450
@@ -62,7 +65,7 @@ label combat:
         # $ renpy.block_rollback() ##stops rollback from here on
 
         ## Midfight Narration trigger
-        if encounter == "Flair" and mobhp[0] < 50 and flairlow == False:
+        if encounter == "Flair" and mobstat[0][1] < 50 and flairlow == False:
             $ timerpause = True
             $ combattalk = True
 
@@ -89,18 +92,20 @@ screen combat:
 
     ##display breeze hp and enemys, and the commands
     use breeze
-    for i, j in enumerate(mob):
-        use mob(i,mobpos[len(mob)][i])
-    use targetting(mobpos[len(mob)][target])
+    for i, j in enumerate(mobstat):
+        use mob(i,mobpos[len(mobstat)][i])
+    use targetting(mobpos[len(mobstat)][target])
     use actbutton
 
     ##test button
-    # frame:
-    #     xysize (200, 100)
-    #     pos (1150, 850)
-    #     textbutton "TEST" align (0.5, 0.5):
-    #         # action Function(autoattack)
-    #         action Jump("mobaction")
+    if mobphase == False:
+        frame:
+            xysize (200, 100)
+            pos (1150, 850)
+            textbutton "TEST" align (0.5, 0.5):
+                action Jump("breezeaction")
+                # action Function(autoattack)
+                # action Jump("mobaction")
 
 screen breeze: ##hp bar
     # fixed: ##Breeze Icon, might bring it back now I use vpunch for being hit.
@@ -145,7 +150,7 @@ screen mob(i, position): ##TODO: current values are of 1 single enemy
         xysize (300, 30)
         at combat2 yoffset 250 xpos position
         bar:
-            value click[i]
+            value mobstat[i][4]
             range mob[i].cd
             xysize (300, 30)
         # text "(enemy attack cooldown)" xalign 0.5 yalign 0.5
@@ -172,6 +177,10 @@ screen targetting(position): ## indicates which one is being targetted. TODO: ch
     fixed:
         add "targetsign" at combat2 xpos position
 
+screen mobattacking(position):
+    fixed:
+        add "fire" at combat2 xpos mobpos[len(mobstat)][position] yoffset -200
+
 screen actbutton:
 
     # frame: ## Topleftbutton. For testing
@@ -188,10 +197,12 @@ screen actbutton:
             for i, j in enumerate(sofi.list):
                 button:
                     xysize (150, 175)
-                    action [If(soficd >= sofi.cost[i], true = [
-                                                        SetVariable("soficd", max(soficd-sofi.cost[i]-3, 0)),
-                                                        SetVariable("act", j),
-                                                        Call("sofiphase")])]
+                    action [If(soficd >= sofi.cost[i] and mobphase == False, true = [
+                                                                                    SetVariable("soficd", max(soficd-sofi.cost[i]-3, 0)),
+                                                                                    SetVariable("act", j),
+                                                                                    Call("sofiphase")],
+                                                                            false = NullAction()
+                                                                                    )]
                     vbar:
                         value soficd
                         range sofi.cost[i]
@@ -209,7 +220,7 @@ screen actbutton:
             for i, j in enumerate(breeze.list):
                 button:
                     xysize (150, 175)
-                    action [If(breezecd >= breeze.cost[i], true = [SetVariable("breezecd", 0),
+                    action [If(breezecd >= breeze.cost[i] and mobphase == False, true = [SetVariable("breezecd", 0),
                                                                 SetVariable("timerpause", True),
                                                                 SetVariable("act", j), ## for the damagephase to sort out.
                                                                 Call("damagephase")])]
@@ -229,7 +240,7 @@ screen actbutton:
             for i, j in enumerate(flair.list):
                 button:
                     xysize (150, 175)
-                    action [If(flaircd >= flair.cost[i], true = [SetVariable("flaircd", max(flaircd-flair.cost[i]-2, 0)),
+                    action [If(flaircd >= flair.cost[i] and mobphase == False, true = [SetVariable("flaircd", max(flaircd-flair.cost[i]-2, 0)),
                                                                 SetVariable("timerpause", True),
                                                                 SetVariable("act", j),
                                                                 Call("damagephase")])]
@@ -246,8 +257,8 @@ screen actbutton:
 
 screen damagecalc(value): ##on target
     fixed:
-        xysize (300, 100)
-        xpos 850 ypos 200
+        xysize (300, 100) xanchor 0.5
+        xpos mobpos[len(mobstat)][target] ypos 200
         text str(value) size 100 bold True color "#FF0000"
 
 screen damageincoming(value): ##on breeze
