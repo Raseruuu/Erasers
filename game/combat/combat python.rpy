@@ -1,7 +1,6 @@
 init python:
     import pygame
-    import math ## This one is probably not used. TODO: consider removal.
-    def tick():
+    def ticking():
         ## Defining global variables ##
         global timerpause
 
@@ -23,11 +22,11 @@ init python:
                         mobstat[i][4]+=0.25
                     else:
                         mobstat[i][4] += 1
-            # if mobstat[i][2] > 0: ## slow
-            #     mobstat[i][2] -= 1
+            if mobstat[i][2] > 0: ## slow
+                mobstat[i][2] -= 1 ## lasts slow/20 seconds
             # if mobstat[i][3] > 0: ## burn
-            #     mobstat[i][3] -= 1
-            #     mobstat[i][1] -= 0.05
+            #     mobstat[i][3] -= 1 #lasts burn/20 seconds
+            #     mobstat[i][1] -= 0.05 #
 
             ## Commmand card timers.
             if breezecd < max(breeze.cost):
@@ -51,14 +50,7 @@ init python:
                         mobstat[i][4] = 0
                 renpy.call("mobaction")
 
-                ##### OLD CODE for this section
-                # mobattacker = i
-                # renpy.call("breezehurt")
-
     ## Functions for testing purposes.
-    def autoattack():
-        global mobstat
-        mobstat[target][1] -= 700
     def burning():
         global mobstat
         mobstat[target][3] +=400
@@ -86,14 +78,11 @@ label damagephase: ## damaging enemies
 
         breezeaction = []
         if act == "Inferno":
-            # for i in mobstat:
-            #     breezeaction.append("Inferno")
-            breezeaction = [act]
+            for i in mobstat:
+                breezeaction.append("Inferno")
 
         else:
             breezeaction = [act]
-
-
 
     call breezeaction ## STATS hp/slow/burn
 
@@ -101,10 +90,16 @@ label damagephase: ## damaging enemies
 
 
     ## Condition Check ##
-    if mobstat[target][1]==0:
-        if len(mobstat)== 1:
+    python:
+        death = []
+        for i, j in enumerate(mobstat):
+            if mobstat[i][1]<=0:
+                death.append(i)
+    if len(death) >=1:
+    # if mobstat[target][1]==0:
+        if len(mobstat)== 1: ## single enemy
             jump victory
-        elif len(mobstat) >1:
+        elif len(mobstat) >1: ## Group fight
             jump mobdeath
     else:
         jump combatloop
@@ -115,36 +110,27 @@ label damagephase: ## damaging enemies
 label breezeaction:
     ## call animation in here
     python:
-        if act == "Inferno":
-
-            # renpy.call("mobhurt")
-            # target = 1
-            # renpy.call("mobhurt")
-            # target = 2
-            # renpy.call("mobhurt")
-
-            # for i, j in enumerate(breezeaction):  ## breezeaction = ["Inferno", "Inferno", "Inferno"]
-            #     target = i
-                # renpy.call("mobhurt")
-            for i in range(len(mobstat)):
-                target = i
+        if len(breezeaction) != 0:
+            if act == "Inferno":
+                target = len(mobstat)-len(breezeaction)
+                breezeaction.pop(0)
                 renpy.call("mobhurt")
-
-        else:
-            # breezeaction.pop(0)
-            renpy.call("mobhurt")
+            else:
+                breezeaction.pop(0)
+                target = targettemp
+                renpy.call("mobhurt")
     return
-
 
 label mobhurt: ## INDIVIDUAL mob being hit + animation
     $ timerpause = True
+    hide screen targetting
     ## HP
     $ mobstat[target][1] = max(0, mobstat[target][1] - skillvalues[act])
     ## Currently no debuff stacking
-    # if act == "Shard":
-    #     $ slow[target] = 100
-    # if act == "Firebolt":
-    #     $ burn[target] = 400
+    if act == "Shard":
+        $ mobstat[target][2] = 100 ##reset to max
+    if act == "Firebolt":
+        $ mobstat[target][3] = 400
 
     ## TODO: find a way to show mob hurt shaking animation.
 
@@ -152,7 +138,9 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
     $ renpy.pause(1.0)
     $ timerpause = False
     hide screen damagecalc
-    return
+    # show screen targetting(mobpos[len(mobstat)][target])
+    jump breezeaction
+
 #####
 label mobaction:
     $ mobphase = True
@@ -191,28 +179,81 @@ label breezehurt: ## ANIMATION
 ####################
 ## BATTLE OUTCOME ##
 ####################
-label mobdeath: ## remove dead enemy
+label mobdeath: ## dead replace/removal in group
     hide screen combat
-    if encounter == "Rat": ##TODO: Tweak function so that it knows when all 3 are dead.
-        # for i, j in mobstat:
-        #     if mobstat[i][1] ==0:
-        #         pass
-        # else:
-        $ mobstat[target] = [mob[target].name, (mob[target].hp)//2, 0, 0, 0, mob[target].dmg, mob[target].cd]
-    else:
-        $ mobstat.pop(target)
-        $ target = 0
+    python:
+        if encounter == "Rat":
+            if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]): ## when all 3 are dead
+                renpy.jump("victory")
+            else:
+                for i in death: ## i is positions
+                    mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd] ## Rat replacement
+                    ratkilled += 1
+                    if ratkilled == 1:
+                        renpy.call("ratnew") ## first reappear
+                    if fighttalk == False and ratkilled == 3:
+                        renpy.call("rattalk") ## Flair joins in.
+        else:
+            mobstat.pop(death)
+            target = 0
     show screen combat
 
     jump combatloop
 
-label victory:
+label victory: ## TODO: have encounter specific victory
     hide screen combat
-    "You win"
     stop music fadeout 1.0
+    "You win"
     return
 label gameover:
     hide screen combat
     scene black
     "You LOSE"
+    return
+
+###################
+## MIDFIGHT talk ##
+###################
+label flairtalk:
+    $ timerpause = True
+    $ combattalk = True
+
+    $ fighttalk = True
+    f "Oh no"
+    b "Haha"
+    window hide
+
+    $ combattalk = False
+    $ timerpause = False
+    return
+
+label ratnew:
+    show screen combat
+    $ timerpause = True
+    $ combattalk = True
+
+    "New Vibrant infested Rat appears!"
+    b "tssk"
+    window hide
+
+    $ combattalk = False
+    $ timerpause = False
+    return
+
+label rattalk:
+    show screen combat
+    $ timerpause = True
+    $ combattalk = True
+
+    $ fighttalk = True
+    s "there's just no end to them!"
+    b "gdi what's this bs"
+    f "Need a hand?"
+    b "Yeah sure what can you do?"
+    $ combatant.append(flair)
+    window hide
+    ## show flair joins party
+
+    $ combattalk = False
+    $ timerpause = False
     return

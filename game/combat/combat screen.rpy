@@ -11,42 +11,51 @@ define battle = "sound/Battle_Theme_ogg.ogg"
 
 label combattest: ## simulate going into a combat from story.
     "entering combat"
-    # $ combatant = [breeze, sofi, flair]
-    $ encounter = "Rat"
+
+    menu:
+        "Pick encounter"
+        "Flair":
+            $ encounter = "Flair"
+            $ combatant = [breeze, sofi]
+        "Rats":
+            $ encounter = "Rat"
+            $ combatant = [breeze, sofi]
+        "Parry":
+            jump parry
     call combat
     "combat end"
+    $ _skipping = True
+    $ _game_menu_screen = "save_screen"
+
     # $ renpy.fix_rollback()
     return
 
 label combat:
     python:
-        timerpause = False
-        combattalk = False
+        _skipping = timerpause = combattalk = False
+        _game_menu_screen = None
+
         ## Breeze's hp/hpmax/shield
-        hpmax = 350
-        hp = 320
+        hpmax = hp = 350
         shield = 0 #10.00
-        breezeaction = ["Inferno"]
-        act = "Inferno"
-
-        ## To trigger midcombat narrative
-        flairlow = False
-
+        breezeaction = []
+        act = ""
+        breezecd = soficd = flaircd = 0.00
+        ## mob's listing and action and phase
         mob = moblist[encounter] ## copying the monsters from encounter tag. (check combat data)
         mobaction = []
         mobphase = False
-
-
         mobstat = []
         for i in mob:
             mobstat.append([i.name, i.hp, 0, 0, 0, i.dmg, i.cd]) ##slow/burn/click/dmg/cdmax
 
-        breezecd = soficd = flaircd = 0.00
-
         ##combat related variables
         mobattacker = 0 #the enemy that's attacking
-        target = 0 ## the enemy being attacked
-        act = "" ## temp way to tell game which action card picked. ##TODO: streamline it.
+        target = targettemp = 0 ## the enemy being attacked
+        
+        ## Midfight talks
+        fighttalk = False
+        ratkilled = 0
 
     ## Arts
     scene bg_city_destroyed
@@ -65,17 +74,8 @@ label combat:
         # $ renpy.block_rollback() ##stops rollback from here on
 
         ## Midfight Narration trigger
-        if encounter == "Flair" and mobstat[0][1] < 50 and flairlow == False:
-            $ timerpause = True
-            $ combattalk = True
-
-            $ flairlow = True
-            f "Oh no"
-            b "Haha"
-            window hide
-
-            $ combattalk = False
-            $ timerpause = False
+        if encounter == "Flair" and mobstat[0][1] < (flairmob.hp)//2 and fighttalk == False:
+            call flairtalk
         pass
     pause ##gameplay here
     return
@@ -88,7 +88,7 @@ screen combat:
             action NullAction()
 
     ## Main ticker. This is where all the timing stuff happens.
-    timer 0.05 action Function(tick) repeat True
+    timer 0.05 action Function(ticking) repeat True
 
     ##display breeze hp and enemys, and the commands
     use breeze
@@ -108,11 +108,6 @@ screen combat:
                 # action Jump("mobaction")
 
 screen breeze: ##hp bar
-    # fixed: ##Breeze Icon, might bring it back now I use vpunch for being hit.
-    #     xpos 450
-    #     yanchor 1.0 ypos 1050
-    #     xysize (255, 300)
-    #     add "breezecombat"
 
     fixed: ##Hp Bar
         xpos 750 ypos 1000
@@ -176,82 +171,72 @@ screen mobicon(i, position):
 screen targetting(position): ## indicates which one is being targetted. TODO: change symbol used.
     fixed:
         add "targetsign" at combat2 xpos position
-
 screen mobattacking(position):
     fixed:
         add "fire" at combat2 xpos mobpos[len(mobstat)][position] yoffset -200
 
 screen actbutton:
-
-    # frame: ## Topleftbutton. For testing
-    #     xysize (100, 50)
-    #     pos(25, 25)
-    #     textbutton "DDD":
-    #         xalign 0.5 yalign 0.5
-    #         action [If(timerpause == False, true = [SetVariable("timerpause", True), Call("damagephase")])]
-
-    fixed: ##Sofi action buttons
-        pos (50, 800)
-        hbox:
-            xysize (150, 175) spacing 50
-            for i, j in enumerate(sofi.list):
-                button:
-                    xysize (150, 175)
-                    action [If(soficd >= sofi.cost[i] and mobphase == False, true = [
-                                                                                    SetVariable("soficd", max(soficd-sofi.cost[i]-3, 0)),
-                                                                                    SetVariable("act", j),
-                                                                                    Call("sofiphase")],
-                                                                            false = NullAction()
-                                                                                    )]
-                    vbar:
-                        value soficd
-                        range sofi.cost[i]
+    if sofi in combatant:
+        fixed: ##Sofi action buttons
+            pos (50, 800)
+            hbox:
+                xysize (150, 175) spacing 50
+                for i, j in enumerate(sofi.list):
+                    button:
                         xysize (150, 175)
-                    text j xalign 0.5 yalign 0.5
-                    text str(int(sofi.cost[i])) xalign 0.5 yoffset 5
-                    if soficd <= sofi.cost[i]:
-                        text str(int(soficd)) align (1.0, 1.0) offset (-10, -10)
-
-    fixed: ##Breeze action buttons
-        pos (750, 800)
-        hbox:
-            spacing 50
-            xysize (150, 175)
-            for i, j in enumerate(breeze.list):
-                button:
-                    xysize (150, 175)
-                    action [If(breezecd >= breeze.cost[i] and mobphase == False, true = [SetVariable("breezecd", 0),
-                                                                SetVariable("timerpause", True),
-                                                                SetVariable("act", j), ## for the damagephase to sort out.
-                                                                Call("damagephase")])]
-                    vbar: ## to show cd
-                        value breezecd
-                        range breeze.cost[i]
+                        action [If(soficd >= sofi.cost[i] and mobphase == False, true = [
+                                                                                        SetVariable("soficd", max(soficd-sofi.cost[i]-3, 0)),
+                                                                                        SetVariable("act", j),
+                                                                                        Call("sofiphase")],
+                                                                                false = NullAction()
+                                                                                        )]
+                        vbar:
+                            value soficd
+                            range sofi.cost[i]
+                            xysize (150, 175)
+                        text j xalign 0.5 yalign 0.5
+                        text str(int(sofi.cost[i])) xalign 0.5 yoffset 5
+                        if soficd <= sofi.cost[i]:
+                            text str(int(soficd)) align (1.0, 1.0) offset (-10, -10)
+    if breeze in combatant:
+        fixed: ##Breeze action buttons
+            pos (750, 800)
+            hbox:
+                spacing 50
+                xysize (150, 175)
+                for i, j in enumerate(breeze.list):
+                    button:
                         xysize (150, 175)
-                    text j xalign 0.5 yalign 0.5
-                    if breezecd <= breeze.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
-                        text str(int(breezecd)) align (1.0, 1.0) offset (-10, -10)
-
-    fixed: ##Flair action buttons
-        pos (1500, 800)
-        hbox:
-            spacing 50
-            xysize (150, 175)
-            for i, j in enumerate(flair.list):
-                button:
-                    xysize (150, 175)
-                    action [If(flaircd >= flair.cost[i] and mobphase == False, true = [SetVariable("flaircd", max(flaircd-flair.cost[i]-2, 0)),
-                                                                SetVariable("timerpause", True),
-                                                                SetVariable("act", j),
-                                                                Call("damagephase")])]
-                    vbar:
-                        value flaircd
-                        range flair.cost[i]
+                        action [If(breezecd >= breeze.cost[i] and mobphase == False, true = [SetVariable("breezecd", 0),
+                                                                    SetVariable("timerpause", True),
+                                                                    SetVariable("act", j), ## for the damagephase to sort out.
+                                                                    Call("damagephase")])]
+                        vbar: ## to show cd
+                            xysize (150, 175)
+                            value breezecd range breeze.cost[i]
+                        text j xalign 0.5 yalign 0.5
+                        if breezecd <= breeze.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
+                            text str(int(breezecd)) align (1.0, 1.0) offset (-10, -10)
+    if flair in combatant:
+        fixed: ##Flair action buttons
+            pos (1500, 800)
+            hbox:
+                spacing 50
+                xysize (150, 175)
+                for i, j in enumerate(flair.list):
+                    button:
                         xysize (150, 175)
-                    text j xalign 0.5 yalign 0.5
-                    text str(int(flair.cost[i]))
-                    if flaircd <= flair.cost[i]:
-                        text str(int(flaircd)) align (1.0, 1.0) offset (-10, -10)
+                        action [If(flaircd >= flair.cost[i] and mobphase == False, true = [SetVariable("flaircd", max(flaircd-flair.cost[i]-2, 0)),
+                                                                    SetVariable("timerpause", True),
+                                                                    SetVariable("act", j),
+                                                                    Call("damagephase")])]
+                        vbar:
+                            xysize (150, 175)
+                            value flaircd range flair.cost[i]
+                        text j xalign 0.5 yalign 0.5
+                        text str(int(flair.cost[i]))
+                        if flaircd <= flair.cost[i]:
+                            text str(int(flaircd)) align (1.0, 1.0) offset (-10, -10)
 
 # screen main message ## If I want to get fancy on the narrative part.
 
@@ -267,3 +252,9 @@ screen damageincoming(value): ##on breeze
         # pos (100, 200)
         xpos 500 ypos 700
         text str(value) size 80 bold True color "#FF0000"
+
+screen pausing:
+    fixed:
+        # xysize (200, 100)
+        add "black" alpha 0.5
+        text "PAUSING" size 200 bold True align (0.5, 0.5)

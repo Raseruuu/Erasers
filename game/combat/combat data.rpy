@@ -10,14 +10,15 @@ init -50 python:
     flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 2.0])
 
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 1500, "Shard": 20,
+                    "Attack": 150, "Shard": 20,
                     "Shield": 10, "Heal": 100,
                     "Firebolt": 30, "Inferno": 70
                     }
 
     ############################################################################
     class mob:
-        def __init__(self, name, hp, cd, dmg, img):
+        def __init__(self,
+                    name, hp, cd, dmg, img):
             self.name = name
             self.hp = hp
             self.cd = cd #clickmax = 20*seconds
@@ -25,8 +26,7 @@ init -50 python:
             self.img = img ## icon image
 
     flairmob = mob("Flair", 800, 140, 65, "flairmob")
-    ratmob = mob("Rat", 300, 100, 20, "ratmob")
-    ratmob2 = mob("Rat2", 300, 101, 20, "ratmob")
+    ratmob = mob("Rat", 50, 100, 20, "ratmob")
 
     ####################################################
     moblist = { ## for mobs in an encounter
@@ -37,6 +37,7 @@ init -50 python:
                 # "Az": [Az],
                 "Rattest": [ratmob], ## for testing
                 "Rat": [ratmob, ratmob, ratmob]}
+
     ## Mob positioning.
     mobpos = {
             1:[960],

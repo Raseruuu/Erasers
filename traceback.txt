@@ -34,4 +34,4 @@ PicklingError: Can't pickle <class 'store.mob'>: it's not the same object as sto
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.0.22062402
 Erasers 1.0
-Tue Jun 20 22:49:51 2023
+Wed Jun 21 20:11:19 2023
