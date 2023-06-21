@@ -1,40 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/combat/combat screen.rpy", line 31, in script call
+  File "game/combat/combat screen.rpy", line 49, in script call
     call combat
-  File "game/combat/combat screen.rpy", line 93, in script call
-    pause ##gameplay here
-  File "game/combat/combat python.rpy", line 156, in script call
-    python:
-  File "game/combat/combat screen.rpy", line 93, in script call
-    pause ##gameplay here
-  File "game/combat/combat python.rpy", line 156, in script call
-    python:
-  File "game/combat/combat screen.rpy", line 93, in script
+  File "game/combat/combat screen.rpy", line 113, in script
     pause ##gameplay here
   File "renpy/common/000statements.rpy", line 455, in execute_pause
     renpy.pause()
-  File "renpy/common/00action_other.rpy", line 543, in __call__
-    rv = self.callable(*self.args, **self.kwargs)
-  File "game/combat/combat python.rpy", line 58, in ticking
-    renpy.jump()
-TypeError: jump() missing 1 required positional argument: 'label'
+  File "game/combat/combat screen.rpy", line 117, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 117, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 142, in execute
+    if aztimer > 0:
+  File "game/combat/combat screen.rpy", line 142, in <module>
+    if aztimer > 0:
+NameError: name 'aztimer' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/combat/combat screen.rpy", line 31, in script call
+  File "game/combat/combat screen.rpy", line 49, in script call
     call combat
-  File "game/combat/combat screen.rpy", line 93, in script call
-    pause ##gameplay here
-  File "game/combat/combat python.rpy", line 156, in script call
-    python:
-  File "game/combat/combat screen.rpy", line 93, in script call
-    pause ##gameplay here
-  File "game/combat/combat python.rpy", line 156, in script call
-    python:
-  File "game/combat/combat screen.rpy", line 93, in script
+  File "game/combat/combat screen.rpy", line 113, in script
     pause ##gameplay here
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2212, in execute
     self.call("execute")
@@ -50,29 +38,33 @@ Full traceback:
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 4251, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 743, in event
-    rv = self.child.event(ev, x, y, st)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\behavior.py", line 2395, in event
-    return run(self.function, *self.args, **self.kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\behavior.py", line 329, in run
-    return action(*args, **kwargs)
-  File "renpy/common/00action_other.rpy", line 543, in __call__
-    rv = self.callable(*self.args, **self.kwargs)
-  File "game/combat/combat python.rpy", line 58, in ticking
-    renpy.jump()
-TypeError: jump() missing 1 required positional argument: 'label'
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/combat/combat screen.rpy", line 117, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 117, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 142, in execute
+    if aztimer > 0:
+  File "game/combat/combat screen.rpy", line 142, in <module>
+    if aztimer > 0:
+NameError: name 'aztimer' is not defined
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.0.22062402
 Erasers 1.0
-Wed Jun 21 21:16:12 2023
+Thu Jun 22 01:01:55 2023

@@ -7,10 +7,10 @@ init -50 python:
 
     breeze = fighter("Breeze", ["Attack", "Shard"], [1.5, 3.0])
     sofi = fighter("Sofi", ["Shield", "Heal"], [6.0, 10.0])
-    flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 2.0])
+    flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 20.0])
 
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 150, "Shard": 20,
+                    "Attack": 15, "Shard": 20,
                     "Shield": 10, "Heal": 100,
                     "Firebolt": 30, "Inferno": 70
                     }
@@ -27,7 +27,7 @@ init -50 python:
 
     flairmob = mob("Flair", 800, 140, 65, "flairmob")
     ratmob = mob("Rat", 50, 100, 20, "ratmob")
-    azmob = mob("Az", 80000, 50, 200, "azmob") ##200 attack, 80 cd
+    azmob = mob("Az", 80000, 80, 100, "azmob") ##200 attack, 80 cd
 
     ####################################################
     moblist = { ## for mobs in an encounter
@@ -36,7 +36,6 @@ init -50 python:
                 # "Alv1": [alv11, alv12, alv13],
                 # "Alv2": [alv21, alv22, alv23],
                 "Az": [azmob],
-                "Rattest": [ratmob], ## for testing
                 "Rat": [ratmob, ratmob, ratmob]}
 
     ## Mob positioning.

@@ -54,8 +54,8 @@ init python:
         ## az timer
         if encounter == "Az" and timerpause == False:
             aztimer -=1
-        # if aztimer == 1200:
-        #     renpy.call("aztalk")
+        if aztimer == 2200 and fighttalk == False:
+            renpy.call("aztalk")
         if aztimer <= 0:
             renpy.jump("azwin")
 
@@ -67,6 +67,8 @@ init python:
     def icing():
         global mobstat
         mobstat[target][2] +=400
+    def nothing():
+        pass
 
 label sofiphase:
     # $ timerpause = True
@@ -88,6 +90,7 @@ label damagephase: ## damaging enemies
 
         breezeaction = []
         if act == "Inferno":
+            atksound = inferno
             for i in mobstat:
                 breezeaction.append("Inferno")
         else:
@@ -97,15 +100,13 @@ label damagephase: ## damaging enemies
 
     $ target = targettemp
 
-
-    ## Condition Check ##
+    ## End Condition Check ##
     python:
         death = []
         for i, j in enumerate(mobstat):
             if mobstat[i][1]<=0:
                 death.append(i)
     if len(death) >=1:
-    # if mobstat[target][1]==0:
         if len(mobstat)== 1: ## single enemy
             jump victory
         elif len(mobstat) >1: ## Group fight
@@ -133,6 +134,8 @@ label breezeaction:
 label mobhurt: ## INDIVIDUAL mob being hit + animation
     $ timerpause = True
     hide screen targetting
+    play sound atksound
+
     ## HP
     $ mobstat[target][1] = max(0, mobstat[target][1] - skillvalues[act])
     ## debuff no stacking, just reset to max
@@ -143,7 +146,7 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
     if act == "Firebolt":
         $ mobstat[target][3] = 400 ## burn 20s, 20hp
 
-    ## TODO: find a way to show mob hurt shaking animation.
+    ## TODO: spell/attack animations here
 
     show screen damagecalc(skillvalues[act]) ## ANIMATION
     $ renpy.pause(1.0)
@@ -165,25 +168,40 @@ label mobaction:
 
 label breezehurt: ## ANIMATION
     $ timerpause = True
-
     $ mobstat[mobattacker][4] = 0 ##reset the cd of the attacking mob.
 
     if encounter == "Az":
-        $ breezecd -=1
+        play sound swish9 volume 5.0
         call parry
     else:
         $ mobdamage = mobstat[mobattacker][5]
-    # pause
+
+    with vpunch   # show breezecombat at mobhurt ##abandoned
+    play sound hitsound
+    # if iceshield > 0:
+    #     play sound iceshatter
+
+    if encounter == "Az" and iceshield >0:
+        $ mobdamage = mobdamage//2
+        $ hp=int(max(min(hp,hp-mobdamage), 0)+0.8)
+        $ iceshield = 0
+    else:
     ## hp and shield value adjustment. & damage number.
-    $ hp=int(max(min(hp,hp-mobdamage+shield), 0)+0.8)
-    $ shield = max(shield-mobdamage, 0)
+        $ hp=int(max(min(hp,hp-mobdamage+shield), 0)+0.8)
+        $ shield = max(shield-mobdamage, 0)
 
     show screen mobattacking(mobattacker) ## attack indicator
     show screen damageincoming(mobdamage) ## dmg number
-    with vpunch
-    # show breezecombat at mobhurt
+
+
 
     $ renpy.pause(1.0)
+    if encounter == "Az":
+        hide screen parry
+        hide screen textoutcome
+        $ breezecd -=1
+        $ tick = 0
+        $ parrypause = False
     $ timerpause = False
     hide screen damageincoming
     hide screen mobattacking
@@ -201,16 +219,19 @@ label mobdeath: ## dead replace/removal in group
     hide screen combat
     python:
         if encounter == "Rat":
-            if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]): ## when all 3 are dead
+            if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]) and ratkilled >=9 : ## when all 3 are dead after killing 9
                 renpy.jump("victory")
             else:
                 for i in death: ## i is positions
                     mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd] ## Rat replacement
+
                     ratkilled += 1
                     if ratkilled == 1:
                         renpy.call("ratnew") ## first reappear
                     if fighttalk == False and ratkilled == 3:
                         renpy.call("rattalk") ## Flair joins in.
+                    if ratkilled >=9:
+                        renpy.call("ratlast")
         else:
             mobstat.pop(death)
             target = 0
@@ -227,79 +248,9 @@ label gameover:
     hide screen combat
     scene black
     "You LOSE"
-    return
-
-###################
-## MIDFIGHT talk ##
-###################
-label flairtalk:
-    $ timerpause = True
-    $ combattalk = True
-
-    $ fighttalk = True
-    f "Oh no"
-    b "Haha"
-    window hide
-
-    $ combattalk = False
-    $ timerpause = False
-    return
-
-label ratnew:
-    show screen combat
-    $ timerpause = True
-    $ combattalk = True
-
-    "New Vibrant infested Rat appears!"
-    b "tssk"
-    window hide
-
-    $ combattalk = False
-    $ timerpause = False
-    return
-
-label rattalk:
-    show screen combat
-    $ timerpause = True
-    $ combattalk = True
-
-    $ fighttalk = True
-    s "there's just no end to them!"
-    b "gdi what's this bs"
-    f "Need a hand?"
-    b "Yeah sure what can you do?"
-    $ combatant.append(flair)
-    hide screen combat
-    show screen combat with dissolve
-    window hide
-    ## show flair joins party
-
-    $ combattalk = False
-    $ timerpause = False
-    return
-
-label aztalk:
-    $ timerpause = True
-    $ combattalk = True
-
-    # $ fighttalk = True
-    b "this guy is tough"
-    f "hang in there!"
-    window hide
-
-    $ combattalk = False
-    $ timerpause = False
-    return
-
-label azwin:
-    $ timerpause = True
-    $ combattalk = True
-
-    hide screen combat
-    hide screen parry
-    show azmob at combat2:
-        xpos 960
-    b "Did we win?"
-    hide azmob with dissolve
-
-    jump victory
+    menu:
+        "Retry?"
+        "Yes":
+            jump combat
+        "No":
+            return

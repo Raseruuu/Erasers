@@ -1,16 +1,34 @@
-image targetsign = im.FactorScale("gui/target.png", 0.3)
 image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze.png", (1200, 300, 1700, 2000)), 0.15)
+## Enemies ##
 image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (200, 100, 2000, 3000)), 0.16)
 image ratmob = im.FactorScale("images/sprite/rat.png", 0.8)
 image azmob = im.FactorScale("images/sprite/temp-laughinghand.webp", 0.5)
 
+image targetsign = im.FactorScale("gui/target.png", 0.3)
+##debuff signs
 image fire = im.FactorScale("gui/fire.png", 0.3)
 image ice = im.FactorScale("gui/ice.png", 0.05)
 
+## Battle Music
 define battle = "sound/Battle_Theme_ogg.ogg"
 define overtheblood = "sound//temp/youfulca-over-the-blood_loop.ogg"
 
+## defending sfx
+define hit = "sound/sfx/opengameart/swing2.ogg" ## default hit sound
+    ### AZ
+define swish9 = "sound/sfx/opengameart/swish-9.ogg" ## az punch
+define swordclash = "sound/sfx/freesoundeffects/steelsword.mp3" ## parried
+define punch2 = "sound/sfx/freesoundeffects/punch2.mp3" ##az punch land
 
+## attacking sfx
+define inferno = "sound/sfx/opengameart/foom_0.ogg"  ##inferno spell
+##TODO: Attack
+##TODO: Shard
+##TODO: Firebolt
+##TODO: heal
+##TODO: shield
+#################################################################################
+#################################################################################
 label combattest: ## simulate going into a combat from story.
     "entering combat"
 
@@ -60,10 +78,16 @@ label combat:
         ##combat related variables
         mobattacker = 0 #the enemy that's attacking
         target = targettemp = 0 ## the enemy being attacked
+        hitsound = hit
+        atksound = hit
 
         ## Midfight talks
         fighttalk = False
         ratkilled = 0
+
+        ## Az
+        aztimer = 2400 ##2400 in fullgame
+        iceshield = 0
 
     ## Arts
     scene bg_city_destroyed
@@ -73,7 +97,6 @@ label combat:
 
     if encounter == "Az":
         play music overtheblood volume 1.0 fadein 1
-        $ aztimer = 2400 ##2400 in fullgame
         pass
     else:
         play music battle volume 1.0 fadein 0.5
@@ -119,10 +142,9 @@ screen combat:
     #             action Jump("breezeaction")
                 # action Function(autoattack)
                 # action Jump("mobaction")
-    if aztimer > 0:
+    if encounter == "Az": #and aztimer > 0:
         frame:
-            # xysize (100, 50)
-            text "Time Remaining:" + str(aztimer//20)
+            text "Time Remaining: " + str(aztimer//20)
 
 screen breeze: ##hp bar
 
@@ -163,7 +185,7 @@ screen mob(i, position): ##TODO: current values are of 1 single enemy
         at combat2 yoffset 250 xpos position
         bar:
             value mobstat[i][4]
-            range mob[i].cd
+            range mobstat[i][6]
             xysize (300, 30)
         # text "(enemy attack cooldown)" xalign 0.5 yalign 0.5
 

@@ -9,15 +9,17 @@ init python:
         global tick
         global tickmax
         global parrypause
+        global mobstat
         if parrypause == False and tick<tickmax:
-            tick +=1
+            if mobstat[target][2] > 0:
+                tick +=0.5
+            else:
+                tick +=1
 
     def parrygo():
         global parrypause
         parrypause = True
         renpy.jump("parryoutcome")
-
-
 
 label parry:
     show screen parry
@@ -40,43 +42,30 @@ screen parry:
             left_bar "gui/bar/parry.png" ## 500x40 (30 buffer above)
             thumb "gui/bar/thumb.png" ## 80x4
             thumb_offset 2
-    button:
-        align (0.5, 0.7)
-        xysize (300, 100)
-        action Function(parrygo)
-        background "black"
+    fixed:
+        button action Function(parrygo) alternate Function(parrygo)
         if tick < tickmax:
-            text "Parry" xalign 0.5 yalign 0.5
+            text "Parry" xalign 0.5 yalign 0.7
         else:
-            text "Take the Hit" xalign 0.5 yalign 0.5
-
+            text "Take the Hit" xalign 0.5 yalign 0.7
 
 screen textoutcome(tt):
     frame:
         xalign 0.5 yalign 0.2
         text tt size 100 bold True
 
-label parryoutcome: ##animation. ##Infuse with breezehurt later.
-    ## value altered for ease of testing
+label parryoutcome: ##animation.
     if tick>=75 and tick <=80:
         $ mobdamage = 5
+        $ hitsound = swordclash
+        show screen textoutcome("PARRIED!")
     elif tick>=55 and tick <=90:
-        $ mobdamage = 20
+        $ mobdamage = 25
+        $ hitsound = swordclash
+        show screen textoutcome("DEFLECTED!")
     else:
         $ mobdamage = mobstat[mobattacker][5]
-
-    if tick>=75 and tick <=80:
-        show screen textoutcome("DEFLECTED")
-    elif tick>=55 and tick <=90:
-        show screen textoutcome("BLOCKED!")
-    else:
+        $ hitsound = punch2
         show screen textoutcome("Failed block!")
-    pause 1
-    hide screen parry
-    # pause
-    hide screen textoutcome
-    $ tick = 0
-    $ parrypause = False
-
     return
 ###############################

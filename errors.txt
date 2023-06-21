@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 296: end of line expected.
-    show azmob at combat2 xpos 960
-                          ^
+File "game/combat/combat screen.rpy", line 144: reached end of line when expecting ':'.
+    if encounter == "Az" 
+                         ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Wed Jun 21 21:15:44 2023
+Thu Jun 22 01:03:28 2023
