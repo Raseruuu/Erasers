@@ -14,7 +14,6 @@ init python:
 
     def parrygo():
         global parrypause
-        global tick
         parrypause = True
         renpy.jump("parryoutcome")
 
@@ -29,7 +28,7 @@ screen parry:
     timer 0.01 action Function(parry) repeat True
     # frame:
     #     background "black"
-    frame:
+    fixed:
         align (0.5, 0.5)
         xysize (600, 200)
         bar:
@@ -41,29 +40,43 @@ screen parry:
             left_bar "gui/bar/parry.png" ## 500x40 (30 buffer above)
             thumb "gui/bar/thumb.png" ## 80x4
             thumb_offset 2
-    frame:
+    button:
         align (0.5, 0.7)
         xysize (300, 100)
-        text "Button" xalign 0.5 yalign 0.5
-        button action Function(parrygo)
+        action Function(parrygo)
+        background "black"
+        if tick < tickmax:
+            text "Parry" xalign 0.5 yalign 0.5
+        else:
+            text "Take the Hit" xalign 0.5 yalign 0.5
+
+
 screen textoutcome(tt):
     frame:
         xalign 0.5 yalign 0.2
         text tt size 100 bold True
 
 label parryoutcome: ##animation. ##Infuse with breezehurt later.
+    ## value altered for ease of testing
+    if tick>=75 and tick <=80:
+        $ mobdamage = 5
+    elif tick>=55 and tick <=90:
+        $ mobdamage = 20
+    else:
+        $ mobdamage = mobstat[mobattacker][5]
+
     if tick>=75 and tick <=80:
         show screen textoutcome("DEFLECTED")
     elif tick>=55 and tick <=90:
         show screen textoutcome("BLOCKED!")
     else:
-        show screen textoutcome("You got it!")
+        show screen textoutcome("Failed block!")
     pause 1
     hide screen parry
-    pause
+    # pause
     hide screen textoutcome
-
+    $ tick = 0
+    $ parrypause = False
 
     return
 ###############################
-## TODO: enemy attack, call out parry screen, click to input outcome,

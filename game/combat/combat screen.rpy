@@ -2,11 +2,13 @@ image targetsign = im.FactorScale("gui/target.png", 0.3)
 image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze.png", (1200, 300, 1700, 2000)), 0.15)
 image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (200, 100, 2000, 3000)), 0.16)
 image ratmob = im.FactorScale("images/sprite/rat.png", 0.8)
+image azmob = im.FactorScale("images/sprite/temp-laughinghand.webp", 0.5)
 
 image fire = im.FactorScale("gui/fire.png", 0.3)
 image ice = im.FactorScale("gui/ice.png", 0.05)
 
 define battle = "sound/Battle_Theme_ogg.ogg"
+define overtheblood = "sound//temp/youfulca-over-the-blood_loop.ogg"
 
 
 label combattest: ## simulate going into a combat from story.
@@ -20,9 +22,14 @@ label combattest: ## simulate going into a combat from story.
         "Rats":
             $ encounter = "Rat"
             $ combatant = [breeze, sofi]
+        "Az":
+            $encounter = "Az"
+            $ combatant = [breeze, flair]
         "Parry":
             jump parry
+
     call combat
+
     "combat end"
     $ _skipping = True
     $ _game_menu_screen = "save_screen"
@@ -33,7 +40,7 @@ label combattest: ## simulate going into a combat from story.
 label combat:
     python:
         _skipping = timerpause = combattalk = False
-        _game_menu_screen = None
+        # _game_menu_screen = None ##TODO: uncomment when shipping
 
         ## Breeze's hp/hpmax/shield
         hpmax = hp = 350
@@ -48,11 +55,12 @@ label combat:
         mobstat = []
         for i in mob:
             mobstat.append([i.name, i.hp, 0, 0, 0, i.dmg, i.cd]) ##slow/burn/click/dmg/cdmax
+        mobdamage = 0 ## each incoming damage
 
         ##combat related variables
         mobattacker = 0 #the enemy that's attacking
         target = targettemp = 0 ## the enemy being attacked
-        
+
         ## Midfight talks
         fighttalk = False
         ratkilled = 0
@@ -63,12 +71,17 @@ label combat:
         alpha 0.8
     window hide
 
-    play music battle volume 1.0 fadein 0.5
+    if encounter == "Az":
+        play music overtheblood volume 1.0 fadein 1
+        $ aztimer = 2400 ##2400 in fullgame
+        pass
+    else:
+        play music battle volume 1.0 fadein 0.5
+
+
     show screen combat ## main screen
     show breezecombat: ## breeze icon
-        xpos 450
-        yanchor 1.0 ypos 1050
-
+        xpos 450 yanchor 1.0 ypos 1050
 
     label combatloop: ##the main label where things goes.
         # $ renpy.block_rollback() ##stops rollback from here on
@@ -98,14 +111,18 @@ screen combat:
     use actbutton
 
     ##test button
-    if mobphase == False:
-        frame:
-            xysize (200, 100)
-            pos (1150, 850)
-            textbutton "TEST" align (0.5, 0.5):
-                action Jump("breezeaction")
+    # if mobphase == False:
+    #     frame:
+    #         xysize (200, 100)
+    #         pos (1150, 850)
+    #         textbutton "TEST" align (0.5, 0.5):
+    #             action Jump("breezeaction")
                 # action Function(autoattack)
                 # action Jump("mobaction")
+    if aztimer > 0:
+        frame:
+            # xysize (100, 50)
+            text "Time Remaining:" + str(aztimer//20)
 
 screen breeze: ##hp bar
 

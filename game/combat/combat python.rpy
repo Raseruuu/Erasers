@@ -15,18 +15,21 @@ init python:
         global flaircd
         global shield
 
+        global encounter
+        global aztimer
+
         if timerpause == False:
             for i, j in enumerate(mobstat): ## individual timer.
                 if mobstat[i][4] < mobstat[i][6]:
                     if mobstat[i][2] > 0:
-                        mobstat[i][4]+=0.25
+                        mobstat[i][4]+=0.25 ## 0.25x speed
                     else:
                         mobstat[i][4] += 1
             if mobstat[i][2] > 0: ## slow
                 mobstat[i][2] -= 1 ## lasts slow/20 seconds
-            # if mobstat[i][3] > 0: ## burn
-            #     mobstat[i][3] -= 1 #lasts burn/20 seconds
-            #     mobstat[i][1] -= 0.05 #
+            if mobstat[i][3] > 0: ## burn
+                mobstat[i][3] -= 1 #lasts burn/20 seconds
+                mobstat[i][1] -= 0.05 # 1hp/second
 
             ## Commmand card timers.
             if breezecd < max(breeze.cost):
@@ -37,18 +40,25 @@ init python:
                 flaircd +=0.05
             if shield > 0: ## Shield Decay
                 shield -=0.05
-        else:
-            pass
 
-        for i,j in enumerate(mobstat): ## Assigning mob actions when timer up.
-            if mobstat[i][4] == mobstat[i][6]:
+        ## Assigning mob actions when timer up.
+        for i,j in enumerate(mobstat):
+            if mobstat[i][4] >= mobstat[i][6]:
                 timerpause = True
-
                 for i,j in enumerate(mobstat):
-                    if mobstat[i][4] == mobstat[i][6]:
+                    if mobstat[i][4] >= mobstat[i][6]:
                         mobaction.append(i)
                         mobstat[i][4] = 0
                 renpy.call("mobaction")
+
+        ## az timer
+        if encounter == "Az" and timerpause == False:
+            aztimer -=1
+        # if aztimer == 1200:
+        #     renpy.call("aztalk")
+        if aztimer <= 0:
+            renpy.jump("azwin")
+
 
     ## Functions for testing purposes.
     def burning():
@@ -80,7 +90,6 @@ label damagephase: ## damaging enemies
         if act == "Inferno":
             for i in mobstat:
                 breezeaction.append("Inferno")
-
         else:
             breezeaction = [act]
 
@@ -126,11 +135,13 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
     hide screen targetting
     ## HP
     $ mobstat[target][1] = max(0, mobstat[target][1] - skillvalues[act])
-    ## Currently no debuff stacking
+    ## debuff no stacking, just reset to max
     if act == "Shard":
-        $ mobstat[target][2] = 100 ##reset to max
+        $ mobstat[target][2] = 100 ## slow for 5s, 0.25rate
+        if encounter == "Az":
+            $ mobstat[target][2] = 50
     if act == "Firebolt":
-        $ mobstat[target][3] = 400
+        $ mobstat[target][3] = 400 ## burn 20s, 20hp
 
     ## TODO: find a way to show mob hurt shaking animation.
 
@@ -156,12 +167,19 @@ label breezehurt: ## ANIMATION
     $ timerpause = True
 
     $ mobstat[mobattacker][4] = 0 ##reset the cd of the attacking mob.
+
+    if encounter == "Az":
+        $ breezecd -=1
+        call parry
+    else:
+        $ mobdamage = mobstat[mobattacker][5]
+    # pause
     ## hp and shield value adjustment. & damage number.
-    $ hp=int(max(min(hp,hp-mobstat[mobattacker][5]+shield), 0)+0.8)
-    $ shield = max(shield-mobstat[mobattacker][5], 0)
+    $ hp=int(max(min(hp,hp-mobdamage+shield), 0)+0.8)
+    $ shield = max(shield-mobdamage, 0)
 
     show screen mobattacking(mobattacker) ## attack indicator
-    show screen damageincoming(mobstat[mobattacker][5]) ## dmg number
+    show screen damageincoming(mobdamage) ## dmg number
     with vpunch
     # show breezecombat at mobhurt
 
@@ -201,7 +219,7 @@ label mobdeath: ## dead replace/removal in group
     jump combatloop
 
 label victory: ## TODO: have encounter specific victory
-    hide screen combat
+    hide screen combat with dissolve
     stop music fadeout 1.0
     "You win"
     return
@@ -251,9 +269,37 @@ label rattalk:
     f "Need a hand?"
     b "Yeah sure what can you do?"
     $ combatant.append(flair)
+    hide screen combat
+    show screen combat with dissolve
     window hide
     ## show flair joins party
 
     $ combattalk = False
     $ timerpause = False
     return
+
+label aztalk:
+    $ timerpause = True
+    $ combattalk = True
+
+    # $ fighttalk = True
+    b "this guy is tough"
+    f "hang in there!"
+    window hide
+
+    $ combattalk = False
+    $ timerpause = False
+    return
+
+label azwin:
+    $ timerpause = True
+    $ combattalk = True
+
+    hide screen combat
+    hide screen parry
+    show azmob at combat2:
+        xpos 960
+    b "Did we win?"
+    hide azmob with dissolve
+
+    jump victory

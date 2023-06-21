@@ -27,6 +27,7 @@ init -50 python:
 
     flairmob = mob("Flair", 800, 140, 65, "flairmob")
     ratmob = mob("Rat", 50, 100, 20, "ratmob")
+    azmob = mob("Az", 80000, 50, 200, "azmob") ##200 attack, 80 cd
 
     ####################################################
     moblist = { ## for mobs in an encounter
@@ -34,7 +35,7 @@ init -50 python:
                 # "Goons": [goon, goon],
                 # "Alv1": [alv11, alv12, alv13],
                 # "Alv2": [alv21, alv22, alv23],
-                # "Az": [Az],
+                "Az": [azmob],
                 "Rattest": [ratmob], ## for testing
                 "Rat": [ratmob, ratmob, ratmob]}
 

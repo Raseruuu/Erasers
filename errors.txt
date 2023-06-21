@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label rattalk is defined twice, at File "game/combat/combat python.rpy", line 230:
-label rattalk:
-and File "game/combat/combat python.rpy", line 243:
-label rattalk:
-
+File "game/combat/combat python.rpy", line 296: end of line expected.
+    show azmob at combat2 xpos 960
+                          ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Wed Jun 21 20:17:20 2023
+Wed Jun 21 21:15:44 2023
