@@ -1,4 +1,4 @@
-image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze.png", (1200, 300, 1700, 2000)), 0.15)
+image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze2.png", (600, 150, 850, 1000)), 0.3)
 ## Enemies ##
 image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (200, 100, 2000, 3000)), 0.16)
 image ratmob = im.FactorScale("images/sprite/rat.png", 0.8)

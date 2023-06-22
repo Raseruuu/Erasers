@@ -1,70 +1,37 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/combat/combat screen.rpy", line 49, in script call
-    call combat
-  File "game/combat/combat screen.rpy", line 113, in script
-    pause ##gameplay here
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "game/combat/combat screen.rpy", line 117, in execute
-    screen combat:
-  File "game/combat/combat screen.rpy", line 117, in execute
-    screen combat:
-  File "game/combat/combat screen.rpy", line 142, in execute
-    if aztimer > 0:
-  File "game/combat/combat screen.rpy", line 142, in <module>
-    if aztimer > 0:
-NameError: name 'aztimer' is not defined
+  File "renpy/common/00keymap.rpy", line 473, in script
+    python hide:
+  File "renpy/common/00keymap.rpy", line 473, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 492, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+PicklingError: Can't pickle <class 'store.mob'>: it's not the same object as store.mob
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/combat/combat screen.rpy", line 49, in script call
-    call combat
-  File "game/combat/combat screen.rpy", line 113, in script
-    pause ##gameplay here
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2212, in execute
-    self.call("execute")
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2200, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\exports.py", line 1533, in pause
-    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 451, in visit_all
-    callback(self)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 462, in per_interact
-    self.update()
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 653, in update
-    self.screen.function(**self.scope)
-  File "game/combat/combat screen.rpy", line 117, in execute
-    screen combat:
-  File "game/combat/combat screen.rpy", line 117, in execute
-    screen combat:
-  File "game/combat/combat screen.rpy", line 142, in execute
-    if aztimer > 0:
-  File "game/combat/combat screen.rpy", line 142, in <module>
-    if aztimer > 0:
-NameError: name 'aztimer' is not defined
+  File "renpy/common/00keymap.rpy", line 473, in script
+    python hide:
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 1111, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\python.py", line 1049, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "renpy/common/00keymap.rpy", line 473, in <module>
+    python hide:
+  File "renpy/common/00keymap.rpy", line 492, in _execute_python_hide
+    renpy.save("_reload-1", "reload save game")
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\loadsave.py", line 403, in save
+    reraise(t, e, tb)
+  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\loadsave.py", line 389, in save
+    dump((roots, renpy.game.log), logf)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\compat\pickle.py", line 103, in dump
+    pickle.dump(o, f, pickle.HIGHEST_PROTOCOL if highest else PROTOCOL)
+PicklingError: Can't pickle <class 'store.mob'>: it's not the same object as store.mob
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.0.22062402
 Erasers 1.0
-Thu Jun 22 01:01:55 2023
+Thu Jun 22 16:57:29 2023

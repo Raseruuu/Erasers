@@ -22,7 +22,7 @@ label ratnew:
     $ combattalk = True
 
     "New Vibrant infested Rat appears!"
-    b "tssk"
+    b "Tssk"
     window hide
 
     $ combattalk = False
@@ -78,7 +78,7 @@ label aztalk: ## triggered half-time
     hide screen textoutcome
     window hide
     $ mobstat[0][6] = 40
-    $ mobstat[0][4] = max(0, mobstat[i][4]-40)
+    $ mobstat[0][4] = max(0, mobstat[0][4]-40)
     $ combattalk = False
     $ timerpause = False
     return

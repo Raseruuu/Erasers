@@ -43,7 +43,7 @@ screen parry:
             thumb "gui/bar/thumb.png" ## 80x4
             thumb_offset 2
     fixed:
-        button action Function(parrygo) alternate Function(parrygo)
+        button action [If(tick>20, true = Function(parrygo))] alternate [If(tick>20, true = Function(parrygo))]
         if tick < tickmax:
             text "Parry" xalign 0.5 yalign 0.7
         else:
