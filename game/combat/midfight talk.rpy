@@ -1,3 +1,13 @@
+label midfight:
+    $ mobphase = True
+    $ timerpause = True
+    $ combattalk = True
+    $ renpy.call(midtalk)
+    $ combattalk = False
+    $ timerpause = False
+    $ mobphase = False
+    return
+
 ## Demo fight
 label flairtalk:
     $ timerpause = True
@@ -18,54 +28,40 @@ label flairtalk:
 ################
 label ratnew:
     show screen combat
-    $ timerpause = True
-    $ combattalk = True
-
     "New Vibrant infested Rat appears!"
     b "Tssk"
     window hide
-
-    $ combattalk = False
-    $ timerpause = False
     return
 
 label rattalk:
     show screen combat
-    $ timerpause = True
-    $ combattalk = True
-
     $ fighttalk = True
+
     s "there's just no end to them!"
     b "gdi what's this bs"
     f "Need a hand?"
     b "Yeah sure what can you do?"
+
     $ combatant.append(flair)
+    $ flaircd = 0
     ## show flair joins party
 
     hide screen combat
     show screen combat with dissolve
     window hide
-    $ combattalk = False
-    $ timerpause = False
     return
 
 label ratlast:
     show screen combat
-    $ timerpause = True
-    $ combattalk = True
     b "I think that's almost the last of them"
     f "Right, I just need to clear them all out in one go"
     b "Got it!"
     window hide
-    $ combattalk = False
-    $ timerpause = False
     return
 ####################
 ## Azmaveth FIGHT ##
 ####################
 label aztalk: ## triggered half-time
-    $ timerpause = True
-    $ combattalk = True
 
     $ fighttalk = True
     b "this guy is tough"
@@ -79,8 +75,6 @@ label aztalk: ## triggered half-time
     window hide
     $ mobstat[0][6] = 40
     $ mobstat[0][4] = max(0, mobstat[0][4]-40)
-    $ combattalk = False
-    $ timerpause = False
     return
 
 label azwin:

@@ -31,6 +31,8 @@ image white:
     Solid("#FFF")
 image black:
     Solid("#000")
+image pitchblack:
+    Solid("#000")
 
 image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
 ################
@@ -75,10 +77,13 @@ transform test1:
 transform flipflip:
     linear 0.1 xzoom -1
 
+##################################################
+## COMBAT RELATED HERE ##
+##################################################
 transform combat1: ##1enemy placement
-    xalign 0.5 yanchor 0.5 ypos 350
+    xalign 0.5 yanchor 0.5 ypos 450
 
-transform combat2:
+transform combat2: ## target placement
     anchor (0.5, 0.5)
     ypos 400
 
@@ -96,3 +101,26 @@ transform mobhurt:
         linear 0.05 zoom 0.98 yoffset 10
         linear 0.15 zoom 1.02 yoffset -5
         easeout 0.1 zoom 1.0 yoffset 0
+transform textpopup:
+    alpha 0.5
+    linear 0.2 alpha 1.0 yoffset -50
+
+
+transform atkblade:
+    yoffset -50 xoffset 100
+    ease 0.2 yoffset +150 xoffset -100
+    ease 0.1 alpha 0.0
+
+transform atkshard:
+    yoffset -150
+    pause 0.1
+    ease 0.1 yoffset -200
+    pause 0.05
+    # 0.25s setup
+    ease 0.1 yoffset +0
+    pause 0.55
+    linear 0.1 alpha 0.0
+
+transform atkinferno:
+    xanchor 1.0 xpos 0.0 alpha 0.7
+    ease 0.7 xanchor 0.0 xpos 1.0

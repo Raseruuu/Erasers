@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/parry.rpy", line 46: is not terminated with a newline. (Check strings and parenthesis.)
-            button action [If(tick>10, true = Function(parrygo)] alternate [If(tick>10, true = Function(parrygo)]
+File "game/combat/combat screen.rpy", line 219: 'ease' is not a keyword argument or valid child for the add statement.
+    ease 0.5 xanchor 0.0 xpos 1.0
+        ^
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Thu Jun 22 17:02:51 2023
+Sat Jun 24 01:19:01 2023

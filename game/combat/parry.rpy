@@ -23,15 +23,16 @@ init python:
 
 label parry:
     show screen parry
+    show punchpost onlayer screens with punchwipe ## punch ani
     pause
     return
 
 screen parry:
     timer 0.01 action Function(parry) repeat True
-    # frame:
-    #     background "black"
+
     fixed:
-        align (0.5, 0.5)
+        anchor (0.5, 0.5)
+        pos (0.65, 0.5)
         xysize (600, 200)
         bar:
             xysize (500, 60)
@@ -45,9 +46,11 @@ screen parry:
     fixed:
         button action [If(tick>20, true = Function(parrygo))] alternate [If(tick>20, true = Function(parrygo))]
         if tick < tickmax:
-            text "Parry" xalign 0.5 yalign 0.7
+            text "Parry" at parrybutton size 50
         else:
-            text "Take the Hit" xalign 0.5 yalign 0.7
+            text "Take the Hit" at parrybutton size 50
+transform parrybutton:
+    xanchor 0.5 yalign 0.6 xpos 0.65
 
 screen textoutcome(tt):
     frame:
@@ -58,10 +61,13 @@ label parryoutcome: ##animation.
     if tick>=75 and tick <=80:
         $ mobdamage = 5
         $ hitsound = swordclash
+        show punchparry onlayer screens
         show screen textoutcome("PARRIED!")
+        pause 0.1
+
     elif tick>=55 and tick <=90:
         $ mobdamage = 25
-        $ hitsound = swordclash
+        $ hitsound = swordblock
         show screen textoutcome("DEFLECTED!")
     else:
         $ mobdamage = mobstat[mobattacker][5]
