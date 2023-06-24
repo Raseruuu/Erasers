@@ -105,14 +105,14 @@ init -50 python:
 
     breeze = fighter("Breeze", ["Attack", "Shard"], [1.5, 3.0])
     sofi = fighter("Sofi", ["Shield", "Heal"], [6.0, 10.0])
-    flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 2.0]) ##2, 20
-    breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.5, 1.5, 3.0])
+    flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 20.0]) ##2, 20
+    breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.5, 1.5, 10.0])
 
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 1500, "Shard": 20,
+                    "Attack": 15, "Shard": 20,
                     "Blizzard": 0,
                     "Shield": 50, "Heal": 100,
-                    "Firebolt": 30, "Inferno": 700
+                    "Firebolt": 30, "Inferno": 70
                     }
     # actsound = {"Attack": blade, "Shard": ice,
     #             "Shield": blade, "Heal": blade,

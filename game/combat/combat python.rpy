@@ -11,7 +11,7 @@ label combattest: ## simulate going into a combat from story.
             $ combatant = [breeze, sofi, flair]
         "Corrupted":
             $encounter = "Alv"
-            $ combatant = [breeze, flair]
+            $ combatant = [breeze]
         "Az":
             $encounter = "Az"
             $ combatant = [breeze, flair]
