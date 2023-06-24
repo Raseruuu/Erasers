@@ -1,37 +1,80 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "renpy/common/00keymap.rpy", line 473, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 473, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 492, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-PicklingError: Can't pickle <class 'store.mob'>: it's not the same object as store.mob
+While loading <renpy.display.im.Image object ('sprite/Sofi/Sofi_eyebrows_up.png') at 0x0000000005c72790>:
+  File "game/Scripts/chapter0 prologue.rpy", line 8, in script call
+    centered "Humanity as a species has always tried to find ways to better themselves. \n To overcome the limits of our mortal existence we used our one-of-a-kind intellect to find solutions to out countless problems."
+  File "renpy/common/00console.rpy", line 1125, in script
+    python in _console:
+  File "renpy/common/00console.rpy", line 1127, in <module>
+    console.interact()
+  File "renpy/common/00console.rpy", line 596, in interact
+    line = ui.interact()
+OSError: Couldn't find file 'sprite/Sofi/Sofi_eyebrows_up.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/00keymap.rpy", line 473, in script
-    python hide:
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 1111, in execute
+  File "game/Scripts/chapter0 prologue.rpy", line 8, in script call
+    centered "Humanity as a species has always tried to find ways to better themselves. \n To overcome the limits of our mortal existence we used our one-of-a-kind intellect to find solutions to out countless problems."
+  File "renpy/common/00console.rpy", line 1125, in script
+    python in _console:
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\python.py", line 1049, in py_exec_bytecode
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\python.py", line 1061, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 473, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 492, in _execute_python_hide
-    renpy.save("_reload-1", "reload save game")
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\loadsave.py", line 403, in save
-    reraise(t, e, tb)
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 441, in raise_
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\loadsave.py", line 389, in save
-    dump((roots, renpy.game.log), logf)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\compat\pickle.py", line 103, in dump
-    pickle.dump(o, f, pickle.HIGHEST_PROTOCOL if highest else PROTOCOL)
-PicklingError: Can't pickle <class 'store.mob'>: it's not the same object as store.mob
+  File "renpy/common/00console.rpy", line 1127, in <module>
+    console.interact()
+  File "renpy/common/00console.rpy", line 596, in interact
+    line = ui.interact()
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\core.py", line 3377, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\core.py", line 3912, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\core.py", line 2602, in draw_screen
+    surftree = renpy.display.render.render_screen(
+  File "render.pyx", line 495, in renpy.display.render.render_screen
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\transform.py", line 747, in render
+    return transform_render(self, width, height, st, at)
+  File "accelerator.pyx", line 187, in renpy.display.accelerator.transform_render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\image.py", line 506, in render
+    return wrap_render(self.target, width, height, st, at)
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\image.py", line 309, in wrap_render
+    rend = render(child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\im.py", line 627, in render
+    return cache.get(self, render=True)
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\im.py", line 295, in get
+    surf = image.load()
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\im.py", line 720, in load
+    raise e
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\im.py", line 685, in load
+    filelike = renpy.loader.load(self.filename)
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'sprite/Sofi/Sofi_eyebrows_up.png'.
 
 Windows-10-10.0.19045 AMD64
-Ren'Py 8.0.0.22062402
+Ren'Py 8.0.3.22090809
 Erasers 1.0
-Tue Jun 20 22:49:51 2023
+Sat Jun 24 07:04:52 2023

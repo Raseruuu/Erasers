@@ -1,98 +1,209 @@
-define b = Character("Breeze")
-define s = Character("Sofi", image="sofiside")
-define f = Character("Flair")
-define a = Character("Azmaveth")
-define k = Character("Kizuna")
+init python:
+    speaking = None
+    def while_speaking(name, speak_d, done_d, st, at):
+        if speaking == name:
+            return speak_d, .1
+        else:
+            return done_d, None
+    curried_while_speaking = renpy.curry(while_speaking)
 
-define u = Character("???")
-define cc = Character("Cafe Cashier")
-define g1 = Character("Goon 1")
-define g2 = Character("Goon 2")
-define ms = Character("Magic Scientist")
-define fi = Character("Intercom")
+    def WhileSpeaking(name, speaking_d, done_d=Null()):
+        return DynamicDisplayable(curried_while_speaking(name, speaking_d, done_d))
+    def speaker_callback(name, event, **kwargs):
+        global speaking
+        if event == "begin" or event == "show":
+            speaking = name
+        elif (event == "slow_done" or event == "end"):
+            speaking = None
+    speaker = renpy.curry(speaker_callback)
 
-define n = nvl_narrator
-
-################
-## SPRITES ##
-###############
-image sofi = im.FactorScale("images/sprite/sofi.png", 0.26)
-image breeze = im.FactorScale("images/sprite/breeze.png", 0.26)
-
-image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
-
-##sideimage xanchor 0.5 xpos 250 yalign 1.0
-image side sofiside = im.FactorScale(im.Crop("images/sprite/sofi.png", (850, 530, 1700, 2000)), 0.25)
-
-image bgpark = "images/bg/bgpark.jpg"
-image bgcafe = "images/bg/temp_bg_cafe.webp"
-
-image white:
-    Solid("#FFF")
-image black:
-    Solid("#000")
-
-image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
-################
-## MUSIC ##
-################
-define flairtheme = "sound/Flairs_Theme_2_ogg.ogg"
-define guildtheme = "sound/Guild_Theme_ogg.ogg"
-define tomotheme = "sound/Tomos_Theme_ogg.ogg"
-
-
-define horror = "sound/temp-youfulca/youfulca-Horror-ginen_loop.ogg"
-define daily = "sound/temp-youfulca/youfulca-tea-time_loop.ogg"
-
-###############
-## Transform ##
-###############
-transform scenter:
-    yanchor 0 ypos 150 xalign 0.5 #zoom 0.65
-transform sright:
-    yanchor 0 ypos 150 xanchor 0.5 xpos 0.8
-transform sleft:
-    yanchor 0 ypos 150 xanchor 0.5 xpos 0.2
-
-transform cutejump:
-    linear 0.08 yoffset -100
-    linear 0.08 yoffset +0
-    repeat 1
-transform midjump:
-    linear 0.10 yoffset -250
-    linear 0.10 yoffset +0
-    repeat 1
-transform wside:
-    linear 0.2 xoffset -300
-transform test1:
-    parallel:
-        midjump
-    parallel:
-        wside
-    pause 0.1
-    flipflip
-
-transform flipflip:
-    linear 0.1 xzoom -1
-
-transform combat1: ##1enemy placement
-    xalign 0.5 yanchor 0.5 ypos 350
-
-transform combat2:
-    anchor (0.5, 0.5)
-    ypos 400
-
-transform mobhurt:
-    parallel: #Horizontal shake
+image Sofi_eyes_blink:
+    choice:
+        "sprite/Sofi/eyes.png"
+        pause 4.0
+    choice:
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.07
+        "sprite/Sofi/eyes_closed.png"
         pause 0.1
-        ease 0.05 xoffset 10
-        ease 0.05 xoffset -10
-        ease 0.05 xoffset 8
-        ease 0.05 xoffset -8
-        ease 0.05 xoffset 5
-        ease 0.05 xoffset -5
-        ease 0.05 xoffset 0
-    parallel:
-        linear 0.05 zoom 0.98 yoffset 10
-        linear 0.15 zoom 1.02 yoffset -5
-        easeout 0.1 zoom 1.0 yoffset 0
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.07
+        "sprite/Sofi/eyes.png"
+        pause 2.0
+    choice:
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.05
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.07
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.05
+        "sprite/Sofi/eyes.png"
+        pause 0.1
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.05
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.07
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.05
+        "sprite/Sofi/eyes.png"
+        pause 2.0
+    repeat
+image Sofi_eyes_crying:
+    choice:
+        "sprite/Sofi/eyes_crying.png"
+        pause 4.0
+    choice:
+        "sprite/Sofi/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.1
+        "sprite/Sofi/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Sofi/eyes_crying.png"
+        pause 2.0
+    choice:
+        "sprite/Sofi/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.07
+        "sprite/Sofi/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Sofi/eyes_crying.png"
+        pause 0.1
+        "sprite/Sofi/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.07
+        "sprite/Sofi/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Sofi/eyes_crying.png"
+        pause 2.0
+    repeat
+image Sofi_eyes_midclose:
+    choice:
+        "sprite/Sofi/eyes_midclose.png"
+        pause 4.0
+    choice:
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.07
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.2
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.07
+        "sprite/Sofi/eyes_midclose.png"
+        pause 2.0
+    choice:
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.05
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.07
+        "sprite/Sofi/eyes_midclose.png"
+        pause 0.07
+        "sprite/Sofi/eyes_closed.png"
+        pause 0.07
+        "sprite/Sofi/eyes_midclose.png"
+        pause 2.05
+
+    repeat
+# image Sofi_eyes_lookaway:
+#     choice:
+#         "sprite/Sofi/eyes_lookaway.png"
+#         pause 8.0
+#     choice:
+#         "sprite/Sofi/eyes_lookaway.png"
+#         pause 0.07
+#         "sprite/Sofi/eyes_closed.png"
+#         pause 0.1
+#         "sprite/Sofi/eyes_lookaway.png"
+#         pause 3.0
+
+#     choice:
+#         "sprite/Sofi/eyes_lookaway.png"
+#         pause 0.05
+#         "sprite/Sofi/eyes_closed.png"
+#         pause 0.07
+#         "sprite/Sofi/eyes_lookaway.png"
+#         pause 0.07
+#         "sprite/Sofi/eyes_closed.png"
+#         pause 0.07
+#         "sprite/Sofi/eyes_lookaway.png"
+#         pause 3.0
+
+#     repeat
+image Sofi_mouth_frown_speaking:
+    "sprite/Sofi/mouth_open2.png"
+    pause 0.08
+    "sprite/Sofi/mouth_open.png"
+    pause 0.1
+    "sprite/Sofi/mouth_open2.png"
+    pause 0.08
+    "sprite/Sofi/mouth_frown.png"
+    pause 0.08
+    repeat
+image Sofi_mouth_smile_speaking:
+    "sprite/Sofi/mouth_opensmile2.png"
+    pause 0.08
+    "sprite/Sofi/mouth_opensmile.png"
+    pause 0.1
+    "sprite/Sofi/mouth_opensmile2.png"
+    pause 0.08
+    "sprite/Sofi/mouth_smile.png"
+    pause 0.1
+    "sprite/Sofi/mouth_open2.png"
+    pause 0.08
+    "sprite/Sofi/mouth_open.png"
+    pause 0.1
+    "sprite/Sofi/mouth_open2.png"
+    pause 0.08
+    "sprite/Sofi/mouth_smile.png"
+    pause 0.08
+    repeat
+define sofi_body="normal"
+
+define sofi_body="battle"
+layeredimage Sofi2:
+
+    always:
+        "sprite/Sofi/base_[sofi_body].png"
+    group eyes:
+        attribute open default:
+            "Sofi_eyes_blink"
+        # attribute oneclose:
+        #     "sprite/Sofi/Sofi_eyes2.png"
+        attribute midclose:
+            "Sofi_eyes_midclose"
+        attribute closed:
+            "sprite/Sofi/eyes_closed.png"
+        # attribute lookaway:
+        #     "Sofi_eyes_lookaway"
+        # attribute crying:
+        #     "Sofi_eyes_crying"
+    group eyebrows:
+        attribute up default:
+            "sprite/Sofi/eyebrows_up.png"
+        attribute concerned:
+            "sprite/Sofi/eyebrows_concerned.png"
+        attribute down:
+            "sprite/Sofi/eyebrows_angry.png"
+        attribute horizontal:
+            "sprite/Sofi/eyebrows_horizontal.png"
+    group mouth:
+        attribute frown:
+            WhileSpeaking("Sofi","Sofi_mouth_frown_speaking","sprite/Sofi/mouth_frown.png")
+        attribute squiggly:
+            WhileSpeaking("Sofi","Sofi_mouth_frown_speaking","sprite/Sofi/mouth_squiggly.png")
+        attribute smile default:
+            WhileSpeaking("Sofi","Sofi_mouth_smile_speaking","sprite/Sofi/mouth_smile.png")
+        attribute openmouth:
+            WhileSpeaking("Sofi","Sofi_mouth_frown_speaking","sprite/Sofi/mouth_open.png")
+        attribute opensmile:
+            WhileSpeaking("Sofi","Sofi_mouth_smile_speaking","sprite/Sofi/mouth_opensmile.png")
+        attribute smug:
+            WhileSpeaking("Sofi","Sofi_mouth_smile_speaking","sprite/Sofi/mouth_smug.png")
+    group blush:
+        attribute noblush default:
+            Null()
+        attribute blush:
+            "sprite/Sofi/Sofi_blush.png"
+            alpha 0.7
+    zoom 0.5 yanchor 0.5 ypos 1.0
