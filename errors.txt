@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 335: invalid syntax
-        if alvkill = 8:
-                    ^
-    
+File "game/Scripts/chapter0 prologue.rpy", line 85: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        s "Humanity’s greatest threat had also returned, predators of magic, Vibrants.""
 
-Ren'Py Version: Ren'Py 8.0.0.22062402
-Sun Jun 25 01:44:26 2023
+Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
+Sat Jun 24 18:30:03 2023

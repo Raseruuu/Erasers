@@ -13,88 +13,84 @@ label prologue:
     show sofi with fade
     s "I’m Sofi The Story Weaver."
     s "I’ve come a long way, gathering stories in my travels."
-    
+
     # show images relating to the things she’s talking about
-	
+
     s "Tales of great heroes, monstrous creatures, of love and romance, of heartbreak and tragedy. I’ve heard them all, committed them to memory, and I have come to pass them on to you."
     s "Stories, after all, are made to be told. For if we keep them to ourselves..."
-    
-    ## play sound "spotlight off"
-	scene black	
-    # a small spark of fire starts up
+
+    ## play sound "spotlight off"	
+    ## a small spark of fire starts up
+    scene black
     show sofi at left
     s "But... what story should I tell you?"
     s "Hmmmm..."
     s "Ah, I have one here!"
-	
+
     # Show magical effect here of some kind
+    s "The Story of Magic."
+    s "The gift that was granted to humanity, a power that allows us to reshape reality according to our whims. To bring us to prosperity, enlightenment, and peace."
+    s "Through these gifts, humans stepped out of the shadows, and brought forth the age of magic."
+    # Show earth and the spread of magic
+    s "But... like every story, this chapter in history would also..."
 
-	s "The Story of Magic."
-	s "The gift that was granted to humanity, a power that allows us to reshape reality according to our whims. To bring us to prosperity, enlightenment, and peace."
-	s "Through these gifts, humans stepped out of the shadows, and brought forth the age of magic."
+    ## play sound "Book snapping shut"
+    s "Come to a close."
+    s "Humans were capable of great things, but some sought to use magic for evil."
+    s "Evil humans abused the gift of magic to do harm to others, to usher in an age of darkness."
+    s "And then... something broke."
 
-	# Show earth and the spread of magic
+    # show the world being covered in red
 
-	s "But... like every story, this chapter in history would also..."
+    s "The Crimson Calamity, as if heralded by the thunderous cry of a world in pain, came from beyond the veil."
 
-	## play sound "Book snapping shut"
+    # Show a scary image of vibrants attacking humans
 
-	s "Come to a close."
-	s "Humans were capable of great things, but some sought to use magic for evil."
-	s "Evil humans abused the gift of magic to do harm to others, to usher in an age of darkness."
-	s "And then... something broke."
-
-	# show the world being covered in red
-
-	s "The Crimson Calamity, as if heralded by the thunderous cry of a world in pain, came from beyond the veil."
-
-	# Show a scary image of vibrants attacking humans
-
-	s "This new threat could not be reasoned with, it could not be frightened, or bought. It only hungered."
+    s "This new threat could not be reasoned with, it could not be frightened, or bought. It only hungered."
     s "The spark of life would soon fade, devoured by the ravenous maw."
 
-	# show the world growing dark... but then, a small spark illuminates
+    # show the world growing dark... but then, a small spark illuminates
     
     s "Until..."
     s "He arrived."
 
-	# show Eraser's Silhouette
-	
+    # show Eraser's Silhouette
+
     s "A mysterious stranger who took up the mantle of our savior. On his watch, we would not perish."
-    s "The downtrodden masses rallied around his banner, and through his leadership, his power, and his determination to save us... humanity would finally defeat the Crimson Calamity!""
+    s "The downtrodden masses rallied around his banner, and through his leadership, his power, and his determination to save us... humanity would finally defeat the Crimson Calamity!"
 
-	# Show a triumphant group of people and a lone Eraser
+    # Show a triumphant group of people and a lone Eraser
 
-	s "But... no victory comes without its price."
+    s "But... no victory comes without its price."
 
-	# disintegrate the image (shattering effect?)
+    # disintegrate the image (shattering effect?)
 
-	s "Magic faded. And..."
-	s "So did our savior."
-	s "The age of prosperity ended, and ushered in the age of depravity, which was then devoured by the age of calamity, and when the dust settled... the age of silence remained. A penitant age for our sin of hubris."
-	s "Centuries passed, civilizations rose and fell, our story pressed on even as the world we once knew faded into oblivion and myths." 
-	s "No one was left to remember the Crimson Calamity, the Vibrants. Nor the hero who sacrificed everything to save us, the man we only knew as Eraser."
+    s "Magic faded. And..."
+    s "So did our savior."
+    s "The age of prosperity ended, and ushered in the age of depravity, which was then devoured by the age of calamity, and when the dust settled... the age of silence remained. A penitant age for our sin of hubris."
+    s "Centuries passed, civilizations rose and fell, our story pressed on even as the world we once knew faded into oblivion and myths." 
+    s "No one was left to remember the Crimson Calamity, the Vibrants. Nor the hero who sacrificed everything to save us, the man we only knew as Eraser."
 
-	# Show a moment of silence with a darkened world
+    # Show a moment of silence with a darkened world
 
-	s "At least, that was the story up until 20 years ago."
-	s "Like an old friend, magic returned to us, and brought with it the great wonders we once enjoyed."
+    s "At least, that was the story up until 20 years ago."
+    s "Like an old friend, magic returned to us, and brought with it the great wonders we once enjoyed."
 
-	# show the new world, or a representation of it
+    # show the new world, or a representation of it
 
-	s "But, like I said earlier; where there is light, there is darkness."
+    s "But, like I said earlier; where there is light, there is darkness."
 
-	# show the spark of red on the world again
+    # show the spark of red on the world again
 
-	s "Humanity’s greatest threat had also returned, predators of magic, Vibrants.""
+    s "Humanity’s greatest threat had also returned, predators of magic, Vibrants."
 
-	# show vibrants attacking people again
+    # show vibrants attacking people again
 
-	s "But don’t you fret, little ones. Our enemies are powerful, but humanity is not as weak as it once was. We will defeat this enemy, and bring peace to the land."
+    s "But don’t you fret, little ones. Our enemies are powerful, but humanity is not as weak as it once was. We will defeat this enemy, and bring peace to the land."
     s "With magic on our side... nothing is impossible!"
 
     # show humans triumphing over vibrants
-    
+
     s "But, stories are not just told to entertain. They are also lessons from the past, lessons that we must learn lest we suffer the same fate."
     s "Our ancestors’ abuse of magic nearly destroyed us all."
 

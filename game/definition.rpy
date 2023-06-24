@@ -10,6 +10,7 @@ define g1 = Character("Goon 1")
 define g2 = Character("Goon 2")
 define ms = Character("Magic Scientist")
 define fi = Character("Intercom")
+define e = Character("Evan@HorizonsNetwork", who_color="#c8ffc8")
 
 define n = nvl_narrator
 

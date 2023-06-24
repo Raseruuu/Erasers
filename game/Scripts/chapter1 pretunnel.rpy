@@ -1,15 +1,111 @@
 label pretunnel:
+    scene black
+    ## play sound "train in motion"
+    ## scene train
+    show sofi with fade
+    # Sofi has her eyes closed
+    # She opens her eyes and stretches
+
+    s "Wha- huh?"  
+
+    # show sofi surprised
+
+    s "Oh, crap! Did I miss my stop, what time is it?"
+    ## make sofi sprite wiggle
+    s "Oh there's my phone!"
+   
+    # show sofi, sigh of relief
+
+    s "Phew..."
+    s "Okay, still on time... still... on time."
+    s "......"
+    
+    # Sofi wearily sighs, like she’s regretting her life choices
+    
+    s "Sofi you stupid idiot, are you really gonna go through with this?"
+    s "Is this what I should be doing? I mean, what am I trying to accomplish here?"
+    s "I was mad back then, angrier than I’ve ever been. I was in a really vulnerable place, and I just... I didn’t want to just sit there and accept it. No. I wanted to strike back, even if it cost me everything, I wanted to..."
+    s "...send a message."
+    s "...and I’m about to do something {b}crazy{/b}. Like, most people who get mad just post about it or make a video essay, and my dumb ass here is about to throw everything away just because-"
+    s "......"
+    s "I’m still mad though. I don’t think I’ll ever not be mad. But, is this the path I should take?"
+    s "There’s no going back once I do."
+
+    # Show the station map, for those who don’t know, it’s just a line with circles and names that show the train’s route, it’s usually nothing fancy.
+
+    s "....."
+    s "I could quit."
+    s "My stop’s coming up, I can just... not get off the train. I haven’t crossed that line yet, there’s still a way out."
+
+    # Sofi paces
+    show sofi at right with move 
+    s "I could skip my stop, keep going, take a bus, another train. Maybe even get a plane ticket to somewhere far outside of the city." 
+    show sofi at left with move 
+    s "I don’t carry much with me, so I can just abandon my life, make them think that I just had an accident or something." 
+    show sofi at right with move 
+    s "It’s not like I owe them anything, right?" 
+    show sofi at left with move
+    s "Sure they did train me, yes I memorized the manual front to back, and yes there were lots of friends I made along the way but..." 
+    show sofi at right with move
+    s "what I’m about to do could amount to treason. And what if this whole thing is some kinda trap, some kinda deep cover operation to stop dissenters before they carry out their plans?" 
+    show sofi at left with move
+    s "But then why would they go through the trouble of training me? There were so many chances they could’ve had?" 
+    show sofi at right with move
+    s "But then what do I really know about how this whole thing works, and furthermore-"
+
+    # play sound "phone vibrating"
+
+    s "AGH!"
+    s "Oh god, that scared me, but it's just my phone."
+
+    ## show Evan or his silhouette at right
+    e "Hey, Sofi! I wanted to thank you again for filling in on such short notice! You did a great job, the bosses liked you, the kids loved you. Really good to tell them the truth about magic!"
+
+    # Show sofi smile
+
+    s "I had some space in my schedule and it was on the way."
+    e "You really saved me there, I mean..."
+    e "Who would’ve guessed that Mary was aiding a terrorist cell?"
+
+    # Show Sofi sad
+    s "Yeah, it’s crazy."
+    e "I mean, seriously... she was in our office building! Where we had kids! What was she planning?"
+    s "I don’t know."
+    e "Honestly, this may not sound PC, but I hope they execute her. We can’t have people like her wandering freely."
+    s "Right... Listen, I gotta go so I’ll talk later."
+    e "Btw, I was talking to the bosses and they seem willing to overlook the... outburst from last year. Now, they can’t give you back your old position, but since the kids loved your story, and Mary’s gonna probably rot in a federal prison... maybe you could apply for her old job?" 
+    e "I can definitely put in a good word for you!"
+    s "Thanks, I'll give it some thought"
+    e "Sounds good! Best of luck on your mission!"
+    ## hide Evan
+    ## play sound "phone call end"
+    s "....."
+
+    # she closes her eyes, and a look of anger appears on her face as she remembers the past
+    ## show sofi_angry with eyes closed
+
+    # Hold on Sofi for a few seconds, let her emotions run their course from anger, to sadness, to weariness, whatever seems right
+
+    s "...."
+    s "I guess I’m a traitor too."
+    # Sofi’s stop comes up and she walks out the door
+    ## play sound "train stopping, doors open"
+    s "...."
+
+    # Show Sofi sad and then sigh
+
+    s "No turning back now."
 
     ## Meeting Breeze
     ##EXT. Cafe
-    scene bgcafe
+    """scene bgcafe
     show white:
         alpha 0.5
     play music flairtheme fadein 2.0 volume 0.2
     pause(0.5)
     show sofi at scenter with easeinbottom
-    s "Made it…"
-    s "And not a moment too late… I hope?"
+    s "Made it..."
+    s "And not a moment too late... I hope?"
     show sofi at cutejump
     s "Alright, just gotta focus."
     s "Scan your surroundings."
@@ -20,10 +116,10 @@ label pretunnel:
     cc "Hello Ma’am, can I take your order?"
     show sofi at test1
     s "GAAAHH!!"
-    s "Sorry, you startled me for a moment…"
+    s "Sorry, you startled me for a moment..."
     show sofi:
         linear 5 xoffset -400
-    cc "It’s fine, though with all that energy, it makes me wonder why you would even go to a coffee shop in the first place…"
+    cc "It’s fine, though with all that energy, it makes me wonder why you would even go to a coffee shop in the first place..."
     hide sofi
     show bgcafesepia:
         alpha 0.5
@@ -52,10 +148,10 @@ label pretunnel:
     show sofi at scenter with dissolve:
         zoom 1.5 yoffset -150
     s "Maybe it was a mistake to come here in the first place."
-    s "I felt so hyped about it earlier, but now that I'm actually on an assignment…"
+    s "I felt so hyped about it earlier, but now that I'm actually on an assignment..."
     s "It's kinda scary."
     with hpunch
-    s "I mean… I'm not built for this kind of work!"
+    s "I mean... I'm not built for this kind of work!"
     s "I was just someone who worked at a media company up until a few months ago! I wasn’t even an actual journalist, I was just the glorified intern! I don’t think my bosses even knew my name!"
     s "Hell, I had to take a side gig as a freelance storyteller just to pay my rent!"
     s "And now I’m doing something that could land me in prison for the rest of my life?!"
@@ -86,7 +182,7 @@ label pretunnel:
     u "Hey, I'm here with Twisted Fates. I'm your blind date."
     show sofi at sleft with dissolve:
         xzoom -1.0
-    s "He… finds… me."
+    s "He... finds... me."
     "I look up from my phone to see someone that looks just like what the note described, sitting at my table."
     s "He's here."
     s "He's actually here and-"
@@ -98,13 +194,13 @@ label pretunnel:
 
     u "Save the secret words for next time."
     u "I know you're one of us."
-    s "Are… Are you sure?"
+    s "Are... Are you sure?"
     s "Cuz the manual states that-"
     u "This ain't training newbie. I could tell who you were the moment you stepped into the shop."
     s "Y-You did?"
     u "I waited an entire hour for someone, only for that someone to literally barge in and act like the most suspicious person on the planet."
     u "What do you think?"
-    s "I… well…"
+    s "I... well..."
     "I tried to think up any excuse for my behavior but he got me there."
     "I hunch over, feeling dejected about my shoddy performance."
     s "Guess, I really am not cut out for this, after all."
@@ -112,15 +208,15 @@ label pretunnel:
     u "But luckily nobody in this Cafe really cares about insurgencies or the government."
     u "They're either stressed-out Office workers or stressed-out College students, too stressed out to care about anything else."
     u "It's why this place makes such a good rendezvous point."
-    u "Well that and for laundering money for our cause…"
-    s "Now that you mention it, we are talking about such a heavy subject and nobody seems to bat an eye…"
+    u "Well that and for laundering money for our cause..."
+    s "Now that you mention it, we are talking about such a heavy subject and nobody seems to bat an eye..."
     s "But during my training, we were always told to keep things covert."
     u "Yeah well, whatever you learned in basic training means nothing in the field."
     u "Here's a tip, newbie: \nBe more flexible in how you approach problems."
     u "Rules and training can only go so far when anything can happen out on a mission. "
     u "Be Sharp, Be Adaptive, and most importantly, Be Creative."
     u "If you follow those ideas, you'll do fine out on the field."
-    s "That was… incredibly insightful of you."
+    s "That was... incredibly insightful of you."
     u "Good."
     u "Now let's go to the Real Rendezvous point and discuss our mission there."
     s "Real rendezvous point?"
@@ -171,11 +267,11 @@ label pretunnel:
     "Even as I’m looking at her right now. It’s hard to keep calm when the boss is actually speaking to you."
     "Fortunately this is probably just a recording, so I can still be relatively calm."
     u "Sofi, are you paying attention?"
-    s "Wait… What?"
+    s "Wait... What?"
     b "The boss asked you a question, newbie."
-    s "I… well…uh…"
+    s "I... well...uh..."
     u "You thought this was a recording, did you not?"
-    s "Uh…"
+    s "Uh..."
     u "No need to hide it, I can see it in your eyes."
     s "I’m So Sorry Ma’am! I didn’t mean any disrespect!"
     s "I just didn’t think I would ever meet you!"
@@ -209,17 +305,17 @@ label pretunnel:
     u "It might be a possibility, and the administration is trying to cover up the fact that there is an outbreak right here in our city."
     b "Do you have any idea where that video was filmed?"
     u "Our people did a thorough investigation from analyzing the video, and we believe we have triangulated a general location based on reports from our undercover assets in the city."
-    u "From there, we narrowed down places where a potential nest could be, and that leads us… here. An old service tunnel that is been disused since the city came under new management."
+    u "From there, we narrowed down places where a potential nest could be, and that leads us... here. An old service tunnel that is been disused since the city came under new management."
     u "Your devices will have received directions on where to go. \"Your mission is to conduct a reconnaissance operation. Go to the destination marked on your devices, determine if it's a single vibrant, a nest, or something more sinister. If luck is on our side, it will have only been an elaborate ruse from a man desperate for attention of the faceless masses."
     s "Ma’am, if I may ask a question?"
     u "You may ask your question, agent."
-    s "I was just thinking that… if it is a Vibrant, why would someone be trying so hard to cover it up?"
-    u "You have good instincts. Our analysts pondered the same question. From what we could gather…"
+    s "I was just thinking that... if it is a Vibrant, why would someone be trying so hard to cover it up?"
+    u "You have good instincts. Our analysts pondered the same question. From what we could gather..."
     u "It does not look like any of the Vibrants we have seen."
     b "Ah, so they think it’s New type then? And that, for whatever reason, someone doesn’t want it to be revealed?"
     u "That is what our analysts believe, there is no record of a vibrant like that in our database. Therefore, we can only surmise that it must either be some sort of new type or that someone is trying to deceive the world into thinking that it is. Because of this, if it is a new type, we cannot be sure of what sort of capabilities it possesses. Exercise extreme caution."
     u "Good luck, Agents."
-    u "And Breeze, if I may…"
+    u "And Breeze, if I may..."
     b "What’s up, Kizu-nee?"
     u "....This is strictly a reconnaissance mission."
     u "Do not do anything unnecessary. I do not care for reckless agents who get themselves killed."
@@ -242,6 +338,6 @@ label pretunnel:
     s "Oh, sorry!"
     "And so, realizing that he was leaving without me, I began to run out of the cafe with him."
     "I wasn’t sure what was going to happen once we got to our destination, but I only hoped we could both make it out alive."
-    "Because, despite our rocky introductions, I kinda want to understand this guy a little more."
+    "Because, despite our rocky introductions, I kinda want to understand this guy a little more."""
 
     return
