@@ -1,54 +1,4 @@
-image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze2.png", (600, 150, 850, 1000)), 0.3)
-## Enemies ##
-image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (200, 100, 2000, 3000)), 0.16)
-image ratmob = im.FactorScale("images/sprite/rat.png", 0.8)
-image azmob = im.FactorScale("images/sprite/temp-laughinghand.webp", 0.5)
-
-image targetsign = im.FactorScale("gui/target.png", 0.3)
-
-##debuff signs
-image fire = im.FactorScale("gui/fire.png", 0.3)
-image ice = im.FactorScale("gui/ice.png", 0.05)
-
-## Battle Music
-define battle = "sound/Battle_Theme_ogg.ogg"
-define overtheblood = "sound/temp/youfulca-over-the-blood_loop.ogg"
-define gameover = "sound/temp/youfulca-Horror-juki_loop.ogg"
-
-################################################################
-## ATK VFX
-image atkblade = im.FactorScale("blade.png", 0.5)
-image atkshard = im.FactorScale("shard.png", 0.5)
-# image atkshield
-# image atkheal
-# image atkfirebolt
-image atkinferno = im.FactorScale("inferno.png", 2.5)
-
-## attacking sfx
-define blade = "sound/sfx/pigmyon/swordstrike.mp3"
-define ice = "sound/sfx/pigmyon/shard.mp3"
-##TODO: heal
-##TODO: shield
-##TODO: Firebolt
-define inferno = "sound/sfx/opengameart/foom_0.ogg"
-###############################################################
-
-## defending sfx
-define hit = "sound/sfx/opengameart/swing2.ogg" ## default hit sound
-    ### AZ
-define swish9 = "sound/sfx/opengameart/swish-9.ogg" ## az punch
-define swordclash = "sound/sfx/freesoundeffects/steelsword.mp3" ## parried
-define swordblock = "sound/sfx/pigmyon/swordblock.mp3"
-define punch2 = "sound/sfx/freesoundeffects/punch2.mp3" ##az punch land
-
-## AZ FIGHT
-image punching = "battle effect 3b.png"
-image punchpre = "punchpre.png"
-image punchpost = "punchpost.png"
-image punchparry = "battle effect 12.png"
-
 ##############################################################
-
 init -50 python:
     punchwipe = ImageDissolve("grad.png", 0.3)
 
@@ -60,8 +10,7 @@ init -50 python:
         global mobattacker ## which incoming attack.
         global mobaction ## for attempting queuing up mob actions.
 
-        global slow
-        global burn
+        global mobregen
 
         global breezecd
         global soficd
@@ -74,8 +23,8 @@ init -50 python:
 
         if timerpause == False:
             for i, j in enumerate(mobstat): ## individual timer.
-                if mobstat[i][4] < mobstat[i][6]:
-                    if mobstat[i][2] > 0:
+                if mobstat[i][4] < mobstat[i][6] and mobstat[i][8] == 0:
+                    if mobstat[i][2] > 0: ## if slow
                         mobstat[i][4]+=0.25 ## 0.25x speed
                     else:
                         mobstat[i][4] += 1
@@ -84,6 +33,8 @@ init -50 python:
             if mobstat[i][3] > 0: ## burn
                 mobstat[i][3] -= 1 #lasts burn/20 seconds
                 mobstat[i][1] -= 0.05 # 1hp/second
+            if mobstat[i][8] > 0: ## FREEZE
+                mobstat[i][8] -= 1 ## 10s = 200
 
             ## Commmand card timers.
             if breezecd < max(breeze.cost):
@@ -95,12 +46,34 @@ init -50 python:
             if shield > 0: ## Shield Decay
                 shield -=0.05
 
+            ## Rat respawn ##
+            if encounter == "Rat":
+                for i, j in enumerate(mobstat):
+                    if mobstat[i][0] == "None":
+                        if mobstat[i][8] == 30:
+                            mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0] ## Rat replacement
+                            renpy.call("ratrespawn")
+                          ## Narration
+                        elif mobstat[i][8] < 30:
+                            mobstat[i][8] += 1
+
+            ## Alv regen ##
+            if encounter == "Alv" :
+                for i,j in enumerate(mobstat):
+                    if mobstat[i][0] != None:
+                        if mobstat[i][1] < mobstat[i][7] and mobstat[i][8] == 0 :
+                            mobstat[i][9] = 0
+                            mobstat[i][1] = min(mobstat[i][7], mobstat[i][1]+ mobregen)
+                        elif mobstat[i][1] == mobstat[i][7]:
+                            mobstat[i][9] += 0.05
+
+
         ## Assigning mob actions when timer up.
         for i,j in enumerate(mobstat):
-            if mobstat[i][4] >= mobstat[i][6]:
+            if mobstat[i][4] >= mobstat[i][6] and mobstat[i][0] != "None":
                 timerpause = True
                 for i,j in enumerate(mobstat):
-                    if mobstat[i][4] >= mobstat[i][6]:
+                    if mobstat[i][4] >= mobstat[i][6] and mobstat[i][0] != "None":
                         mobaction.append(i)
                         mobstat[i][4] = 0
                 renpy.call("mobaction")
@@ -133,14 +106,14 @@ init -50 python:
 
     breeze = fighter("Breeze", ["Attack", "Shard"], [1.5, 3.0])
     sofi = fighter("Sofi", ["Shield", "Heal"], [6.0, 10.0])
-    flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 20.0]) ##2, 20
-    breezeex = fighter("Breeze", ["Attack", "Shard", "Gun"], [1.5, 3.0, 1])
+    flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 2.0]) ##2, 20
+    breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.5, 1.5, 3.0])
 
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 15, "Shard": 20,
-                    "gun": 12,
-                    "Shield": 10, "Heal": 100,
-                    "Firebolt": 30, "Inferno": 70
+                    "Attack": 1500, "Shard": 20,
+                    "Blizzard": 0,
+                    "Shield": 50, "Heal": 100,
+                    "Firebolt": 30, "Inferno": 700
                     }
     # actsound = {"Attack": blade, "Shard": ice,
     #             "Shield": blade, "Heal": blade,
@@ -155,22 +128,27 @@ init -50 python:
             self.dmg = dmg ## attacking damage
             self.img = img ## icon image
 
-    flairmob = mob("Flair", 800, 140, 65, "flairmob")
-    ratmob = mob("Rat", 50, 100, 20, "ratmob")
-    azmob = mob("Az", 80000, 80, 100, "azmob") ##80 cd, 100 attack,
+    flairmob = mob("Flair", 800, 140, 65, "flairmob") ## dps 65/7 = 8
+    ratmob = mob("Rat", 50, 100, 20, "ratmob") ## dps 20/5 = 4
+    azmob = mob("Az", 80000, 80, 100, "azmob") ## dps 100/4 = 25
     # goon = mob("Goon", 300, 120, 50, "goonmob")
+    alvmob = mob("Alv", 500, 16000, 80, "alvmob") ## dps 80/8 = 10
+    nonemob = mob("None", 800, 20, 65, "alvmob")
 
     ####################################################
     moblist = { ## for mobs in an encounter
-                "Flair": [flairmob],
+                "Flair": [flairmob, flairmob],
                 # "Goons": [goon, goon],
+                "Alv": [alvmob, alvmob, nonemob, alvmob],
                 # "Alv1": [alv11, alv12, alv13],
                 # "Alv2": [alv21, alv22, alv23],
                 "Az": [azmob],
-                "Rat": [ratmob, ratmob, ratmob]}
+                "Rat": [ratmob, ratmob, ratmob, ratmob]}
 
     ## Mob positioning.
     mobpos = {
             1:[960],
             2: [650, 1270],
-            3: [400, 960, 1520]}
+            3: [450, 960, 1470],
+            4: [240, 730, 1200, 1680]
+            }

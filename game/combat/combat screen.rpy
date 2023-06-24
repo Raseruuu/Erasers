@@ -16,19 +16,15 @@ screen combat:
             xpos 1550
             ypos 20
             text "Time Remaining: " + str(aztimer//20)
-
     ##display breeze hp and enemys, and the commands
     for i, j in enumerate(mobstat):
-        use mob(i,mobpos[len(mobstat)][i])
-    use targetting(mobpos[len(mobstat)][target])
+        use mob1(i, mobpos[len(mobstat)][i])
+    use targetting(mobpos[len(mobstat)][targettemp])
 
     use breeze ##hp bar
     use actbutton
 
-    ## for testing
-    # use atkshard(target)
-    # use atkblade(target)
-    use atkinferno
+
 
 screen breeze: ##hp bar
 
@@ -52,46 +48,102 @@ screen breeze: ##hp bar
         if shield >=1:
             text "Shield: "+str(int(shield)) xpos 10 yoffset -2 size 20 color "#000"
 
-screen mob(i, position):
-    fixed: ##mob hp
-        xysize (300, 20)
-        at combat2 yoffset -300 xpos position
-        bar:
-            value mobstat[i][1]
-            range mob[i].hp
-            xysize (300, 20)
-        text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
+# screen mob(i, position):
+#     fixed: ##mob hp
+#         xysize (300, 20)
+#         at combat2 yoffset -300 xpos position ## ymid 100 ybot 110
+#         bar:
+#             value mobstat[i][1]
+#             range mob[i].hp
+#             xysize (300, 20)
+#         text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
+#
+#     use mobicon(i, position) ## mob image
+#
+#     if mobstat[i][4]> 0: ##hides bar during mobaction
+#         fixed: ##mob click
+#             xysize (300, 30)
+#             at combat2 yoffset 250 xpos position
+#             bar:
+#                 value mobstat[i][4]
+#                 range mobstat[i][6]
+#                 xysize (300, 30)
+#             # text "(enemy attack cooldown)" xalign 0.5 yalign 0.5
+#
+#     fixed: ## mob debuff icons
+#         at combat2 xpos position yoffset -175 xoffset -50
+#         xysize (300, 300)
+#         if mobstat[i][3]>0:
+#             add "fire" xoffset 360 yoffset -10
+#         if mobstat[i][2]>0:
+#             add "ice"
+# screen mobicon(i, position): ## ybuttom 625 ytop 125
+#     fixed:
+#         xysize (400, 550)
+#         at combat2 xpos position
+#         add "white" ## for testing use
+#         add mob[i].img xalign 0.5 yalign 1.0 yoffset -50
+#         button: ##to assign target
+#             action SetVariable("target", i)
 
-    use mobicon(i, position) ## mob image
-
-    if mobstat[i][4]> 0: ##hides bar during mobaction
-        fixed: ##mob click
-            xysize (300, 30)
-            at combat2 yoffset 250 xpos position
-            bar:
-                value mobstat[i][4]
-                range mobstat[i][6]
-                xysize (300, 30)
-            # text "(enemy attack cooldown)" xalign 0.5 yalign 0.5
-
-    fixed: ## mob debuff icons
-        at combat2 xpos position yoffset -175 xoffset -50
-        xysize (300, 300)
-        if mobstat[i][3]>0:
-            add "fire" xoffset 360 yoffset -10
-        if mobstat[i][2]>0:
-            add "ice"
-screen mobicon(i, position):
+screen mob1(i, position):
     fixed:
-        xysize (400, 550)
-        at combat2 xpos position
-        # add "white" ## for testing use
-        add mob[i].img xalign 0.5 yalign 1.0 yoffset -50
-        button: ##to assign target
-            action SetVariable("target", i)
+        xanchor 0.5 xpos position
+        yanchor 0.5 ypos 400
+
+        button: ##mob hp
+            align (0.5, 0.5)
+            xsize 400 ysize 565
+            # add "white"
+             #If(soficd >= sofi.cost[i] and mobphase == False, true = [
+            if mobstat[i][0] != "None":
+                action SetVariable("targettemp", i)
+                vbox:
+                    yalign 0.5
+                    xalign 0.5
+
+
+                    hbox:
+                        xalign 0.5
+                        fixed:
+                            xalign 0.5
+                            xysize (300, 50)
+                            bar:
+                                value mobstat[i][1]
+                                range mob[i].hp
+                                xysize (300, 50)
+                            if encounter != "Az":
+                                text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
+                    null height 15
+                    add mob[i].img xalign 0.5
+                    null height 15
+                    fixed:
+                        xalign 0.5
+                        xysize (300, 20)
+                        bar:
+                            value mobstat[i][4]
+                            range mobstat[i][6]
+                            xysize (300, 20)
+            if encounter == "Rat" and mobstat[i][0] == "None":
+                text str(mobstat[i][0]) + str(int((mobstat[i][8]))) xalign 0.5 yalign 0.5
+
+    # fixed: ## mob debuff icons
+    #     at combat2 xpos position yoffset -175 xoffset -50
+    #     xysize (300, 300)
+    #     if mobstat[i][3]>0:
+    #         add "fire" xoffset 360 yoffset -10
+    #     if mobstat[i][2]>0:
+    #         add "ice"
+
+# screen mob3:
+
+
+
+
+
 screen targetting(position): ## indicates which one is being targetted. TODO: change symbol used.
     fixed:
-        add "targetsign" at combat2 xpos position
+        add "targetsign" at combat2 yoffset 0 xpos position
 screen mobattacking(position): ##TODO :fix symbol
     fixed:
         add "fire" at combat2 xpos mobpos[len(mobstat)][position] yoffset -250
@@ -176,7 +228,7 @@ screen breezeexact: ## TODO: change to EX lineup
             for i, j in enumerate(breezeex.list):
                 button:
                     xysize (150, 175)
-                    action [If(breezecd >= breezeex.cost[i] and mobphase == False, true = [SetVariable("breezecd", 0),
+                    action [If(breezecd >= breezeex.cost[i] and mobphase == False, true = [SetVariable("breezecd", max(breezecd-breezeex.cost[i], 0)),
                                                                 SetVariable("timerpause", True),
                                                                 SetVariable("act", j), ## for the damagephase to sort out.
                                                                 Call("damagephase")])]
@@ -201,9 +253,10 @@ screen damagecalc(value): ##on target
     fixed:
         xysize (300, 100) xanchor 0.5
         xpos mobpos[len(mobstat)][target]+75 ypos 100
-        text str(value):
-            size 80 bold False color "#FF0000" outlines [(2,"#000",0,0)]
-            at textpopup
+        if value >0:
+            text str(value):
+                size 80 bold False color "#FF0000" outlines [(2,"#000",0,0)]
+                at textpopup
 
 screen atkblade(target):
     fixed:

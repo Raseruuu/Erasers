@@ -114,7 +114,7 @@ screen say(who, what):
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
-        add SideImage() xanchor 0.5 xpos 200 yalign 1.0
+        add SideImage() xanchor 0.5 xpos 150 yalign 1.0
         # add SideImage() xanchor 0.5 xpos 330 yanchor 0.0 ypos 800
 
 
@@ -569,29 +569,21 @@ style about_label_text:
 ## www.renpy.org/doc/html/screen_special.html#load
 
 screen save():
-
     tag menu
-
     use file_slots(_("Save"))
-
-
 screen load():
-
     tag menu
-
     use file_slots(_("Load"))
 
 
 screen file_slots(title):
 
-    default page_name_value = FilePageNameInputValue(pattern=_("Page {}"), auto=_("Automatic saves"), quick=_("Quick saves"))
+    default page_name_value = FilePageNameInputValue(pattern=_(" "), auto=_("Automatic saves"), quick=_("Quick saves"))
 
     use game_menu(title):
 
         fixed:
-
-            ## This ensures the input will get the enter event before any of the
-            ## buttons do.
+            ## This ensures the input will get the enter event before any of the buttons do.
             order_reverse True
 
             ## The page name, which can be edited by clicking on a button.
@@ -609,54 +601,23 @@ screen file_slots(title):
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
-
-                xalign 0.5
-                yalign 0.5
+                xalign 0.5 yalign 0.5
 
                 spacing gui.slot_spacing
 
                 for i in range(gui.file_slot_cols * gui.file_slot_rows):
 
                     $ slot = i + 1
-
                     button:
                         action FileAction(slot)
 
                         has vbox
-
                         add FileScreenshot(slot) xalign 0.5
-
                         text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
                             style "slot_time_text"
-
                         text FileSaveName(slot):
                             style "slot_name_text"
-
                         key "save_delete" action FileDelete(slot)
-
-            ## Buttons to access other pages.
-            hbox:
-                style_prefix "page"
-
-                xalign 0.5
-                yalign 1.0
-
-                spacing gui.page_spacing
-
-                textbutton _("<") action FilePagePrevious()
-
-                if config.has_autosave:
-                    textbutton _("{#auto_page}A") action FilePage("auto")
-
-                if config.has_quicksave:
-                    textbutton _("{#quick_page}Q") action FilePage("quick")
-
-                ## range(1, 10) gives the numbers from 1 to 9.
-                for page in range(1, 10):
-                    textbutton "[page]" action FilePage(page)
-
-                textbutton _(">") action FilePageNext()
-
 
 style page_label is gui_label
 style page_label_text is gui_label_text
@@ -698,24 +659,18 @@ style slot_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
 screen preferences():
-
     tag menu
-
     use game_menu(_("Preferences"), scroll="viewport"):
 
         vbox:
-
             hbox:
                 box_wrap True
-
                 if renpy.variant("pc") or renpy.variant("web"):
-
                     vbox:
                         style_prefix "radio"
                         label _("Display")
                         textbutton _("Window") action Preference("display", "window")
                         textbutton _("Fullscreen") action Preference("display", "fullscreen")
-
                 vbox:
                     style_prefix "check"
                     label _("Skip")
@@ -723,60 +678,38 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                ## Additional vboxes of type "radio_pref" or "check_pref" can be
-                ## added here, to add additional creator-defined preferences.
-
             null height (4 * gui.pref_spacing)
 
             hbox:
                 style_prefix "slider"
                 box_wrap True
-
                 vbox:
-
                     label _("Text Speed")
-
                     bar value Preference("text speed")
-
                     label _("Auto-Forward Time")
-
                     bar value Preference("auto-forward time")
-
                 vbox:
-
                     if config.has_music:
                         label _("Music Volume")
-
                         hbox:
                             bar value Preference("music volume")
-
                     if config.has_sound:
-
                         label _("Sound Volume")
-
                         hbox:
                             bar value Preference("sound volume")
-
                             if config.sample_sound:
                                 textbutton _("Test") action Play("sound", config.sample_sound)
-
-
                     if config.has_voice:
                         label _("Voice Volume")
-
                         hbox:
                             bar value Preference("voice volume")
-
                             if config.sample_voice:
                                 textbutton _("Test") action Play("voice", config.sample_voice)
-
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
-
                         textbutton _("Mute All"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
-
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text

@@ -1,4 +1,4 @@
-define b = Character("Breeze")
+define b = Character("Breeze", image="breezeside")
 define s = Character("Sofi", image="sofiside")
 define f = Character("Flair")
 define a = Character("Azmaveth")
@@ -16,13 +16,14 @@ define n = nvl_narrator
 ################
 ## SPRITES ##
 ###############
-image sofi = im.FactorScale("images/sprite/sofi.png", 0.26)
+image sofi = im.FactorScale("images/sprite/sofi2.png", 0.52)
 image breeze = im.FactorScale("images/sprite/breeze.png", 0.26)
 
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
-image side sofiside = im.FactorScale(im.Crop("images/sprite/sofi.png", (850, 530, 1700, 2000)), 0.25)
+image side sofiside = im.FactorScale(im.Crop("images/sprite/sofi2.png", (400, 265, 1000, 1000)), 0.4)
+image side breezeside = im.FactorScale(im.Crop("images/sprite/breeze2.png", (500, 150, 1000, 1000)), 0.4)
 
 image bgpark = "images/bg/bgpark.jpg"
 image bgcafe = "images/bg/temp_bg_cafe.webp"
@@ -33,6 +34,8 @@ image black:
     Solid("#000")
 image pitchblack:
     Solid("#000")
+image iceblue:
+    Solid("#63D3FF")
 
 image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
 ################
@@ -76,51 +79,3 @@ transform test1:
 
 transform flipflip:
     linear 0.1 xzoom -1
-
-##################################################
-## COMBAT RELATED HERE ##
-##################################################
-transform combat1: ##1enemy placement
-    xalign 0.5 yanchor 0.5 ypos 450
-
-transform combat2: ## target placement
-    anchor (0.5, 0.5)
-    ypos 400
-
-transform mobhurt:
-    parallel: #Horizontal shake
-        pause 0.1
-        ease 0.05 xoffset 10
-        ease 0.05 xoffset -10
-        ease 0.05 xoffset 8
-        ease 0.05 xoffset -8
-        ease 0.05 xoffset 5
-        ease 0.05 xoffset -5
-        ease 0.05 xoffset 0
-    parallel:
-        linear 0.05 zoom 0.98 yoffset 10
-        linear 0.15 zoom 1.02 yoffset -5
-        easeout 0.1 zoom 1.0 yoffset 0
-transform textpopup:
-    alpha 0.5
-    linear 0.2 alpha 1.0 yoffset -50
-
-
-transform atkblade:
-    yoffset -50 xoffset 100
-    ease 0.2 yoffset +150 xoffset -100
-    ease 0.1 alpha 0.0
-
-transform atkshard:
-    yoffset -150
-    pause 0.1
-    ease 0.1 yoffset -200
-    pause 0.05
-    # 0.25s setup
-    ease 0.1 yoffset +0
-    pause 0.55
-    linear 0.1 alpha 0.0
-
-transform atkinferno:
-    xanchor 1.0 xpos 0.0 alpha 0.7
-    ease 0.7 xanchor 0.0 xpos 1.0

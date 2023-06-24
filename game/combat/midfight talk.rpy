@@ -26,6 +26,20 @@ label flairtalk:
 ################
 ## RATS FIGHT ##
 ################
+label ratrespawn:
+    hide screen combat
+    show screen combat
+    python:
+        if ratkilled == 1:
+            midtalk = "ratnew"
+            renpy.call("midfight") ## first reappear
+        # if fighttalk == False and ratkilled == 3:
+        #     midtalk = "rattalk"
+        #     renpy.call("midfight") ## Flair joins in.
+        # if ratkilled >=9:
+        #     midtalk = "ratlast"
+        #     renpy.call("midfight")
+    jump combatloop
 label ratnew:
     show screen combat
     "New Vibrant infested Rat appears!"
@@ -57,6 +71,24 @@ label ratlast:
     f "Right, I just need to clear them all out in one go"
     b "Got it!"
     window hide
+    return
+####################
+## ALV FIGHT ##
+####################
+label alvstart:
+    b "It's okay, I've got this."
+    hide screen combat
+    hide black
+    hide breezecombat
+    with dissolve
+    play music tanzanite volume 1.0 fadein 1
+    show iceblue with Dissolve(1.5):
+        alpha 0.5
+    $ combatant[0] = breezeex
+    show screen combat
+    show breezecombat: ## breeze icon
+        xpos 450 yanchor 1.0 ypos 1050
+    pause 1.0
     return
 ####################
 ## Azmaveth FIGHT ##

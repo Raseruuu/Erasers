@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat screen.rpy", line 219: 'ease' is not a keyword argument or valid child for the add statement.
-    ease 0.5 xanchor 0.0 xpos 1.0
-        ^
+File "game/combat/combat python.rpy", line 335: invalid syntax
+        if alvkill = 8:
+                    ^
+    
 
 Ren'Py Version: Ren'Py 8.0.0.22062402
-Sat Jun 24 01:19:01 2023
+Sun Jun 25 01:44:26 2023
