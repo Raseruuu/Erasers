@@ -336,7 +336,7 @@ label mobdeath: ## dead replace/removal in group
             while len(head) > 0:
                 headrespawn = renpy.random.choice(head)
                 if alvheads[headrespawn] !=0:
-                    mobstat[headrespawn] = [mob[0].name, (mob[0].hp), 0, 0, 0, mob[0].dmg, mob[0].cd, 0, 0, 0]
+                    mobstat[headrespawn] = [mob[0].name, mob[0].hp, 0, 0, 0, mob[0].dmg, mob[0].cd, 0, 0, 0]
                     alvheads[headrespawn] = alvheads[headrespawn]-1
                     break
                 else:

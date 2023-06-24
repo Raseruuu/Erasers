@@ -124,8 +124,9 @@ screen mob1(i, position):
                             value mobstat[i][4]
                             range mobstat[i][6]
                             xysize (300, 20)
+            ## TESTING. Respawn counter
             if encounter == "Rat" and mobstat[i][0] == "None":
-                text str(mobstat[i][0]) + str(int((mobstat[i][8]))) xalign 0.5 yalign 0.5
+                text "Respawn counter: " + str(int(30-(mobstat[i][8]))) xalign 0.5 yalign 0.5
 
     # fixed: ## mob debuff icons
     #     at combat2 xpos position yoffset -175 xoffset -50

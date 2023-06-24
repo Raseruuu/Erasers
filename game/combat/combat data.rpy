@@ -53,7 +53,6 @@ init -50 python:
                         if mobstat[i][8] == 30:
                             mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0] ## Rat replacement
                             renpy.call("ratrespawn")
-                          ## Narration
                         elif mobstat[i][8] < 30:
                             mobstat[i][8] += 1
 
