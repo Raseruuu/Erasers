@@ -1,8 +1,11 @@
-define b = Character("Breeze", image="breezeside")
-define s = Character("Sofi", image="sofiside")
-define f = Character("Flair")
-define a = Character("Azmaveth", image="azside")
-define k = Character("Kizuna")
+
+define b = Character("Breeze", image="breezeside",callback=speaker("Breeze"))
+define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"))
+define f = Character("Flair",callback=speaker("Flair"),)
+define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"),)
+define k = Character("Kizuna",callback=speaker("Kizuna"),)
+
+define ke = Character("Kephirah",callback=speaker("Kephirah"),)
 
 define u = Character("???")
 define cc = Character("Cafe Cashier")
@@ -28,10 +31,21 @@ image az = im.FactorScale("images/sprite/temp-laughinghand.webp", 1.0)
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
-image side sofiside = im.FactorScale(im.Crop("images/sprite/sofi2.png", (400, 265, 1000, 1000)), 0.4)
-image side breezeside = im.FactorScale(im.Crop("images/sprite/breeze2.png", (500, 150, 1000, 1000)), 0.4)
+# image side sofiside = im.FactorScale(im.Crop(sofi, (400, 265, 1000, 1000)), 0.4)
+image side sofiside:
+    LiveCrop((220,80, 460,500), "sofi")
+    zoom 0.8
+image side breezeside:
+    LiveCrop((300,60, 460,500), "breeze")
+    zoom 0.8
 image side azside = "images/sprite/aztemp.png"
-
+# image side breezeside = im.FactorScale(im.Crop(breeze, (500, 150, 1000, 1000)), 0.4)
+transform left: 
+    xpos 0.2 xanchor 0.5
+transform right: 
+    xpos 0.8 xanchor 0.5
+transform center: 
+    xpos 0.5 xanchor 0.5
 image bgpark = "images/bg/bgpark.jpg"
 image bgcafe = "images/bg/temp_bg_cafe.webp"
 
