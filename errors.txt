@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter0 prologue.rpy", line 85: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        s "Humanity’s greatest threat had also returned, predators of magic, Vibrants.""
+File "game/Scripts/chapter1 pretunnel.rpy", line 1: expected statement.
+    from http.client import FAILED_DEPENDENCY
+             ^
+
+File "game/Scripts/chapter1 pretunnel.rpy", line 2: expected statement.
+    from turtle import right
+                            ^
 
 Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Sat Jun 24 18:30:03 2023
+Sat Jun 24 20:24:09 2023

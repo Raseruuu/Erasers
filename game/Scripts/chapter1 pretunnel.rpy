@@ -1,7 +1,3 @@
-from http.client import FAILED_DEPENDENCY
-from turtle import right
-
-
 label pretunnel:
     scene black
     ## play sound "train in motion"
@@ -352,7 +348,7 @@ label pretunnel:
     # Show a Vibrant sprite (probably the base form but with a non-red color) rush across the screen and blur it like it’s a motion blur
     # Pause the image or show the shake then the pause
 
-    s "What is that? Some kind of animal?""
+    s "What is that? Some kind of animal?"
     k "Our analysts thought the same, and under normal circumstances we would assume as much. However, every time this video was uploaded, it was immediately scrubbed off the site as well as search engines."
     b "Someone’s trying to bury the video?"
     s "Is that really so strange? Lots of people get videos taken down."
@@ -378,10 +374,10 @@ label pretunnel:
     k "An old service tunnel that has been in disuse since the city came under new management." 
     k "Your mission is to conduct a reconnaissance operation. Go to the destination marked on your devices, determine if it's a single vibrant, a nest, or something more sinister, then report in." 
     k "If luck is on our side, it will have only been an elaborate ruse from a man desperate for the attention of the faceless masses."
-    k "I will also remind you to exercise extreme caution. If this is indeed a new strain, then its capabilities are unknown.""
+    k "I will also remind you to exercise extreme caution. If this is indeed a new strain, then its capabilities are unknown."
     k "And Breeze, if I may…"
     b "What’s up, Kizu-nee?"
-    k "....This is strictly a reconnaissance mission."
+    k "...This is strictly a reconnaissance mission."
     k "Do not do anything unnecessary. I do not care for reckless agents who get themselves killed."
     k "May safe winds guide your sails back to me, my Erasers."
 
