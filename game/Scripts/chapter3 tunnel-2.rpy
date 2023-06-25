@@ -59,7 +59,7 @@
     b "In contrast to the Erasers goal to prevent a second apocalypse by protecting magic from those who would abuse it, the MRF goes the opposite direction."
     b "They want magic to be more integrated with society and have it surround us."
     b "Officially, their various mouthpieces say that progress cannot be stopped, and we must change with the times. But that’s a lie."
-    b "They only want magic to proliferate so they can control people.""
+    b "They only want magic to proliferate so they can control people."
     b "They want to be involved in every magical decision, they want to make people beholden to them for their expertise, and most of all… they believe that they alone have the right to rule."
     b "Why take over a country through military might when you can hold the pursestrings of its leaders?"
     s "But why though? What do they gain out of it? Money? Power?"
@@ -112,7 +112,7 @@
     fi "REPEAT. SECURITY BREACH IN SECTOR 3."
     fi "NON-COMBATANTS ARE TO EVACUATE TO THE NEAREST SHELTER AS SOON AS POSSIBLE TO AWAIT FURTHER INSTRUCTIONS."
     fi "ALL COMBATANTS ARE TO CONTAIN THE BREACH IMMEDIATELY. "
-    "As soon as we heard the alert come on over the intercom, we're-engaged our disguises. Looks like we wouldn’t be be able to just casually walk around anymore.""
+    "As soon as we heard the alert come on over the intercom, we're-engaged our disguises. Looks like we wouldn’t be be able to just casually walk around anymore."
     "Did they find us out? I wasn’t sure until I saw a couple of guards literally run past us."
     b "Might be another Vibrant breakout?"
     b "Talk about a lucky break."
@@ -123,20 +123,20 @@
     "Just as we thought we were home-free, we get flagged down by someone I could only describe as… a wall of rippling muscle."
 
     # Show Azma sprite
-    ?? "Hey, you! Where are you two going!?"
+    un "Hey, you! Where are you two going!?"
     "Seeing as we were caught red-handed, I quickly tried to come up with an excuse to tell him."
     s "Sorry sir, we just got back from our patrol! We were just-!"
-    ?? "Okay look, I don’t actually care. Whatever you were doing, drop it, I need you to-."
+    un "Okay look, I don’t actually care. Whatever you were doing, drop it, I need you to-."
     # Turn Azma’s sprite around
 
-    ?? "...Where the-""
+    un "...Where the-"
     # pained sigh from Azma
     # Turn Azma back to Breeze and Sofi
-    ?? "Wait here."
+    un "Wait here."
 
     # Slide Azma off the screen
     "We should probably get out of here before he gets back, that’s what I was thinking. After all, there’s no reason for us to play guards, and whatever that breach was about, I don’t wanna be around to meet the cause."
-    s "Hey, I think we should-
+    s "Hey, I think we should-"
 
     # Show Sofi shake
     "Breeze looked off. That look in his eyes, his body language, it triggered as soon as that man came into view. Did…these two have some history?"
@@ -167,7 +167,7 @@
     ## Footsteps sound
 
     # Show Azma sprite coming in from side
-    ?? "Why do you keep trying to go off on your own, and make my life harder, Dr Tomo?"
+    un "Why do you keep trying to go off on your own, and make my life harder, Dr Tomo?"
 
     # Show Tomo sprite coming after that line
     tm "Mr Azma, I swear, I wasn’t trying to-"
@@ -223,4 +223,5 @@
     "Recovering from my stupor, I promptly went after her. Couldn’t exactly just let her get eaten by a Vibrant."
 
     # Fade to black
+    jump meetingflair
     return

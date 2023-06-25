@@ -2,8 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat data.rpy", line 112: is not terminated with a newline. (Check strings and parenthesis.)
-        skillattack = ["Attack"
+File "game/Scripts/chapter3 tunnel-2.rpy", line 132: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        un "...Where the-""
 
-Ren'Py Version: Ren'Py 8.0.0.22062402
-Sun Jun 25 19:51:20 2023
+Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
+Sun Jun 25 16:03:16 2023
