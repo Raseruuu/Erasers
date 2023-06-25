@@ -1,3 +1,7 @@
+from http.client import FAILED_DEPENDENCY
+from turtle import right
+
+
 label pretunnel:
     scene black
     ## play sound "train in motion"
@@ -95,249 +99,290 @@ label pretunnel:
     # Show Sofi sad and then sigh
 
     s "No turning back now."
-
+    scene black with fade 
     ## Meeting Breeze
-    ##EXT. Cafe
-    """scene bgcafe
-    show white:
-        alpha 0.5
-    play music flairtheme fadein 2.0 volume 0.2
-    pause(0.5)
-    show sofi at scenter with easeinbottom
-    s "Made it..."
-    s "And not a moment too late... I hope?"
-    show sofi at cutejump
-    s "Alright, just gotta focus."
-    s "Scan your surroundings."
-    s "Keep an eye out for any suspicious individuals because you never know when someone could drop on you and-"
-    show cc with easeinright:
-        yalign 1.0 xanchor 0.5 xpos 2400
+    ## play sound "cafe bustle"
+    # Show sofi trying to look inconspicuous, maybe with both eyes closed, or one eye closed
+    ## play sound "phone ringing"
+    s "I'm getting a call from... Twisted Fates Dating Service?"
+    ## play sound "phone beep" 
+    s "Hello?"
+    # From here
+    noa "Hi, this is Noa, from Twisted Fates Dating Service!"
+    noa "We set up a lovely date for you this evening at a lovely cafe at Cafe Haven, 13th Lakestreet!"
+    noa "Your date should be around your age, has dashing blue hair, and a sexy cold disposition."
+    noa "And once you see him, Tell him 'You're wearing nothing but a smile.'"
+    noa "See you then~♡."
+    # To here, I can’t make a quote block in this shit, watch me lose my fuckin’ mind with these rewrites
+    
+    s "I can’t help but cringe at all this."
+    s "I mean, I know this whole operation is supposed to be covert so it’s not like they can just send a message like, 'HEY, YO, GIRL, GO HERE AND MEET UP WITH ANOTHER FIELD AGENT FOR INSURGENCY TREASON STUFF!'"
+    s "Still, could that passphrase be any cringier?"
 
-    cc "Hello Ma’am, can I take your order?"
-    show sofi at test1
-    s "GAAAHH!!"
-    s "Sorry, you startled me for a moment..."
-    show sofi:
-        linear 5 xoffset -400
-    cc "It’s fine, though with all that energy, it makes me wonder why you would even go to a coffee shop in the first place..."
-    hide sofi
-    show bgcafesepia:
-        alpha 0.5
-    show black:
-        alpha 0.5
-    show sofi at scenter:
-        xoffset -400 xzoom -1.0
-    s "Ha ha right, I mean this is a coffee shop after all."
-    s "People come here for a pick-me-up to survive the daily grind."
-    s "I mean why else would a responsible young lady like myself go to a coffee shop like this if they're full of so much energy?"
-    s "It’s for coffee of course, and totally not some secret organization that’s-"
-    hide bgcafesepia with dissolve
-    hide black with dissolve
-    cc "Ma’am you’re holding up the line."
-    cc "So please order something otherwise my boss'll kill me."
-    show sofi:
-        linear 0.5 xoffset -500
-    s "... Oh sorry."
+    # Show sofi blank stare as if she’s thinking about it
 
+    s "......."
 
-    scene black with irisout
-    scene bg_cafe with irisout
-    show white:
-        alpha 0.5
-    "One cup of decaf later"
-    show sofi at scenter with dissolve:
-        zoom 1.5 yoffset -150
-    s "Maybe it was a mistake to come here in the first place."
-    s "I felt so hyped about it earlier, but now that I'm actually on an assignment..."
-    s "It's kinda scary."
-    with hpunch
-    s "I mean... I'm not built for this kind of work!"
-    s "I was just someone who worked at a media company up until a few months ago! I wasn’t even an actual journalist, I was just the glorified intern! I don’t think my bosses even knew my name!"
-    s "Hell, I had to take a side gig as a freelance storyteller just to pay my rent!"
-    s "And now I’m doing something that could land me in prison for the rest of my life?!"
-    with vpunch
-    s "What was I thinking!? Maybe I should just say screw this job, get a train ticket, leave the city, never look back. Maybe I can go back to my hometown, see if I can track down my extended family, maybe they’ll have a farm I can work on?"
+    # Sofi slaps her cheeks, face cheeks obviously, fuckin’ degenerates
+    
+    s "Okay, for real now. Inconspicuous, spy mode on. Let’s do this!"
+    s "Scan your surroundings, but obviously don’t make it LOOK like you’re scanning!" 
+    s "What do you see?"
 
-    ## TODO:[Sofi's backstory possibly be added here]
+    # These do not need images and can use theater of the mind or silhouettes
+    s "Office worker at the table on the far left, he’s overworked, unkempt, didn’t shower today... or yesterday... or maybe even this week. Probably works at an exploitative company."
+    s "Not a threat. What else?"
+    s "Woman outside with a dog on her phone and a kid running around. His mom? Sister? Babysitter? She looks busy, there’s trouble at home? Her body language suggests anger and annoyance."
+    s "Not a threat. What else?"
+    s "Two people a few spaces behind me in line, are they a couple? Seem to be the same age, seem pretty friendly, she touched his arm and he’s giving her a look but she’s- oh he’s getting friendzoned. Poor du-"
 
-    s "... sigh."
-    s "No, I can't think like that."
-    s "You were chosen for this assignment for a reason, so you can't chicken out here!"
-    s "For the fate of the world!"
-    s "...no pressure."
+    cc "Ma’am, are you alright?"
+    s "Agh!"
 
-    hide sofi
-    "I whip out my phone, as I reassess the special \"note\", I got before I came here."
-    n "Hi, this is Noa, from Twisted Fates Dating Service!"
-    n "We set up a lovely date for you this evening at a lovely cafe at Cafe Haven, 13th Lakestreet!"
-    n "Your date should be around your age, has dashing blue hair, and a sexy cold disposition."
-    n "And once you see him, Tell him \"You\'re wearing nothing but a smile~\"."
-    n "See you then~♡."
+    # Show Sofi shake
 
-    s "I know this whole insurgency is supposed to keep things on the down low, but this is just embarrassing."
-    s "Still codes and passphrases like this were all in the manual."
-    s "So all I gotta do is find this guy, tell him the passphrase, and then we can go on our mission before-"
+    s "What, yes, I-I’m Sofi, yes, that’s me, what’s up, what’s good bro, what do you need?"
+    cc "I... need to know what you want to order?"
+    s "Huh, o-oh right, cafe, right. I’m just here to order... um... something... to drink!" 
+    s "Which, I’m going to do."
+    s "Riiiiight now."
+    cc "...?"
+    s "....."
+    cc "....."
+    s "........"
+    cc "Ma’am... we really need to keep the line moving."
 
-    show breeze at sright with dissolve
-    u "Hey, I'm here with Twisted Fates. I'm your blind date."
-    show sofi at sleft with dissolve:
-        xzoom -1.0
-    s "He... finds... me."
-    "I look up from my phone to see someone that looks just like what the note described, sitting at my table."
-    s "He's here."
-    s "He's actually here and-"
-    s "Ok, calm down."
-    s "You need to remember your training."
-    s "Just follow procedure, and say the passphrase to let him know you're on his side."
-    s "Inhale"
-    s "I'm wearing nothing but a-"
+    # Show Sofi getting smaller with shyness and embarrassment
+    s "Sorry! I just um... I... uh... words... I’m... uhhhh..."
+    cc "...Hoooooow about a Tall Mocha Cappuccino?"
 
-    u "Save the secret words for next time."
-    u "I know you're one of us."
-    s "Are... Are you sure?"
-    s "Cuz the manual states that-"
-    u "This ain't training newbie. I could tell who you were the moment you stepped into the shop."
-    s "Y-You did?"
-    u "I waited an entire hour for someone, only for that someone to literally barge in and act like the most suspicious person on the planet."
-    u "What do you think?"
-    s "I... well..."
-    "I tried to think up any excuse for my behavior but he got me there."
-    "I hunch over, feeling dejected about my shoddy performance."
-    s "Guess, I really am not cut out for this, after all."
-    u "Hey, lighten up. If it were any other situation. A counter-agent would've sniffed you out, and our entire organization would be compromised."
-    u "But luckily nobody in this Cafe really cares about insurgencies or the government."
-    u "They're either stressed-out Office workers or stressed-out College students, too stressed out to care about anything else."
-    u "It's why this place makes such a good rendezvous point."
-    u "Well that and for laundering money for our cause..."
-    s "Now that you mention it, we are talking about such a heavy subject and nobody seems to bat an eye..."
-    s "But during my training, we were always told to keep things covert."
-    u "Yeah well, whatever you learned in basic training means nothing in the field."
-    u "Here's a tip, newbie: \nBe more flexible in how you approach problems."
-    u "Rules and training can only go so far when anything can happen out on a mission. "
-    u "Be Sharp, Be Adaptive, and most importantly, Be Creative."
-    u "If you follow those ideas, you'll do fine out on the field."
-    s "That was... incredibly insightful of you."
-    u "Good."
-    u "Now let's go to the Real Rendezvous point and discuss our mission there."
-    s "Real rendezvous point?"
-    stop music fadeout 1.0
-    ############################################################################
+    # In a quiet voice, because she is experiencing emotional damage
+    s "...yes, please, thank you."
 
-    ## The Real Rendezvous Point
-    ## EXT. Unisex Bathroom
-    scene black with pixellate
-    scene white with zoomin
-    play music guildtheme fadein 2.0 volume 0.2
-    s "THIS IS A BATHROOM!"
-    u "Yeah, it is."
-    s "AND YOU THINK IT WAS A GOOD IDEA TO DRAG ME IN HERE WITH YOU!?"
-    u "I don’t see any problem with that."
-    u "They’re private places so, of course, no one is going to bother us."
-    s "Are you even aware of what you’re saying right now?"
-    s "Like a girl and a guy in a bathroom together doesn’t paint a good image."
-    u "Oh, I get it."
-    u "You’re a shy pooper."
+    # transition scene to her sitting at her table
+    # Show Sofi suffering 
+    # Drinking sound
+    s "......"
+    s "It’s okay to cry Sofi. Every field agent probably has a similar story of their first mission."
+    s "You’ll probably laugh at this someday!"
+    s "Just sitting around a campfire with your guildmates, trading stories while on a vibrant hunt, and you can tell them about the time you imploded in the middle of a cafe."
+    s "...."
+
+    # Sofi pained groaning
+
+    s "Well, first you need to actually find them."
+    s "The mission brief said it's someone with blue hair and a cold disposition..."
+    s "Well, that’s pretty basic. Not sure how to spot a 'cold disposition' from a distance..."
+    s "Come to think of it, I’ve only ever seen other trainees and my mentor. I’ve never seen another field agent before."
+    s "Let’s see... Guild mostly deals with fighting monsters and against those who would seek to use magic for evil purposes so..."
+    s "This guy’s supposed to be like... someone who’s gonna show me the ropes, so he’s probably more experienced than me, right?"
+
+    # Possibly show quick sketch of Sofi’s imagination
+    s "Does he look like maybe... an old wizard? Too inconspicuous?"
+    s "Wait, no, he probably fights monsters so maybe a badass monster hunter?"
+    s "Wait... what if... he’s pretty handsome? Like, a prince from a faraway land come to redeem his family name?" 
+
+    # Sofi girl blush and squeal
+    s "Ahhhhhh!" 
+    show breeze at offscreenleft
+    s "No, no, no, calm down, Sofi! Professionalism! Professionalism."
+    show breeze at left with move
+    s "I’m sure I’ll know him... when I see him."
+
+    # Pause there for a moment
+    s "...."
+    b "...."
+    s "Um...."
+    b "Uh... sorry to disappoint, but I’m not an exiled prince."
+    s "....."
+    b "...."
+    s "Um... a-are you... uh... Breeze? The person I’m supposed to meet here?"
+
+    # Breeze slowly nods
+    s "And... you heard all that?"
+    b "...Sorry."
+
+    # Show sofi sprite slide down as if she’s trying to hide her shame
+    s "....I wanna die. Can you just hand in my resignation form? And I’ll just... live here for now."
+    b "No can do, I’m afraid."
+
+    # Sofi pained groan of sadness
+    s "How’d you know it was me? I thought I was doing a really good job following the manual’s rules for covert behavior."
+    b "Um... you were... at first."
+    b "Sorry but... I think even an enemy agent, fresh out of one of those training academies in the capitol would’ve been able to spot you immediately."
+    b "Good thing this cafe is friendly territory."
+    b "Because if it were anywhere else, we probably wouldn’t be having this conversation."
+    b "You’d probably be dead, or captured. I mean, on a scale of 1 to 10... your covert skills were probably at like a 3?"
+    b "Did you struggle with that in your training?"
+    s "...I actually got the highest marks during the assessment trials."
+    b "Oh..."
+    s ". . . . . . . "
+    b "A-are you sure? Was your training group really small or-"
+    s "Please stop, at this point you’re just kicking a girl while she’s down."
+
+    # More Sofi pained noises
+
+    s "Can we just start over? I don’t want this to be my first memory as part of the guild."
+    b "...sure, I guess?"
+
+    # Sofi collects herself and picks herself back up
+    # She clears her throat
+
+    s "So... uh... what was I supposed to say again? Something about a-"
+    s "Ah!"
+
+    # Clear throat sound
+
+    s "I’m wearing nothing but-"
+    b "Please. Don’t. We can just skip that portion, for our own sake. But mostly for yours."
+    s "But... the manual says..."
+    b "Yeah, I know, I know. But, I’m gonna give you some advice, newbie."
+    b "An agent who does everything by the book is predictable, and a predictable agent won’t be predictable for very long."
+    s "B-Because he’ll be so efficient that he’ll be a great asset to the guild?"
+    b "Uhhhh, no, it’s because he’ll probably be dead and his body disposed of in a ditch somewhere in the middle of nowhere."
+    b "The manual will help, sure. But it’s important to be flexible, since you’ll probably end up running into things that go outside the scope of your training. And it’s in that moment, where the only thing that’ll save you is your wit, determination, and a lot of luck... that’s what’ll determine if you’re truly cut out for this life."
+
+    # Show Breeze getting up
+
+    b "Anyways, we’ve confirmed our identities, so let’s head out."
+    s "Wh- right now? We’re leaving now?"
+    b "No, this space is just a rendezvous in friendly territory. Though... friendly or not, it’s not good to talk openly about... certain things in mixed company."
+    s "Oh, right, that was in the manual too."
+    b "Great, so let’s head upstairs."
+    s "Right. Upstairs."
     s "..."
-    s "...Say that again, and I CAN, and WILL slap you."
-    "Realizing that explaining the moral issues to this situation was a waste of time, I decided to look for any areas where this place could be bugged."
-    "Though finding any bugs here would be concerning for entirely different reasons."
-    "Meanwhile, Breeze merely shrugged before retreating to one of the corners of this small room."
-    "As I continued searching, he pulled out a can of soda from his pocket before slurping it down."
-    s "By the way, I never happened to get your name, buddy. Whatever shall it be?"
-    b "... It’s Breeze."
-    b "Is there any reason why you’re talking like that?"
-    s "Breeze huh? That is a wonderful name that your parents gave to you. My name is Sofi. Do you happen to have a dollar I can borrow?"
-    "For a split second, Breeze’s eyes widened, realizing what I was trying to do."
-    b "Hey Sofi, didn’t I tell you to lighten up?"
-    b "Whatever training you were given, it’s usually wrong."
-    s "Force of habit, and it’s hard to listen to a guy that drags ladies into the restroom with you."
-    b "Relax, this is a friendly territory, so no need to stress out over it."
-    b "Besides, we have more important stuff to discuss."
-    b "Like our Mission Briefing."
-    "I look up at Breeze as he crushes the Soda in his hand."
-    "From there, she suddenly pulled out a small device that was hidden inside the crushed can."
-    "I knew at first sight what it was and retreated to the center of the room."
-    s "Are you sure it’s safe to activate that here?"
-    b "It’s fine, like I said, nobody is going to bother us."
-    "Taking his word for it, I hesitantly channeled some of my magic into the device with him."
-    "We both did this until the device lit up, and a holographic miniature woman began to project out of the device."
-    "This projection was apparently the boss of the whole operation."
-    u "Greetings agents, I hope you’re doing well this evening."
-    u "Thank you very much for responding to the call."
-    "Even as I’m looking at her right now. It’s hard to keep calm when the boss is actually speaking to you."
-    "Fortunately this is probably just a recording, so I can still be relatively calm."
-    u "Sofi, are you paying attention?"
-    s "Wait... What?"
-    b "The boss asked you a question, newbie."
-    s "I... well...uh..."
-    u "You thought this was a recording, did you not?"
-    s "Uh..."
-    u "No need to hide it, I can see it in your eyes."
-    s "I’m So Sorry Ma’am! I didn’t mean any disrespect!"
-    s "I just didn’t think I would ever meet you!"
-    u "Relax, Relax, you are not in trouble."
-    u "I have not said anything yet."
-    s "...What?"
-    u "If you were worried about spacing out, I was just trying to make it look like you weren’t listening."
-    u "It’s a little joke I like to do around new recruits."
-    b "It’s not a very funny joke, in my opinion."
-    u "Aw, and I thought it was a very funny joke."
-    b "Well it’s a waste of time, so let’s just cut to the chase."
-    s "... For once, I agree."
-    u "...You guys are no fun."
-    u "Very well, we will skip the rest of the pleasantries."
-    b "So what’s the agenda for today?"
-    u "A few days ago, a video was beginning to circulate around social media."
-    u "It was your typical video about a few people exploring some abandoned facilities they were not supposed to, but when some of our intel watched it, it was cause for concern."
-    u "During one expedition, the man that was filming was apparently attacked by something inhuman."
-    s "Could it be some kind of animal attack?"
-    u "Our analysts thought the same, and under normal circumstances we would assume as much. However, every time this video was uploaded, it was immediately scrubbed off the site."
-    u "What is even stranger was that the data surrounding the video’s existence was completely erased."
-    u "Almost as if someone is trying to make it look like the video did not even exist in the first place."
-    u "This could only mean one thing if our hunch is clear."
-    u "Right, Breeze?"
-    b "It means that the video shows something that someone very powerful does not want to spread."
-    b "However, they’re going overkill. In their attempts to hide it, it just makes it more likely people will keep asking about it. Amateur work, honestly. ."
+    s "Wait, what? We can just... go up there?"
+    b "Yeah, it’s a weird business model, but the cafe also doubles as a short-stay inn upstairs."
+    b "Hm... bed and breakfast would probably have been a more appropriate business descriptor, but that wasn’t my choice to make so...."
 
-    ##* ## (The fk is this)
+    # Breeze shrugs
 
-    s "A Vibrant!? You mean those monsters created from magic corruption?"
-    u "It might be a possibility, and the administration is trying to cover up the fact that there is an outbreak right here in our city."
-    b "Do you have any idea where that video was filmed?"
-    u "Our people did a thorough investigation from analyzing the video, and we believe we have triangulated a general location based on reports from our undercover assets in the city."
-    u "From there, we narrowed down places where a potential nest could be, and that leads us... here. An old service tunnel that is been disused since the city came under new management."
-    u "Your devices will have received directions on where to go. \"Your mission is to conduct a reconnaissance operation. Go to the destination marked on your devices, determine if it's a single vibrant, a nest, or something more sinister. If luck is on our side, it will have only been an elaborate ruse from a man desperate for attention of the faceless masses."
-    s "Ma’am, if I may ask a question?"
-    u "You may ask your question, agent."
-    s "I was just thinking that... if it is a Vibrant, why would someone be trying so hard to cover it up?"
-    u "You have good instincts. Our analysts pondered the same question. From what we could gather..."
-    u "It does not look like any of the Vibrants we have seen."
-    b "Ah, so they think it’s New type then? And that, for whatever reason, someone doesn’t want it to be revealed?"
-    u "That is what our analysts believe, there is no record of a vibrant like that in our database. Therefore, we can only surmise that it must either be some sort of new type or that someone is trying to deceive the world into thinking that it is. Because of this, if it is a new type, we cannot be sure of what sort of capabilities it possesses. Exercise extreme caution."
-    u "Good luck, Agents."
-    u "And Breeze, if I may..."
+    s "Uh-huh..."
+
+    # Show the sprites begin to walk off screen, have Sofi stall
+
+    b "Something wrong?"
+    s "...You’re like...not gonna murder me, right?"
+    b "......."
+    s "....."
+    b "......."
+    s "...Please say something."
+    b "We... should probably hurry upstairs."
+    s "...That’s not a no."
+
+    scene black with fade 
+
+    # Fade in to private room upstairs, there’s nothing particularly special about it, it’s just a normal room
+    # Show Breeze in the corner while Sofi’s sprite is pacing around
+    # Breeze seems to be checking the time on his phone or something
+    s "Hey what was your name again, buddy?"
+    b "What? Did I forget to introduce myself?"
+    b "It’s Breeze."
+    s "Breeze huh? That is a wonderful name that your parents gave to you. Nice and… airy?"
+
+    # Reminder, sofi should still be pacing around, just reuse the same pacing code from the train scene if it exists
+    show sofi at right
+    show breeze at center 
+    s "And, my name is Sofi, of course. My parents told me that it means Wisdom, I guess they wanted me to grow up to be a wise girl. Though, I also heard that it might also mean pure? Name meanings are weird like that."
+    show sofi at left with move 
+    s "Ha… I’m not sure if I really live up to either of those names."
+    show sofi at right with move 
+    s "I mean, I came upstairs to a private room with a boy I just met for the first time today."
+    show sofi at left with move
+    s "I don’t usually do things like this, you know?"
+    show sofi at right with move
+    b "Yeaaaaah? I guess that’s- wait, did you say usually?"
+    show sofi at left with move
+    s "Eheheh, so… what else do you like, music? Movies? Books? Read any good books lately? I recently read a book about two people who got heartbroken and found comfort in each other."
+    show sofi at right with move
+    s "You know, in the fan community, there’s actually some debate about whether the two characters hooked up or not on that first night."
+    show sofi at left with move
+    s "My theory is that-"
+    show sofi at right with move
+    b "What are you doing?"
+    show sofi at left with move
+    s "Wh-what do you mean? I’m just making some light convo?"
+    show sofi at right with move
+    b "Noooooo, you’re wandering around the room like you’re looking for-"
+    show breeze at left with move
+    b "Wait a minute, you’re checking for bugs!"
+    s "Well, thanks for spelling it out! And why aren’t you doing the same, that’s like… one of the basic rules of covert operations! And you know how the state’s surveillance program has ramped up in recent years-"
+    s "Wait a minute, was that you guys?"
+    b "Uhhhhhh, maybe, but we’re not the only enemies of the state. On the surface, our guild, The Erasers, is just a normal monster hunting guild and other such odd jobs. The whole insurgency thing is for the inner circle."
+    b "But that’s beside the point, you don’t need to check for listening devices here."
+    b "Like I said, this place is friendly territory."
+    b "What I meant was that the guild uses this space as a money laundering front, among other things. So the staff here are our people."
+    b "I don’t really know the full details, need-to-know basis. Bottom line though, you don’t have to worry about the administration or a rival guild planting listening devices."
+    b "Lemme see your phone?"
+
+    # Sofi hands him the phone, this doesn’t need to be anything, just tilting Sofi towards Breeze’s sprite
+    s "What are you gonna do with it?"
+    b "I need to start the mission briefing."
+    
+    # Breeze pulls out his own phone, obviously he doesn't have a sprite for that
+    b "Your phone’s newer than mine. No problem, no problem, lemme just… figure this out..."
+    # beeping noise
+    b "Okay got it."
+    # Breeze puts the phones down on the table, both phones are glowing
+    ## From both phones, something starts to form between them. A small projection of a humanoid shape.
+    s "I stared blankly at the figure until recognition started to form. I’d only ever seen her once before, but this would probably be the first time I’ve seen her up close."
+    s "A small hologram of the leader of the guild, in a small and cute form, appeared on the table."
+    # Kizuna’s sprite should be visible now. I don’t know if we’re using a chibi kizuna or just a shrunken down version of her full sprite
+    s "Ms Kizuna."
+    k "Greetings agents, I hope you’re doing well this evening."
+    s "Even as I’m looking at her right now. It’s hard to keep calm when the boss is actually speaking to you."
+    s "Fortunately this is probably just a recording."
+    k "Sofi, are you paying attention?"
+    b "Anywaaaays, let’s just cut to the chase."
+    k "Very well, we will skip the pleasantries."
+    k "A few days ago, a video began to circulate around social media."
+    k "The uploader is… um…"
+    k "XXXTresPassinNathan69?"
+
+    # Snickering Sofi sound
+    # Beat
+    # Sofi throat clear
+
+    s "Sorry."
+    k "Right… well, this… mr Nathan’s content is primarily, him… trespassing, and then filming it."
+    k "Under normal circumstances, this wouldn’t be relevant to our goals. However…"
+
+    # Show bg sewer tunnel, shake the cam a bit as if it’s being filmed, no dialogue though because I don’t want to
+    # Hold the scene
+    # Show a Vibrant sprite (probably the base form but with a non-red color) rush across the screen and blur it like it’s a motion blur
+    # Pause the image or show the shake then the pause
+
+    s "What is that? Some kind of animal?""
+    k "Our analysts thought the same, and under normal circumstances we would assume as much. However, every time this video was uploaded, it was immediately scrubbed off the site as well as search engines."
+    b "Someone’s trying to bury the video?"
+    s "Is that really so strange? Lots of people get videos taken down."
+    b "That’s true but… our analysts wouldn’t just engage in conspiracy theories, there’s something else in the video? If it was just an animal attack, why try so hard to hide it?"
+
+    # Breeze gets closer to the image
+    b "Zoom in on that blurry thing right there?"
+
+    # make the blurry vibrant bigger
+    b "...Is that a vibrant? Why does it look like that?"
+    # The vibrant is probably a strange color, this is an easy thing to do with access to the assets
+
+    k "We are unsure."
+    k "If that is indeed a vibrant, it is not one we’ve ever seen before."
+    k "In the best case scenario, it is either an animal or a fabrication."
+    s "And, worst case scenario?"
+    k "...A mutant strain, a new breed, a hybrid, whether it’s a solitary predator or part of a larger nest. There is no record of such a creature in our database, that means this creature, if it is a vibrant is an anomaly of sorts." 
+    k "And that, my dear agents, are what you are to uncover."
+    b "So, this is a recon mission, essentially?" 
+    b "Alright. Where that video was filmed?"
+    k "Our people did a thorough investigation from analyzing the video, and we believe we have triangulated a general location based on reports from our undercover assets in the city."
+    k "From there, we narrowed down places where a potential nest could be, and that leads us… here." 
+    k "An old service tunnel that has been in disuse since the city came under new management." 
+    k "Your mission is to conduct a reconnaissance operation. Go to the destination marked on your devices, determine if it's a single vibrant, a nest, or something more sinister, then report in." 
+    k "If luck is on our side, it will have only been an elaborate ruse from a man desperate for the attention of the faceless masses."
+    k "I will also remind you to exercise extreme caution. If this is indeed a new strain, then its capabilities are unknown.""
+    k "And Breeze, if I may…"
     b "What’s up, Kizu-nee?"
-    u "....This is strictly a reconnaissance mission."
-    u "Do not do anything unnecessary. I do not care for reckless agents who get themselves killed."
-    u "I hope to see you soon, safe and sound."
-    "And just like that, the transmission ended and the device used to communicate with her suddenly broke into pieces."
-    "The communication devices were designed that way to hide any evidence and prevent any outside forces from tapping into our frequencies during calls."
-    "But even knowing that, didn’t stop me from jumping up in surprise."
-    b "You okay?"
-    "I look up and see Breeze staring at me with a stern but compassionate expression."
-    s "Just trying to process what just happened is all."
-    s "It still all feels so surreal even after I got to meet you and the boss."
-    b "Yeah well, process it faster."
-    b "We got a mission to take care of."
-    "And just like that, Breeze began to walk out the bathroom, as he left me to my thoughts."
-    "As I looked back at him, I couldn’t help but think about my new partner in crime."
-    "He’s cold, stern, and either lacks any self-awareness or merely doesn’t care what others think."
-    "On the other hand, he seems reliable, wise, and isn’t afraid to speak his mind."
-    "I don’t know why, but it feels like I can trust him, despite his quirks."
-    b "Hey, you coming or what?"
-    s "Oh, sorry!"
-    "And so, realizing that he was leaving without me, I began to run out of the cafe with him."
-    "I wasn’t sure what was going to happen once we got to our destination, but I only hoped we could both make it out alive."
-    "Because, despite our rocky introductions, I kinda want to understand this guy a little more."""
+    k "....This is strictly a reconnaissance mission."
+    k "Do not do anything unnecessary. I do not care for reckless agents who get themselves killed."
+    k "May safe winds guide your sails back to me, my Erasers."
 
     return

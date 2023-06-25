@@ -2,7 +2,7 @@ define b = Character("Breeze", image="breezeside")
 define s = Character("Sofi", image="sofiside")
 define f = Character("Flair")
 define a = Character("Azmaveth")
-define k = Character("Kizuna")
+define k = Character("Kizuna") 
 
 define u = Character("???")
 define cc = Character("Cafe Cashier")
@@ -11,6 +11,7 @@ define g2 = Character("Goon 2")
 define ms = Character("Magic Scientist")
 define fi = Character("Intercom")
 define e = Character("Evan@HorizonsNetwork", who_color="#c8ffc8")
+define noa = Character("Noa from Twisted Fates")
 
 define n = nvl_narrator
 
