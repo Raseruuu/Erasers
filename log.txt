@@ -1,81 +1,52 @@
-Sat Jun 24 20:23:27 2023
+Sat Jun 24 23:06:14 2023
 Windows-10-10.0.19045
 Ren'Py 8.1.1.23052503+nightly
  
 
 Bootstrap to the start of init.init. took 0.04s
 Early init. took 0.00s
-Loader init. took 0.04s
-Loading error handling. took 0.08s
-Loading script. took 1.22s
-Loading save slot metadata. took 0.13s
-Loading persistent. took 0.00s
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 355: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        s "What is that? Some kind of animal?""
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start. took 0.48s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 531.41'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 18.09s
-Early init. took 0.00s
 Loader init. took 0.03s
-Loading error handling. took 0.02s
-Loading script. took 0.18s
-Loading save slot metadata. took 0.03s
+Loading error handling. took 0.04s
+Loading script. took 0.42s
+Loading save slot metadata. took 0.04s
 Loading persistent. took 0.00s
 
-File "game/Scripts/chapter1 pretunnel.rpy", line 381: is not terminated with a newline. (Check strings and parenthesis.)
+File "game/Scripts/chapter2 tunnel-1.rpy", line 1: expected statement.
+    from turtle import left
+                           ^
+
+File "game/Scripts/chapter2 tunnel-1.rpy", line 277: end of line expected.
 (Perhaps you left out a " at the end of the first line.)
-        k "I will also remind you to exercise extreme caution. If this is indeed a new strain, then its capabilities are unknown.""
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start. took 0.48s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 531.41'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 41.72s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.02s
-Loading script. took 0.23s
-Loading save slot metadata. took 0.03s
-Loading persistent. took 0.00s
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 1: expected statement.
-    from http.client import FAILED_DEPENDENCY
+    g1 "That’s all we know! We're just low-level grunts!
+        g2 "They don't tell us anything because of this exact situation!"
              ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 2: expected statement.
-    from turtle import right
-                            ^
+        b "Is that everything?"
+    
+        # Insert a brief pause here, as if they’re trying to think of something worth saying
+        # I wrote some notes in the SoE on this, I’m just gonna copy paste that later when I don’t have one eye stuck closed
+        g2 "I'm still scared of the dark so I sleep with all my lights on. My power bill is massive."
+        g1 "I spend all the money I make from this job on gacha games and simping."
+        g2 "My actual name is Boodle, my dad was extremely high when he named me and my mom thought it was cute. The playground bullies did not find it cute at all."
+        g1 "I'm more scared of my sister than I am of you. She's nine and she expertly roasts me regularly!"
+        g2 "I write r18 fics about my friends!"
+        g1 "Wait what?"
+        g2 "Nothing!"
+    
+        # beat
+    
+        s "I... think that’s all we’re gonna get out of them."
+        b "Yeah you’re probably right, rookie."
+        g2 "Great... soooooo, you’ll let us go?"
+        b "That wasn’t part of the deal."
+        # ice sword forming sound
+        # shake the goon sprites like they’re scared to die
+        b "But... I suppose I could be persuaded. But I’m gonna need some... favors."
+        g1 " *crying* "
+        g2 " *slow building scream*
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Interface start. took 0.40s
+Interface start. took 0.41s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)
@@ -88,39 +59,161 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init. took 64.38s
+Bootstrap to the start of init.init. took 16.10s
 Early init. took 0.00s
 Loader init. took 0.03s
 Loading error handling. took 0.02s
-Loading script. took 0.24s
+Loading script. took 0.20s
 Loading save slot metadata. took 0.03s
 Loading persistent. took 0.00s
-Running init code. took 0.20s
-Loading analysis data. took 0.02s
+
+File "game/Scripts/chapter2 tunnel-1.rpy", line 274: end of line expected.
+(Perhaps you left out a " at the end of the first line.)
+    g1 "That’s all we know! We're just low-level grunts!
+        g2 "They don't tell us anything because of this exact situation!"
+             ^
+        b "Is that everything?"
+    
+        # Insert a brief pause here, as if they’re trying to think of something worth saying
+        # I wrote some notes in the SoE on this, I’m just gonna copy paste that later when I don’t have one eye stuck closed
+        g2 "I'm still scared of the dark so I sleep with all my lights on. My power bill is massive."
+        g1 "I spend all the money I make from this job on gacha games and simping."
+        g2 "My actual name is Boodle, my dad was extremely high when he named me and my mom thought it was cute. The playground bullies did not find it cute at all."
+        g1 "I'm more scared of my sister than I am of you. She's nine and she expertly roasts me regularly!"
+        g2 "I write r18 fics about my friends!"
+        g1 "Wait what?"
+        g2 "Nothing!"
+    
+        # beat
+    
+        s "I... think that’s all we’re gonna get out of them."
+        b "Yeah you’re probably right, rookie."
+        g2 "Great... soooooo, you’ll let us go?"
+        b "That wasn’t part of the deal."
+        # ice sword forming sound
+        # shake the goon sprites like they’re scared to die
+        b "But... I suppose I could be persuaded. But I’m gonna need some... favors."
+        g1 " *crying* "
+        g2 " *slow building scream*
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start. took 0.36s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 531.41'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 34.23s
+Early init. took 0.00s
+Loader init. took 0.03s
+Loading error handling. took 0.02s
+Loading script. took 0.16s
+Loading save slot metadata. took 0.03s
+Loading persistent. took 0.00s
+
+File "game/Scripts/chapter2 tunnel-1.rpy", line 298: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        g2 " *slow building scream*
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start. took 0.37s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 531.41'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 64.41s
+Early init. took 0.00s
+Loader init. took 0.03s
+Loading error handling. took 0.02s
+Loading script. took 0.19s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+
+Full traceback:
+  File "game/definition.rpy", line 15, in script
+    define un = character("? ? ? ? ?")
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 2508, in execute
+    self.set()
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 2522, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/definition.rpy", line 15, in <module>
+    define un = character("? ? ? ? ?")
+NameError: name 'character' is not defined
+
+While running game code:
+  File "game/definition.rpy", line 15, in script
+    define un = character("? ? ? ? ?")
+  File "game/definition.rpy", line 15, in <module>
+    define un = character("? ? ? ? ?")
+NameError: name 'character' is not defined
+DPI scale factor: 1.000000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Interface start. took 0.44s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 2560, 1440)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 531.41'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 111.48s
+Early init. took 0.00s
+Loader init. took 0.03s
+Loading error handling. took 0.02s
+Loading script. took 0.16s
+Loading save slot metadata. took 0.02s
+Loading persistent. took 0.00s
+Running init code. took 0.03s
+Loading analysis data. took 0.01s
 Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.10s
+Reloading save slot metadata. took 0.02s
 Index archives took 0.00s
 Backing up script files to 'C:\\Users\\rkski\\AppData\\Roaming/RenPy/backups\\Erasers':
 Dump and make backups. took 0.06s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.02s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object. took 0.31s
+Creating interface object. took 0.28s
 Cleaning stores took 0.00s
-Init translation took 0.04s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.08s
+Prepare screens took 0.07s
 Save pyanalysis. took 0.02s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.05s
+Interface start. took 0.04s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 2560, 1440)

@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter1 pretunnel.rpy", line 1: expected statement.
-    from http.client import FAILED_DEPENDENCY
-             ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 2: expected statement.
-    from turtle import right
-                            ^
+File "game/Scripts/chapter2 tunnel-1.rpy", line 298: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        g2 " *slow building scream*
 
 Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Sat Jun 24 20:24:09 2023
+Sat Jun 24 23:06:48 2023

@@ -12,6 +12,7 @@ define ms = Character("Magic Scientist")
 define fi = Character("Intercom")
 define e = Character("Evan@HorizonsNetwork", who_color="#c8ffc8")
 define noa = Character("Noa from Twisted Fates")
+define un = Character("? ? ? ? ?")
 
 define n = nvl_narrator
 
@@ -81,3 +82,16 @@ transform test1:
 
 transform flipflip:
     linear 0.1 xzoom -1
+
+###############
+## Screen positions ##
+###############
+$ slightleft = Position(xpos=0.3, xanchor='left')
+$ thirdleft = Position(xpos=0.2, xanchor='left')
+$ halfleft = Position(xpos=0.1, xanchor='left')
+$ extremeleft = Position(xpos=-0.2, xanchor='left')
+$ center = Position(xpos=0.5, xanchor='center')
+$ slightright = Position(xpos=0.6, xanchor='right')
+$ thirdright = Position(xpos=0.75, xanchor='right')
+$ halfright = Position(xpos=0.9, xanchor='right')
+$ extremeright = Position(xpos=1.1, xanchor='right')

@@ -380,5 +380,5 @@ label pretunnel:
     k "...This is strictly a reconnaissance mission."
     k "Do not do anything unnecessary. I do not care for reckless agents who get themselves killed."
     k "May safe winds guide your sails back to me, my Erasers."
-
+    jump tunnel
     return

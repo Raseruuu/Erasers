@@ -1,66 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/combat/combat python.rpy", line 19, in script call
-    call combat
-  File "game/combat/combat python.rpy", line 106, in script call
-    pause ##gameplay here
-  File "game/combat/combat python.rpy", line 106, in script
-    pause ##gameplay here
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "renpy/common/00action_other.rpy", line 543, in __call__
-    rv = self.callable(*self.args, **self.kwargs)
-  File "game/combat/combat data.rpy", line 54, in ticking
-    i = [i.name, (i.hp), 0, 0, 0, i.dmg, i.cd, 0, 0] ## Rat replacement
-AttributeError: 'RevertableList' object has no attribute 'name'
+  File "game/definition.rpy", line 15, in script
+    define un = character("? ? ? ? ?")
+  File "game/definition.rpy", line 15, in <module>
+    define un = character("? ? ? ? ?")
+NameError: name 'character' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/combat/combat python.rpy", line 19, in script call
-    call combat
-  File "game/combat/combat python.rpy", line 106, in script call
-    pause ##gameplay here
-  File "game/combat/combat python.rpy", line 106, in script
-    pause ##gameplay here
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2212, in execute
-    self.call("execute")
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2200, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\statements.py", line 281, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 455, in execute_pause
-    renpy.pause()
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\exports.py", line 1533, in pause
-    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 4251, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 743, in event
-    rv = self.child.event(ev, x, y, st)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\layout.py", line 1175, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\behavior.py", line 2395, in event
-    return run(self.function, *self.args, **self.kwargs)
-  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\behavior.py", line 329, in run
-    return action(*args, **kwargs)
-  File "renpy/common/00action_other.rpy", line 543, in __call__
-    rv = self.callable(*self.args, **self.kwargs)
-  File "game/combat/combat data.rpy", line 54, in ticking
-    i = [i.name, (i.hp), 0, 0, 0, i.dmg, i.cd, 0, 0] ## Rat replacement
-AttributeError: 'RevertableList' object has no attribute 'name'
+  File "game/definition.rpy", line 15, in script
+    define un = character("? ? ? ? ?")
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 2508, in execute
+    self.set()
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 2522, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/definition.rpy", line 15, in <module>
+    define un = character("? ? ? ? ?")
+NameError: name 'character' is not defined
 
 Windows-10-10.0.19045 AMD64
-Ren'Py 8.0.0.22062402
+Ren'Py 8.1.1.23052503+nightly
 Erasers 1.0
-Sun Jun 25 02:10:36 2023
+Sat Jun 24 23:07:18 2023
