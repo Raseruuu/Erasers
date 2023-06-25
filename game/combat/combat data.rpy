@@ -108,12 +108,33 @@ init -50 python:
     flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 20.0]) ##2, 20
     breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.5, 1.5, 10.0])
 
+    skillcard = { "Attack": "cardblade",
+                    "Shard": "cardshard",
+                    "Blizzard": "cardblade",
+                    "Shield": "cardblade",
+                    "Heal": "cardblade",
+                    "Firebolt": "cardblade",
+                    "Inferno": "cardblade"}
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
                     "Attack": 15, "Shard": 20,
                     "Blizzard": 0,
                     "Shield": 50, "Heal": 100,
                     "Firebolt": 30, "Inferno": 70
                     }
+    skillcd = {"Attack": 1.5, "Shard": 3,
+                "Blizzard": 10,
+                "Shield": 6, "Heal": 10,
+                "Firebolt": 2, "Inferno": 20
+                }
+    skilldesc = {
+                "Attack": "Strike it like it's hot.",
+                "Shard": "ice ice baby",
+                "Blizzard": "Freezes all chilled enemies, halting their actions. Frozen enemies can be shattered upon impact.",
+                "Shield": "AT field",
+                "Heal": "recharge",
+                "Firebolt": "magic missile! magic missile!",
+                "Inferno": "You see me burning, you hating."
+                }
     # actsound = {"Attack": blade, "Shard": ice,
     #             "Shield": blade, "Heal": blade,
     #             "Firebolt": blade, "Inferno": inferno}

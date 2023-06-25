@@ -1,227 +1,669 @@
-Sat Jun 24 23:06:14 2023
+Mon Jun 26 01:27:36 2023
 Windows-10-10.0.19045
-Ren'Py 8.1.1.23052503+nightly
+Ren'Py 8.0.0.22062402
  
 
-Bootstrap to the start of init.init. took 0.04s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.04s
-Loading script. took 0.42s
-Loading save slot metadata. took 0.04s
-Loading persistent. took 0.00s
-
-File "game/Scripts/chapter2 tunnel-1.rpy", line 1: expected statement.
-    from turtle import left
-                           ^
-
-File "game/Scripts/chapter2 tunnel-1.rpy", line 277: end of line expected.
-(Perhaps you left out a " at the end of the first line.)
-    g1 "That’s all we know! We're just low-level grunts!
-        g2 "They don't tell us anything because of this exact situation!"
-             ^
-        b "Is that everything?"
-    
-        # Insert a brief pause here, as if they’re trying to think of something worth saying
-        # I wrote some notes in the SoE on this, I’m just gonna copy paste that later when I don’t have one eye stuck closed
-        g2 "I'm still scared of the dark so I sleep with all my lights on. My power bill is massive."
-        g1 "I spend all the money I make from this job on gacha games and simping."
-        g2 "My actual name is Boodle, my dad was extremely high when he named me and my mom thought it was cute. The playground bullies did not find it cute at all."
-        g1 "I'm more scared of my sister than I am of you. She's nine and she expertly roasts me regularly!"
-        g2 "I write r18 fics about my friends!"
-        g1 "Wait what?"
-        g2 "Nothing!"
-    
-        # beat
-    
-        s "I... think that’s all we’re gonna get out of them."
-        b "Yeah you’re probably right, rookie."
-        g2 "Great... soooooo, you’ll let us go?"
-        b "That wasn’t part of the deal."
-        # ice sword forming sound
-        # shake the goon sprites like they’re scared to die
-        b "But... I suppose I could be persuaded. But I’m gonna need some... favors."
-        g1 " *crying* "
-        g2 " *slow building scream*
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start. took 0.41s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 531.41'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 16.10s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.02s
-Loading script. took 0.20s
-Loading save slot metadata. took 0.03s
-Loading persistent. took 0.00s
-
-File "game/Scripts/chapter2 tunnel-1.rpy", line 274: end of line expected.
-(Perhaps you left out a " at the end of the first line.)
-    g1 "That’s all we know! We're just low-level grunts!
-        g2 "They don't tell us anything because of this exact situation!"
-             ^
-        b "Is that everything?"
-    
-        # Insert a brief pause here, as if they’re trying to think of something worth saying
-        # I wrote some notes in the SoE on this, I’m just gonna copy paste that later when I don’t have one eye stuck closed
-        g2 "I'm still scared of the dark so I sleep with all my lights on. My power bill is massive."
-        g1 "I spend all the money I make from this job on gacha games and simping."
-        g2 "My actual name is Boodle, my dad was extremely high when he named me and my mom thought it was cute. The playground bullies did not find it cute at all."
-        g1 "I'm more scared of my sister than I am of you. She's nine and she expertly roasts me regularly!"
-        g2 "I write r18 fics about my friends!"
-        g1 "Wait what?"
-        g2 "Nothing!"
-    
-        # beat
-    
-        s "I... think that’s all we’re gonna get out of them."
-        b "Yeah you’re probably right, rookie."
-        g2 "Great... soooooo, you’ll let us go?"
-        b "That wasn’t part of the deal."
-        # ice sword forming sound
-        # shake the goon sprites like they’re scared to die
-        b "But... I suppose I could be persuaded. But I’m gonna need some... favors."
-        g1 " *crying* "
-        g2 " *slow building scream*
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start. took 0.36s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 531.41'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 34.23s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.02s
-Loading script. took 0.16s
-Loading save slot metadata. took 0.03s
-Loading persistent. took 0.00s
-
-File "game/Scripts/chapter2 tunnel-1.rpy", line 298: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        g2 " *slow building scream*
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start. took 0.37s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 531.41'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 64.41s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.02s
-Loading script. took 0.19s
+Bootstrap to the start of init.init took 0.04s
+Early init took 0.00s
+Loader init took 0.02s
+Loading error handling took 0.03s
+Loading script took 0.15s
 Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-
-Full traceback:
-  File "game/definition.rpy", line 15, in script
-    define un = character("? ? ? ? ?")
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 2508, in execute
-    self.set()
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 2522, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\python.py", line 1146, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/definition.rpy", line 15, in <module>
-    define un = character("? ? ? ? ?")
-NameError: name 'character' is not defined
-
-While running game code:
-  File "game/definition.rpy", line 15, in script
-    define un = character("? ? ? ? ?")
-  File "game/definition.rpy", line 15, in <module>
-    define un = character("? ? ? ? ?")
-NameError: name 'character' is not defined
-DPI scale factor: 1.000000
-nvdrs: Loaded, about to disable thread optimizations.
-nvdrs: Disabled thread optimizations.
-Interface start. took 0.44s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 531.41'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 111.48s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.02s
-Loading script. took 0.16s
-Loading save slot metadata. took 0.02s
-Loading persistent. took 0.00s
-Running init code. took 0.03s
-Loading analysis data. took 0.01s
-Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.05s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
 Index archives took 0.00s
-Backing up script files to 'C:\\Users\\rkski\\AppData\\Roaming/RenPy/backups\\Erasers':
-Dump and make backups. took 0.06s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.03s
-DPI scale factor: 1.000000
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.02s
+DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object. took 0.28s
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.02s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.06s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 25.26s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
 Cleaning stores took 0.00s
 Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
 Save screen analysis took 0.02s
-Prepare screens took 0.07s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/combat/combat python.rpy", line 19, in script call
+    call combat
+  File "game/combat/combat python.rpy", line 108, in script
+    pause ##gameplay here
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2212, in execute
+    self.call("execute")
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2200, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 455, in execute_pause
+    renpy.pause()
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\exports.py", line 1533, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 451, in visit_all
+    callback(self)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 462, in per_interact
+    self.update()
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 653, in update
+    self.screen.function(**self.scope)
+  File "game/combat/combat screen.rpy", line 1, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 1, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 25, in execute
+    use actbutton
+  File "game/combat/combat screen.rpy", line 146, in execute
+    screen actbutton:
+  File "game/combat/combat screen.rpy", line 146, in execute
+    screen actbutton:
+  File "game/combat/combat screen.rpy", line 149, in execute
+    if breeze in combatant:
+  File "game/combat/combat screen.rpy", line 150, in execute
+    use breezeact
+  File "game/combat/combat screen.rpy", line 180, in execute
+    screen breezeact:
+  File "game/combat/combat screen.rpy", line 180, in execute
+    screen breezeact:
+  File "game/combat/combat screen.rpy", line 181, in execute
+    fixed: ##Breeze action buttons
+  File "game/combat/combat screen.rpy", line 183, in execute
+    hbox:
+  File "game/combat/combat screen.rpy", line 186, in execute
+    for i, j in enumerate(breeze.list):
+  File "game/combat/combat screen.rpy", line 187, in execute
+    fixed:
+  File "game/combat/combat screen.rpy", line 189, in execute
+    button:
+  File "game/combat/combat screen.rpy", line 201, in execute
+    add cardblade
+  File "game/combat/combat screen.rpy", line 201, in <module>
+    add cardblade
+NameError: name 'cardblade' is not defined
+
+While running game code:
+  File "game/combat/combat python.rpy", line 19, in script call
+    call combat
+  File "game/combat/combat python.rpy", line 108, in script
+    pause ##gameplay here
+  File "renpy/common/000statements.rpy", line 455, in execute_pause
+    renpy.pause()
+  File "game/combat/combat screen.rpy", line 1, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 1, in execute
+    screen combat:
+  File "game/combat/combat screen.rpy", line 25, in execute
+    use actbutton
+  File "game/combat/combat screen.rpy", line 146, in execute
+    screen actbutton:
+  File "game/combat/combat screen.rpy", line 146, in execute
+    screen actbutton:
+  File "game/combat/combat screen.rpy", line 149, in execute
+    if breeze in combatant:
+  File "game/combat/combat screen.rpy", line 150, in execute
+    use breezeact
+  File "game/combat/combat screen.rpy", line 180, in execute
+    screen breezeact:
+  File "game/combat/combat screen.rpy", line 180, in execute
+    screen breezeact:
+  File "game/combat/combat screen.rpy", line 181, in execute
+    fixed: ##Breeze action buttons
+  File "game/combat/combat screen.rpy", line 183, in execute
+    hbox:
+  File "game/combat/combat screen.rpy", line 186, in execute
+    for i, j in enumerate(breeze.list):
+  File "game/combat/combat screen.rpy", line 187, in execute
+    fixed:
+  File "game/combat/combat screen.rpy", line 189, in execute
+    button:
+  File "game/combat/combat screen.rpy", line 201, in execute
+    add cardblade
+  File "game/combat/combat screen.rpy", line 201, in <module>
+    add cardblade
+NameError: name 'cardblade' is not defined
+Resetting cache.
+Bootstrap to the start of init.init took 46.09s
+Early init took 0.00s
+Loader init took 0.02s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata. took 0.01s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.25s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.01s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 93.47s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.25s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.04s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/combat/combat python.rpy", line 19, in script call
+    call combat
+  File "game/combat/combat python.rpy", line 108, in script
+    pause ##gameplay here
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2212, in execute
+    self.call("execute")
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ast.py", line 2200, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\statements.py", line 281, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 455, in execute_pause
+    renpy.pause()
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\exports.py", line 1533, in pause
+    rv = renpy.ui.interact(mouse='pause', type='pause', roll_forward=roll_forward, pause=delay)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3376, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, **kwargs) # type: ignore
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in interact_core
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\screen.py", line 456, in visit_all
+    self.child.visit_all(callback, seen=None)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 582, in visit_all
+    d.visit_all(callback, seen)
+  [Previous line repeated 3 more times]
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 584, in visit_all
+    callback(self)
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\display\core.py", line 3803, in <lambda>
+    root_widget.visit_all(lambda i : i.per_interact())
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\text\text.py", line 1731, in per_interact
+    if self.style.slow_abortable:
+  File "gen3-static/styleclass.pxi", line 533, in renpy.styledata.styleclass.Style.slow_abortable.__get__
+  File "style.pyx", line 493, in renpy.style.StyleCore._get
+  File "style.pyx", line 710, in renpy.style.build_style
+  File "style.pyx", line 707, in renpy.style.build_style
+  File "gen3-static/style_functions.pyx", line 323, in style_functions.color_property
+  File "C:\Renpy\renpy-8.0.0-sdk\renpy\color.py", line 167, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string 'black' must be 3, 4, 6, or 8 hex digits long.
+
+While processing the color property of anonymous style:
+  File "game/combat/combat python.rpy", line 19, in script call
+    call combat
+  File "game/combat/combat python.rpy", line 108, in script
+    pause ##gameplay here
+  File "renpy/common/000statements.rpy", line 455, in execute_pause
+    renpy.pause()
+Exception: Color string 'black' must be 3, 4, 6, or 8 hex digits long.
+Resetting cache.
+Bootstrap to the start of init.init took 122.08s
+Early init took 0.00s
+Loader init took 0.02s
+Loading error handling took 0.02s
+Loading script took 0.12s
+Loading save slot metadata. took 0.01s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.02s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.25s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 147.83s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.01s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 249.08s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata. took 0.01s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.02s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
 Save pyanalysis. took 0.02s
 Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.04s
+Interface start took 0.03s
 
 Initializing gl2 renderer:
-primary display bounds: (0, 0, 2560, 1440)
+primary display bounds: (0, 0, 1920, 1080)
 swap interval: 1 frames
 Windowed mode.
 Vendor: "b'NVIDIA Corporation'"
-Renderer: b'NVIDIA GeForce RTX 2060 SUPER/PCIe/SSE2'
-Version: b'4.6.0 NVIDIA 531.41'
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
 Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1920, 1080) drawable=(1920, 1080)
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 277.73s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.02s
+Loading script took 0.14s
+Loading save slot metadata. took 0.01s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.05s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.04s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.24s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 313.31s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.02s
+Loading script took 0.13s
+Loading save slot metadata. took 0.01s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 335.97s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.01s
+Loading script took 0.13s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.26s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.02s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init took 463.84s
+Early init took 0.00s
+Loader init took 0.03s
+Loading error handling took 0.02s
+Loading script took 0.11s
+Loading save slot metadata. took 0.02s
+Loading persistent took 0.00s
+Faled to initialize steam: FileNotFoundError("Could not find module 'C:\\Renpy\\renpy-8.0.0-sdk\\lib\\py3-windows-x86_64\\steam_api64.dll' (or one of its dependencies). Try using the full path with constructor syntax.")
+Running init code took 0.03s
+Loading analysis data took 0.01s
+Analyze and compile ATL took 0.00s
+Index archives took 0.00s
+Backing up script files to 'C:\\Users\\Jeroz\\AppData\\Roaming/RenPy/backups\\Erasers':
+Dump and make backups. took 0.04s
+Cleaning cache took 0.00s
+Making clean stores took 0.00s
+Initial gc. took 0.03s
+DPI scale factor: 1.250000
+nvdrs: Loaded, about to disable thread optimizations.
+nvdrs: Disabled thread optimizations.
+Creating interface object took 0.25s
+Cleaning stores took 0.00s
+Init translation took 0.03s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.01s
+Save screen analysis took 0.01s
+Prepare screens took 0.05s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start took 0.03s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1920, 1080)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'NVIDIA Corporation'"
+Renderer: b'NVIDIA GeForce GTX 1650/PCIe/SSE2'
+Version: b'4.6.0 NVIDIA 517.00'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1724, 970) drawable=(1724, 970)
 Maximum texture size: 4096x4096

@@ -1,8 +1,8 @@
 define b = Character("Breeze", image="breezeside")
 define s = Character("Sofi", image="sofiside")
 define f = Character("Flair")
-define a = Character("Azmaveth")
-define k = Character("Kizuna") 
+define a = Character("Azmaveth", image="azside")
+define k = Character("Kizuna")
 
 define u = Character("???")
 define cc = Character("Cafe Cashier")
@@ -21,12 +21,16 @@ define n = nvl_narrator
 ###############
 image sofi = im.FactorScale("images/sprite/sofi2.png", 0.52)
 image breeze = im.FactorScale("images/sprite/breeze.png", 0.26)
+##TODO: image flair =
+image az = im.FactorScale("images/sprite/temp-laughinghand.webp", 1.0)
+## TODO: image kizuna =
 
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
 image side sofiside = im.FactorScale(im.Crop("images/sprite/sofi2.png", (400, 265, 1000, 1000)), 0.4)
 image side breezeside = im.FactorScale(im.Crop("images/sprite/breeze2.png", (500, 150, 1000, 1000)), 0.4)
+image side azside = "images/sprite/aztemp.png"
 
 image bgpark = "images/bg/bgpark.jpg"
 image bgcafe = "images/bg/temp_bg_cafe.webp"

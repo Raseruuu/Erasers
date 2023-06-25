@@ -33,12 +33,12 @@ label ratrespawn:
         if ratkilled == 1:
             midtalk = "ratnew"
             renpy.call("midfight") ## first reappear
-        # if fighttalk == False and ratkilled == 3:
-        #     midtalk = "rattalk"
-        #     renpy.call("midfight") ## Flair joins in.
-        # if ratkilled >=9:
-        #     midtalk = "ratlast"
-        #     renpy.call("midfight")
+        if fighttalk == False and ratkilled == 3:
+            midtalk = "rattalk"
+            renpy.call("midfight") ## Flair joins in.
+        if ratkilled >=9:
+            midtalk = "ratlast"
+            renpy.call("midfight")
     jump combatloop
 label ratnew:
     show screen combat

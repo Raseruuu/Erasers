@@ -66,6 +66,8 @@ label combat:
         target = targettemp = 0 ## the enemy being attacked
         hitsound = hit
         atksound = blade
+        desc = None
+        descpos = 750
 
         ## Midfight talks
         fighttalk = False

@@ -1,22 +1,41 @@
 image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze2.png", (600, 150, 850, 1000)), 0.3)
+
 ## Enemies ##
 image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (000, 100, 2200, 3000)), 0.16) #200
+#TODO: image goonmob =
+##TODO: update
 image ratmob = im.FactorScale("images/sprite/rat.png", 0.6)
-image azmob = im.FactorScale("images/sprite/temp-laughinghand.webp", 0.5)
+#TODO: image alvmob =
 image alvmob = im.FactorScale("images/sprite/blame-anime.gif", 0.5)
+## TODO: update AZ
+image azmob = im.FactorScale("images/sprite/temp-laughinghand.webp", 0.5)
+## placeholder
 image greenmob = "images/sprite/green.png"
-
-image targetsign = im.FactorScale("gui/target.png", 0.3)
 
 ##debuff signs
 image fire = im.FactorScale("gui/fire.png", 0.3)
 image ice = im.FactorScale("gui/ice.png", 0.05)
+image targetsign = im.FactorScale("gui/target.png", 0.3)
 
-## Battle Music
+## command cards ####################
+image cardblade = "images/combat/cards/cardblade.png"
+# image cardshard =
+# image cardshield =
+# image cardheal =
+# image cardfirebolt =
+# image cardinferno =
+# image cardblizzard =
+# image cardiceblock =
+
+## Battle Music #######################################################
+## First 2, pending replacement
 define battle = "sound/Battle_Theme_ogg.ogg"
-define overtheblood = "sound/temp/youfulca-over-the-blood_loop.ogg"
-define gameover = "sound/temp/youfulca-Horror-juki_loop.ogg"
+## Alv fight
 define tanzanite = "sound/temp/BGM_Theme3_Tanzanite_FSPC2.ogg"
+## AZ fight
+define overtheblood = "sound/temp/youfulca-over-the-blood_loop.ogg"
+## Gameover music
+define gameover = "sound/temp/youfulca-Horror-juki_loop.ogg"
 ################################################################
 ## ATK VFX
 image atkblade = im.FactorScale("blade.png", 0.5)
@@ -25,14 +44,19 @@ image atkshard = im.FactorScale("shard.png", 0.5)
 # image atkheal
 # image atkfirebolt
 image atkinferno = im.FactorScale("inferno.png", 2.5)
+# image atkblizzard =
+# image atkiceblock =
 
-## attacking sfx
+## ATK SFX
 define blade = "sound/sfx/pigmyon/swordstrike.mp3"
-define ice = "sound/sfx/pigmyon/shard.mp3"
-##TODO: heal
-##TODO: shield
-##TODO: Firebolt
-define inferno = "sound/sfx/opengameart/foom_0.ogg"
+define ice = "sound/sfx/wowsound/RPG3_IceMagic2_LightImpact01_.mp3" #"sound/sfx/pigmyon/shard.mp3"
+define healing = "sound/sfx/wowsound/RPG_Buff_08.mp3"
+define shielding = "sound/sfx/wowsound/RPG3_MagicCute_P1_Cast_.mp3"
+define firebolt = "sound/sfx/wowsound/RPG3_FireMagicBall_Projectile04_.mp3"
+define inferno = "sound/sfx/wowsound/RPG3_FireMagic_Drone01_FireTornado_Loop_.mp3" #"sound/sfx/opengameart/foom_0.ogg"
+define blizzard = "sound/sfx/wowsound/RPG3_IceMagic_Cast01_.mp3"
+# define iceblock =
+# define hiticeblock = "RPG3_IceMagic2_LightImpact04Critv2_Longer_" ##when hit when iceblock on
 ###############################################################
 
 ## defending sfx
@@ -49,11 +73,6 @@ image punchpre = "punchpre.png"
 image punchpost = "punchpost.png"
 image punchparry = "battle effect 12.png"
 
-
-
-
-
-
 ##################################################
 ## TRANSFORMS ##
 ##################################################
@@ -64,7 +83,7 @@ transform combat2: ## target placement
     anchor (0.5, 0.5)
     ypos 400
 
-transform mobhurt:
+transform mobhurt: ##not used iirc
     parallel: #Horizontal shake
         pause 0.1
         ease 0.05 xoffset 10
@@ -78,11 +97,14 @@ transform mobhurt:
         linear 0.05 zoom 0.98 yoffset 10
         linear 0.15 zoom 1.02 yoffset -5
         easeout 0.1 zoom 1.0 yoffset 0
-transform textpopup:
+
+
+transform textpopup: ## for damage numbers
     alpha 0.5
     linear 0.2 alpha 1.0 yoffset -50
 
-
+########################################
+## ATK ANIMATIONS ##
 transform atkblade:
     yoffset -50 xoffset 100
     ease 0.2 yoffset +150 xoffset -100
@@ -97,6 +119,8 @@ transform atkshard:
     ease 0.1 yoffset +0
     pause 0.55
     linear 0.1 alpha 0.0
+
+
 
 transform atkinferno:
     xanchor 1.0 xpos 0.0 alpha 0.7

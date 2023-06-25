@@ -4,7 +4,7 @@
     # Switch to a shot of the tunnel
     # play sound "walking in wet cave" walking through the tunnel, best case scenario, we have an sfx of walking through ankle deep water or a wet floor. But it’s not super necessary
     s "Breeze and I stuck close as we trekked through the indistinguishable halls of this urban labyrinth. The only sound between us were the faint drippings of water and our footsteps on the damp floor."
-    
+
     # Sofi angry groaning noise
     s "Also my groaning. I was not a happy girl. Not happy in the slightest."
     b "You good there? You seem like you have something to say?"
@@ -17,7 +17,7 @@
 
     s "It’s going to take me forever to get this smell out. Why is this my first assignment? Why couldn’t we have been like... trying to stop a smuggling ring or gone undercover at a nice spa resort. Why... this? What part of this makes you think something isn’t wrong?"
     b "...Sorry."
-    b "If it makes you feel any better, everyone’s got a weird assignment story to tell." 
+    b "If it makes you feel any better, everyone’s got a weird assignment story to tell."
     b "I guess this is just yours."
 
     # Sofi sad and dejected
@@ -33,7 +33,7 @@
     s "There’s no way anyone’s gonna believe that."
     b "That’s what I thought too but... it apparently works. You tell people you’re a streamer and most of the time they just tell you to leave."
     s "Uh-huh... and if they don’t believe you?"
-    
+
     # stop walking sound
     s "I watched as this man suddenly stopped walking, standing as still as a statue for some reason. I thought that maybe he heard something or he found our target, but instead he just stretched out his hand and... did it start to feel colder in here?"
     s "That’s when I noticed it."
@@ -70,13 +70,13 @@
 
     # sofi, staring
     s "....Thank you, Breeze the Guidance counselor. I’m gonna go over here and search for clues. You.. I guess.. stay there and admire the art?"
-    
+
     # show sofi phone, I guess it’s implied that she’s scanning the area
     show breeze at offscreenleft with move
     show sofi at right with move
 
     s "Okay, let’s see... trail, trail, gotta pick up a trail."
-    s "Vibrants are monsters that ooze magic corruption... it’s kind of like a viscous red substance that hardens into crystalline pellets. Scan the area for the substance. Nothing?" 
+    s "Vibrants are monsters that ooze magic corruption... it’s kind of like a viscous red substance that hardens into crystalline pellets. Scan the area for the substance. Nothing?"
     s "You’d think there’d be more of them around here if a Vibrant were around. And yet... not a single sign of it."
     s "It has been a few days though, so maybe it’s already been washed away?"
     s "Hmmmm... something felt strange. It shouldn’t be strange that the trail would’ve gone cold but I couldn’t help but feel this nagging feeling in the back of my head. But I couldn’t quite figure it out."
@@ -88,7 +88,7 @@
     s "Breeze?"
     b "You can’t find a trace. Almost like... someone wiped the area clean?"
     s "How does someone clean a sewer?"
-    b "Someone tried to scrub the video from the net, there’s no signs of vibrant activity, and this location... why here? Vibrants are attracted to sources of magic, so their hunting grounds usually reflect that." 
+    b "Someone tried to scrub the video from the net, there’s no signs of vibrant activity, and this location... why here? Vibrants are attracted to sources of magic, so their hunting grounds usually reflect that."
     b "This is a service tunnel. It was abandoned because it was no longer necessary, and there’s never been a sighting of a vibrant in this area up until now. Why here? We’d have felt a magical source if it were here, we’d have seen other vibrants around. Everything feels strange."
     b "Hm... what do you think it means, rookie?"
     s "Eh... hm..."
@@ -119,10 +119,10 @@
 
     # show annoyed Sofi
     s "I also tried to not think about how much of this veil was saliva."
-    
+
     # slide bg over back to the henchmen, have them walking in, their sprites should be turned towards Sofi and Breeze’s hiding space at first, but then turns away
     s "The footsteps and voices grew louder until two figures passed right by us. My breath caught in my throat as I noticed the weapons they carried."
-    
+
     # show the camera zooming in tight on Sofi as if she’s panicking, maybe fade to darken the edges of the bg for symbolism
     s "It’s real. It’s really real. I... can get hurt, and killed. I might have to fight these guys. Why is it just hitting me now? Why is it hard to breathe? Am I anxious? No, not now, calm down. Or you’ll give yourself away and then-"
 
@@ -154,7 +154,7 @@
     g1 "FROM YOU!"
     g2 "YOU CAUSED THOSE INJURIES!"
     g1 "EVERY SINGLE TIME!"
-    g2 "I HAVE NIGHT TERRORS OF THE BEATINGS YOU GIVE US!" 
+    g2 "I HAVE NIGHT TERRORS OF THE BEATINGS YOU GIVE US!"
     g1 "MY THERAPIST NEEDED A THERAPIST AFTER I TOLD HER THE CRAP YOU’VE DONE TO ME!"
     s "Good lord, what did you do to these guys?"
     b "...just some conversations."
@@ -229,12 +229,12 @@
 
     menu:
         "Do I want to be the one to interrogate these guys?"
-        
+
         "Yes.":
             s "...Sure, I suppose I can give it a shot."
             b "Alright, good luck then."
             # Breeze slides off to the side. leaving Sofi to try to get into character
-            s "Interrogations. To be honest, I don’t really consider myself all that scary of a person. Whenever I imagine a master interrogator, I usually imagine someone terrifying beyond all reason." 
+            s "Interrogations. To be honest, I don’t really consider myself all that scary of a person. Whenever I imagine a master interrogator, I usually imagine someone terrifying beyond all reason."
             s "A person who seems outwardly calm but gives off an aura of an unhinged lunatic who would shake your hand and then shoot you in the face without skipping a beat. The kind of person who exudes danger, that makes you think that this person is the only one standing between you and your continued existence..."
             s "I, Sofi am not that kinda person. However..."
             # sofi eyes closed, show screen darkening as if Sofi is reaching into her inner mind
@@ -295,3 +295,5 @@ label postguardfight:
     g1 "*crying*"
     g2 "*slow building scream*"
     # jump cut to a transition scene
+
+    jump facility

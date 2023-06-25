@@ -3,13 +3,13 @@ label prologue:
     play music tomotheme volume 0.1
     pause 1
         ## play sound "crowd"
-        ## fade out sound   
+        ## fade out sound
     u "Welcome, weary travelers. Come sit closer, my eyesight is not what it once was."
     u "A name? Ah, yes..."
-    
+
     ## scene stage
     ## play sound "spotlight"
-    
+
     show sofi with fade
     s "I’m Sofi The Story Weaver."
     s "I’ve come a long way, gathering stories in my travels."
@@ -19,7 +19,7 @@ label prologue:
     s "Tales of great heroes, monstrous creatures, of love and romance, of heartbreak and tragedy. I’ve heard them all, committed them to memory, and I have come to pass them on to you."
     s "Stories, after all, are made to be told. For if we keep them to ourselves..."
 
-    ## play sound "spotlight off"	
+    ## play sound "spotlight off"
     ## a small spark of fire starts up
     scene black
     show sofi at left
@@ -50,7 +50,7 @@ label prologue:
     s "The spark of life would soon fade, devoured by the ravenous maw."
 
     # show the world growing dark... but then, a small spark illuminates
-    
+
     s "Until..."
     s "He arrived."
 
@@ -68,7 +68,7 @@ label prologue:
     s "Magic faded. And..."
     s "So did our savior."
     s "The age of prosperity ended, and ushered in the age of depravity, which was then devoured by the age of calamity, and when the dust settled... the age of silence remained. A penitant age for our sin of hubris."
-    s "Centuries passed, civilizations rose and fell, our story pressed on even as the world we once knew faded into oblivion and myths." 
+    s "Centuries passed, civilizations rose and fell, our story pressed on even as the world we once knew faded into oblivion and myths."
     s "No one was left to remember the Crimson Calamity, the Vibrants. Nor the hero who sacrificed everything to save us, the man we only knew as Eraser."
 
     # Show a moment of silence with a darkened world
@@ -98,7 +98,7 @@ label prologue:
 
     s "And if we stray from the path of harmony; then perhaps, the story of humanity too will come to a close."
 
-    # play sound Book Shutting 
+    # play sound Book Shutting
 
     ## scene stage
     # hold for applause
@@ -112,7 +112,7 @@ label prologue:
 
     jump pretunnel
 
-    """# Flashback
+    # Flashback
     show intro_text at truecenter
     centered "Our Story begins during the Dark Ages..."
     centered "Humanity as a species has always tried to find ways to better themselves. \n To overcome the limits of our mortal existence we used our one-of-a-kind intellect to find solutions to out countless problems."
@@ -140,7 +140,7 @@ label prologue:
     centered "This so-called New Age of Magic was just as poisonous to humanity as the last."
     centered "Once again, all hope seemed to be lost, but what if I told you there was a reason why Magic appeared in the first place?"
     scene black
-    show intro_text at truecenter    
+    show intro_text at truecenter
     centered "Magic didn't just come out of nowhere."
     centered "In fact, it existed for more than 3000 years."
     centered "Like today, Magic helped Humanity long ago but cruel Sorcerers began to utilize this gift for nefarious purposes."
@@ -155,7 +155,7 @@ label prologue:
     centered "You see{w}, from what we understand there is both a Physical World (our world) and a Magical World."
     centered "The Magical World is a special place where the flow of mana seeps into our world, granting us all our magical powers."
     scene bg_breaking_link
-    show intro_text at truecenter 
+    show intro_text at truecenter
     centered "And The Eraser, seeing how that power could be used for evil, decided that no such power should exist and severed the link between the Physical and Magical World."
     scene bg_tech_revolution
     show intro_text at truecenter
@@ -168,4 +168,4 @@ label prologue:
     ##scene Park
     $renpy.pause(delay=1.0, hard = True)
     jump pretunnel
-    return"""
+    return
