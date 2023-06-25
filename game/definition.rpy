@@ -1,8 +1,10 @@
-define b = Character("Breeze")
-define s = Character("Sofi", image="sofiside")
-define f = Character("Flair")
-define a = Character("Azmaveth")
-define k = Character("Kizuna")
+define b = Character("Breeze",callback=speaker("Breeze"))
+define s = Character("Sofi",callback=speaker("Sofi"), image="sofiside")
+define f = Character("Flair",callback=speaker("Flair"),)
+define a = Character("Azmaveth",callback=speaker("Azmaveth"),)
+define k = Character("Kizuna",callback=speaker("Kizuna"),)
+
+define ke = Character("Kephirah",callback=speaker("Kephirah"),)
 
 define u = Character("???")
 define cc = Character("Cafe Cashier")
@@ -16,8 +18,8 @@ define n = nvl_narrator
 ################
 ## SPRITES ##
 ###############
-image sofi = im.FactorScale("images/sprite/sofi.png", 0.26)
-image breeze = im.FactorScale("images/sprite/breeze.png", 0.26)
+# image sofi = im.FactorScale("images/sprite/sofi.png", 0.26)
+# image breeze = im.FactorScale("images/sprite/breeze.png", 0.26)
 
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 

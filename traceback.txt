@@ -1,21 +1,21 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('sprite/Sofi/Sofi_eyebrows_up.png') at 0x0000000005c72790>:
-  File "game/Scripts/chapter0 prologue.rpy", line 8, in script call
-    centered "Humanity as a species has always tried to find ways to better themselves. \n To overcome the limits of our mortal existence we used our one-of-a-kind intellect to find solutions to out countless problems."
+While loading <renpy.display.im.Image object ('sprite/Breeze/mouth_open4.png') at 0x0000000005d3a760>:
+  File "game/Scripts/chapter1 pretunnel.rpy", line 108, in script call
+    "I tried to think up any excuse for my behavior but he got me there."
   File "renpy/common/00console.rpy", line 1125, in script
     python in _console:
   File "renpy/common/00console.rpy", line 1127, in <module>
     console.interact()
   File "renpy/common/00console.rpy", line 596, in interact
     line = ui.interact()
-OSError: Couldn't find file 'sprite/Sofi/Sofi_eyebrows_up.png'.
+OSError: Couldn't find file 'sprite/Breeze/mouth_open4.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/Scripts/chapter0 prologue.rpy", line 8, in script call
-    centered "Humanity as a species has always tried to find ways to better themselves. \n To overcome the limits of our mortal existence we used our one-of-a-kind intellect to find solutions to out countless problems."
+  File "game/Scripts/chapter1 pretunnel.rpy", line 108, in script call
+    "I tried to think up any excuse for my behavior but he got me there."
   File "renpy/common/00console.rpy", line 1125, in script
     python in _console:
   File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
@@ -58,9 +58,27 @@ Full traceback:
     rend = render(child, w, h, st, at)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\transform.py", line 747, in render
+    return transform_render(self, width, height, st, at)
+  File "accelerator.pyx", line 187, in renpy.display.accelerator.transform_render
+  File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\layout.py", line 884, in render
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\layout.py", line 1535, in render
+    cr = renpy.display.render.render(self.child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\image.py", line 506, in render
+    return wrap_render(self.target, width, height, st, at)
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\image.py", line 309, in wrap_render
+    rend = render(child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\transform.py", line 747, in render
+    return transform_render(self, width, height, st, at)
+  File "accelerator.pyx", line 187, in renpy.display.accelerator.transform_render
   File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\display\im.py", line 627, in render
     return cache.get(self, render=True)
@@ -72,9 +90,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename)
   File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'sprite/Sofi/Sofi_eyebrows_up.png'.
+OSError: Couldn't find file 'sprite/Breeze/mouth_open4.png'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 Erasers 1.0
-Sat Jun 24 07:04:52 2023
+Sun Jun 25 16:16:29 2023
