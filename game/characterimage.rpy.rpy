@@ -172,8 +172,8 @@ layeredimage sofi:
     group eyebrows:
         attribute up default:
             "sprite/Sofi/eyebrows_normal.png"
-        attribute concerned:
-            "sprite/Sofi/eyebrows_concerned.png"
+        attribute worried:
+            "sprite/Sofi/eyebrows_up.png"
         attribute down:
             "sprite/Sofi/eyebrows_angry.png"
         # attribute default:
@@ -230,37 +230,6 @@ image Breeze_eyes_blink:
         "sprite/Breeze/eyes_midclose.png"
         pause 0.05
         "sprite/Breeze/eyes.png"
-        pause 2.0
-    repeat
-image Breeze_eyes_crying:
-    choice:
-        "sprite/Breeze/eyes_crying.png"
-        pause 4.0
-    choice:
-        "sprite/Breeze/eyes_crying_midclose.png"
-        pause 0.1
-        "sprite/Breeze/eyes_closed.png"
-        pause 0.1
-        "sprite/Breeze/eyes_crying_midclose.png"
-        pause 0.1
-        "sprite/Breeze/eyes_crying.png"
-        pause 2.0
-    choice:
-        "sprite/Breeze/eyes_crying_midclose.png"
-        pause 0.1
-        "sprite/Breeze/eyes_closed.png"
-        pause 0.07
-        "sprite/Breeze/eyes_crying_midclose.png"
-        pause 0.1
-        "sprite/Breeze/eyes_crying.png"
-        pause 0.1
-        "sprite/Breeze/eyes_crying_midclose.png"
-        pause 0.1
-        "sprite/Breeze/eyes_closed.png"
-        pause 0.07
-        "sprite/Breeze/eyes_crying_midclose.png"
-        pause 0.1
-        "sprite/Breeze/eyes_crying.png"
         pause 2.0
     repeat
 image Breeze_eyes_midclose:
@@ -354,7 +323,7 @@ image Breeze_mouth_smile_speaking:
     repeat
 define Breeze_body="normal"
 
-define Breeze_body="battle"
+# define Breeze_body="battle"
 layeredimage breeze:
 
     always:
@@ -375,12 +344,12 @@ layeredimage breeze:
     group eyebrows:
         attribute down default:
             "sprite/Breeze/eyebrows_mad.png"
-        attribute concerned:
-            "sprite/Breeze/eyebrows_concerned.png"
+        attribute straight:
+            "sprite/Breeze/eyebrows_straight.png"
         attribute down2:
             "sprite/Breeze/eyebrows_mad2.png"
-        attribute horizontal:
-            "sprite/Breeze/eyebrows_horizontal.png"
+        attribute up:
+            "sprite/Breeze/eyebrows_up.png"
     group mouth:
         attribute frown default:
             WhileSpeaking("Breeze","Breeze_mouth_frown_speaking","sprite/Breeze/mouth_frown.png")
@@ -401,3 +370,191 @@ layeredimage breeze:
             "sprite/Breeze/Breeze_blush.png"
             alpha 0.7
     zoom 0.5 yanchor 0.5 ypos 1.0
+
+
+image Flair_eyes_blink:
+    choice:
+        "sprite/Flair/eyes.png"
+        pause 4.0
+    choice:
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.07
+        "sprite/Flair/eyes_closed.png"
+        pause 0.1
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.07
+        "sprite/Flair/eyes.png"
+        pause 2.0
+    choice:
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.05
+        "sprite/Flair/eyes_closed.png"
+        pause 0.07
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.05
+        "sprite/Flair/eyes.png"
+        pause 0.1
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.05
+        "sprite/Flair/eyes_closed.png"
+        pause 0.07
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.05
+        "sprite/Flair/eyes.png"
+        pause 2.0
+    repeat
+image Flair_eyes_midclose:
+    choice:
+        "sprite/Flair/eyes_midclose.png"
+        pause 4.0
+    choice:
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.07
+        "sprite/Flair/eyes_closed.png"
+        pause 0.2
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.07
+        "sprite/Flair/eyes_midclose.png"
+        pause 2.0
+    choice:
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.05
+        "sprite/Flair/eyes_closed.png"
+        pause 0.07
+        "sprite/Flair/eyes_midclose.png"
+        pause 0.07
+        "sprite/Flair/eyes_closed.png"
+        pause 0.07
+        "sprite/Flair/eyes_midclose.png"
+        pause 2.05
+
+    repeat
+# image Flair_eyes_lookaway:
+#     choice:
+#         "sprite/Flair/eyes_lookaway.png"
+#         pause 8.0
+#     choice:
+#         "sprite/Flair/eyes_lookaway.png"
+#         pause 0.07
+#         "sprite/Flair/eyes_closed.png"
+#         pause 0.1
+#         "sprite/Flair/eyes_lookaway.png"
+#         pause 3.0
+
+#     choice:
+#         "sprite/Flair/eyes_lookaway.png"
+#         pause 0.05
+#         "sprite/Flair/eyes_closed.png"
+#         pause 0.07
+#         "sprite/Flair/eyes_lookaway.png"
+#         pause 0.07
+#         "sprite/Flair/eyes_closed.png"
+#         pause 0.07
+#         "sprite/Flair/eyes_lookaway.png"
+#         pause 3.0
+
+#     repeat
+image Flair_mouth_frown_speaking:
+    "sprite/Flair/mouth_open2.png"
+    pause 0.08
+    "sprite/Flair/mouth_open.png"
+    pause 0.1
+    "sprite/Flair/mouth_open2.png"
+    pause 0.08
+    "sprite/Flair/mouth_frown.png"
+    pause 0.08
+    "sprite/Flair/mouth_open.png"
+    pause 0.1
+    "sprite/Flair/mouth_openfrown2.png"
+    pause 0.08
+    "sprite/Flair/mouth_openfrown.png"
+    pause 0.08
+    "sprite/Flair/mouth_openfrown2.png"
+    pause 0.08
+    "sprite/Flair/mouth_frown.png"
+    pause 0.08
+    repeat
+image Flair_mouth_smile_speaking:
+    "sprite/Flair/mouth_opensmile2.png"
+    pause 0.08
+    "sprite/Flair/mouth_opensmile.png"
+    pause 0.1
+    "sprite/Flair/mouth_opensmile2.png"
+    pause 0.08
+    "sprite/Flair/mouth_smile.png"
+    pause 0.1
+    "sprite/Flair/mouth_open2.png"
+    pause 0.08
+    "sprite/Flair/mouth_open.png"
+    pause 0.1
+    "sprite/Flair/mouth_open2.png"
+    pause 0.08
+    "sprite/Flair/mouth_smile.png"
+    pause 0.08
+    repeat
+    
+image Flair_fire:
+    "sprite/Flair/fire_1.png"
+    pause .2
+    "sprite/Flair/fire_2.png"
+    pause .2
+    "sprite/Flair/fire_3.png"
+    pause .2
+    "sprite/Flair/fire_4.png"
+    pause .2
+    repeat
+define Flair_body="withcoat"
+
+# define Flair_body="battle"
+layeredimage flair:
+
+    always:
+        "sprite/Flair/base_[Flair_body].png"
+    group eyes:
+        attribute open default:
+            "Flair_eyes_blink"
+        # attribute oneclose:
+        #     "sprite/Flair/Flair_eyes2.png"
+        attribute midclose:
+            "Flair_eyes_midclose"
+        attribute closed:
+            "sprite/Flair/eyes_closed.png"
+        # attribute lookaway:
+        #     "Flair_eyes_lookaway"
+        # attribute crying:
+        #     "Flair_eyes_crying"
+    group eyebrows:
+        attribute up default:
+            "sprite/Flair/eyebrows_up.png"
+        attribute oneup:
+            "sprite/Flair/eyebrows_1up.png"
+        attribute down:
+            "sprite/Flair/eyebrows_down.png"
+        attribute worried:
+            "sprite/Flair/eyebrows_worried.png"
+    group mouth:
+        attribute frown default:
+            WhileSpeaking("Flair","Flair_mouth_frown_speaking","sprite/Flair/mouth_frown.png")
+        attribute squiggly:
+            WhileSpeaking("Flair","Flair_mouth_frown_speaking","sprite/Flair/mouth_squiggly.png")
+        attribute smile:
+            WhileSpeaking("Flair","Flair_mouth_smile_speaking","sprite/Flair/mouth_smile.png")
+        attribute openmouth:
+            WhileSpeaking("Flair","Flair_mouth_frown_speaking","sprite/Flair/mouth_open.png")
+        attribute opensmile:
+            WhileSpeaking("Flair","Flair_mouth_smile_speaking","sprite/Flair/mouth_opensmile.png")
+        attribute smug:
+            WhileSpeaking("Flair","Flair_mouth_smile_speaking","sprite/Flair/mouth_smug.png")
+    group blush:
+        attribute nofire :
+            Null()
+        attribute fire default:
+            "Flair_fire"
+    # group blush:
+    #     attribute noblush default:
+    #         Null()
+    #     attribute blush:
+    #         "sprite/Flair/Flair_blush.png"
+    #         alpha 0.7
+    zoom 0.5 yanchor 0.5 ypos 1.0
+

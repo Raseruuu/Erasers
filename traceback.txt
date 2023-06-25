@@ -1,21 +1,21 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('sprite/Breeze/mouth_open4.png') at 0x0000000005d3a760>:
-  File "game/Scripts/chapter1 pretunnel.rpy", line 108, in script call
-    "I tried to think up any excuse for my behavior but he got me there."
+While loading <renpy.display.im.Image object ('sprite/Flair/mouth_open3.png') at 0x0000000003c02f70>:
+  File "game/Scripts/chapter1 pretunnel.rpy", line 90, in script call
+    "I look up from my phone to see someone that looks just like what the note described, sitting at my table."
   File "renpy/common/00console.rpy", line 1125, in script
     python in _console:
   File "renpy/common/00console.rpy", line 1127, in <module>
     console.interact()
   File "renpy/common/00console.rpy", line 596, in interact
     line = ui.interact()
-OSError: Couldn't find file 'sprite/Breeze/mouth_open4.png'.
+OSError: Couldn't find file 'sprite/Flair/mouth_open3.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/Scripts/chapter1 pretunnel.rpy", line 108, in script call
-    "I tried to think up any excuse for my behavior but he got me there."
+  File "game/Scripts/chapter1 pretunnel.rpy", line 90, in script call
+    "I look up from my phone to see someone that looks just like what the note described, sitting at my table."
   File "renpy/common/00console.rpy", line 1125, in script
     python in _console:
   File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\ast.py", line 1131, in execute
@@ -90,9 +90,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename)
   File "C:\Users\Russ\Documents\renpy-8.0.3-sdk\renpy\loader.py", line 820, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'sprite/Breeze/mouth_open4.png'.
+OSError: Couldn't find file 'sprite/Flair/mouth_open3.png'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.0.3.22090809
 Erasers 1.0
-Sun Jun 25 16:16:29 2023
+Sun Jun 25 17:19:47 2023

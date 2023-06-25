@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 88: expected statement.
-    for i in mobstat:
-          ^
+File "game/characterimage.rpy.rpy", line 542: expecting name after dot.
+    pause .2
+           ^
 
-Ren'Py Version: Ren'Py 8.0.0.22062402
-Tue Jun 20 22:41:32 2023
+Ren'Py Version: Ren'Py 8.0.3.22090809
+Sun Jun 25 17:13:35 2023
