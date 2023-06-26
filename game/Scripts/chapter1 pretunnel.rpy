@@ -1,6 +1,6 @@
 label pretunnel:
     scene black
-    ## play sound "train in motion"
+    play sound "trainmoving.mp3" volume 0.2
     ## scene train
     show sofi with fade
     # Sofi has her eyes closed
@@ -12,6 +12,11 @@ label pretunnel:
 
     s "Oh, crap! Did I miss my stop, what time is it?"
     ## make sofi sprite wiggle
+    show sofi:
+        xpos 0.52
+    show sofi with move:
+        xpos 0.48
+    show sofi at center with move
     s "Oh there's my phone!"
    
     # show sofi, sigh of relief

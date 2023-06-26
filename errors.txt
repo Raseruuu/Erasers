@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter3 tunnel-2.rpy", line 132: is not terminated with a newline. (Check strings and parenthesis.)
-(Perhaps you left out a " at the end of the first line.)
-        un "...Where the-""
+File "game/Scripts/chapter0 prologue.rpy", line 104: expected end of line
+    stop sound with fade
+               ^
 
 Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Sun Jun 25 16:03:16 2023
+Sun Jun 25 23:39:28 2023

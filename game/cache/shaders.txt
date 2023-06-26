@@ -1,19 +1,19 @@
-renpy.dissolve renpy.dissolve
-renpy.geometry renpy.solid
-renpy.geometry renpy.imagedissolve
-<<<<<<< Updated upstream
-renpy.geometry renpy.texture
-renpy.alpha renpy.solid
-renpy.alpha renpy.geometry renpy.solid
-renpy.dissolve renpy.geometry
 renpy.alpha renpy.texture
+renpy.matrixcolor renpy.texture
 renpy.texture renpy.texture
+renpy.texture
+renpy.geometry renpy.solid
+renpy.dissolve renpy.geometry
+renpy.alpha renpy.geometry renpy.solid
+renpy.dissolve renpy.dissolve
+<<<<<<< Updated upstream
+renpy.alpha renpy.solid
 renpy.solid
 renpy.ftl
-renpy.alpha renpy.geometry renpy.texture
-renpy.matrixcolor renpy.texture
-=======
-renpy.texture
-renpy.imagedissolve renpy.imagedissolve
 renpy.geometry renpy.matrixcolor renpy.texture
+renpy.imagedissolve renpy.imagedissolve
+renpy.geometry renpy.texture
 >>>>>>> Stashed changes
+renpy.geometry renpy.imagedissolve
+renpy.alpha renpy.geometry renpy.texture
+=======
