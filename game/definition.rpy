@@ -21,12 +21,11 @@ define n = nvl_narrator
 
 ################
 ## SPRITES ##
-###############
-image sofi = im.FactorScale("images/sprite/sofi2.png", 0.52)
-image breeze = im.FactorScale("images/sprite/breeze.png", 0.26)
-##TODO: image flair =
+# ###############
+
+# MOVED TO characterimage.rpy
 image az = im.FactorScale("images/sprite/temp-laughinghand.webp", 1.0)
-## TODO: image kizuna =
+
 
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
@@ -36,7 +35,7 @@ image side sofiside:
     LiveCrop((220,80, 460,500), "sofi")
     zoom 0.8
 image side breezeside:
-    LiveCrop((300,60, 460,500), "breeze")
+    LiveCrop((260,60, 460,500), "breeze")
     zoom 0.8
 image side azside = "images/sprite/aztemp.png"
 # image side breezeside = im.FactorScale(im.Crop(breeze, (500, 150, 1000, 1000)), 0.4)

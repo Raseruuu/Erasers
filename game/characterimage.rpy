@@ -292,8 +292,6 @@ image Breeze_mouth_frown_speaking:
     pause 0.08
     "sprite/Breeze/mouth_frown.png"
     pause 0.08
-    "sprite/Breeze/mouth_open.png"
-    pause 0.1
     "sprite/Breeze/mouth_open2.png"
     pause 0.08
     "sprite/Breeze/mouth_open3.png"
