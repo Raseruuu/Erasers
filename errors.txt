@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter1 pretunnel.rpy", line 1: expected statement.
-    from turtle import left, right
-                           ^
+File "game/Scripts/chapter2 tunnel-1.rpy", line 1: expected statement.
+    from pickle import _BufferCallback
+                                      ^
 
 Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Mon Jun 26 01:47:33 2023
+Mon Jun 26 13:15:27 2023

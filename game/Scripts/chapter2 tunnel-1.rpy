@@ -3,12 +3,12 @@
     # Open with establishing shot of the outside of the tunnel
     # Switch to a shot of the tunnel
     scene sewers
-    # play sound "walking in wet cave" walking through the tunnel, best case scenario, we have an sfx of walking through ankle deep water or a wet floor. But it’s not super necessary
+    play sound "audio/walkinginsewers.mp3" volume 0.3 fadeout 5.0
     s "Breeze and I stuck close as we trekked through the indistinguishable halls of this urban labyrinth. The only sound between us were the faint drippings of water and our footsteps on the damp floor."
-
     # Sofi angry groaning noise
     s "Also my groaning. I was not a happy girl. Not happy in the slightest."
     b "You good there? You seem like you have something to say?"
+    play sound "audio/walkinginsewers.mp3" volume 0.3 fadeout 5.0
     s "I am ankle deep in filth, wearing my nicest dress, in a dark SEWER tunnel, and I’m on edge because a monster might just jump out of nowhere and rip my face off!."
     s "You know I’m a girl, right! Girls do not go exploring sewers in nice dresses!"
     b "Technically it’s a service tunnel."
@@ -20,7 +20,7 @@
     b "...Sorry."
     b "If it makes you feel any better, everyone’s got a weird assignment story to tell."
     b "I guess this is just yours."
-
+    play sound "audio/walkinginsewers.mp3" volume 0.3 fadeout 5.0
     # Sofi sad and dejected
     s "By the way I’ve been meaning to ask, why are we in the sewer at all? Couldn’t we have set up some cameras and done a stakeout? That’s what the manual recommends."
     b "Looks more suspicious if we’re just hanging out by the entrance and waiting for something to happen. Plus, this is a recon mission so... probably quicker to just go in."
@@ -45,8 +45,10 @@
     s "He closed his eyes, and took a breath, as if the entire world just melted away. And then... I blinked."
 
     # Sword slicing sound
+    play sound "audio/slice.mp3" 
     # sliding ice sound if we have it, otherwise we don’t need it
-    s "I... can’t say that I wasn’t impressed. I knew he was an experienced field agent, but I don’t think I’ve ever seen someone with that kind of mastery of magic. Who was this man? Where’d he learn these skills? Even with my own training, I only ever learned support spells. I can heal and make a barrier but against this man... I might as well have been a child playing at being a mage."
+    s "I... can’t say that I wasn’t impressed. I knew he was an experienced field agent, but I don’t think I’ve ever seen someone with that kind of mastery of magic." 
+    s "Who was this man? Where’d he learn these skills? Even with my own training, I only ever learned support spells. I can heal and make a barrier but against this man... I might as well have been a child playing at being a mage."
     b "If it comes to that, I’ll protect us."
     b "Rule one of being in the guild: Everyone comes back alive."
     s "And with that admittedly cool line, Breeze just walked right past what was left of his ice wall. Who is this man who just does something badass and then just walks away like he did the ice equivalent of waling away from an explosion?"
@@ -55,16 +57,16 @@
     s "He could be a little nicer to me though!"
 
     scene black with fade
-    show breeze at left
-    show sofi at slightleft
     # scene Tunnel Interior (Graffiti?)
+    show breeze at left
+    show sofi at slightright
+
     s "We entered a chamber that was slightly more spacious than the neverending tunnels we were walking through."
     s "Hmmm..."
     s "Broken phone shattered on the ground. Incomplete graffiti tag. Same angle from the video..."
     s "I think this is the place?"
 
     # Show Breeze thinking
-
     b "Hmmmm."
     s "What’s up, find something else?"
     b "This graffiti art isn’t that bad. He should probably quit streaming and focus on his art."
@@ -73,8 +75,9 @@
     s "....Thank you, Breeze the Guidance counselor. I’m gonna go over here and search for clues. You.. I guess.. stay there and admire the art?"
 
     # show sofi phone, I guess it’s implied that she’s scanning the area
-    show breeze at offscreenleft with move
-    show sofi at right with move
+    show breeze with move:
+        xpos -1.0
+    show sofi at right with move 
 
     s "Okay, let’s see... trail, trail, gotta pick up a trail."
     s "Vibrants are monsters that ooze magic corruption... it’s kind of like a viscous red substance that hardens into crystalline pellets. Scan the area for the substance. Nothing?"
@@ -97,20 +100,26 @@
     # show, Sofi thinking
     s "Hiding information, strange location, no prior sightings, a mysterious vibrant that’s not in the database..."
     # Play a sudden reveal sound, something like the sound used in ace attorney when they find a clue or point out a contradiction
+    play sound "audio/alert.mp3"
     s "Ah, I think I see what you’re getting at..."
     s "But if that’s the case, then-"
 
     # Sound of stones sliding, and footsteps in the distance
     # scene tunnel2 the bg over to the opposite side until the two characters are either out of frame or as far to one side as possible
-
+    play sound "audio/footsteps.mp3"
     un "I’m telling you, the sensors picked up something!"
     un "It’s probably just some rats again, or another streamer. Who calibrated those things? They’re more sensitive than you back in school."
     un "Okay first of all, up yours. Second of all, we’ve got a job to do, and it’s our duty to secure the area from any prying eyes."
-    un "...why do you sound so proud of that? "
+    un "...why do you sound so proud of that?"
 
     # pan the bg back to Sofi and Breeze
     s "Voices, two of them, were coming from around the corner. We needed to hide and-"
     s "Mmrph!"
+    show breeze at right with move
+    show breeze at left with move:
+        ypos 1.3
+    show sofi at slightright with move:
+        ypos 1.3
     b "Shh."
 
     # pull the Sofi and Breeze sprites down into corner, as if they’re hiding, there’s no way we’re gonna make a sprite just for this, so we’ll use theater of the mind and pull their sprites closer together... I just hope it doesn’t look too weird
@@ -122,6 +131,7 @@
     s "I also tried to not think about how much of this veil was saliva."
 
     # slide bg over back to the henchmen, have them walking in, their sprites should be turned towards Sofi and Breeze’s hiding space at first, but then turns away
+    ## show grunt 1 and 2
     s "The footsteps and voices grew louder until two figures passed right by us. My breath caught in my throat as I noticed the weapons they carried."
 
     # show the camera zooming in tight on Sofi as if she’s panicking, maybe fade to darken the edges of the bg for symbolism
@@ -202,7 +212,10 @@
     # [Fight scene aftermath]
 
     # open with the goon sprites tilted on the floor
-
+    scene black 
+    show breeze at left
+    show sofi at slightright
+    ## scene sewer2
     # slide bg over to sofi and breeze
     s "...Honestly, I almost feel bad for them."
     b "Hey, I did give them a choice. I can’t be held responsible for people making dumb decisions."
@@ -236,7 +249,8 @@
             b "Alright, good luck then."
             # Breeze slides off to the side. leaving Sofi to try to get into character
             s "Interrogations. To be honest, I don’t really consider myself all that scary of a person. Whenever I imagine a master interrogator, I usually imagine someone terrifying beyond all reason."
-            s "A person who seems outwardly calm but gives off an aura of an unhinged lunatic who would shake your hand and then shoot you in the face without skipping a beat. The kind of person who exudes danger, that makes you think that this person is the only one standing between you and your continued existence..."
+            s "A person who seems outwardly calm but gives off an aura of an unhinged lunatic who would shake your hand and then shoot you in the face without skipping a beat." 
+            s "The kind of person who exudes danger, that makes you think that this person is the only one standing between you and your continued existence..."
             s "I, Sofi am not that kinda person. However..."
             # sofi eyes closed, show screen darkening as if Sofi is reaching into her inner mind
             s "Sofi the story weaver, wears many masks."

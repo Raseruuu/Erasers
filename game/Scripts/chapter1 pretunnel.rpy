@@ -46,31 +46,32 @@ label pretunnel:
     show sofi at right with move 
     s "I could skip my stop, keep going, take a bus, another train. Maybe even get a plane ticket to somewhere far outside of the city." 
     show sofi at left with move:
-        xzoom -1.0
+        yrotate 180
     s "I don’t carry much with me, so I can just abandon my life, make them think that I just had an accident or something." 
     show sofi at right with move:
-        xzoom -1.0
+        yrotate 0
     s "It’s not like I owe them anything, right?" 
     show sofi at left with move:
-        xzoom -1.0
+        yrotate 180
     s "Sure they did train me, yes I memorized the manual front to back, and yes there were lots of friends I made along the way but..." 
     show sofi at right with move:
-        xzoom -1.0
+        yrotate 0
     s "what I’m about to do could amount to treason. And what if this whole thing is some kinda trap, some kinda deep cover operation to stop dissenters before they carry out their plans?" 
     show sofi at left with move:
-        xzoom -1.0
+        yrotate 180
     s "But then why would they go through the trouble of training me? There were so many chances they could’ve had?" 
     show sofi at right with move:
-        xzoom -1.0
+        yrotate 0
     s "But then what do I really know about how this whole thing works, and furthermore-"
 
-    play sound "audio/ringtone.mp3" volume 0.2
+    play sound "audio/ringtone.mp3" volume 0.1
 
     s "AGH!"
     s "Oh god, that scared me, but it's just my phone."
-    show soft at left with move:
-        xzoom -1.0
+    show sofi at left with move:
+        yrotate 180
     ## show Evan or his silhouette at right
+    play sound "audio/phonebeep.mp3"
     s "Hello?"
     e "Hey, Sofi! I wanted to thank you again for filling in on such short notice! You did a great job, the bosses liked you, the kids loved you. Really good to tell them the truth about magic!"
 
@@ -171,10 +172,13 @@ label pretunnel:
 
     # In a quiet voice, because she is experiencing emotional damage
     s "...yes, please, thank you."
-    show sofi at offscreenright with move
+    show sofi with move:
+        xpos 1.5
     
     # transition scene to her sitting at her table
     # Show Sofi suffering 
+    scene cafe2 with fade
+    show sofi at right
     play sound "audio/drinksip.mp3"
     s "......"
     s "It’s okay to cry Sofi. Every field agent probably has a similar story of their first mission."
@@ -197,7 +201,6 @@ label pretunnel:
 
     # Sofi girl blush and squeal
     s "Ahhhhhh!" 
-    show sofi at right with move
     show breeze:
         xpos -1.0
     s "No, no, no, calm down, Sofi! Professionalism! Professionalism."
@@ -281,7 +284,7 @@ label pretunnel:
     show breeze with move:
         xpos 0.9
     show sofi with move:
-        xzoom -1.0
+        yrotate 180
     with Pause(1.0)
     b "Something wrong?"
     s "...You’re like...not gonna murder me, right?"

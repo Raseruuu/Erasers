@@ -1,15 +1,15 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('images/pause.png') at 0x00000000051eb610>:
-  File "game/Scripts/chapter1 pretunnel.rpy", line 393, in script
-    s "What is that? Some kind of animal?"
-OSError: Couldn't find file 'images/pause.png'.
+While running game code:
+  File "game/Scripts/chapter1 pretunnel.rpy", line 180, in script
+    s "......"
+OSError: Couldn't find file 'audio/drinksip.mp3'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/Scripts/chapter1 pretunnel.rpy", line 393, in script
-    s "What is that? Some kind of animal?"
+  File "game/Scripts/chapter1 pretunnel.rpy", line 180, in script
+    s "......"
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 930, in execute
     renpy.exports.say(who, what, *args, **kwargs)
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\exports.py", line 1473, in say
@@ -24,48 +24,24 @@ Full traceback:
     rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\core.py", line 3503, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\core.py", line 4093, in interact_core
-    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\core.py", line 2703, in draw_screen
-    surftree = renpy.display.render.render_screen(
-  File "render.pyx", line 492, in renpy.display.render.render_screen
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\layout.py", line 886, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\layout.py", line 886, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\layout.py", line 886, in render
-    surf = render(child, width, height, cst, cat)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\transform.py", line 909, in render
-    return RenderTransform(self).render(width, height, st, at)
-  File "accelerator.pyx", line 979, in renpy.display.accelerator.RenderTransform.render
-  File "accelerator.pyx", line 404, in renpy.display.accelerator.RenderTransform.render_child
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\image.py", line 513, in render
-    return wrap_render(self.target, width, height, st, at)
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\image.py", line 316, in wrap_render
-    rend = render(child, w, h, st, at)
-  File "render.pyx", line 170, in renpy.display.render.render
-  File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\im.py", line 676, in render
-    return cache.get(self, render=True)
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\im.py", line 330, in get
-    surf = image.load()
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\im.py", line 803, in load
-    raise e
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\im.py", line 757, in load
-    filelike = renpy.loader.load(self.filename, directory="images")
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\core.py", line 4297, in interact_core
+    renpy.audio.audio.periodic()
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\audio\audio.py", line 1224, in periodic
+    raise_(exc[0], exc[1], exc[2])
+  File "/home/tom/ab/nightly-build-fix/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\audio\audio.py", line 1202, in periodic_thread_main
+    periodic_pass()
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\audio\audio.py", line 1144, in periodic_pass
+    c.periodic()
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\audio\audio.py", line 534, in periodic
+    topf = load(filename)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\audio\audio.py", line 72, in load
+    rv = renpy.loader.load(fn, directory="audio")
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\loader.py", line 833, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'images/pause.png'.
+OSError: Couldn't find file 'audio/drinksip.mp3'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.1.23052503+nightly
 Erasers 1.0
-Mon Jun 26 01:40:05 2023
+Mon Jun 26 12:55:09 2023
