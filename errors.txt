@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter0 prologue.rpy", line 104: expected end of line
-    stop sound with fade
-               ^
+File "game/Scripts/chapter1 pretunnel.rpy", line 1: expected statement.
+    from turtle import left, right
+                           ^
 
 Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Sun Jun 25 23:39:28 2023
+Mon Jun 26 01:47:33 2023

@@ -1,7 +1,7 @@
 label pretunnel:
     scene black
     play sound "trainmoving.mp3" volume 0.2
-    ## scene train
+    scene train
     show sofi with fade
     # Sofi has her eyes closed
     # She opens her eyes and stretches
@@ -11,7 +11,6 @@ label pretunnel:
     # show sofi surprised
 
     s "Oh, crap! Did I miss my stop, what time is it?"
-    ## make sofi sprite wiggle
     show sofi:
         xpos 0.52
     show sofi with move:
@@ -36,38 +35,46 @@ label pretunnel:
     s "I’m still mad though. I don’t think I’ll ever not be mad. But, is this the path I should take?"
     s "There’s no going back once I do."
 
-    # Show the station map, for those who don’t know, it’s just a line with circles and names that show the train’s route, it’s usually nothing fancy.
-
+    scene stationmap with Dissolve(1.0)
     s "....."
     s "I could quit."
     s "My stop’s coming up, I can just... not get off the train. I haven’t crossed that line yet, there’s still a way out."
-
+    scene train with fade
+    show sofi:
+        xpos 2.0
     # Sofi paces
     show sofi at right with move 
     s "I could skip my stop, keep going, take a bus, another train. Maybe even get a plane ticket to somewhere far outside of the city." 
-    show sofi at left with move 
+    show sofi at left with move:
+        yrotate 180
     s "I don’t carry much with me, so I can just abandon my life, make them think that I just had an accident or something." 
-    show sofi at right with move 
+    show sofi at right with move:
+        yrotate 0
     s "It’s not like I owe them anything, right?" 
-    show sofi at left with move
+    show sofi at left with move:
+        yrotate 180
     s "Sure they did train me, yes I memorized the manual front to back, and yes there were lots of friends I made along the way but..." 
-    show sofi at right with move
+    show sofi at right with move:
+        yrotate 0
     s "what I’m about to do could amount to treason. And what if this whole thing is some kinda trap, some kinda deep cover operation to stop dissenters before they carry out their plans?" 
-    show sofi at left with move
+    show sofi at left with move:
+        yrotate 180
     s "But then why would they go through the trouble of training me? There were so many chances they could’ve had?" 
-    show sofi at right with move
+    show sofi at right with move:
+        yrotate 0
     s "But then what do I really know about how this whole thing works, and furthermore-"
 
-    # play sound "phone vibrating"
+    play sound "audio/ringtone.mp3" volume 0.2
 
     s "AGH!"
     s "Oh god, that scared me, but it's just my phone."
-
+    show soft at left with move:
+        yrotate 180
     ## show Evan or his silhouette at right
+    s "Hello?"
     e "Hey, Sofi! I wanted to thank you again for filling in on such short notice! You did a great job, the bosses liked you, the kids loved you. Really good to tell them the truth about magic!"
 
     # Show sofi smile
-
     s "I had some space in my schedule and it was on the way."
     e "You really saved me there, I mean..."
     e "Who would’ve guessed that Mary was aiding a terrorist cell?"
@@ -80,10 +87,11 @@ label pretunnel:
     s "Right... Listen, I gotta go so I’ll talk later."
     e "Btw, I was talking to the bosses and they seem willing to overlook the... outburst from last year. Now, they can’t give you back your old position, but since the kids loved your story, and Mary’s gonna probably rot in a federal prison... maybe you could apply for her old job?" 
     e "I can definitely put in a good word for you!"
-    s "Thanks, I'll give it some thought"
-    e "Sounds good! Best of luck on your mission!"
-    ## hide Evan
-    ## play sound "phone call end"
+    s "Thanks, I'll give it some thought!"
+    e "Sounds good! Best of lu-"
+    play sound "audio/endcall.mp3"
+    s "..."
+    s "I guess the call dropped. I'm not mad though, he was kind of rambling..."
     s "....."
 
     # she closes her eyes, and a look of anger appears on her face as she remembers the past
@@ -100,32 +108,33 @@ label pretunnel:
     # Show Sofi sad and then sigh
 
     s "No turning back now."
+    ## train announcement
+    play sound "audio/trainstop.mp3"
+    s "Sounds like it's time for my stop."
     scene black with fade 
+
     ## Meeting Breeze
-    ## play sound "cafe bustle"
+    scene cafe1
+    play sound "audio/cafe.mp3"
+    show sofi at left with fade
     # Show sofi trying to look inconspicuous, maybe with both eyes closed, or one eye closed
-    ## play sound "phone ringing"
+    play sound "audio/ringtone.mp3" volume 0.1
     s "I'm getting a call from... Twisted Fates Dating Service?"
-    ## play sound "phone beep" 
+    play sound "audio/phonebeep.mp3" 
     s "Hello?"
-    # From here
     noa "Hi, this is Noa, from Twisted Fates Dating Service!"
     noa "We set up a lovely date for you this evening at a lovely cafe at Cafe Haven, 13th Lakestreet!"
     noa "Your date should be around your age, has dashing blue hair, and a sexy cold disposition."
     noa "And once you see him, Tell him 'You're wearing nothing but a smile.'"
     noa "See you then~♡."
-    # To here, I can’t make a quote block in this shit, watch me lose my fuckin’ mind with these rewrites
-    
     s "I can’t help but cringe at all this."
     s "I mean, I know this whole operation is supposed to be covert so it’s not like they can just send a message like, 'HEY, YO, GIRL, GO HERE AND MEET UP WITH ANOTHER FIELD AGENT FOR INSURGENCY TREASON STUFF!'"
     s "Still, could that passphrase be any cringier?"
 
     # Show sofi blank stare as if she’s thinking about it
-
     s "......."
 
     # Sofi slaps her cheeks, face cheeks obviously, fuckin’ degenerates
-    
     s "Okay, for real now. Inconspicuous, spy mode on. Let’s do this!"
     s "Scan your surroundings, but obviously don’t make it LOOK like you’re scanning!" 
     s "What do you see?"
@@ -136,11 +145,14 @@ label pretunnel:
     s "Woman outside with a dog on her phone and a kid running around. His mom? Sister? Babysitter? She looks busy, there’s trouble at home? Her body language suggests anger and annoyance."
     s "Not a threat. What else?"
     s "Two people a few spaces behind me in line, are they a couple? Seem to be the same age, seem pretty friendly, she touched his arm and he’s giving her a look but she’s- oh he’s getting friendzoned. Poor du-"
-
+    show sofi at center with move
     cc "Ma’am, are you alright?"
+    show sofi:
+        xpos 0.52
+    show sofi with move:
+        xpos 0.48
+    show sofi at center with move
     s "Agh!"
-
-    # Show Sofi shake
 
     s "What, yes, I-I’m Sofi, yes, that’s me, what’s up, what’s good bro, what do you need?"
     cc "I... need to know what you want to order?"
@@ -159,10 +171,11 @@ label pretunnel:
 
     # In a quiet voice, because she is experiencing emotional damage
     s "...yes, please, thank you."
-
+    show sofi at offscreenright with move
+    
     # transition scene to her sitting at her table
     # Show Sofi suffering 
-    # Drinking sound
+    play sound "audio/drinksip.mp3"
     s "......"
     s "It’s okay to cry Sofi. Every field agent probably has a similar story of their first mission."
     s "You’ll probably laugh at this someday!"
@@ -170,7 +183,6 @@ label pretunnel:
     s "...."
 
     # Sofi pained groaning
-
     s "Well, first you need to actually find them."
     s "The mission brief said it's someone with blue hair and a cold disposition..."
     s "Well, that’s pretty basic. Not sure how to spot a 'cold disposition' from a distance..."
@@ -185,12 +197,13 @@ label pretunnel:
 
     # Sofi girl blush and squeal
     s "Ahhhhhh!" 
-    show breeze at offscreenleft
+    show sofi at right with move
+    show breeze:
+        xpos -1.0
     s "No, no, no, calm down, Sofi! Professionalism! Professionalism."
-    show breeze at left with move
     s "I’m sure I’ll know him... when I see him."
-
-    # Pause there for a moment
+    show breeze at left with move
+    with Pause(3.0)
     s "...."
     b "...."
     s "Um...."
@@ -201,9 +214,15 @@ label pretunnel:
 
     # Breeze slowly nods
     s "And... you heard all that?"
+    show breeze with move:
+        ypos 1.1
+    show breeze with move:
+        ypos 1.0
     b "...Sorry."
 
     # Show sofi sprite slide down as if she’s trying to hide her shame
+    show sofi with move:
+        ypos 1.1
     s "....I wanna die. Can you just hand in my resignation form? And I’ll just... live here for now."
     b "No can do, I’m afraid."
 
@@ -228,12 +247,11 @@ label pretunnel:
 
     # Sofi collects herself and picks herself back up
     # She clears her throat
-
+    show sofi with move:
+        ypos 1.0
     s "So... uh... what was I supposed to say again? Something about a-"
     s "Ah!"
-
-    # Clear throat sound
-
+    s "Ahem!"
     s "I’m wearing nothing but-"
     b "Please. Don’t. We can just skip that portion, for our own sake. But mostly for yours."
     s "But... the manual says..."
@@ -243,9 +261,8 @@ label pretunnel:
     b "Uhhhh, no, it’s because he’ll probably be dead and his body disposed of in a ditch somewhere in the middle of nowhere."
     b "The manual will help, sure. But it’s important to be flexible, since you’ll probably end up running into things that go outside the scope of your training. And it’s in that moment, where the only thing that’ll save you is your wit, determination, and a lot of luck... that’s what’ll determine if you’re truly cut out for this life."
 
-    # Show Breeze getting up
-
     b "Anyways, we’ve confirmed our identities, so let’s head out."
+    show breeze at slightright with move
     s "Wh- right now? We’re leaving now?"
     b "No, this space is just a rendezvous in friendly territory. Though... friendly or not, it’s not good to talk openly about... certain things in mixed company."
     s "Oh, right, that was in the manual too."
@@ -261,7 +278,11 @@ label pretunnel:
     s "Uh-huh..."
 
     # Show the sprites begin to walk off screen, have Sofi stall
-
+    show breeze with move:
+        xpos 0.9
+    show sofi with move:
+        yrotate 180
+    with Pause(1.0)
     b "Something wrong?"
     s "...You’re like...not gonna murder me, right?"
     b "......."
@@ -269,22 +290,29 @@ label pretunnel:
     b "......."
     s "...Please say something."
     b "We... should probably hurry upstairs."
+    show breeze with move:
+        xpos 2.0
     s "...That’s not a no."
 
     scene black with fade 
 
     # Fade in to private room upstairs, there’s nothing particularly special about it, it’s just a normal room
+    scene rendezvous with fade
+    show sofi at right
+    show breeze at center
     # Show Breeze in the corner while Sofi’s sprite is pacing around
     # Breeze seems to be checking the time on his phone or something
     s "Hey what was your name again, buddy?"
+    show sofi at right with move
     b "What? Did I forget to introduce myself?"
+    show sofi at left with move
     b "It’s Breeze."
+    show sofi at right with move
     s "Breeze huh? That is a wonderful name that your parents gave to you. Nice and… airy?"
-
-    # Reminder, sofi should still be pacing around, just reuse the same pacing code from the train scene if it exists
-    show sofi at right
-    show breeze at center 
-    s "And, my name is Sofi, of course. My parents told me that it means Wisdom, I guess they wanted me to grow up to be a wise girl. Though, I also heard that it might also mean pure? Name meanings are weird like that."
+    show sofi at left with move
+    s "And, my name is Sofi, of course. My parents told me that it means Wisdom, I guess they wanted me to grow up to be a wise girl." 
+    show sofi at right with move
+    s "Though, I also heard that it might also mean pure? Name meanings are weird like that."
     show sofi at left with move 
     s "Ha… I’m not sure if I really live up to either of those names."
     show sofi at right with move 
@@ -317,6 +345,8 @@ label pretunnel:
     b "Lemme see your phone?"
 
     # Sofi hands him the phone, this doesn’t need to be anything, just tilting Sofi towards Breeze’s sprite
+    show sofi at center with move
+    show sofi at right with move
     s "What are you gonna do with it?"
     b "I need to start the mission briefing."
     
@@ -328,6 +358,7 @@ label pretunnel:
     ## From both phones, something starts to form between them. A small projection of a humanoid shape.
     s "I stared blankly at the figure until recognition started to form. I’d only ever seen her once before, but this would probably be the first time I’ve seen her up close."
     s "A small hologram of the leader of the guild, in a small and cute form, appeared on the table."
+    show kizuna1 at center
     # Kizuna’s sprite should be visible now. I don’t know if we’re using a chibi kizuna or just a shrunken down version of her full sprite
     s "Ms Kizuna."
     k "Greetings agents, I hope you’re doing well this evening."
@@ -345,20 +376,34 @@ label pretunnel:
     # Sofi throat clear
 
     s "Sorry."
-    k "Right… well, this… mr Nathan’s content is primarily, him… trespassing, and then filming it."
+    k "Right… well, this… Mr. Nathan’s content is primarily, him trespassing, and then filming it."
     k "Under normal circumstances, this wouldn’t be relevant to our goals. However…"
 
     # Show bg sewer tunnel, shake the cam a bit as if it’s being filmed, no dialogue though because I don’t want to
+    scene sewer_tunnel with fade
+    k "Watch closely."
+    show play at truecenter
+    hide play with Dissolve(0.7)
+    show rat2 at offscreenright
+    with Pause(2.0)
     # Hold the scene
     # Show a Vibrant sprite (probably the base form but with a non-red color) rush across the screen and blur it like it’s a motion blur
+    show rat2 at offscreenleft with move:
+    with hpunch
     # Pause the image or show the shake then the pause
-
+    show pause at truecenter
+    hide pause with Dissolve(0.7)
     s "What is that? Some kind of animal?"
     k "Our analysts thought the same, and under normal circumstances we would assume as much. However, every time this video was uploaded, it was immediately scrubbed off the site as well as search engines."
     b "Someone’s trying to bury the video?"
     s "Is that really so strange? Lots of people get videos taken down."
     b "That’s true but… our analysts wouldn’t just engage in conspiracy theories, there’s something else in the video? If it was just an animal attack, why try so hard to hide it?"
-
+    scene rendezvous with fade
+    show breeze at left
+    show sofi at right
+    show kizuna1 at center
+    b "..."
+    show breeze at slightright with move
     # Breeze gets closer to the image
     b "Zoom in on that blurry thing right there?"
 

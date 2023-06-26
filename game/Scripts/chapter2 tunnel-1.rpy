@@ -1,7 +1,8 @@
 ﻿label tunnel:
-
+    ## scene outsidetunnel
     # Open with establishing shot of the outside of the tunnel
     # Switch to a shot of the tunnel
+    scene sewers
     # play sound "walking in wet cave" walking through the tunnel, best case scenario, we have an sfx of walking through ankle deep water or a wet floor. But it’s not super necessary
     s "Breeze and I stuck close as we trekked through the indistinguishable halls of this urban labyrinth. The only sound between us were the faint drippings of water and our footsteps on the damp floor."
 

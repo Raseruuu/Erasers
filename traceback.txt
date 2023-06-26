@@ -1,21 +1,27 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('/images/shatter.jpg') at 0x0000000004888340>:
-  File "game/Scripts/chapter0 prologue.rpy", line 66, in script
-    scene black with shatter_in
-OSError: Couldn't find file 'images/shatter.jpg'.
+While loading <renpy.display.im.Image object ('images/pause.png') at 0x00000000051eb610>:
+  File "game/Scripts/chapter1 pretunnel.rpy", line 393, in script
+    s "What is that? Some kind of animal?"
+OSError: Couldn't find file 'images/pause.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/Scripts/chapter0 prologue.rpy", line 66, in script
-    scene black with shatter_in
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 1678, in execute
-    renpy.exports.with_statement(trans, paired=paired)
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\exports.py", line 1757, in with_statement
-    return renpy.game.interface.do_with(trans, paired, clear=clear)
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\core.py", line 2899, in do_with
-    return self.interact(trans_pause=True,
+  File "game/Scripts/chapter1 pretunnel.rpy", line 393, in script
+    s "What is that? Some kind of animal?"
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ast.py", line 930, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\exports.py", line 1473, in say
+    who(what, *args, **kwargs)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\character.py", line 1352, in __call__
+    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\character.py", line 1003, in do_display
+    display_say(who,
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\character.py", line 693, in display_say
+    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\core.py", line 3503, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\core.py", line 4093, in interact_core
@@ -28,14 +34,24 @@ Full traceback:
     surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
-  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\transition.py", line 542, in render
-    image = render(self.image, width, height, st, at)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\layout.py", line 886, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\layout.py", line 886, in render
+    surf = render(child, width, height, cst, cat)
   File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\transform.py", line 909, in render
     return RenderTransform(self).render(width, height, st, at)
   File "accelerator.pyx", line 979, in renpy.display.accelerator.RenderTransform.render
   File "accelerator.pyx", line 404, in renpy.display.accelerator.RenderTransform.render_child
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\image.py", line 513, in render
+    return wrap_render(self.target, width, height, st, at)
+  File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\image.py", line 316, in wrap_render
+    rend = render(child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
   File "render.pyx", line 266, in renpy.display.render.render
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\display\im.py", line 676, in render
     return cache.get(self, render=True)
@@ -47,9 +63,9 @@ Full traceback:
     filelike = renpy.loader.load(self.filename, directory="images")
   File "C:\Users\rkski\Documents\renpy-8.1.0-sdk\renpy\loader.py", line 833, in load
     raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'images/shatter.jpg'.
+OSError: Couldn't find file 'images/pause.png'.
 
 Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.1.23052503+nightly
 Erasers 1.0
-Sun Jun 25 23:20:31 2023
+Mon Jun 26 01:40:05 2023

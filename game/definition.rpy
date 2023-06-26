@@ -103,20 +103,20 @@ transform flipflip:
 ###############
 ## Screen positions ##
 ###############
-$ slightleft = Position(xpos=0.3, xanchor='left')
-$ thirdleft = Position(xpos=0.2, xanchor='left')
-$ halfleft = Position(xpos=0.1, xanchor='left')
-$ extremeleft = Position(xpos=-0.2, xanchor='left')
-$ center = Position(xpos=0.5, xanchor='center')
-$ slightright = Position(xpos=0.6, xanchor='right')
-$ thirdright = Position(xpos=0.75, xanchor='right')
-$ halfright = Position(xpos=0.9, xanchor='right')
-$ extremeright = Position(xpos=1.1, xanchor='right')
+init: 
+    $ slightleft = Position(xpos=0.3, xanchor='left')
+    $ thirdleft = Position(xpos=0.2, xanchor='left')
+    $ halfleft = Position(xpos=0.1, xanchor='left')
+    $ extremeleft = Position(xpos=-0.2, xanchor='left')
+    $ center = Position(xpos=0.5, xanchor='center')
+    $ slightright = Position(xpos=0.6, xanchor='right')
+    $ thirdright = Position(xpos=0.75, xanchor='right')
+    $ halfright = Position(xpos=0.9, xanchor='right')
+    $ extremeright = Position(xpos=1.3, xanchor='right')
 
 #################
 ## Transitions ##
 #################
-$ slowdissolve = Dissolve(2.5)
 define shatter_in = ImageDissolve("/images/shatter.png", 6.0)
 define shatter_out = ImageDissolve("/images/shatter.png", 6.0, reverse=True)
 
