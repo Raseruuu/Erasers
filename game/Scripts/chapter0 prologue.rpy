@@ -9,7 +9,6 @@ label prologue:
     stop sound
     u "Welcome, weary travelers! Come sit closer, my eyesight is not what it once was."
     u "A name? Ah, yes..."
-
     scene stage
     play sound "audio/spotlight.mp3"
 

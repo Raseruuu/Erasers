@@ -1,10 +1,12 @@
 label meetingflair:
     # Open with a black screen and an alarm sound
-
+    scene black
+    play sound "audio/alarm.mp3"
     fi "CONTAINMENT BREACH IN SECTORS 6 - 13!"
     fl "EMERGENCY LOCKDOWN PROTOCOLS ARE NOW IN EFFECT!"
 
     #Hold on the black screen
+    # scene hallway with fade
     # Open with a hallway bg, I think we have an extra somewhere that was in the original sketch work
     # Have Breeze and Azma walking down the hall, I don’t know if we’re still using the goon sprite to represent Breeze though
 
@@ -19,7 +21,7 @@ label meetingflair:
     az "Are we clear now?"
     az "Good. You now have 4 minutes to get this done. And stop crying already, you’re an adult for god’s sake."
 
-    # communicator clicking noise
+    play sound "audio/beep.mp3"
 
     # Azma annoyed groan
     az "The things I have to put up with..."
@@ -89,11 +91,12 @@ label meetingflair:
 
     b "Tell her: I’m sorry, but I’ll have to take a rain check on date night."
     az "Right.. oh, Herbert. One more thing..."
-
+    play sound "audio/punch.mp3"
+    ## play sound "audio/breezeice.mp3"
     # play Azma strike SFX + Breeze Ice SFX, the intention here is that Breeze blocked a ranged attack from Azma with an ice-wall
 
     # Hold on the scene
-
+    with Pause (3.0)
     az "I see you managed to survive... Breeze."
 
     # Breeze undoes the goon disguise since he’s been made / TN: "To be made is spy talk for cover being blown, being discovered, essentially"
@@ -119,8 +122,8 @@ label meetingflair:
     s "I don’t have a snowball’s chance in hell of beating him in these conditions, I just need to survive then find an opening to make a break for it."
     s "Speaking of hell, was it getting hotter in here?"
     s "Taking a moment to realize that the room really was getting hotter, I notice in the corner of my eye, the wall glowing when suddenly-"
-
-    # Play boom sound or something, play breeze ice sfx
+    play sound "audio/explosion.mp3"
+    # play breeze ice sfx
     # Hold on the scene, then play footsteps
 
     s "That was too close."
@@ -164,7 +167,7 @@ label meetingflair:
     az "...Pathetic."
 
     # Sealed door opening sound... this might be difficult to find though, so as a substitute, the beeping sound that some vehicles make when backing up can be used
-
+    play sound "audio/doorbeep.mp3"
     az "Oh, now it’s open. Just when things were getting interesting."
 
     "Suddenly, Azma pointed directly at me."
