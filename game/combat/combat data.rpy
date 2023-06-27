@@ -107,7 +107,7 @@ init -50 python:
     breeze = fighter("Breeze", ["Attack", "Shard"], [2.5, 5.0])
     sofi = fighter("Sofi", ["Shield", "Heal"], [6.0, 10.0])
     flair = fighter("Flair", ["Firebolt", "Inferno"], [3.0, 8.0]) ##2, 20
-    breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.5, 2.0, 10.0])
+    breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.2, 2.0, 6.0])
 
     skillcard = { "Attack": "cardblade",
                     "Shard": "cardshard",

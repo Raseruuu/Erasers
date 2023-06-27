@@ -208,22 +208,26 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
 
     ## debuff no stacking, just reset to max
     if act == "Attack":
-        $ atkdamage += mobstat[target][8]*3 ## adjust the modifier later
+        $ atkdamage += mobstat[target][8]*5 ## adjust the modifier later
     if act == "Shard":
-        $ mobstat[target][2] = 100 ## slow for 5s, 0.25rate
         if encounter == "Az":
             $ mobstat[target][2] = 50
         elif encounter == "Alv":
             $ mobstat[target][2] = 200
+        else:
+            $ mobstat[target][2] = 100 ## slow for 5s, 0.25rate
     if act == "Firebolt":
         $ mobstat[target][3] = 400 ## burn 20s, 20hp
-    if act == "Blizzard":
-        $ mobstat[target][8] = mobstat[target][2]
+    python:
+        if act == "Blizzard":
+            for i, j in enumerate(mobstat):
+                # if mobstat[i][0] != "None":
+                mobstat[i][8] = mobstat[i][2]
 
     ## TODO: spell/attack animations here
     $ renpy.pause(0.25)
-    # if act != "Blizzard":
-    show screen damagecalc(atkdamage) ## ANIMATION
+    ## ANIMATION
+    show screen damagecalc(atkdamage)
     $ renpy.pause(0.75)
 
     hide screen atkblade

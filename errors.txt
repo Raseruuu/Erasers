@@ -2,37 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter1 pretunnel.rpy", line 49: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 180
-               ^
+File "game/combat/combat python.rpy", line 224: Line is indented, but the preceding one-line python statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    $ mobstat[i][8] = mobstat[i][2]
+    ^
 
-File "game/Scripts/chapter1 pretunnel.rpy", line 52: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 0
-             ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 55: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 180
-               ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 58: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 0
-             ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 61: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 180
-               ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 64: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 0
-             ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 72: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 180
-               ^
-
-File "game/Scripts/chapter1 pretunnel.rpy", line 287: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
-    yrotate 180
-               ^
-
-Ren'Py Version: Ren'Py 8.0.0.22062402
-Wed Jun 28 02:32:03 2023
+Ren'Py Version: Ren'Py 8.1.1.23060707
+Wed Jun 28 04:05:29 2023

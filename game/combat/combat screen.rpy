@@ -102,7 +102,6 @@ screen mob1(i, position):
                     yalign 0.5
                     xalign 0.5
 
-
                     hbox:
                         xalign 0.5
                         fixed:
@@ -113,7 +112,8 @@ screen mob1(i, position):
                                 range mob[i].hp
                                 xysize (300, 50)
                             if encounter != "Az":
-                                text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
+                                # text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
+                                text str(mobstat[target][2])+"+"+str(mobstat[target][8]) align (0.5, 0.5)
                     null height 15
                     add mob[i].img xalign 0.5
                     null height 15
