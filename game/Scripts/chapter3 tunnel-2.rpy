@@ -1,10 +1,13 @@
 ﻿label facility:
-    # scene magicfacility
+    scene magicfacility
+    show grunt1:
+        xpos -1.0
+    show grunt2:
+        xpos -1.0
     # Have the goon sprites "walking" across the screen, maybe lookin’ kinda shady
     # have another goon sprite just suddenly pop up from the ground, since all the goon sprites look alike, we don’t need to make a new one. Btw just to mention it, the two goons are Sofi and Breeze in disguise
-    ## show goon1 at slightright
-    ## show goon2 at left
-    scene 
+    show goon1 at slightright with move
+    show goon2 at left with move
     ms "Where the hell have you two idiots been?!"
 
     # Straighten up the goon sprites, basically just put a shake effect on them briefly

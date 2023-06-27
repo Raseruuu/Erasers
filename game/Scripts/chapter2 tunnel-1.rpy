@@ -3,7 +3,9 @@
     # Open with establishing shot of the outside of the tunnel
     # Switch to a shot of the tunnel
     scene sewers
-    play sound "audio/walkinginsewers.mp3" volume 0.3 fadeout 5.0
+    play sound "audio/walkinginsewers.mp3" volume 0.2 fadeout 5.0
+    show sofi at right
+    show breeze at halfright
     s "Breeze and I stuck close as we trekked through the indistinguishable halls of this urban labyrinth. The only sound between us were the faint drippings of water and our footsteps on the damp floor."
     # Sofi angry groaning noise
     s "Also my groaning. I was not a happy girl. Not happy in the slightest."
@@ -34,8 +36,7 @@
     s "There’s no way anyone’s gonna believe that."
     b "That’s what I thought too but... it apparently works. You tell people you’re a streamer and most of the time they just tell you to leave."
     s "Uh-huh... and if they don’t believe you?"
-
-    # stop walking sound
+    stop sound
     s "I watched as this man suddenly stopped walking, standing as still as a statue for some reason. I thought that maybe he heard something or he found our target, but instead he just stretched out his hand and... did it start to feel colder in here?"
     s "That’s when I noticed it."
     s "The vapor in the air was crystallizing, it swirled and moved as if guided by an invisible puppeteer, gathering in front of him. He was like an artist molding it to his will, forming a thick wall of ice in front of him."
@@ -43,9 +44,7 @@
     s "But... he didn’t seem done."
     s "The crystallized vapor began to combine and accumulate in his hands, forming a familiar blade-like shape."
     s "He closed his eyes, and took a breath, as if the entire world just melted away. And then... I blinked."
-
-    # Sword slicing sound
-    play sound "audio/slice.mp3" 
+    play sound "audio/icesword.mp3" volume 1.5
     # sliding ice sound if we have it, otherwise we don’t need it
     s "I... can’t say that I wasn’t impressed. I knew he was an experienced field agent, but I don’t think I’ve ever seen someone with that kind of mastery of magic." 
     s "Who was this man? Where’d he learn these skills? Even with my own training, I only ever learned support spells. I can heal and make a barrier but against this man... I might as well have been a child playing at being a mage."
@@ -57,7 +56,9 @@
     s "He could be a little nicer to me though!"
 
     scene black with fade
-    # scene Tunnel Interior (Graffiti?)
+    with Pause (0.5)
+
+    scene tunnel_int with fade
     show breeze at left
     show sofi at slightright
 
@@ -84,7 +85,6 @@
     s "You’d think there’d be more of them around here if a Vibrant were around. And yet... not a single sign of it."
     s "It has been a few days though, so maybe it’s already been washed away?"
     s "Hmmmm... something felt strange. It shouldn’t be strange that the trail would’ve gone cold but I couldn’t help but feel this nagging feeling in the back of my head. But I couldn’t quite figure it out."
-
     # sighing sofi noise, return to breeze
     show breeze at left with move
     s "Hey Breeze, this space is probably a dead end. Maybe we should try looking somewhere else?"
@@ -103,19 +103,25 @@
     play sound "audio/alert.mp3"
     s "Ah, I think I see what you’re getting at..."
     s "But if that’s the case, then-"
-
-    # Sound of stones sliding, and footsteps in the distance
+    hide sofi 
+    hide breeze
+    with fade
     # scene tunnel2 the bg over to the opposite side until the two characters are either out of frame or as far to one side as possible
     play sound "audio/footsteps.mp3"
+    show grunt1 at right with move
     un "I’m telling you, the sensors picked up something!"
+    show grunt2 at halfright with move
     un "It’s probably just some rats again, or another streamer. Who calibrated those things? They’re more sensitive than you back in school."
     un "Okay first of all, up yours. Second of all, we’ve got a job to do, and it’s our duty to secure the area from any prying eyes."
     un "...why do you sound so proud of that?"
-
+    hide grunt1
+    hide grunt2 with fade
     # pan the bg back to Sofi and Breeze
+    show breeze at left with move:
+    show sofi at halfleft with move 
     s "Voices, two of them, were coming from around the corner. We needed to hide and-"
     s "Mmrph!"
-    show breeze at right with move
+    show breeze at halfleft with move
     show breeze at left with move:
         ypos 1.3
     show sofi at slightright with move:
@@ -128,10 +134,11 @@
     "Breeze crouched along with me, and took a visible breath. The vapor from his breath expanding and forming around us to create a subtle veil of mist to blend in with the natural one from the sewer."
 
     # show annoyed Sofi
-    s "I also tried to not think about how much of this veil was saliva."
+    "I also tried to not think about how much of this veil was saliva."
 
     # slide bg over back to the henchmen, have them walking in, their sprites should be turned towards Sofi and Breeze’s hiding space at first, but then turns away
     ## show grunt 1 and 2
+    play sound "audio/footsteps.mp3"
     s "The footsteps and voices grew louder until two figures passed right by us. My breath caught in my throat as I noticed the weapons they carried."
 
     # show the camera zooming in tight on Sofi as if she’s panicking, maybe fade to darken the edges of the bg for symbolism
@@ -145,19 +152,32 @@
     s "Normal, Sofi."
     s "These men aren’t scary, they’re just... henchmen, I guess? They certainly looked the part."
 
-    # slide back to the henchmen until Sofi and Breeze are out of the frame
+    hide sofi
+    hide breeze
+    show grunt1:
+        xpos 0.8
+    show grunt2:
+        xpos 0.7
+    show sofi:
+        xpos -0.5 ypos 1.5
+    show breeze:
+        xpos -0.5 ypos 1.5
+    with fade
     g1 "See, I told you, it’s probably just another rat! Man, I hate this place, why’d the bosses even set up shop here?"
     g2 "It's quiet, out of the way, and there's a very small chance of intruders."
     g1 "Also because they spent millions building the place."
     g2 "Well, that too. But hey, like I said, it’s our job to patrol so we can at least do a quick look around."
     # have the bg slide slowly back to Breeze’s position but not fully
     g1 "Nah, man, screw that, this place is disgusting. You can prance around in the filth all you want, but I’m heading back so- OH HELL NO NOT THIS GUY AGAIN!"
-    b "S’up."
-    # cut back to Sofi
+    show breeze at slightright with move
+    b "'Sup."
+    show sofi at left with move
     s "Huh?"
-
-    # show sofi’s sprite turned around, then back to facing the scene
+    show sofi:
+        yrotate 180
     s "H-how did he get past me?"
+    show sofi:
+        yrotate 0
     g2 "What g- NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO NO!"
     g2 "WHY IS IT ALWAYS YOU WE RUN INTO?!"
     g1 "BRO, ARE YOU JUST STALKING US AT THIS POINT?! THIS IS A STATISTICAL IMPOSSIBILITY THAT WE’D ALWAYS RUN INTO YOU!"
