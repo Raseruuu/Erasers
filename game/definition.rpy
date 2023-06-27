@@ -4,6 +4,7 @@ define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"))
 define f = Character("Flair",callback=speaker("Flair"),)
 define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"),)
 define k = Character("Kizuna",callback=speaker("Kizuna"),)
+define tm = Character("Tomo",callback=speaker("Tomo"),)
 
 define ke = Character("Kephirah",callback=speaker("Kephirah"),)
 

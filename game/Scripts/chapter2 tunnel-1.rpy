@@ -123,9 +123,9 @@
     b "Shh."
 
     # pull the Sofi and Breeze sprites down into corner, as if they’re hiding, there’s no way we’re gonna make a sprite just for this, so we’ll use theater of the mind and pull their sprites closer together... I just hope it doesn’t look too weird
-    s "Breeze had covered my mouth and pulled me off into an alcove in the wall. He could’ve warned me first, I nearly had a heart attack!"
+    "Breeze had covered my mouth and pulled me off into an alcove in the wall. He could’ve warned me first, I nearly had a heart attack!"
     b "Stay low."
-    s "Breeze crouched along with me, and took a visible breath. The vapor from his breath expanding and forming around us to create a subtle veil of mist to blend in with the natural one from the sewer."
+    "Breeze crouched along with me, and took a visible breath. The vapor from his breath expanding and forming around us to create a subtle veil of mist to blend in with the natural one from the sewer."
 
     # show annoyed Sofi
     s "I also tried to not think about how much of this veil was saliva."
