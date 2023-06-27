@@ -1,6 +1,6 @@
 ##############################################################
 init -50 python:
-    punchwipe = ImageDissolve("images\combat\vfx/grad.png", 0.3)
+    punchwipe = ImageDissolve("images/combat/vfx/grad.png", 0.3)
 
     import pygame
     def ticking():
