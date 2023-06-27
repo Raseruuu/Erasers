@@ -59,14 +59,14 @@ screen textoutcome(tt):
 
 label parryoutcome: ##animation.
     if tick>=75 and tick <=80:
-        $ mobdamage = 5
+        $ mobdamage = 10
         $ hitsound = swordclash
         show punchparry onlayer screens
         show screen textoutcome("PARRIED!")
         pause 0.1
 
     elif tick>=55 and tick <=90:
-        $ mobdamage = 25
+        $ mobdamage = 50
         $ hitsound = swordblock
         show screen textoutcome("DEFLECTED!")
     else:

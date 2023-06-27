@@ -6,7 +6,7 @@ screen combat:
     #############################################################################################
     ## Main ticker. This is where all the timing stuff happens. ##
 ##############################################################
-    # timer 0.05 action Function(ticking) repeat True
+    timer 0.05 action Function(ticking) repeat True
 ##############################################################
     ## Main ticker. This is where all the timing stuff happens. ##
     #############################################################################################
@@ -173,7 +173,7 @@ screen sofiact:
                         value soficd
                         range sofi.cost[i]
                         xysize (150, 175)
-                    add skillcard[j]
+                    # add skillcard[j]
                     text j xalign 0.5 ypos 20 color "#000"
                     # text str(int(sofi.cost[i])) xalign 0.5 yoffset 5
                     if soficd <= sofi.cost[i]:
@@ -199,7 +199,7 @@ screen breezeact:
                         vbar: ## to show cd
                             xysize (150, 175)
                             value breezecd range breeze.cost[i]
-                        add skillcard[j]
+                        # add skillcard[j] ## image, to be updated into bars later
                         text j xalign 0.5 ypos 20 color "#000"
                         if breezecd <= breeze.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
                             text str(int(breezecd)) align (1.0, 1.0) offset (-5, -5) color "#000"
@@ -221,7 +221,7 @@ screen flairact:
                     vbar:
                         xysize (150, 175)
                         value flaircd range flair.cost[i]
-                    add skillcard[j]
+                    # add skillcard[j]
                     text j xalign 0.5 ypos 20 color "#000"
                     # text str(int(flair.cost[i]))
                     if flaircd <= flair.cost[i]:

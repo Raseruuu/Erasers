@@ -49,12 +49,13 @@ init -50 python:
             ## Rat respawn ##
             if encounter == "Rat":
                 for i, j in enumerate(mobstat):
-                    if mobstat[i][0] == "None":
-                        if mobstat[i][8] == 30:
+                    if mobstat[i][0] == "None": ## if rat is dead
+                        # if mobstat[i][8] == 30:
+                        if mobstat[i][8] < 35:
+                            mobstat[i][8] += 1
+                        else:
                             mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0] ## Rat replacement
                             renpy.call("ratrespawn")
-                        elif mobstat[i][8] < 30:
-                            mobstat[i][8] += 1
 
             ## Alv regen ##
             if encounter == "Alv" :
@@ -116,15 +117,15 @@ init -50 python:
                     "Firebolt": "cardblade",
                     "Inferno": "cardblade"}
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 15, "Shard": 20,
+                    "Attack": 125, "Shard": 200,
                     "Blizzard": 0,
-                    "Shield": 50, "Heal": 100,
-                    "Firebolt": 30, "Inferno": 70
+                    "Shield": 50, "Heal": 500,
+                    "Firebolt": 150, "Inferno": 300
                     }
-    skillcd = {"Attack": 1.5, "Shard": 3,
+    skillcd = {"Attack": 2.5, "Shard": 5,
                 "Blizzard": 10,
                 "Shield": 6, "Heal": 10,
-                "Firebolt": 2, "Inferno": 20
+                "Firebolt": 3, "Inferno": 8
                 }
     skilldesc = {
                 "Attack": "Strike it like it's hot.",
@@ -148,11 +149,11 @@ init -50 python:
             self.dmg = dmg ## attacking damage
             self.img = img ## icon image
 
-    flairmob = mob("Flair", 800, 140, 65, "flairmob") ## dps 65/7 = 8
-    ratmob = mob("Rat", 50, 100, 20, "ratmob") ## dps 20/5 = 4
-    azmob = mob("Az", 80000, 80, 100, "azmob") ## dps 100/4 = 25
+    flairmob = mob("Flair", 1200, 100, 220, "flairmob") ## dps 65/7 = 8 ## transit into goons later
+    ratmob = mob("Rat", 350, 70, 40, "ratmob") ## dps 20/5 = 4
+    azmob = mob("Az", 80000, 80, 300, "azmob") ## 4 unblocked hits
     # goon = mob("Goon", 300, 120, 50, "goonmob")
-    alvmob = mob("Alv", 500, 16000, 80, "alvmob") ## dps 80/8 = 10
+    alvmob = mob("Alv", 500, 160, 80, "alvmob") ## dps 80/8 = 10
     nonemob = mob("None", 800, 20, 65, "alvmob")
 
     ####################################################

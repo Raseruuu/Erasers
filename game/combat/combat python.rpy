@@ -18,9 +18,11 @@ label combattest: ## simulate going into a combat from story.
 
     call combat
 
+    scene black with dissolve
     "combat end"
     $ _skipping = True
     $ _game_menu_screen = "save_screen"
+    scene black
 
     # $ renpy.fix_rollback()
     return
@@ -33,7 +35,7 @@ label combat:
         # _game_menu_screen = None ##TODO: uncomment when shipping
 
         ## Breeze's hp/hpmax/shield
-        hpmax = hp = 350
+        hpmax = hp = 1000
         shield = 0 #10.00
         breezeaction = []
         act = ""
@@ -148,21 +150,19 @@ label damagephase: ## damaging enemies
 
     call breezeaction ## STATS hp/slow/burn
 
-    # $ target = targettemp ##return target
-
     ## End Condition Check ##
     python:
         death = []
         for i, j in enumerate(mobstat):
-            if mobstat[i][1]<=0:
+            if mobstat[i][1]<=0 and mobstat[i][0] != "None": ## if there's a death
                 death.append(i)
                 if encounter == "Alv":
                     alvkill +=1
 
     if len(death) >=1: ##if there's death
-        if len(mobstat) - len([item for item in mobstat if item[0] == "None"]) == 1: ## single enemy
+        if len(mobstat) - len([item for item in mobstat if item[0] == "None"]) == 1: ## single enemy remaining
             jump victory
-        elif len(mobstat) - len([item for item in mobstat if item[0] == "None"]) >1: ## Group fight
+        elif len(mobstat) - len([item for item in mobstat if item[0] == "None"]) >1: ## multiple remaining
             jump mobdeath
     else:
         jump combatloop
@@ -328,7 +328,6 @@ label mobdeath: ## dead replace/removal in group
                             if j[0] != "None":
                                 targettemp = i
                                 break
-
         elif encounter == "Alv":
             mobstat[death[0]][0] = "None"
             head = []
@@ -352,30 +351,29 @@ label mobdeath: ## dead replace/removal in group
                         targettemp = i
                         break
             head = []
+
         else:
-            for i in death:
-                # mobstat.pop(i)
-                mobstat[i][0] = "None"
-
+            # for i in death:
+            #     # mobstat.pop(i)
+            #     mobstat[i][0] = "None"
+            while len(death)>0:
+                mobstat[death[0]][0] = "None"
+                death.pop(0)
             target = 0
-    ## goon death narration here
-    ## Alv 1st death narration here
+
+    ## TODO: goon death narration here
+    ## TODO:s Alv 1st death narration here
     show screen combat
-    # python:
-    #     if encounter == "Rat":
-    #         for i, j in enumerate(mobstat):
-    #             if mobstat[i][0] == "None":
-    #                 mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0] ## Rat replacement
-    #
-
-
 
     jump combatloop
 
-label victory: ## TODO: have encounter specific victory
+label victory:
     hide screen combat with dissolve
     stop music fadeout 1.0
+
+    ## TODO: have encounter specific victory
     "You win"
+
     return
 label gameover:
     hide screen combat
