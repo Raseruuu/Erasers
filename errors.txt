@@ -2,9 +2,37 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter2 tunnel-1.rpy", line 1: expected statement.
-    from pickle import _BufferCallback
-                                      ^
+File "game/Scripts/chapter1 pretunnel.rpy", line 49: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 180
+               ^
 
-Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Mon Jun 26 13:15:27 2023
+File "game/Scripts/chapter1 pretunnel.rpy", line 52: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 0
+             ^
+
+File "game/Scripts/chapter1 pretunnel.rpy", line 55: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 180
+               ^
+
+File "game/Scripts/chapter1 pretunnel.rpy", line 58: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 0
+             ^
+
+File "game/Scripts/chapter1 pretunnel.rpy", line 61: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 180
+               ^
+
+File "game/Scripts/chapter1 pretunnel.rpy", line 64: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 0
+             ^
+
+File "game/Scripts/chapter1 pretunnel.rpy", line 72: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 180
+               ^
+
+File "game/Scripts/chapter1 pretunnel.rpy", line 287: ATL statement contains two expressions in a row; is one of them a misspelled property? If not, separate them with pass.
+    yrotate 180
+               ^
+
+Ren'Py Version: Ren'Py 8.0.0.22062402
+Wed Jun 28 02:32:03 2023

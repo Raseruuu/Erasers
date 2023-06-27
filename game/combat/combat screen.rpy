@@ -189,19 +189,20 @@ screen breezeact:
 
                     button:
                         xysize (150, 175)
-                        action [If(breezecd >= breeze.cost[i] and mobphase == False, true = [SetVariable("breezecd", 0),
+                        action [If(breezecd >= breezeex.cost[i] and mobphase == False, true = [SetVariable("breezecd", 0),
                                                                     SetVariable("timerpause", True),
                                                                     SetVariable("act", j), ## for the damagephase to sort out.
                                                                     Call("damagephase")])]
+
                         hovered [SetVariable("desc", j), SetVariable("descpos", 750+75+200*i)]
                         unhovered [SetVariable("desc", None)]
 
                         vbar: ## to show cd
                             xysize (150, 175)
-                            value breezecd range breeze.cost[i]
+                            value breezecd range breezeex.cost[i]
                         # add skillcard[j] ## image, to be updated into bars later
                         text j xalign 0.5 ypos 20 color "#000"
-                        if breezecd <= breeze.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
+                        if breezecd <= breezeex.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
                             text str(int(breezecd)) align (1.0, 1.0) offset (-5, -5) color "#000"
 screen flairact:
     fixed: ##Flair action buttons
@@ -246,7 +247,7 @@ screen breezeexact: ## TODO: change to EX lineup
                         xysize (150, 175)
                         value breezecd range breezeex.cost[i]
 
-                    add skillcard[j]
+                    # add skillcard[j]
                     text j xalign 0.5 ypos 20 color "#000"
 
                     if breezecd <= breezeex.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.

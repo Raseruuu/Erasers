@@ -37,7 +37,7 @@ init -50 python:
                 mobstat[i][8] -= 1 ## 10s = 200
 
             ## Commmand card timers.
-            if breezecd < max(breeze.cost):
+            if breezecd < max(breezeex.cost):
                 breezecd +=0.05
             if soficd <max(sofi.cost):
                 soficd +=0.05
@@ -104,10 +104,10 @@ init -50 python:
             self.list = list
             self.cost = cost
 
-    breeze = fighter("Breeze", ["Attack", "Shard"], [1.5, 3.0])
+    breeze = fighter("Breeze", ["Attack", "Shard"], [2.5, 5.0])
     sofi = fighter("Sofi", ["Shield", "Heal"], [6.0, 10.0])
-    flair = fighter("Flair", ["Firebolt", "Inferno"], [2.0, 20.0]) ##2, 20
-    breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.5, 1.5, 10.0])
+    flair = fighter("Flair", ["Firebolt", "Inferno"], [3.0, 8.0]) ##2, 20
+    breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.5, 2.0, 10.0])
 
     skillcard = { "Attack": "cardblade",
                     "Shard": "cardshard",
@@ -149,11 +149,11 @@ init -50 python:
             self.dmg = dmg ## attacking damage
             self.img = img ## icon image
 
+    # goon = mob("Goon", 300, 120, 50, "goonmob")
     flairmob = mob("Flair", 1200, 100, 220, "flairmob") ## dps 65/7 = 8 ## transit into goons later
     ratmob = mob("Rat", 350, 70, 40, "ratmob") ## dps 20/5 = 4
+    alvmob = mob("Alv", 3000, 180, 150, "alvmob") ## dps 80/8 = 10
     azmob = mob("Az", 80000, 80, 300, "azmob") ## 4 unblocked hits
-    # goon = mob("Goon", 300, 120, 50, "goonmob")
-    alvmob = mob("Alv", 500, 160, 80, "alvmob") ## dps 80/8 = 10
     nonemob = mob("None", 800, 20, 65, "alvmob")
 
     ####################################################
