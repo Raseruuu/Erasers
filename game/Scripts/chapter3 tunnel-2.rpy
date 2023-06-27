@@ -4,6 +4,7 @@
     # have another goon sprite just suddenly pop up from the ground, since all the goon sprites look alike, we don’t need to make a new one. Btw just to mention it, the two goons are Sofi and Breeze in disguise
     ## show goon1 at slightright
     ## show goon2 at left
+    scene 
     ms "Where the hell have you two idiots been?!"
 
     # Straighten up the goon sprites, basically just put a shake effect on them briefly
@@ -116,10 +117,10 @@
     "The floor rumbled, causing me to lose my footing, I would’ve met the ground had Breeze’s quick reflexes not caught me in time."
 
     # We should have a VA actually say this line
-    fi "ALERT. SECURITY BREACH IN SECTOR 3."
-    fi "REPEAT. SECURITY BREACH IN SECTOR 3."
-    fi "NON-COMBATANTS ARE TO EVACUATE TO THE NEAREST SHELTER AS SOON AS POSSIBLE TO AWAIT FURTHER INSTRUCTIONS."
-    fi "ALL COMBATANTS ARE TO CONTAIN THE BREACH IMMEDIATELY. "
+    fl "ALERT. SECURITY BREACH IN SECTOR 3."
+    fl "REPEAT. SECURITY BREACH IN SECTOR 3."
+    fl "NON-COMBATANTS ARE TO EVACUATE TO THE NEAREST SHELTER AS SOON AS POSSIBLE TO AWAIT FURTHER INSTRUCTIONS."
+    fl "ALL COMBATANTS ARE TO CONTAIN THE BREACH IMMEDIATELY. "
     s "As soon as we heard the alert come on over the intercom, we're-engaged our disguises. Looks like we wouldn’t be be able to just casually walk around anymore."
     s "Did they find us out? I wasn’t sure until I saw a couple of guards literally run past us."
     b "Might be another Vibrant breakout?"
@@ -176,7 +177,7 @@
     b "...6 out of 10."
     s "You jerk."
 
-    play sound "aduio/footsteps.mp3"
+    play sound "audio/footsteps.mp3"
 
     # Show Azma at right with move
     un "Why do you keep trying to go off on your own, and make my life harder, Dr Tomo?"

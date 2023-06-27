@@ -2,7 +2,7 @@ label meetingflair:
     # Open with a black screen and an alarm sound
     scene black
     play sound "audio/alarm.mp3"
-    fi "CONTAINMENT BREACH IN SECTORS 6 - 13!"
+    fl "CONTAINMENT BREACH IN SECTORS 6 - 13!"
     fl "EMERGENCY LOCKDOWN PROTOCOLS ARE NOW IN EFFECT!"
 
     #Hold on the black screen
@@ -195,4 +195,5 @@ label meetingflair:
     f "Better men than you have tried."
 
     # Show the two sprites rushing at each other as it fades to black
-    jump chapter5
+    ## jump chapter5
+    return
