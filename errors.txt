@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/Scripts/chapter2 tunnel-1.rpy", line 1: expected statement.
+    from keyword import softkwlist
+                                  ^
+
+Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
+Tue Jun 27 17:58:45 2023
