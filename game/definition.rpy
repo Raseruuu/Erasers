@@ -32,12 +32,15 @@ image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
 # image side sofiside = im.FactorScale(im.Crop(sofi, (400, 265, 1000, 1000)), 0.4)
-image side sofiside:
-    LiveCrop((220,80, 460,500), "sofi")
-    zoom 0.8
-image side breezeside:
-    LiveCrop((260,60, 460,500), "breeze")
-    zoom 0.8
+# image side sofiside:
+#     LiveCrop((220,80, 460,500), LayeredImageProxy("sofi"))
+#     zoom 0.8
+
+image side sofiside = LayeredImageProxy("sofi", Transform(crop=(220, 80, 460, 500), zoom=0.8))
+image side breezeside =  LayeredImageProxy("breeze", Transform(crop=(260, 80, 460, 500), zoom=0.8))
+# s down openmouth ""
+
+
 image side azside = "images/sprite/aztemp.png"
 # image side breezeside = im.FactorScale(im.Crop(breeze, (500, 150, 1000, 1000)), 0.4)
 transform left:

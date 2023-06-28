@@ -131,11 +131,11 @@ image Sofi_eyes_midclose:
 
 #     repeat
 image Sofi_mouth_frown_speaking:
-    "sprite/Sofi/mouth_open2.png"
+    "sprite/Sofi/mouth_openfrown.png"
     pause 0.08
     "sprite/Sofi/mouth_open.png"
     pause 0.1
-    "sprite/Sofi/mouth_open2.png"
+    "sprite/Sofi/mouth_openfrown.png"
     pause 0.08
     "sprite/Sofi/mouth_frown.png"
     pause 0.08
@@ -170,12 +170,12 @@ layeredimage sofi:
         # attribute crying:
         #     "Sofi_eyes_crying"
     group eyebrows:
-        attribute up default:
+        attribute normal default:
             "sprite/Sofi/eyebrows_normal.png"
         attribute worried:
             "sprite/Sofi/eyebrows_up.png"
         attribute down:
-            "sprite/Sofi/eyebrows_angry.png"
+            "sprite/Sofi/eyebrows_down.png"
         # attribute default:
         #     "sprite/Sofi/eyebrows_normal.png"
     group mouth:
