@@ -4,8 +4,8 @@ define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"))
 define f = Character("Flair",callback=speaker("Flair"),)
 define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"),)
 define k = Character("Kizuna",callback=speaker("Kizuna"),)
-define tm = Character("Tomo",callback=speaker("Tomo"),)
-define az = Character("Azuna",callback=speaker("Azuna"),)
+define tm = Character("Alverna",callback=speaker("Alverna"),)
+define az = Character("Azmaveth",callback=speaker("Azmaveth"),)
 define ke = Character("Kephirah",callback=speaker("Kephirah"),)
 
 define u = Character("???")
@@ -32,12 +32,15 @@ image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
 # image side sofiside = im.FactorScale(im.Crop(sofi, (400, 265, 1000, 1000)), 0.4)
-image side sofiside:
-    LiveCrop((220,80, 460,500), "sofi")
-    zoom 0.8
-image side breezeside:
-    LiveCrop((260,60, 460,500), "breeze")
-    zoom 0.8
+# image side sofiside:
+#     LiveCrop((220,80, 460,500), LayeredImageProxy("sofi"))
+#     zoom 0.8
+
+image side sofiside = LayeredImageProxy("sofi", Transform(crop=(220, 80, 460, 500), zoom=0.8))
+image side breezeside =  LayeredImageProxy("breeze", Transform(crop=(260, 80, 460, 500), zoom=0.8))
+# s down openmouth ""
+
+
 image side azside:
     LiveCrop((260,60, 460,500), "images/sprite/Azmaveth/Azmaveth.png")
     zoom 0.4
