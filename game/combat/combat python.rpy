@@ -29,7 +29,7 @@ label combattest: ## simulate going into a combat from story.
 
 label combat:
     window hide
-
+    
     python:
         _skipping = timerpause = combattalk = False
         # _game_menu_screen = None ##TODO: uncomment when shipping
@@ -84,10 +84,10 @@ label combat:
     show black:
         alpha 0.8
 
-
+    hide screen quickmenu
     show screen combat ## main screen
     show breezecombat: ## breeze icon
-        xpos 450 yanchor 1.0 ypos 1050
+        xpos 490 yanchor 1.0 ypos 1050
 
     if encounter == "Az":
         play music overtheblood volume 1.0 fadein 1
