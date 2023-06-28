@@ -10,8 +10,8 @@ define ke = Character("Kephirah",callback=speaker("Kephirah"),)
 
 define u = Character("???")
 define cc = Character("Cafe Cashier")
-define g1 = Character("Goon 1")
-define g2 = Character("Goon 2")
+define g1 = Character("Goon 1", image="g1side")
+define g2 = Character("Goon 2", image="g2side")
 define ms = Character("Magic Scientist")
 define fl = Character("Intercom")
 define e = Character("Evan@HorizonsNetwork", who_color="#c8ffc8")
@@ -25,9 +25,9 @@ define n = nvl_narrator
 # ###############
 
 # MOVED TO characterimage.rpy
-image az = im.FactorScale("images/sprite/temp-laughinghand.webp", 1.0)
-
-
+# image az = im.FactorScale("images/sprite/Azmaveth/Azmaveth.png", 0.25)
+image g1 = im.FactorScale("images/sprite/grunt1.png", 1.0)
+image g2 = im.FactorScale("images/sprite/grunt2.png", 0.8)
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
@@ -38,8 +38,18 @@ image side sofiside:
 image side breezeside:
     LiveCrop((260,60, 460,500), "breeze")
     zoom 0.8
-image side azside = "images/sprite/aztemp.png"
+image side azside:
+    LiveCrop((260,60, 460,500), "images/sprite/Azmaveth/Azmaveth.png")
+    zoom 0.4
 # image side breezeside = im.FactorScale(im.Crop(breeze, (500, 150, 1000, 1000)), 0.4)
+image side g1side:
+    LiveCrop((00,00, 460,500), "g1")
+    zoom 0.8
+image side g2side:
+    LiveCrop((00,00, 460,370), "g2")
+    zoom 0.8
+
+
 transform left:
     xpos 0.2 xanchor 0.5
 transform right:

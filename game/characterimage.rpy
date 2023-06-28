@@ -200,6 +200,11 @@ layeredimage sofi:
     zoom 0.5 yanchor 0.5 ypos 1.0
 
 
+layeredimage azmaveth:
+    always:
+        "sprite/Azmaveth/Azmaveth.png"
+    zoom 0.45 yanchor 0.5 ypos 1.0
+####################################################################################
 
 image Breeze_eyes_blink:
     choice:
@@ -369,6 +374,7 @@ layeredimage breeze:
             alpha 0.7
     zoom 0.5 yanchor 0.5 ypos 1.0
 
+#####################################################################################
 
 image Flair_eyes_blink:
     choice:
@@ -490,7 +496,7 @@ image Flair_mouth_smile_speaking:
     "sprite/Flair/mouth_smile.png"
     pause 0.08
     repeat
-    
+
 image Flair_fire:
     "sprite/Flair/fire_1.png"
     pause .2
@@ -555,4 +561,3 @@ layeredimage flair:
     #         "sprite/Flair/Flair_blush.png"
     #         alpha 0.7
     zoom 0.5 yanchor 0.5 ypos 1.0
-

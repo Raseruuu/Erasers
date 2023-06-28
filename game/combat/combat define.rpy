@@ -2,19 +2,20 @@ image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze2.png", (600, 1
 
 ## Enemies ##
 image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (000, 100, 2200, 3000)), 0.16) #200
-#TODO: image goonmob =
+image g1mob = im.FactorScale("images/sprite/grunt1.png", 0.6)
+image g2mob = im.FactorScale("images/sprite/grunt2.png", 0.5)
 image ratmob = im.FactorScale("images/sprite/rat.png", 0.6)
 #TODO: image alvmob =
 image alvmob = im.FactorScale("images/sprite/blame-anime.gif", 0.5)
 ## TODO: update AZ
-image azmob = im.FactorScale("images/sprite/Azmaveth.png", 0.15)
+image azmob = im.FactorScale("images/sprite/Azmaveth/Azmaveth.png", 0.15)
 ## placeholder
 image greenmob = "images/sprite/green.png"
 
 ##debuff signs
 image fire = im.FactorScale("gui/fire.png", 0.3)
 image ice = im.FactorScale("gui/ice.png", 0.05)
-image targetsign = im.FactorScale("gui/target.png", 0.3)
+image targetsign = im.FactorScale("gui/target1.png", 0.3)
 
 ## command cards ####################
 image cardblade = "images/combat/cards/enchant-blue-3.png"

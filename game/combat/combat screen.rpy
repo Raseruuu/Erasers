@@ -6,7 +6,7 @@ screen combat:
     #############################################################################################
     ## Main ticker. This is where all the timing stuff happens. ##
 ##############################################################
-    timer 0.05 action Function(ticking) repeat True
+    # timer 0.05 action Function(ticking) repeat True
 ##############################################################
     ## Main ticker. This is where all the timing stuff happens. ##
     #############################################################################################

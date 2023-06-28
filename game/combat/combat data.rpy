@@ -151,6 +151,9 @@ init -50 python:
 
     # goon = mob("Goon", 300, 120, 50, "goonmob")
     flairmob = mob("Flair", 1200, 100, 220, "flairmob") ## dps 65/7 = 8 ## transit into goons later
+    g1mob = mob("Flair", 1000, 100, 220, "g1mob")
+    g2mob = mob("Flair", 1200, 100, 220, "g2mob")
+    
     ratmob = mob("Rat", 350, 70, 40, "ratmob") ## dps 20/5 = 4
     alvmob = mob("Alv", 3000, 180, 150, "alvmob") ## dps 80/8 = 10
     azmob = mob("Az", 80000, 80, 300, "azmob") ## 4 unblocked hits
@@ -159,7 +162,7 @@ init -50 python:
     ####################################################
     moblist = { ## for mobs in an encounter
                 "Flair": [flairmob, flairmob],
-                # "Goons": [goon, goon],
+                "Goons": [g1mob, g2mob],
                 "Alv": [alvmob, alvmob, nonemob, alvmob],
                 # "Alv1": [alv11, alv12, alv13],
                 # "Alv2": [alv21, alv22, alv23],

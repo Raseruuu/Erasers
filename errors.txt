@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter2 tunnel-1.rpy", line 1: expected statement.
-    from keyword import softkwlist
-                                  ^
+File "game/screens.rpy", line 254: The add statement is not a valid child of the textbutton statement.
+    textbutton _("Back") action Rollback() add "Black"
+                                              ^
 
-Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Tue Jun 27 17:58:45 2023
+Ren'Py Version: Ren'Py 8.1.1.23060707
+Thu Jun 29 02:37:02 2023

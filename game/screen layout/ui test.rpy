@@ -36,13 +36,13 @@ screen menutab(i):
 
 
 label testingui:
-    $ menutablist = ["Save", "Load", "Preference"]
     scene bgcafesepia
-    show sofi
-    s "Hi"
+    show g2
+    g2 "Hi"
+    show g1
+    g1 "yo"
+    show azmaveth
+    a "Hi"
     pause
-    show white onlayer screens with Dissolve(0.1):
-        alpha 0.5
-    show screen menutest with easeinbottom
     pause
     return

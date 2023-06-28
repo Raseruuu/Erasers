@@ -97,25 +97,24 @@ style frame:
 
 screen say(who, what):
     style_prefix "say"
+    ## If there's a side image, display it above the text.
+    ## Do not display on the phone variant - there's no room.
+    if not renpy.variant("small"):
+        add SideImage() xanchor 0.5 xpos 150 yalign 1.0
 
     window:
         id "window"
 
-        if who is not None:
-
+        if who is not None: ## if there's name
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
 
-        text what id "what"
+        text what id "what" ## stuff
 
 
-    ## If there's a side image, display it above the text. Do not display on the
-    ## phone variant - there's no room.
-    if not renpy.variant("small"):
-        add SideImage() xanchor 0.5 xpos 150 yalign 1.0
-        # add SideImage() xanchor 0.5 xpos 330 yanchor 0.0 ypos 800
+
 
 
 ## Make the namebox available for styling through the Character object.
@@ -137,17 +136,17 @@ style window:
     yalign gui.textbox_yalign
     ysize gui.textbox_height
 
-    background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+    background Frame("gui/chatbox2.png", xanchor=0.0, xpos=350,  xsize=1550) # xalign=0.5, yalign=1.0
 
 style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
+    xpos 150#gui.name_xpos
+    xanchor 0.5 #gui.name_xalign
     xsize gui.namebox_width
-    ypos gui.name_ypos
+    ypos gui.name_ypos-80
     ysize gui.namebox_height
 
-    background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    background Frame("gui/textbox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    padding (35, 5, 35, 5)#gui.namebox_borders.padding
 
 style say_label:
     properties gui.text_properties("name", accent=True)
@@ -158,7 +157,7 @@ style say_dialogue:
     properties gui.text_properties("dialogue")
 
     xpos gui.dialogue_xpos
-    xsize gui.dialogue_width
+    xsize gui.dialogue_width+350
     ypos gui.dialogue_ypos
 
     adjust_spacing False
@@ -247,9 +246,9 @@ screen quick_menu():
         hbox:
             style_prefix "quick"
 
-            xalign 0.5
-            yalign 1.0
-
+            anchor (1.0, 1.0)
+            pos (1900, 840)
+            spacing 2
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
@@ -273,7 +272,7 @@ style quick_button:
 
 style quick_button_text:
     properties gui.button_text_properties("quick_button")
-
+    color "#FFF"
 
 ################################################################################
 ## Main and Game Menu Screens
@@ -338,7 +337,6 @@ screen main_menu():
     ## This empty frame darkens the main menu.
     # frame:
     #     style "main_menu_frame"
-
     ## The use statement includes another screen inside this one.
     ## The actual contents of the main menu are in the navigation screen.
     # use navigation

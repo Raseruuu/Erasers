@@ -4,7 +4,7 @@ label combattest: ## simulate going into a combat from story.
     menu:
         "Pick encounter"
         "Flair":
-            $ encounter = "Flair"
+            $ encounter = "Goons"
             $ combatant = [breeze, sofi]
         "Rats":
             $ encounter = "Rat"
