@@ -107,6 +107,9 @@ screen say(who, what):
 
         if who is not None: ## if there's name
             window:
+                xoffset 260
+                yoffset 28
+                xanchor 0
                 id "namebox"
                 style "namebox"
                 text who id "who"
