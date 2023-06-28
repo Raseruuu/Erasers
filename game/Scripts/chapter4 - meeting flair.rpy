@@ -125,15 +125,16 @@ label meetingflair:
     s "Taking a moment to realize that the room really was getting hotter, I notice in the corner of my eye, the wall glowing when suddenly-"
     play sound "audio/explosion.mp3"
     # play breeze ice sfx
+    queue sound "audio/icesword.mp3"
     # Hold on the scene, then play footsteps
-
+    queue sound "audio/footsteps.mp3"
     s "That was too close."
     s "If I hadn’t noticed the rising heat, then I might’ve been burned to a crisp."
     s "Next to where I’d been standing was now a hole burn straight through the wall. A fire-haired woman stepped through the hole, carrying with her an air of confidence and power."
-
+    show flair at halfright
     un "Pardon the intrusion, but you didn’t have a doorbell."
     s "Ah, this person was likely the intruder that’s been causing trouble. A fire mage huh, not a good match up against me and-"
-
+    play sound "audio/ding.mp3"
     # turn Flair sprite towards Breeze if it isn’t already
     # Play a ringing sound, probably the same sound used during the tunnel investigation
 
@@ -176,11 +177,11 @@ label meetingflair:
     az "Kill her for me, will you? I’ve got something else to take care of."
 
     # Azma walking off screen
-
+    show azmaveth with move:
+        xpos 1.5
     b "What, hey, I’m not-"
 
     # Show Breeze sprite beginning to follow but is stopped by a wall of fire, which he immediately backs up from, then turn sprite to Flair
-
 
     b "Are we really gonna do this now?"
     f "Well your boss just told you to get rid of me, so I decided to take the initiative."
@@ -189,12 +190,13 @@ label meetingflair:
     b "....I’m not gonna answer that."
     b "I will say though, I’m not your enemy, but..."
 
-    # Breeze ice sfx
+    play sound "audio/icesword.mp3"
     b "I’m not about to lay down and die either. So, if you won’t listen to reason, then you’re not giving me much of a choice."
 
     # Flair fire sfx
     f "Better men than you have tried."
 
     # Show the two sprites rushing at each other as it fades to black
+    scene black with Dissolve(1.5)
     ## jump chapter5
     return
