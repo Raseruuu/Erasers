@@ -7,7 +7,7 @@ image ratmob = im.FactorScale("images/sprite/rat.png", 0.6)
 #TODO: image alvmob =
 image alvmob = im.FactorScale("images/sprite/blame-anime.gif", 0.5)
 ## TODO: update AZ
-image azmob = im.FactorScale("images/sprite/temp-laughinghand.webp", 0.5)
+image azmob = im.FactorScale("images/sprite/Azmaveth.png", 0.15)
 ## placeholder
 image greenmob = "images/sprite/green.png"
 

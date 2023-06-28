@@ -39,11 +39,11 @@ image side breezeside:
     zoom 0.8
 image side azside = "images/sprite/aztemp.png"
 # image side breezeside = im.FactorScale(im.Crop(breeze, (500, 150, 1000, 1000)), 0.4)
-transform left: 
+transform left:
     xpos 0.2 xanchor 0.5
-transform right: 
+transform right:
     xpos 0.8 xanchor 0.5
-transform center: 
+transform center:
     xpos 0.5 xanchor 0.5
 image bgpark = "images/bg/bgpark.jpg"
 image bgcafe = "images/bg/temp_bg_cafe.webp"
@@ -103,7 +103,7 @@ transform flipflip:
 ###############
 ## Screen positions ##
 ###############
-init: 
+init:
     $ slightleft = Position(xpos=0.3, xanchor='left')
     $ thirdleft = Position(xpos=0.2, xanchor='left')
     $ halfleft = Position(xpos=0.1, xanchor='left')
@@ -119,4 +119,3 @@ init:
 #################
 define shatter_in = ImageDissolve("/images/shatter.png", 6.0)
 define shatter_out = ImageDissolve("/images/shatter.png", 6.0, reverse=True)
-

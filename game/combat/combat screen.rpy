@@ -88,7 +88,7 @@ screen breeze: ##hp bar
 screen mob1(i, position):
     fixed:
         xanchor 0.5 xpos position
-        yanchor 0.5 ypos 290
+        yanchor 0.5 ypos 350
         ysize 565
 
         button: ##mob hp
@@ -138,7 +138,7 @@ screen mob1(i, position):
 
 screen targetting(position): ## indicates which one is being targetted. TODO: change symbol used.
     fixed:
-        add "targetsign" at combat2 yoffset -100 xpos position
+        add "targetsign" at combat2 yoffset -50 xpos position
 screen mobattacking(position): ##TODO :fix symbol
     fixed:
         add "fire" at combat2 xpos mobpos[len(mobstat)][position] yoffset -250

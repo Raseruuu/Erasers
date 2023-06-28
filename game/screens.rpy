@@ -253,11 +253,9 @@ screen quick_menu():
             textbutton _("Back") action Rollback()
             textbutton _("History") action ShowMenu('history')
             textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
+
             textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            # textbutton _("Prefs") action ShowMenu('preferences')
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -265,7 +263,7 @@ screen quick_menu():
 init python:
     config.overlay_screens.append("quick_menu")
 
-default quick_menu = False
+default quick_menu = True
 
 style quick_button is default
 style quick_button_text is button_text
@@ -305,16 +303,8 @@ screen navigation():
         textbutton _("Load") action ShowMenu("load")
         textbutton _("Preferences") action ShowMenu("preferences")
 
-        if _in_replay:
-            textbutton _("End Replay") action EndReplay(confirm=True)
-
-        elif not main_menu:
+        if not main_menu:
             textbutton _("Main Menu") action MainMenu()
-
-        textbutton _("About") action ShowMenu("about")
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
 
         if renpy.variant("pc"):
             ## The quit button is banned on iOS and unnecessary on Android and Web.
@@ -343,27 +333,44 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    # add gui.main_menu_background
 
     ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    # frame:
+    #     style "main_menu_frame"
 
-    ## The use statement includes another screen inside this one. The actual
-    ## contents of the main menu are in the navigation screen.
-    use navigation
+    ## The use statement includes another screen inside this one.
+    ## The actual contents of the main menu are in the navigation screen.
+    # use navigation
 
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-
+    # if gui.show_name:
+    #
+    #     vbox:
+    #         style "main_menu_vbox"
+    #
+    #         text "[config.name!t]":
+    #             style "main_menu_title"
+    #
+    #         text "[config.version]":
+    #             style "main_menu_version"
+    # add Fog().sm alpha 0.8
+    fixed:
+        xalign 0.75
+        yanchor 0.5 ypos 0.25
+        xysize (1280, 1024)
+        add "images/ErasersLogo_copy.png"
+    fixed:
+        xalign 0.75
+        ypos 0.8
+        xsize 800
+        hbox:
+            xalign 0.5
+            spacing 10
+            textbutton "Start" action Start()
+            text "|"
+            textbutton "Continue" action ShowMenu("load")
+            text "|"
+            textbutton "Options" action ShowMenu("preferences")
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -660,7 +667,7 @@ style slot_button_text:
 
 screen preferences():
     tag menu
-    use game_menu(_("Preferences"), scroll="viewport"):
+    use game_menu(_("Options"), scroll="viewport"):
 
         vbox:
             hbox:
@@ -680,14 +687,14 @@ screen preferences():
 
             null height (4 * gui.pref_spacing)
 
-            hbox:
+            hbox: #xsize 300
                 style_prefix "slider"
                 box_wrap True
-                vbox:
-                    label _("Text Speed")
-                    bar value Preference("text speed")
-                    label _("Auto-Forward Time")
-                    bar value Preference("auto-forward time")
+                # vbox:
+                #     label _("Text Speed")
+                #     bar value Preference("text speed")
+                #     label _("Auto-Forward Time")
+                #     bar value Preference("auto-forward time")
                 vbox:
                     if config.has_music:
                         label _("Music Volume")
