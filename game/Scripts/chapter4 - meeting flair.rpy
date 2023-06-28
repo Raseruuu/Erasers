@@ -1,6 +1,6 @@
 label meetingflair:
     # Open with a black screen and an alarm sound
-    scene black
+    scene black with fade
     play sound "audio/alarm.mp3" volume 0.3
     fl "CONTAINMENT BREACH IN SECTORS 6 - 13!"
     fl "EMERGENCY LOCKDOWN PROTOCOLS ARE NOW IN EFFECT!"
@@ -29,13 +29,12 @@ label meetingflair:
     s "...he hasn’t changed."
     s "This man... after all these times, he’s still the bastard he’s always been."
     s "I promised the rookie that I wouldn’t blow my cover but... seeing him here, his guard down... could I take him out now?"
-
+    play sound "audio/icesword.mp3" volume 0.5
     # ice sword forming noise, but softer, quieter
-
     s "We’re in the middle of an attack, he doesn’t know it’s me, maybe in that brief moment I can strike him down. Create a dagger of ice that can be easily hidden. Then a quick strike to a vital organ, it’d be done and over with in 5 seconds. They’d probably find his body and assume that either the intruders or a vibrant got him."
     s "....."
     s "No. He’d be able to survive that. This man has survived far worse than a stab wound. I’d only have one shot, and right now it’s too much of a risk."
-
+    play sound "audio/icesword.mp3" volume 0.5
     # Sound of ice sword deforming, I guess it’s like a defrosting sound or just the same sound as the forming
     s "She was right; now’s not the time for this. My chance will appear, but it’s not now."
     az "Did you hear me, guard?"
@@ -92,7 +91,7 @@ label meetingflair:
     b "Tell her: I’m sorry, but I’ll have to take a rain check on date night."
     az "Right.. oh, Herbert. One more thing..."
     play sound "audio/punch.mp3"
-    ## play sound "audio/breezeice.mp3"
+    play sound "audio/icesword.mp3"
     # play Azma strike SFX + Breeze Ice SFX, the intention here is that Breeze blocked a ranged attack from Azma with an ice-wall
 
     # Hold on the scene
@@ -100,6 +99,8 @@ label meetingflair:
     az "I see you managed to survive... Breeze."
 
     # Breeze undoes the goon disguise since he’s been made / TN: "To be made is spy talk for cover being blown, being discovered, essentially"
+    hide grunt1 with fade 
+    show breeze with fade
 
     b "What gave it away?"
 

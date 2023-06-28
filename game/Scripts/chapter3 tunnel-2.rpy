@@ -1,14 +1,15 @@
 ﻿label facility:
-    scene magicfacility
-    show ms at right with fade
+    scene magicfacility with Dissolve(2.0)
+    show ms at left:
+        yrotate 180
     show grunt1:
-        xpos -1.0
+        xpos 1.5
     show grunt2:
-        xpos -1.0
+        xpos 1.5
     # Have the goon sprites "walking" across the screen, maybe lookin’ kinda shady
     # have another goon sprite just suddenly pop up from the ground, since all the goon sprites look alike, we don’t need to make a new one. Btw just to mention it, the two goons are Sofi and Breeze in disguise
-    show goon1 at center with move
-    show goon2 at left with move
+    show grunt1 at center with move
+    show grunt2 at right with move
     ms "Where the hell have you two idiots been?!"
 
     # Straighten up the goon sprites, basically just put a shake effect on them briefly
@@ -21,7 +22,6 @@
     # Beat, as if he doesn’t believe them, there’s some tense music that should start playing
     # hold on the scene
     play sound "audio/ding.mp3"
-    # Just a happy ding noise, like he believes them
     ms "Finally taking initiative I see, well done."
     ms "I’ll overlook your tardiness this time, just don’t let it happen again."
 
@@ -35,15 +35,16 @@
 
     # Hold on the goons 1 and 2 sprites, have one turn to look at the other
     # If possible, spin the sprites and then replace with the breeze and sofi sprites. If not possible, just do a fade in or something
-    hide goon1 and goon2 with fade
+    hide grunt1 with fade
     show breeze at left
+    hide grunt2 with fade
     show sofi at center
     b "Wow, I can’t believe that worked."
     s "Yeah, on the way here, I familiarized myself with the stored spells loaded onto our devices. Check it out."
 
     # replace Sofi’s sprite with the goon, it doesn’t matter who, but it’s g2 as the default
-    hide sofi
-    ## show goon2
+    hide sofi with fade
+    show grunt2 at center with fade
     g2 "Ooh look at me, I’m goon-2! I’m a total brown noser, nyeh!"
     b "...He doesn’t say, nyeh."
     g2 "I do now, nyeh!"
@@ -53,9 +54,10 @@
 
     b "They didn’t have this stuff when I started, so... I guess it makes things easier?"
     # put Sofi sprite back
-    ## hide goon2
-    show sofi at slightright
-    s "Yeah, it’s cool! It’s kinda like what vtubers used back in the day, but in real space. It just needed to scan his form, keep the device on my person, and it’ll compensate for the rest to overlay a model of him over me. I just gotta not do any sudden explosive movements and no one should be able to tell the difference."
+    hide grunt2 with fade
+    show sofi at thirdright with fade
+    s "Yeah, it’s cool! It’s kinda like what vtubers used back in the day, but in real space. It just needed to scan his form, keep the device on my person, and it’ll compensate for the rest to overlay a model of him over me." 
+    s "I just gotta not do any sudden explosive movements and no one should be able to tell the difference."
     b "We’ll thank the crafters when we get back, anyways... take a look at this."
 
     # I don’t know if we have a bg for the facility. We might be able to recycle a previous or cut bg, otherwise we’ll just use theater of the mind or something, make use of sound effects of like… a busy construction site or something
@@ -78,12 +80,13 @@
     b "...."
     b "That, rookie, is the million dollar question. Look there."
 
-    show rat2 at right
+    show rat2 at right with fade
     s "Oh… crap. It doesn’t look exactly like the one in the video, but that’s definitely a new strain."
     play sound "camera.mp3"
+    hide rat2 with fade
     b "..they called it Project Siren, what could that mean?"
     s "In the old world’s mythologies, sirens were said to lure sailors to their doom with a bewitching song. In order to keep them from steering their ships into jagged rocks, sailors would stuff their ears so they can’t hear anything."
-    s "Maybe it has something to do with that?"
+    s "Maybe i t has something to do with that?"
     b "Hmmm…"
     s "In anycase, I think we have more than enough evidence. We know the MRF are here, they have a secret facility, they’re trying to leave, and they’re likely experimenting with vibrants here. We even have a photo of that."
     s "Protocol dictates that we should fall back immediately to a safe location."
@@ -105,15 +108,13 @@
     s "But this is supposed to be a reconnaissance mission! The boss told us not to be reckless, remember?"
     b "That's what she says in all my missions.he hasn't kicked me out yet."
     b "So are you in or out? It's your call, rookie."
-
-    show sofi at right with move
-    show sofi at slightright with move
     s "... Fine, but if this goes south I blame you!"
     b "Fine by me!"
     s "But first we need to come up with an actual strategy. "
     s "These disguises aren't perfect and if someone here is smart enough to see through our shoddy facades, we're dead!"
     s "And with so many people still running around here, I say it's next to impossible to sneak around."
     s "Maybe if we had a distraction of some kind, it would be a different story but I don’t see how-"
+    play sound "audio/explosion.mp3"
     "BOOM!!!"
     with hpunch
     with vpunch 
@@ -126,6 +127,13 @@
     fl "REPEAT. SECURITY BREACH IN SECTOR 3."
     fl "NON-COMBATANTS ARE TO EVACUATE TO THE NEAREST SHELTER AS SOON AS POSSIBLE TO AWAIT FURTHER INSTRUCTIONS."
     fl "ALL COMBATANTS ARE TO CONTAIN THE BREACH IMMEDIATELY. "
+    b "Cast your disguise spell, quick!"
+    hide breeze with fade
+    show grunt1:
+        xpos -0.05 yrotate 180
+    hide sofi with fade
+    show grunt2 at center:
+        xpos 0.25 yrotate 180
     s "As soon as we heard the alert come on over the intercom, we're-engaged our disguises. Looks like we wouldn’t be be able to just casually walk around anymore."
     s "Did they find us out? I wasn’t sure until I saw a couple of guards literally run past us."
     b "Might be another Vibrant breakout?"
@@ -136,20 +144,22 @@
     "But the thing about luck is that it’s a fickle mistress."
     "Just as we thought we were home-free, we get flagged down by someone I could only describe as… a wall of rippling muscle."
 
-    # Show Azma sprite
+    show azmaveth at right
     un "Hey, you! Where are you two going!?"
     "Seeing as we were caught red-handed, I quickly tried to come up with an excuse to tell him."
     s "Sorry sir, we just got back from our patrol! We were just-!"
     un "Okay look, I don’t actually care. Whatever you were doing, drop it, I need you to-."
-    # Turn Azma’s sprite around
+    show azmaveth:
+        yrotate 180
 
     un "...Where the-"
     # pained sigh from Azma
-    # Turn Azma back to Breeze and Sofi
+    show azmaveth:
+        yrotate 0
     un "Wait here."
 
-    # show azma with move:
-    ##    xpos 1.5
+    show azmaveth with move:
+        yrotate 180 xpos 1.5
     "We should probably get out of here before he gets back, that’s what I was thinking. After all, there’s no reason for us to play guards, and whatever that breach was about, I don’t wanna be around to meet the cause."
     s "Hey, I think we should-"
 
@@ -159,8 +169,6 @@
     s "Breeeeeeeeze?"
     s "You okay there?"
 
-    show breeze:
-        yrotate 180
     "...I get it. No, really I do."
     "He’s angry about something, that’s plain to see. I was in that state myself in the past, it’s kinda what lead me here."
     "Under any other circumstances, I’d probably be more comforting. However… this was an ideal location to let anger guide our actions."
@@ -173,20 +181,19 @@
     b "...."
 
     # Breeze inhale then exhale
-    show breeze:
-        yrotate 0
     b "...Fine.."
     s "Thank you. Remember, keep your cool, and we’ll get through this. Right? That’s what you told me, right?"
     b "...Not in those exact words."
     s "Well, I got most of it at least. How’s my pep talk?"
     b "...6 out of 10."
     s "You jerk."
-
+    show azmaveth:
+        yrotate 0
+    show tomo at offscreenright
     play sound "audio/footsteps.mp3"
-
-    # Show Azma at right with move
+    show azmaveth at extremeright with move
     un "Why do you keep trying to go off on your own, and make my life harder, Dr Tomo?"
-
+    show tomo at right with move
     # Show Tomo sprite coming after that line
     tm "Mr Azma, I swear, I wasn’t trying to-"
     az "Shhh."
@@ -210,10 +217,13 @@
 
     # There seems to be building tension, then play a communicator beeping sound
     pause 3
-    play sound "audio/beep.mp3"
+    play sound "audio/beep.mp3" volume 1.5
     # Turn Azma’s sprite around
+    show azmaveth:
+        yrotate 180
     az "Boss is calling. Let’s go, we’ll head to the rendezvous while I take this call."
-
+    show azmaveth with move:
+        xpos 1.5
     # Az walking off screen
     az "What is it, Kephirah?"
     # begin to move Breeze’s sprite, but then have him turn to Sofi’s sprite
@@ -228,6 +238,8 @@
     s "Soooo, should we get moving now or-"
 
     # Show Tomo moving off-screen
+    show tomo with move:
+        yrotate 180
     s "Wait, where are you going? I don’t think that’s the way to the safe zone."
     tm "We’re not going there."
     s "But, the big g- Azma, said-"
@@ -240,6 +252,5 @@
     # Show Sofi shake
     "Recovering from my stupor, I promptly went after her. Couldn’t exactly just let her get eaten by a Vibrant."
 
-    # Fade to black
     jump meetingflair
     return

@@ -169,7 +169,8 @@
     g2 "Well, that too. But hey, like I said, it’s our job to patrol so we can at least do a quick look around."
     # have the bg slide slowly back to Breeze’s position but not fully
     g1 "Nah, man, screw that, this place is disgusting. You can prance around in the filth all you want, but I’m heading back so- OH HELL NO NOT THIS GUY AGAIN!"
-    show breeze at thirdright with move
+    show breeze with move:
+        xpos 0.15
     b "'Sup."
     show sofi at left with move
     s "Huh?"
@@ -211,10 +212,12 @@
     b "So... what’s it gonna be? Easy way, or hard way."
     g1 "...."
     g2 "....."
-
+    show grunt2 with move:
+        xpos 0.5 yrotate 180
     # show the sprites turn towards each other
     # show a shake and a tilt as if they’re sighing
-    # show them turn back to Sofi and Breeze
+    show grunt2 with move:
+        xpos 0.6 yrotate 0
 
     s "To their credit, they seemed to almost consider it... but the fact that they were drawing their weapons, and the beaten-down look in their eyes told me what they thought of Breeze’s proposal."
     # Breeze sigh
@@ -222,7 +225,7 @@
     g1 "Hell no."
     g2 "I’d literally rather do anything else. But... this is our job."
     b "Alright then."
-    # Ice sword forming sound
+    play sound "audio/icesword.mp3" volume 2.0
     b "Your funeral."
 
     # show the goon sprites shaking from fear
@@ -232,10 +235,14 @@
     # [Fight scene aftermath]
 
     # open with the goon sprites tilted on the floor
-    scene black 
-    show breeze at left
-    show sofi at slightright
-    ## scene sewer2
+    scene tunnel_int with fade
+    show breeze:
+        xpos 0.15
+    show sofi at left
+    show grunt1:
+        xpos 0.8
+    show grunt2:
+        xpos 0.6
     # slide bg over to sofi and breeze
     s "...Honestly, I almost feel bad for them."
     b "Hey, I did give them a choice. I can’t be held responsible for people making dumb decisions."
@@ -299,7 +306,7 @@
             jump postguardfight
 
 label postguardfight:
-    scene black with fade
+    with fade
     # quick cut to the goons scared faces
     g2 "And there’s about 400 people who work here in this facility, at any given time there’s at least 150 people on shift and 50 on standby, everyone else gets cycled out or rerouted to other departments."
     g1 "This operation has been going on for weeks, Project Siren. We've been transporting vibrants through these tunnels to a facility deep underground."
@@ -324,7 +331,7 @@ label postguardfight:
     b "Yeah you’re probably right, rookie."
     g2 "Great... soooooo, you’ll let us go?"
     b "That wasn’t part of the deal."
-    # ice sword forming sound
+    play sound "audio/icesword.mp3" volume 2.0
     # shake the goon sprites like they’re scared to die
     b "But... I suppose I could be persuaded. But I’m gonna need some... favors."
     g1 "*crying*"
