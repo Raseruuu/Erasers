@@ -157,7 +157,7 @@
     show grunt1:
         xpos 0.8
     show grunt2:
-        xpos 0.7
+        xpos 0.6
     show sofi:
         xpos -0.5 ypos 1.5
     show breeze:
@@ -169,7 +169,7 @@
     g2 "Well, that too. But hey, like I said, it’s our job to patrol so we can at least do a quick look around."
     # have the bg slide slowly back to Breeze’s position but not fully
     g1 "Nah, man, screw that, this place is disgusting. You can prance around in the filth all you want, but I’m heading back so- OH HELL NO NOT THIS GUY AGAIN!"
-    show breeze at slightright with move
+    show breeze at thirdright with move
     b "'Sup."
     show sofi at left with move
     s "Huh?"

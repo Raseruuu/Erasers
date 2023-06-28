@@ -1,7 +1,7 @@
 label meetingflair:
     # Open with a black screen and an alarm sound
     scene black
-    play sound "audio/alarm.mp3"
+    play sound "audio/alarm.mp3" volume 0.3
     fl "CONTAINMENT BREACH IN SECTORS 6 - 13!"
     fl "EMERGENCY LOCKDOWN PROTOCOLS ARE NOW IN EFFECT!"
 

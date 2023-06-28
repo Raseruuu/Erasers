@@ -1,12 +1,13 @@
 ﻿label facility:
     scene magicfacility
+    show ms at right with fade
     show grunt1:
         xpos -1.0
     show grunt2:
         xpos -1.0
     # Have the goon sprites "walking" across the screen, maybe lookin’ kinda shady
     # have another goon sprite just suddenly pop up from the ground, since all the goon sprites look alike, we don’t need to make a new one. Btw just to mention it, the two goons are Sofi and Breeze in disguise
-    show goon1 at slightright with move
+    show goon1 at center with move
     show goon2 at left with move
     ms "Where the hell have you two idiots been?!"
 
@@ -16,9 +17,10 @@
     g2 "A sensor was tripped topside, so we went to confirm that we don’t have another intruder."
     ms "Oh."
     ms "I see."
-
+    with Pause (2.0)
     # Beat, as if he doesn’t believe them, there’s some tense music that should start playing
     # hold on the scene
+    play sound "audio/ding.mp3"
     # Just a happy ding noise, like he believes them
     ms "Finally taking initiative I see, well done."
     ms "I’ll overlook your tardiness this time, just don’t let it happen again."
@@ -29,11 +31,11 @@
     ms "Good, now get to your posts."
     ms "Seriously. Go. Now."
 
-    # The other goon leaves, just slides off to the other side of the screen
+    show ms at offscreenright with move
 
     # Hold on the goons 1 and 2 sprites, have one turn to look at the other
     # If possible, spin the sprites and then replace with the breeze and sofi sprites. If not possible, just do a fade in or something
-    ## hide goon1 and goon2 with fade
+    hide goon1 and goon2 with fade
     show breeze at left
     show sofi at center
     b "Wow, I can’t believe that worked."
