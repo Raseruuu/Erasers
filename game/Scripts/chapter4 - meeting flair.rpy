@@ -198,5 +198,5 @@ label meetingflair:
 
     # Show the two sprites rushing at each other as it fades to black
     scene black with Dissolve(1.5)
-    ## jump chapter5
+    jump chapter5
     return

@@ -14,6 +14,7 @@ define g1 = Character("Goon 1", image="g1side")
 define g2 = Character("Goon 2", image="g2side")
 define ms = Character("Magic Scientist")
 define fl = Character("Intercom")
+define fi = Character("Intercom") ## it's written as FL and FI in the script. duplicate is to save time from having to fix all occurrences.
 define e = Character("Evan@HorizonsNetwork", who_color="#c8ffc8")
 define noa = Character("Noa from Twisted Fates")
 define un = Character("? ? ? ? ?")

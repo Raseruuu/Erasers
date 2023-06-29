@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/screens.rpy", line 254: The add statement is not a valid child of the textbutton statement.
-    textbutton _("Back") action Rollback() add "Black"
-                                              ^
+File "game/Scripts/chapter7 umbralab.rpy", line 469: end of line expected.
+    ke "You of all people should know that your little /"Side Project"/ was never a priority."
+                                                         ^
 
-Ren'Py Version: Ren'Py 8.1.1.23060707
-Thu Jun 29 02:37:02 2023
+Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
+Thu Jun 29 03:55:50 2023
