@@ -108,14 +108,14 @@
     with fade
     # scene tunnel2 the bg over to the opposite side until the two characters are either out of frame or as far to one side as possible
     play sound "audio/footsteps.mp3"
-    show grunt1 at right with move
+    show g1 at right with move
     un "I'm telling you, the sensors picked up something!"
-    show grunt2 at halfright with move
+    show g2 at halfright with move
     un "It's probably just some rats again, or another streamer. Who calibrated those things? They’re more sensitive than you back in school."
     un "Okay first of all, up yours. Second of all, we’ve got a job to do, and it’s our duty to secure the area from any prying eyes."
     un "...why do you sound so proud of that?"
-    hide grunt1
-    hide grunt2 with fade
+    hide g1
+    hide g2 with fade
     # pan the bg back to Sofi and Breeze
     show breeze at left with move:
     show sofi at halfleft with move 
@@ -154,9 +154,9 @@
 
     hide sofi
     hide breeze
-    show grunt1:
+    show g1:
         xpos 0.6
-    show grunt2:
+    show g2:
         xpos 0.6
     show sofi:
         xpos -0.5 ypos 1.5
@@ -212,11 +212,11 @@
     b "So... what’s it gonna be? Easy way, or hard way."
     g1 "...."
     g2 "....."
-    show grunt2 with move:
+    show g2 with move:
         xpos 0.5 yrotate 180
     # show the sprites turn towards each other
     # show a shake and a tilt as if they’re sighing
-    show grunt2 with move:
+    show g2 with move:
         xpos 0.6 yrotate 0
 
     s "To their credit, they seemed to almost consider it... but the fact that they were drawing their weapons, and the beaten-down look in their eyes told me what they thought of Breeze’s proposal."
@@ -239,9 +239,9 @@
     show breeze:
         xpos 0.15
     show sofi at left
-    show grunt1:
+    show g1:
         xpos 0.8
-    show grunt2:
+    show g2:
         xpos 0.6
     # slide bg over to sofi and breeze
     s "...Honestly, I almost feel bad for them."

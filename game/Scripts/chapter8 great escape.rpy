@@ -1,8 +1,8 @@
 # Sound of a pained scream and something heavy collapsing, this one’s gonna be hard to find, so I might just write it in narration."
 
-"With that last attack, we managed to beat the odds and do the impossible. Tomo’s body began to fall from the biomass as it began to melt and lose its structural integrity."
+"With that last attack, we managed to beat the odds and do the impossible. Alverna’s body began to fall from the biomass as it began to melt and lose its structural integrity."
 
-f "Tomo!"
+f "Alverna!"
 
 # Fire sound effect
 "Shooting like a rocket on a launchpad, Flair rushed to catch her free-falling sister."
@@ -10,13 +10,13 @@ f "Tomo!"
 # Ice-forming sound effects
 "Meanwhile, to help her, Breeze formed platforms of ice to act as launching platforms."
 
-"Flair grabbed Tomo’s remains and cradled her close as she braced for impact with the ground."
+"Flair grabbed Alverna’s remains and cradled her close as she braced for impact with the ground."
 
 f "There we go, big sister’s got you now."
 
 # sound of Sofi’s barrier
 
-"As the finishing touch, I formed a barrier between Flair’s trajectory and the steel lab floor. Resulting in her landing harmlessly while still carrying Tomo."
+"As the finishing touch, I formed a barrier between Flair’s trajectory and the steel lab floor. Resulting in her landing harmlessly while still carrying Alverna."
 
 "Breeze and I rushed to Flair’s side to examine the results of our labor. As Breeze said before the fight, before we’d surgically removed her from the infected biomass… this was always going to be a gamble."
 
@@ -58,7 +58,7 @@ s "Don’t worry, I can do this. I can do this. I can do this."
 # Exhausted Sofi noises
 s "I’m sorry, I think… that’s all I can muster."
 
-"For a while, we stared at Tomo’s body, waiting and hoping we weren’t too late."
+"For a while, we stared at Alverna’s body, waiting and hoping we weren’t too late."
 
 "......"
 
@@ -68,13 +68,13 @@ f "......"
 
 ".............."
 
-f "Tomo… please."
+f "Alverna… please."
 
 ".............."
 
 s "Flair, I-I’m so…"
 
-# Tomo lweak breathing noise
+# Alverna lweak breathing noise
 
 "As soon as we saw her breathing, we both collectively allowed ourselves to relax."
 
@@ -82,7 +82,7 @@ s "Flair, I-I’m so…"
 
 "Not only that but…"
 
-# sound of moving flesh, basically Tomo is regenerating, trying to subconsciously form a new biomass
+# sound of moving flesh, basically Alverna is regenerating, trying to subconsciously form a new biomass
 
 # sad Flair expression, probably something like this
 
@@ -103,7 +103,7 @@ s "I don’t… wait…"
 
 s "Got it!"
 
-f "The medicine that Tomo was making?"
+f "The medicine that Alverna was making?"
 
 s "Yeah, she said this medication stalled her infection, right? Maybe it’ll work here too?"
 
@@ -113,7 +113,7 @@ s "I know. But, it’s the only option we have so…"
 
 #  If we have some kinda loading sound that would be helpful, the closest equivalent is probably a flare gun or a spinning cylinder of a revolver. Otherwise I’ll just write it narratively. In fact…
 
-"After loading the medicine into the autoinjector, I found a spot on Tomo’s body and pressed the autoinjector onto her skin, I just needed to hit the button and it’d take care of the rest."
+"After loading the medicine into the autoinjector, I found a spot on Alverna’s body and pressed the autoinjector onto her skin, I just needed to hit the button and it’d take care of the rest."
 
 s "Ready?"
 
@@ -150,7 +150,7 @@ s "I was wondering where you went. That looks like a containment pod but… it f
 
 b "Seems like they use these things to transport vibrants to different sectors. I’m sure they won’t mind if we borrow it."
 
-# moment of silence as breeze looks at Tomo
+# moment of silence as breeze looks at Alverna
 
 # button pressing, hissing opening sound, same one we use for the door, man we’re getting a lot of use for that. Alternatively, a sci-fi sliding door sound may also work.
 
@@ -172,7 +172,7 @@ b "Oh right… that’s still going on."
 
 b "Alright, let’s see… we’re sealed in, base is gonna explode, and we need to leave enough time to get out of here. Sooo… let’s try to find a way out."
 
-b "I’ll go look around, maybe there’s a secret door. Flair, you check that side. Newbie, see if the console has an override function or something, also keep an eye on Tomo."
+b "I’ll go look around, maybe there’s a secret door. Flair, you check that side. Newbie, see if the console has an override function or something, also keep an eye on Alverna."
 
 # Everyone nods and begins to go about their job
 
@@ -315,7 +315,7 @@ s "So you have read the manual?"
 
 b "I skimmed it."
 
-f "It’s not bad advice either. I’ve fought a lot of vibrants and a lot of assholes, this guy though… no, he’s the real deal. The ice-guy and I have the best shot at standing up to him, but we can’t fight him and protect you. I’m sorry, but I don’t think we can survive against him and protect you and Tomo at the same time."
+f "It’s not bad advice either. I’ve fought a lot of vibrants and a lot of assholes, this guy though… no, he’s the real deal. The ice-guy and I have the best shot at standing up to him, but we can’t fight him and protect you. I’m sorry, but I don’t think we can survive against him and protect you and Alverna at the same time."
 
 s "I…"
 

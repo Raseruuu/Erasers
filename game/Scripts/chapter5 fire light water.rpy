@@ -4,9 +4,9 @@ label chapter5:
     fl "CONTAINMENT BREACH IN SECTOR 16 through 27!"
     fl "EXODUS PROTOCOL IS IN EFFECT!"
     
-    # Show Tomo’s sprite lower than Sofi’s to give the impression that she is crouching down, Sofi’s sprite is probably still using the goon sprite
+    # Show Alverna’s sprite lower than Sofi’s to give the impression that she is crouching down, Sofi’s sprite is probably still using the goon sprite
     ## show alverna at center
-    show grunt2 at left
+    show g2 at left
     s "What’s Exodus Protocol?"
     tm "Shouldn’t you know that? Aren’t you a guard?"
 
@@ -21,16 +21,16 @@ label chapter5:
     s "I… guess?"
     tm "Well there’s something I need to take care of in the lower levels, so if you’re going to protect me then you need to-"
     play sound "audio/heart.mp3"
-    # Heart beat sound and Tomo shake, tilt her sprite so it’s at a 45 degree angle, kinda like she’s doubled over in pain
+    # Heart beat sound and Alverna shake, tilt her sprite so it’s at a 45 degree angle, kinda like she’s doubled over in pain
 
-    s "Dr Tomo, are you alright?"
-    # Pained Tomo noises
-    # Tomo shake
+    s "Dr Alverna, are you alright?"
+    # Pained Alverna noises
+    # Alverna shake
     tm "Just… shut up, I just need…."
     play sound "audio/heart.mp3"
     # Play sound of something dropping if one can be found or made, otherwise we don’t have to have this
     # Show image of the injection device, probably sliding in from the side or just uh… what’s that thing called when an object zooms out from nothing on the screen? I can also likely make the asset
-    # Tomo pained voice
+    # Alverna pained voice
     "She procures a long syringe from inside her coat pocket and fumbles with it's safety lock."
     tm "No dammit, just… not now…."
 
@@ -39,7 +39,7 @@ label chapter5:
     "But..."
 
     #Sofi sigh noise
-    # Slide Sofi closer to Tomo sprite, have the "sofi" sprite pan down under the screen while tilted as if she’s crouching down. We should still be able to see a good portion of her upper body, at most up to her shoulders
+    # Slide Sofi closer to Alverna sprite, have the "sofi" sprite pan down under the screen while tilted as if she’s crouching down. We should still be able to see a good portion of her upper body, at most up to her shoulders
 
     s "This is an Icarus Industries auto-injection device, yeah?"
     tm "...Yes, how… do you know?"
@@ -47,7 +47,7 @@ label chapter5:
     s "I’m familiar with them." 
     s "Let me see your arm?"
 
-    # Show Tomo sprite shake + turn away (the turn away might look awkward given the angle she’s at so it can be skipped if it looks weird)
+    # Show Alverna sprite shake + turn away (the turn away might look awkward given the angle she’s at so it can be skipped if it looks weird)
     tm "No!"
     "As soon as my hands were close to hers, she wrenched them away as if I was something to be feared, like just the act of physical contact was painful."
     s "Listen, I have some medical training, and I know how to use this thing."
@@ -56,20 +56,20 @@ label chapter5:
     s "I promise I won’t tell anyone that you’re sick, okay? I’m just trying to help. But I need you to meet me halfway, okay?"
     tm "....."
 
-    # show Tomo sprite turning back to Sofi, tilt the sprite
+    # show Alverna sprite turning back to Sofi, tilt the sprite
 
     s "Thank you. I’m going to lift your sleeve so I can administer the medicine, okay?"
     tm "...."
 
-    # Show Tomo tilt slightly as if nodding
-    # Show asset of Tomo’s arm in a cut-in, I’ll draw that, I’m not a character artist, but I can draw a simple goddamn forearm
+    # Show Alverna tilt slightly as if nodding
+    # Show asset of Alverna’s arm in a cut-in, I’ll draw that, I’m not a character artist, but I can draw a simple goddamn forearm
 
     s "Okay, I’m going to…"
 
     # Hold on the scene
     play sound "audio/alert.mp3"
     # play the "ace attorney clue" sound that was used in some prior scenes
-    # There should be some mark on Tomo’s arm but I don’t know if I should draw attention to it, probably not and hope people remember from the founding myth
+    # There should be some mark on Alverna’s arm but I don’t know if I should draw attention to it, probably not and hope people remember from the founding myth
 
     tm "...?"
     tm "Something wrong, guard?"
@@ -80,7 +80,7 @@ label chapter5:
 
     s "There, that should do it. Lemme help you up."
 
-    # Tomo standing to proper height
+    # Alverna standing to proper height
 
     tm "....."
     tm "...Th-thanks.."
@@ -92,11 +92,11 @@ label chapter5:
     # play fuse sound, kinda like someone lit one of those old timey bombs
     s "Get down!"
 
-    # Show barrier image and Tomo sprite being moved slightly behind Sofi
+    # Show barrier image and Alverna sprite being moved slightly behind Sofi
     play sound "audio/explosion.mp3"
     with hpunch
     with vpunch
-    # play explosion sound from Tomo’s fire
+    # play explosion sound from Alverna’s fire
     # show Breeze sprite sliding out from the side
     # show breeze dodging at least two shots of fire, then shoot back some ice
 
@@ -105,13 +105,13 @@ label chapter5:
     s "What happened to your cover!"
     b "Now is not a good time!"
 
-    # Show Flair sprite and a swinging sfx, Breeze sprites moves past her, her sprite should be tracking Breeze’s sprite until she notices Tomo
+    # Show Flair sprite and a swinging sfx, Breeze sprites moves past her, her sprite should be tracking Breeze’s sprite until she notices Alverna
 
     tm "Wh-What is it? Is it an enemy or- wait…."
 
-    # Show Tomo sprite peeking out from behind "sofi"
-    # Turn flair to Sofi and Tomo
-    f "Tomo!"
+    # Show Alverna sprite peeking out from behind "sofi"
+    # Turn flair to Sofi and Alverna
+    f "Alverna!"
     # Show enraged Flair
     f "Get your hands off her!"
 
@@ -122,7 +122,7 @@ label chapter5:
 
     # Sofi undoes the disguise, Flair tries to stop her attack, engage Sofi barrier
     # bright flash and ringing
-    # fade in, Sofi tilting towards the ground, bring her sprite back upright. Tomo turned away. Breeze right behind Flair with an ice sword, Flair standing still
+    # fade in, Sofi tilting towards the ground, bring her sprite back upright. Alverna turned away. Breeze right behind Flair with an ice sword, Flair standing still
     ". . . .  . . "
     s "Okay… everyone… just calm down, look… I’m gonna put my weapon down. Alright? Breeze, can you do the same."
     b "...."
@@ -132,7 +132,7 @@ label chapter5:
     # disengage ice
     f "......"
     "Despite my attempts to defuse the situation, the woman still seemed uneasy. Much like a landmine, any amount of pressure seemed likely to set her off."
-    "What did the manual say about negotiations? Analyze the situation. She came at me when she saw Tomo, they know each other? Could I use that?"
+    "What did the manual say about negotiations? Analyze the situation. She came at me when she saw Alverna, they know each other? Could I use that?"
     s "D-Do you two… know each other?"
     f "......"
     tm "...Y-yeah, I know her. This is Flair, we grew up in the same household."
@@ -172,7 +172,7 @@ label chapter5:
 
     # Stop sniffing noise
     # scene ElevatorOutside
-    # swap back to the elevator bg, have Tomo behind Sofi’s sprite again
+    # swap back to the elevator bg, have Alverna behind Sofi’s sprite again
     # I don’t know if they have a ranged attack, if so, have a vibrant fire one at Sofi, only to be blocked by Flair
 
     b "Rookie, focus!"
@@ -206,10 +206,10 @@ label chapter5:
     "And so do I."
 
     # Play Sofi deep breath noise
-    # Turn to face Tomo who is at the far end of the bg
+    # Turn to face Alverna who is at the far end of the bg
 
     tm "No, no, no, leave me alone, please, don’t let them come near me! This isn’t supposed to happen, please not me, not like this-"
-    s "Dr Tomo!"
+    s "Dr Alverna!"
     tm "!"
     s "Okay, listen… we three are going to protect you, I promise not a single vibrant will get near you. However, we need this elevator door open. They can hold back the horde, and I can help them. So all you need to focus on, is getting the door open."
     s "Can you do that for me?"
@@ -218,10 +218,10 @@ label chapter5:
     tm "O-Okay, I can do that… I just need a bit of time."
     s "Got it, we’ll buy you as much time as we can."
     "As I turned to ready myself to assist Breeze and Flair, I suddenly felt a tug on my wrist."
-    "Tomo, maybe instinctively, maybe consciously… she had grabbed onto my wrist. The fear in her eyes, she was easy to read. It was like she was begging me to not leave her behind."
+    "Alverna, maybe instinctively, maybe consciously… she had grabbed onto my wrist. The fear in her eyes, she was easy to read. It was like she was begging me to not leave her behind."
     tm "B-Be careful. Don’t die."
     s "I won’t. Promise."
-    "Tomo took a long breath, and then turned back to the elevator’s control systems."
+    "Alverna took a long breath, and then turned back to the elevator’s control systems."
     # Turn sofi sprite towards breeze and flair
 
     s "... Okay then. First real battle. This is what you signed up for Sofi."

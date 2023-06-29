@@ -43,9 +43,9 @@ label chapter9:
 
     s "Eh?"
 
-    # Show Tomo’s pod cut-in, assuming I already made that asset, otherwise use theater of the mind
+    # Show Alverna’s pod cut-in, assuming I already made that asset, otherwise use theater of the mind
 
-    s "Dr Tomo? What… are you…"
+    s "Dr Alverna? What… are you…"
 
     # pause as Sofi’s sprite turns around
 
@@ -70,7 +70,7 @@ label chapter9:
 
     # replace bg with door being open, also something I can make really quickly
 
-    s "Ha… I did it… a way out. Dr Tomo wasn’t lying about that after all…"
+    s "Ha… I did it… a way out. Dr Alverna wasn’t lying about that after all…"
 
     # return to lab bg
 
@@ -113,7 +113,7 @@ label chapter9:
     f "....hanging in there."
 
     # pained Flair groaning
-    f "I’ll be honest, I’d rather fight a hundred monster Tomos than spend any more time fighting this guy. Easily, worst fight I’ve ever been in."
+    f "I’ll be honest, I’d rather fight a hundred monster Alvernas than spend any more time fighting this guy. Easily, worst fight I’ve ever been in."
 
     s "Huh… so this is what it feels like to be on the other end of this. That’s probably what he’d say."
 
@@ -135,7 +135,7 @@ label chapter9:
 
     s "I think it is. I’m not sure but… it’s a chance."
 
-    f "So Tomo wasn’t lying after all."
+    f "So Alverna wasn’t lying after all."
 
     s "At least, not about this."
 
@@ -153,7 +153,7 @@ label chapter9:
 
     s "....somehow that’s more disturbing."
 
-    s "Well, the console’s busted, so I don’t think we can hit him with the same thing that Tomo did to you and Breeze."
+    s "Well, the console’s busted, so I don’t think we can hit him with the same thing that Alverna did to you and Breeze."
 
     s "No, I think our only hope is if we hit him with something so big that he doesn’t get back up. At least, long enough for us to slip away."
 
@@ -266,7 +266,7 @@ label chapter9:
 
     b "Well, let’s not stick around to find out. Did you find a way out?"
 
-    s "Yep, found Tomo’s escape hatch. Probably."
+    s "Yep, found Alverna’s escape hatch. Probably."
 
     b "Probably?"
 
@@ -285,7 +285,7 @@ label chapter9:
     f "Are you kidding me right now?"
 
     # This line’s a placeholder, I’d like him to say something more creepy and intimidating, but it’s not necessary, it’s one line, we’ll survive
-    az "Breeeeeeeeze…."
+    a "Breeeeeeeeze…."
 
     s "Don’t you suppose you can go supernova again?"
 
@@ -339,7 +339,7 @@ label chapter9:
 
     s "Don’t you say it!"
 
-    b "Take Flair and Tomo topside, follow the escape route, head back to HQ. You’re the only one who can do this."
+    b "Take Flair and Alverna topside, follow the escape route, head back to HQ. You’re the only one who can do this."
 
     # show Sofi cry
 
@@ -393,25 +393,25 @@ label chapter9:
 
     b "......"
 
-    az "What? No more witty banter? No one-liner? Got nothin’ left to say?"
+    a "What? No more witty banter? No one-liner? Got nothin’ left to say?"
 
     b "Would it matter? It’s not like it’ll change anything."
 
     # this is the part where the sprites could be fighting, but it works just as well if they’re not fighting yet
 
-    az "There it is, that determined face. Everyone else always cowers before me, begs for the life, puts on a desperate struggle, but it always ends the same." 
+    a "There it is, that determined face. Everyone else always cowers before me, begs for the life, puts on a desperate struggle, but it always ends the same." 
 
-    az "But you though… you still think you have a chance. You think somehow you’ll make it through this. It’s that blind belief that there’s nothing you can’t handle, that drive that makes you never give up even when the odds are against you… that’s the thing that just makes fighting you so much more interesting."
+    a "But you though… you still think you have a chance. You think somehow you’ll make it through this. It’s that blind belief that there’s nothing you can’t handle, that drive that makes you never give up even when the odds are against you… that’s the thing that just makes fighting you so much more interesting."
 
-    az "...You could prove an effective MRF agent. Far as I can see, that’s the only chance you have to make it out of this alive."
+    a "...You could prove an effective MRF agent. Far as I can see, that’s the only chance you have to make it out of this alive."
 
     b "Just a chance?"
 
-    az "It’s because we both know what your answer will be."
+    a "It’s because we both know what your answer will be."
 
     # hold on the scene
 
-    az "...You know you’re going to die here. You’ve never been able to beat me before, do you really think this will be any different?"
+    a "...You know you’re going to die here. You’ve never been able to beat me before, do you really think this will be any different?"
 
     b "Probably not…"
 

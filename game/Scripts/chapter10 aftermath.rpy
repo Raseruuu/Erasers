@@ -3,7 +3,7 @@
 # I don’t know what BG to have here, maybe the sewer establishing shot?
 
 
-"Flair, Tomo, and I barely escaped the destruction of the facility." 
+"Flair, Alverna, and I barely escaped the destruction of the facility." 
 
 "When you see these sorts of things in movies, you tend to expect a massive explosion of some sort but… in this particular case, it felt more like a strong earthquake, and then nothing. I don’t know if it would even register as unusual to anyone these days." 
 
@@ -83,7 +83,7 @@ k "We kill vibrants."
 
 # move capsule asset off-screen, if there’s space have Flair move closer to Kizuna, the intent being that she is interposing herself between Kizuna and the capsule
 
-f "No way, if you’re implying that you’re gonna kill Tomo, I’m not letting that happen."
+f "No way, if you’re implying that you’re gonna kill Alverna, I’m not letting that happen."
 
 k "...."
 
@@ -105,7 +105,7 @@ k "Otherwise?"
 
 # Have Sofi step forward
 
-s "I-I’m sorry ma’am, I can explain! She, Tomo that is, she helped us complete our mission in a way, and we couldn’t just leave her behind! So that’s why I thought that… maybe… there was something you could do to help her."
+s "I-I’m sorry ma’am, I can explain! She, Alverna that is, she helped us complete our mission in a way, and we couldn’t just leave her behind! So that’s why I thought that… maybe… there was something you could do to help her."
 
 k "....This vibrant helped you?"
 
@@ -113,7 +113,7 @@ s "Yes."
 
 k "And you’re certain of it?"
 
-s "Ms Kizuna, with all due respect… I’m certain that, even if it’s small, some part of Tomo still exists in there. Wait, I have something."
+s "Ms Kizuna, with all due respect… I’m certain that, even if it’s small, some part of Alverna still exists in there. Wait, I have something."
 
 # Show the autoinjector
 

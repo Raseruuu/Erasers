@@ -5,7 +5,7 @@ label chapter7:
 
     tm "Okay, the hatch should be right here. Wait over there while I get it open."
 
-    # show Tomo sliding off-screen
+    # show Alverna sliding off-screen
 
     "It was a strange sight to say the least, stacks upon stacks of vibrants stored in containment fields. It wasn’t long before the ones closest to the door stirred from their slumber with some making half-hearted attempts to vocalize aggressive noises at us."
 
@@ -26,9 +26,9 @@ label chapter7:
 
     "Now that I got a good look at them, they all looked so… strange. Sickly, deformed, discolored, I’ve never seen them like that. Not that I’ve seen many to begin with but… there was definitely something off."
 
-    s "Hey Dr. Tomo, what exactly were you forced to research down here?"
+    s "Hey Dr. Alverna, what exactly were you forced to research down here?"
 
-    # Tomo’s following lines up until the betrayal should also include rapid keyboard typing, moving around in the chair as if she’s constantly getting up and doing something is also possible but the keyboard typing is the most essential, the rest are just bells and whistles
+    # Alverna’s following lines up until the betrayal should also include rapid keyboard typing, moving around in the chair as if she’s constantly getting up and doing something is also possible but the keyboard typing is the most essential, the rest are just bells and whistles
 
     tm "..."
 
@@ -42,19 +42,19 @@ label chapter7:
 
     # hissing noise, like the one used to open a door but probably softer since it’s like… a concoction finishing. A "ding" sound would also suffice.
 
-    f "Tomo? What was that noise, was it the hatch opening?" 
+    f "Alverna? What was that noise, was it the hatch opening?" 
 
     tm "....."
 
-    f "Tomo?"
+    f "Alverna?"
 
-    # Show breeze, sofi, and flair in the same space but Tomo should still be off-screen
+    # Show breeze, sofi, and flair in the same space but Alverna should still be off-screen
 
-    s "Tomo… the escape hatch?"
+    s "Alverna… the escape hatch?"
 
     tm "Sorry."
 
-    # Show Tomo
+    # Show Alverna
     tm "I lied."
 
     # play… uh… this is hard to describe but some kinda sci-fi force field sound to indicate that the containment field is activate
@@ -63,11 +63,11 @@ label chapter7:
 
     # Overlay the containment field effect over Breeze and Flair, I’ll either make this or we’ll use some kinda theater of the mind thing
 
-    f "Tomo, what is this!?"
+    f "Alverna, what is this!?"
 
     tm "...I need you to stay put for a while." 
 
-    # Tomo weary sighing noise
+    # Alverna weary sighing noise
 
     tm "Once again, I have to clean up your mess."
 
@@ -89,7 +89,7 @@ label chapter7:
 
     f "But… that can’t…" 
 
-    f "Tomo, it’s not true, is it? Tell me it’s not true."
+    f "Alverna, it’s not true, is it? Tell me it’s not true."
 
     tm "...Sorry, it’s as he says."
 
@@ -105,7 +105,7 @@ label chapter7:
 
     tm "It’s not a lie if you’re still alive, right?"
 
-    # Tomo sighing noise and then typing noises, continue said typing noises for a few lines, doesn’t really matter how long
+    # Alverna sighing noise and then typing noises, continue said typing noises for a few lines, doesn’t really matter how long
 
     tm "You people have caused quite a bit of problems today, it’ll take months to replace the specimens, repair the facility, and find replacement staff."
 
@@ -124,7 +124,7 @@ label chapter7:
     "I don’t think she’ll just let me walk over there though, still… I may not be as strong as Breeze, but it’s not like I’m completely helpless. I could probably subdue her easily enough."
 
     # Show Sofi begin to move, slowly
-    # laser sound effect and welding sound, basically what happened here is that Tomo activated an emergency laser that hit the ground in front of Sofi, if not possible, just a normal gun sound works too
+    # laser sound effect and welding sound, basically what happened here is that Alverna activated an emergency laser that hit the ground in front of Sofi, if not possible, just a normal gun sound works too
 
     tm "Ah, your name was Sofi, right? I wouldn’t trying anything if I were you. For two reasons."
 
@@ -159,22 +159,22 @@ label chapter7:
 
     tm "Dammit, I don’t have time to waste on this."
 
-    f "Tomo, listen to me! This entire place is gonna come down, we need to leave so just lift the field and let’s get out of here!"
+    f "Alverna, listen to me! This entire place is gonna come down, we need to leave so just lift the field and let’s get out of here!"
 
     tm "I can’t do that, Flair."
 
-    f "Tomo, whatever I’ve done, we can talk and get through it later but right now-"
+    f "Alverna, whatever I’ve done, we can talk and get through it later but right now-"
 
-    # Tomo banging fist on the console
+    # Alverna banging fist on the console
     tm "Will you just stop, okay! You can’t just run in, without thinking, and expect everything to always work out just because you throw a tantrum!"
 
     tm "You’re an adult, and you still haven’t fully grown up!"
 
-    tm "Look at you, look at this situation you’re in! Because you convinced yourself that weak little crybaby Tomo needed big sister Flair to help her out of an imaginary problem, you just casted me as a damsel in distress for your one-woman hero-fantasy performance!"
+    tm "Look at you, look at this situation you’re in! Because you convinced yourself that weak little crybaby Alverna needed big sister Flair to help her out of an imaginary problem, you just casted me as a damsel in distress for your one-woman hero-fantasy performance!"
 
     tm "Every single time, you run off, cause chaos, and then I have to clean it up! That’s why I left home to begin with, that’s why I studied so hard to earn my degree in magical creature physiology! So I could have an identity for myself that wasn’t just being a footnote in your story!"
 
-    # Frustrated sigh from Tomo
+    # Frustrated sigh from Alverna
 
     tm "Why am I even trying to explain this, you won’t understand, you never do. So please, for once in your life, just shut up and sit still before you do any more harm!"
 
@@ -182,11 +182,11 @@ label chapter7:
 
     b "Sibling fights are never pretty but… your sister was right to worry when you consider like…"
 
-    # Show Breeze sprite turning around and then back to Tomo
+    # Show Breeze sprite turning around and then back to Alverna
 
     b "Everything."
 
-    tm "Hey, I never asked to be rescued, she just barged in on a faulty premise because mom still sees me as weak little Tomo who can’t do anything by herself."
+    tm "Hey, I never asked to be rescued, she just barged in on a faulty premise because mom still sees me as weak little Alverna who can’t do anything by herself."
 
     tm "For god’s sake, I graduated top of my class, I’ve worked in various research labs studying vibrants, my papers have been cited in the formation of new legislation for governments!"
 
@@ -228,7 +228,7 @@ label chapter7:
 
     b "Your mother would be so proud."
 
-    s "Yeah, I’m gonna agree with Breeze. I mean… far be it from me to tell you how to live your life given my own past mistakes, but making mind control monsters for the MRF? That’s really messed up, Tomo."
+    s "Yeah, I’m gonna agree with Breeze. I mean… far be it from me to tell you how to live your life given my own past mistakes, but making mind control monsters for the MRF? That’s really messed up, Alverna."
 
     tm "Enough! You think I don’t know that? Yeah, the MRF is probably not gonna use the monsters for altruistic goals, but that’s my problem and I’m not too worried. I know the data so I know that they’re ages away from getting anywhere close. That’s not really what I’m after though."
 
@@ -248,7 +248,7 @@ label chapter7:
 
     ". . .  . .  . . "
 
-    s "Dr Tomo, how long have you been infected with Umbra?"
+    s "Dr Alverna, how long have you been infected with Umbra?"
 
     b "!"
 
@@ -258,7 +258,7 @@ label chapter7:
 
     s "Am I right?"
 
-    # Show Tomo lifting hair to reveal her infected markings, this seems like it would require a separate pose for Tomo but that’s not necessarily the case. I can also just put in a cut-in image that shows half her face. Or just her eyes."
+    # Show Alverna lifting hair to reveal her infected markings, this seems like it would require a separate pose for Alverna but that’s not necessarily the case. I can also just put in a cut-in image that shows half her face. Or just her eyes."
 
     tm "Yeah, I’m infected. Have been for years now."
 
@@ -286,7 +286,7 @@ label chapter7:
 
     f "Why… why would they go that far? Is it contagious? Can it spread?"
 
-    b "No, but that’s the official party line and conspiracy theories about it. The truth is… much worse. Dr Tomo, I couldn’t help but notice that you seem very afraid of Vibrants. Even as we walked into the lab, you always tried to stay as far away from the containment cages. And when we walked in, the ones nearest to the door seemed alerted."
+    b "No, but that’s the official party line and conspiracy theories about it. The truth is… much worse. Dr Alverna, I couldn’t help but notice that you seem very afraid of Vibrants. Even as we walked into the lab, you always tried to stay as far away from the containment cages. And when we walked in, the ones nearest to the door seemed alerted."
 
     b "Do you know why that could be, Rookie? It’s not that hard to figure out when you consider the nature of Umbra and the Vibrants."
 
@@ -300,11 +300,11 @@ label chapter7:
 
     b "Hit the nail on the head there. If you haven’t heard of it, don’t be shocked, it’s a very closely guarded secret after all. If the public knew about the reaction between umbra and vibrants… things can go from bad to very bad."
 
-    f "So, is that why you’re working with the MRF? So they’ll hide you from the administration? Tomo, is that it?"
+    f "So, is that why you’re working with the MRF? So they’ll hide you from the administration? Alverna, is that it?"
 
     tm "...."
 
-    # Tomo sigh
+    # Alverna sigh
     tm "Well, you’re almost right. It’s part of it but that’s not why I’m here."
 
     tm "So, about that stage, the average incubation period before the full change is about 3 months right? I’ve been in this state since last year."
@@ -350,13 +350,13 @@ label chapter7:
     tm "Oh will you shut up you insufferable idiot! I’ve had enough of this press conference."
 
     tm "I’ve had enough of this press conference, so be silent."
-    # Tomo typing sound
+    # Alverna typing sound
 
     tm "I’m going to contact Director Kephirah, tell her the good news, then await further instructions."
 
     b "...It’s not too late you know?"
 
-    # tomo stops typing
+    # Alverna stops typing
 
     b "You haven’t crossed the line yet, you can still come back from this. But I can tell you two outcomes that’s sure to happen if you continue developing Project Siren."
 
@@ -368,7 +368,7 @@ label chapter7:
 
     b "Join the Erasers Guild instead, we can protect you from the MRF, we can help you with your research. You just need to let us out of here."
 
-    # Show Tomo thinking about the offer, feeling conflicted… almost like she’s going to take the offer
+    # Show Alverna thinking about the offer, feeling conflicted… almost like she’s going to take the offer
 
     tm "I’m sorry."
 
@@ -386,7 +386,7 @@ label chapter7:
 
     tm "Does that sound good to you all?"
 
-    f "Are you really okay with this Tomo?" 
+    f "Are you really okay with this Alverna?" 
 
     f "Imprisoning your own sister?"
 
@@ -394,9 +394,9 @@ label chapter7:
 
     tm "...you should’ve just told mom that I’m a big girl and can take care of myself."
 
-    # Show Kephirah on the monitor, probably as a cut-in image with just Tomo and Kephirah. I don’t know exactly. If we run out of time to put in a kephirah sprite then this can just be a "voice-only" communication. Meaning we don’t see her face.
+    # Show Kephirah on the monitor, probably as a cut-in image with just Alverna and Kephirah. I don’t know exactly. If we run out of time to put in a kephirah sprite then this can just be a "voice-only" communication. Meaning we don’t see her face.
 
-    un "Dr. Tomo? I see that you’re still alive, why are you in your lab?."
+    un "Dr. Alverna? I see that you’re still alive, why are you in your lab?."
 
     tm "Sorry Director Kephirah, but my report has priority due to situation at hand, so please wait a moment."
 
@@ -404,19 +404,19 @@ label chapter7:
 
     tm "It’s just a coincidence that they’re all here at the same time."
 
-    ke "Dr. Tomo…"
+    ke "Dr. Alverna…"
 
     tm "The escaped Vibrants have have done some considerable damage to the operation, but now that the 'source' of the problem has been dealt with, we can finally utilize the contingency plans for this exact scenario."
 
     tm "The Cleanup operations will be done swiftly, and then it’s back to business as usual."
 
-    ke "Dr. Tomo…"
+    ke "Dr. Alverna…"
 
     tm "As for other updates, based on the parameters you gave me in the last report, I’m almost done with the prototype. This incident delayed progress, but it shouldn’t be too much of a difference."
 
-    tm "I’d also like to put in a request for more test subjects, about a 17% increase from last week’s shipment should be-"
+    tm "I’d also like to put in a request for more test subjects, about a 17\% increase from last week’s shipment should be-"
 
-    ke "Dr Tomo."
+    ke "Dr Alverna."
 
     tm "Huh? Oh, sorry, ma’am. I’ve been rambling, it’s just… things are really chaotic right now and I still haven’t calmed down."
 
@@ -438,7 +438,7 @@ label chapter7:
 
     tm "I… I knew that they were concerned about the results of the previous experiments not yielding the projected outcomes they were expecting. But, I thought that we’d come to an understanding in the last project meeting?"
 
-    ke "That was before the break-in, before 39% of our samples had to be disposed of. And now about 72% of samples are currently loose, including several Priority-1 samples. They feel that it would be more resource-effective to cut their losses and try to salvage this situation at a later date. A crisis team is already working to spin this incident."
+    ke "That was before the break-in, before 39\% of our samples had to be disposed of. And now about 72\% of samples are currently loose, including several Priority-1 samples. They feel that it would be more resource-effective to cut their losses and try to salvage this situation at a later date. A crisis team is already working to spin this incident."
 
     tm "But I captured the intruders… This project can still be salvaged once we imprison them and-"
 
@@ -464,7 +464,7 @@ label chapter7:
 
     tm "I’ll even give you the patent so that you can sell it and-"
 
-    ke "Dr Tomo, who do you think you’re talking to?"
+    ke "Dr Alverna, who do you think you’re talking to?"
 
     ke "You of all people should know that your little 'Side Project' was never a priority."
 
@@ -474,7 +474,7 @@ label chapter7:
 
     ke "....."
 
-    ke "I don’t think you understand, Dr Tomo."
+    ke "I don’t think you understand, Dr Alverna."
 
     ke "The overseers are not interested in a cure for Umbra. They have made that abundantly clear. They brought you into Project Siren due to your expertise in the field. Project Siren is being shuttered, therefore you’re being reassigned. And as I mentioned, you will have to work out an arrangement to continue your side project with the next administrator you work with."
 
@@ -495,13 +495,13 @@ label chapter7:
 
     tm "I have come too far just to be told to start over right at the finish line!"
 
-    ke "...Dr. Tomo." 
+    ke "...Dr. Alverna." 
 
     ke "You are to evacuate the lab is less than 15 minutes, otherwise we will be forced to abandon you."
 
     tm "No!"
 
-    ke "Dr Tomo, you’re being irrational."
+    ke "Dr Alverna, you’re being irrational."
 
     tm "I’m the irrational one?! So the facility faces some setbacks and that’s enough for the overseers to just kill the whole project?"
 
@@ -509,7 +509,7 @@ label chapter7:
 
     tm "No! I’m not letting things end this way just because your bosses are short-sighted cowards!" 
 
-    "Dr. Tomo began to furiously operate the control console."
+    "Dr. Alverna began to furiously operate the control console."
 
     tm "After being ostracized by everyone close to me, I learned that I needed a backup plan in case I was ever betrayed again!"
 
@@ -542,7 +542,7 @@ label chapter7:
 
     # Key pressing sound
 
-    lc "USER: TOMO, HAS BEEN LOCKED OUT OF SYSTEM."
+    lc "USER: Alverna, HAS BEEN LOCKED OUT OF SYSTEM."
 
     tm "W-What? But how-"
 
@@ -550,7 +550,7 @@ label chapter7:
 
     ke "Instead, you decided to bite the hand that feeds you. And now you’ve shown me how much of a liability you truly are."
 
-    ke "So, I’m sorry Dr Tomo. But I’m afraid this is where we part ways. Furthermore-"
+    ke "So, I’m sorry Dr Alverna. But I’m afraid this is where we part ways. Furthermore-"
 
     "Suddenly I could hear a faint beeping sound all around me."
 
@@ -562,11 +562,11 @@ label chapter7:
 
     "The monsters growled in anticipation, as they walked to their intended target."
 
-    "Tomo, still overwhelmed by the sudden turn of events, could only fall down on her knees and whimper in fear."
+    "Alverna, still overwhelmed by the sudden turn of events, could only fall down on her knees and whimper in fear."
 
     "And despite the fact that I was no longer held at gunpoint by the doctor… my legs couldn’t move."
 
-    f "Tomo!!"
+    f "Alverna!!"
 
     b "This is going too far Kephirah! This is cruel, even for you!"
 
@@ -580,7 +580,7 @@ label chapter7:
 
     b "Rookie! Try to find a way to get us out!"
 
-    "My mind was in a state of panic. I could hear Breeze, but it was like my brain couldn’t comprehend the words, I couldn’t rationally think in this situation, and it was made all the more worse when Tomo suddenly grabbed onto me."
+    "My mind was in a state of panic. I could hear Breeze, but it was like my brain couldn’t comprehend the words, I couldn’t rationally think in this situation, and it was made all the more worse when Alverna suddenly grabbed onto me."
 
     tm "P-Please help me!"
 
@@ -596,17 +596,17 @@ label chapter7:
 
     "And then suddenly I was shoved away by a Vibrant."
 
-    "Falling to the floor, I could only look on in horror as the horde of vibrants descended on Tomo."
+    "Falling to the floor, I could only look on in horror as the horde of vibrants descended on Alverna."
 
-    "In any other situation, I would’ve been caught in the feeding frenzy. But due to Tomo’s Umbra disease acting like a beacon, the monsters paid me no heed."
+    "In any other situation, I would’ve been caught in the feeding frenzy. But due to Alverna’s Umbra disease acting like a beacon, the monsters paid me no heed."
 
-    f "TOMO!!"
+    f "Alverna!!"
 
     "Flair, unable to bear watching this gruesome sight, set her fists ablaze and began to bang against her unbreakable cage."
 
     "But alas, her sheer might could not break something designed to hold magic creatures inside."
 
-    ke "It’s a pity things ended this way, you would’ve made an excellent asset to the MRF dr Tomo. But, I suppose your only purpose now is to become a vibrant. A shame I won’t be around to observe these results."
+    ke "It’s a pity things ended this way, you would’ve made an excellent asset to the MRF dr Alverna. But, I suppose your only purpose now is to become a vibrant. A shame I won’t be around to observe these results."
 
     "The woman behind the monitor then turned to Breeze."
 
@@ -636,7 +636,7 @@ label chapter7:
 
     "Unfortunately, I couldn’t really think about that."
 
-    "Not only did our mission become compromised, but I let Tomo get eaten before my very eyes."
+    "Not only did our mission become compromised, but I let Alverna get eaten before my very eyes."
 
     "And along with the violent ringing, and the revolting noise of flesh being torn in half…"
 
@@ -678,7 +678,7 @@ label chapter7:
 
     "Quickly gathering my thoughts, I analyzed the room around me."
 
-    lc "USER: TOMO, HAS BEEN GRANTED ADMIN ACCESS."
+    lc "USER: Alverna, HAS BEEN GRANTED ADMIN ACCESS."
 
     s "Eh? The console was unlocked again? Wait, no, this is good!"
 
@@ -690,7 +690,7 @@ label chapter7:
 
     "Damn, this thing is complicated. At this point I’m just pressing random buttons, trying not to think about what’s going on directly behind me."
 
-    "My curiosity gets the better of me and I turn slightly to see a vibrant preoccupied with Tomo, it doesn’t even know I’m there… but I can see it sniffing the air. Gotta hurry!"
+    "My curiosity gets the better of me and I turn slightly to see a vibrant preoccupied with Alverna, it doesn’t even know I’m there… but I can see it sniffing the air. Gotta hurry!"
 
     "And with a triumphant beep, the Containment field that was holding both Breeze and Flair finally dissipated."
 
@@ -700,17 +700,17 @@ label chapter7:
 
     "Our celebration would be cut short as the moment the containment field fell, Flair launched a violent but precise blast at the Vibrants."
 
-    "The attack immediately eradicated the monsters leaving the remains of Tomo on the floor."
+    "The attack immediately eradicated the monsters leaving the remains of Alverna on the floor."
 
     "The mangled shape of the doctor coughed weakly to signify she was alive. Albeit barely."
 
-    f "Tomo!"
+    f "Alverna!"
 
     "Flair was the first to approach the wounded professor."
 
     "Lifting up the frail body, she cradled the poor scientist in her arms."
 
-    f "C’mon Tomo, please speak up! You can’t die here."
+    f "C’mon Alverna, please speak up! You can’t die here."
 
     f "Please… I don’t want you to die…"
 
@@ -720,7 +720,7 @@ label chapter7:
 
     "Upon first glance one would have mistaken it for blood, But I knew better."
 
-    "Instinctively, I grabbed Flair and pulled her away from Tomo."
+    "Instinctively, I grabbed Flair and pulled her away from Alverna."
 
     f "Let me go! What are you-"
 
@@ -757,7 +757,7 @@ label chapter7:
 
     "Fortunately, I noticed before it could get to her and jumped in at the last moment, tackling her to the ground, sparing her head from being separated from her shoulders."
 
-    "Recovering from the sudden push, Flair looked in horror as her assailant was revealed to be none other than Tomo, who was at the edge of mutation."
+    "Recovering from the sudden push, Flair looked in horror as her assailant was revealed to be none other than Alverna, who was at the edge of mutation."
 
     s "Ms Flair, I know that you don’t want to hurt your sister, but we also can’t just let her kill us either."
 
@@ -787,7 +787,7 @@ label chapter7:
 
     s "Understandable."
 
-    # hold on Breeze and Sofi as Tomo continue’s mutating
+    # hold on Breeze and Sofi as Alverna continue’s mutating
 
     # the party hesitates and feels the mounting pressure
 
@@ -809,13 +809,13 @@ label chapter7:
 
     b "...great last words, guys." 
 
-    "The three of us got ready for battle as Tomo finally succumbed to her mutation."
+    "The three of us got ready for battle as Alverna finally succumbed to her mutation."
 
     "She tried one last effort to reach out to us, her eyes perfectly describing what she wanted to say:"
 
     "Help Me"
 
-    # [Inset Tomo Boss Fight Here]
+    # [Inset Alverna Boss Fight Here]
 
     #-----------------------------------------
     jump chapter8

@@ -675,44 +675,37 @@ define Alverna_body="normal"
 layeredimage Alverna:
 
     always:
-        "sprite/Alverna/base_[Alverna_body].png"
-    group eyes:
-        attribute open default:
-            "Alverna_eyes_blink"
-        attribute up:
-            "Alverna_eyes_up"
-        attribute closed:
-            "sprite/Alverna/eyes_closed.png"
-        # attribute lookaway:
-        #     "Alverna_eyes_lookaway"
-        # attribute crying:
-        #     "Alverna_eyes_crying"
-    group eyebrows:
-        attribute normal default:
-            "sprite/Alverna/eyebrows_normal.png"
-        attribute worried:
-            "sprite/Alverna/eyebrows_up.png"
-        attribute down:
-            "sprite/Alverna/eyebrows_down.png"
-        # attribute default:
-        #     "sprite/Alverna/eyebrows_normal.png"
-    group mouth:
-        attribute frown:
-            WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_frown.png")
-        attribute squiggly:
-            WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_squiggly.png")
-        attribute smile default:
-            WhileSpeaking("Alverna","Alverna_mouth_smile_speaking","sprite/Alverna/mouth_smile.png")
-        attribute openmouth:
-            WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_open.png")
-        attribute opensmile:
-            WhileSpeaking("Alverna","Alverna_mouth_smile_speaking","sprite/Alverna/mouth_opensmile.png")
-        attribute smug:
-            WhileSpeaking("Alverna","Alverna_mouth_smile_speaking","sprite/Alverna/mouth_smug.png")
-    group blush:
-        attribute noblush default:
-            Null()
-        attribute blush:
-            "sprite/Alverna/Alverna_blush.png"
-            alpha 0.7
+        "sprite/Alverna/Alverna.png"
+    # group eyes:
+    #     # attribute open :
+    #     #     "Alverna_eyes_blink"
+    #     attribute up default:
+    #         "Alverna_eyes_up"
+    #     attribute closed:
+    #         "sprite/Alverna/eyes_closed.png"
+    #     # attribute lookaway:
+    #     #     "Alverna_eyes_lookaway"
+    #     # attribute crying:
+    #     #     "Alverna_eyes_crying"
+    # group eyebrows:
+    #     attribute normal default:
+    #         "sprite/Alverna/eyebrows_normal.png"
+    #     attribute worried:
+    #         "sprite/Alverna/eyebrows_up.png"
+    #     attribute down:
+    #         "sprite/Alverna/eyebrows_down.png"
+    #     # attribute default:
+    #     #     "sprite/Alverna/eyebrows_normal.png"
+    # group mouth:
+    #     attribute frown default:
+    #         WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_frown.png")
+    #     attribute openmouth:
+    #         WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_open.png")
+    #     attribute opensmile:
+    #         WhileSpeaking("Alverna","Alverna_mouth_smile_speaking","sprite/Alverna/mouth_opensmile.png")
+    #     attribute noblush default:
+    #         Null()
+    #     attribute blush:
+    #         "sprite/Alverna/Alverna_blush.png"
+    #         alpha 0.7
     zoom 0.5 yanchor 0.5 ypos 1.0

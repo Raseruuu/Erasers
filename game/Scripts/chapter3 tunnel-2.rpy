@@ -2,14 +2,14 @@
     scene magicfacility with Dissolve(2.0)
     show ms at left:
         yrotate 180
-    show grunt1:
+    show g1:
         xpos 1.5
-    show grunt2:
+    show g2:
         xpos 1.5
     # Have the goon sprites "walking" across the screen, maybe lookin’ kinda shady
     # have another goon sprite just suddenly pop up from the ground, since all the goon sprites look alike, we don’t need to make a new one. Btw just to mention it, the two goons are Sofi and Breeze in disguise
-    show grunt1 at center with move
-    show grunt2 at right with move
+    show g1 at center with move
+    show g2 at right with move
     ms "Where the hell have you two idiots been?!"
 
     # Straighten up the goon sprites, basically just put a shake effect on them briefly
@@ -35,16 +35,16 @@
 
     # Hold on the goons 1 and 2 sprites, have one turn to look at the other
     # If possible, spin the sprites and then replace with the breeze and sofi sprites. If not possible, just do a fade in or something
-    hide grunt1 with fade
+    hide g1 with fade
     show breeze at left
-    hide grunt2 with fade
+    hide g2 with fade
     show sofi at center
     b "Wow, I can’t believe that worked."
     s "Yeah, on the way here, I familiarized myself with the stored spells loaded onto our devices. Check it out."
 
     # replace Sofi’s sprite with the goon, it doesn’t matter who, but it’s g2 as the default
     hide sofi with fade
-    show grunt2 at center with fade
+    show g2 at center with fade
     g2 "Ooh look at me, I’m goon-2! I’m a total brown noser, nyeh!"
     b "...He doesn’t say, nyeh."
     g2 "I do now, nyeh!"
@@ -54,7 +54,7 @@
 
     b "They didn’t have this stuff when I started, so... I guess it makes things easier?"
     # put Sofi sprite back
-    hide grunt2 with fade
+    hide g2 with fade
     show sofi at thirdright with fade
     s "Yeah, it’s cool! It’s kinda like what vtubers used back in the day, but in real space. It just needed to scan his form, keep the device on my person, and it’ll compensate for the rest to overlay a model of him over me." 
     s "I just gotta not do any sudden explosive movements and no one should be able to tell the difference."
@@ -129,10 +129,10 @@
     fl "ALL COMBATANTS ARE TO CONTAIN THE BREACH IMMEDIATELY. "
     b "Cast your disguise spell, quick!"
     hide breeze with fade
-    show grunt1:
+    show g1:
         xpos -0.05 yrotate 180
     hide sofi with fade
-    show grunt2 at center:
+    show g2 at center:
         xpos 0.25 yrotate 180
     s "As soon as we heard the alert come on over the intercom, we're-engaged our disguises. Looks like we wouldn’t be be able to just casually walk around anymore."
     s "Did they find us out? I wasn’t sure until I saw a couple of guards literally run past us."
@@ -189,31 +189,31 @@
     s "You jerk."
     show azmaveth:
         yrotate 0
-    show tomo at offscreenright
+    show Alverna at offscreenright
     play sound "audio/footsteps.mp3"
     show azmaveth at extremeright with move
-    un "Why do you keep trying to go off on your own, and make my life harder, Dr Tomo?"
-    show tomo at right with move
-    # Show Tomo sprite coming after that line
+    un "Why do you keep trying to go off on your own, and make my life harder, Dr Alverna?"
+    show Alverna at right with move
+    # Show Alverna sprite coming after that line
     tm "Mr Azma, I swear, I wasn’t trying to-"
-    az "Shhh."
-    az "No more talking. I don’t have time to babysit you, so here’s what’s gonna happen."
-    az "This guy here, he’s gonna escort you to one of the safe rooms. You’re gonna follow him. You’re not gonna make any detours. Straight. To. The. Safe. Room. It’s right down this hall, then take a left, and just keep following the blinking lights."
-    az "Are we clear?"
+    a "Shhh."
+    a "No more talking. I don’t have time to babysit you, so here’s what’s gonna happen."
+    a "This guy here, he’s gonna escort you to one of the safe rooms. You’re gonna follow him. You’re not gonna make any detours. Straight. To. The. Safe. Room. It’s right down this hall, then take a left, and just keep following the blinking lights."
+    a "Are we clear?"
     tm "....yes… sir."
-    az "Good. Now be a good girl, and get out of my sight, and don’t cause me anymore problems today, or I’m going to very upset. Got it."
+    a "Good. Now be a good girl, and get out of my sight, and don’t cause me anymore problems today, or I’m going to very upset. Got it."
     tm "...Y-yes."
-    az "Good."
+    a "Good."
 
     # Turn to Breeze and Sofi
-    az "You get all that?"
+    a "You get all that?"
     s "Yes sir, got it all. We’ll just be on our way-"
-    az "Not both of you."
-    az "You. You’re with me, we’re gonna go contain this breach."
+    a "Not both of you."
+    a "You. You’re with me, we’re gonna go contain this breach."
     b "...."
-    az "...Got a problem with that, soldier?"
+    a "...Got a problem with that, soldier?"
     b "...No, sir. There are no such problems."
-    az "......"
+    a "......"
 
     # There seems to be building tension, then play a communicator beeping sound
     pause 3
@@ -221,15 +221,15 @@
     # Turn Azma’s sprite around
     show azmaveth:
         yrotate 180
-    az "Boss is calling. Let’s go, we’ll head to the rendezvous while I take this call."
+    a "Boss is calling. Let’s go, we’ll head to the rendezvous while I take this call."
     show azmaveth with move:
         xpos 1.5
-    # Az walking off screen
-    az "What is it, Kephirah?"
+    # a walking off screen
+    a "What is it, Kephirah?"
     # begin to move Breeze’s sprite, but then have him turn to Sofi’s sprite
     # tilt his sprite slightly as if nodding, then turn back and slide him out of frame
-    # bring Tomo’s sprite to Sofi’s
-    s "So… your name was Dr Tomo?"
+    # bring Alverna’s sprite to Sofi’s
+    s "So… your name was Dr Alverna?"
     tm "..."
     s "...."
     tm "...."
@@ -237,8 +237,8 @@
     "Okay, this was just getting awkward."
     s "Soooo, should we get moving now or-"
 
-    # Show Tomo moving off-screen
-    show tomo with move:
+    # Show Alverna moving off-screen
+    show Alverna with move:
         yrotate 180
     s "Wait, where are you going? I don’t think that’s the way to the safe zone."
     tm "We’re not going there."
@@ -247,7 +247,7 @@
     tm "But I have something I need to do so… if your job is to protect me then you can do that by following me. Or don’t. Either way, I’m going."
 
     # slightly tilt Sofi’s sprite like she "can’t fuckin’ believe this bitch’s attitude"
-    "And just like that, Tomo began to walk away leaving me to stand around flabbergasted at her attitude."
+    "And just like that, Alverna began to walk away leaving me to stand around flabbergasted at her attitude."
 
     # Show Sofi shake
     "Recovering from my stupor, I promptly went after her. Couldn’t exactly just let her get eaten by a Vibrant."
