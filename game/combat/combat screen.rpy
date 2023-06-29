@@ -6,7 +6,7 @@ screen combat:
     #############################################################################################
     ## Main ticker. This is where all the timing stuff happens. ##
 ##############################################################
-    # timer 0.05 action Function(ticking) repeat True
+    timer 0.05 action Function(ticking) repeat True
 ##############################################################
     ## Main ticker. This is where all the timing stuff happens. ##
     #############################################################################################
@@ -112,8 +112,8 @@ screen mob1(i, position):
                                 range mob[i].hp
                                 xysize (300, 50)
                             if encounter != "Az":
-                                # text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
-                                text str(mobstat[target][2])+"+"+str(mobstat[target][8]) align (0.5, 0.5)
+                                text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
+                                # text str(mobstat[target][2])+"+"+str(mobstat[target][8]) align (0.5, 0.5)
                     null height 15
                     add mob[i].img xalign 0.5
                     null height 15
@@ -142,6 +142,10 @@ screen targetting(position): ## indicates which one is being targetted. TODO: ch
 screen mobattacking(position): ##TODO :fix symbol
     fixed:
         add "fire" at combat2 xpos mobpos[len(mobstat)][position] yoffset -250
+transform resize(size):
+    zoom size
+transform transparent():
+    alpha 0.5
 
 screen actbutton:
     if sofi in combatant:
@@ -154,10 +158,14 @@ screen actbutton:
     if breezeex in combatant:
         use breezeexact
 screen sofiact:
+    add "side sofiside down frown" at resize(0.75):
+        yoffset -200
+        xoffset -20
+        xpos 0
     fixed: ##Sofi action buttons
-        pos (50, 800)
+        pos (190, 800)
         hbox:
-            xysize (150, 175) spacing 50
+            xysize (150, 175) spacing 20
             for i, j in enumerate(sofi.list):
                 button:
                     xysize (150, 175)
@@ -180,9 +188,9 @@ screen sofiact:
                         text str(int(soficd)) align (0.5, 1.0) yoffset-10
 screen breezeact:
     fixed: ##Breeze action buttons
-        pos (750, 800)
+        pos (780, 800)
         hbox:
-            spacing 50
+            spacing 20
             xysize (150, 175)
             for i, j in enumerate(breeze.list):
                 fixed:
@@ -205,10 +213,14 @@ screen breezeact:
                         if breezecd <= breezeex.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
                             text str(int(breezecd)) align (1.0, 1.0) offset (-5, -5) color "#000"
 screen flairact:
+    add "side flairside down frown" at resize(0.75):
+            yoffset -200 
+            xalign 0.77
     fixed: ##Flair action buttons
-        pos (1350, 800)
+        pos (1520, 800)
         hbox:
-            spacing 50
+            # at transparent
+            spacing 20
             xysize (150, 175)
             for i, j in enumerate(flair.list):
                 button:

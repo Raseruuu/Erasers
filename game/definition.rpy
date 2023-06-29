@@ -1,7 +1,7 @@
 
 define b = Character("Breeze", image="breezeside",callback=speaker("Breeze"))
 define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"))
-define f = Character("Flair",callback=speaker("Flair"),)
+define f = Character("Flair",image="flairside",callback=speaker("Flair"),)
 define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"),)
 define k = Character("Kizuna",callback=speaker("Kizuna"),)
 define tm = Character("Alverna",callback=speaker("Alverna"),)
@@ -39,6 +39,8 @@ image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=
 
 image side sofiside = LayeredImageProxy("sofi", Transform(crop=(220, 80, 460, 500), zoom=0.8))
 image side breezeside =  LayeredImageProxy("breeze", Transform(crop=(260, 80, 460, 500), zoom=0.8))
+image side flairside =  LayeredImageProxy("flair", Transform(crop=(260, 80, 460, 500), zoom=0.8))
+
 # s down openmouth ""
 
 
