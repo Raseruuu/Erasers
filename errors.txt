@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/Scripts/chapter7 umbralab.rpy", line 469: end of line expected.
-    ke "You of all people should know that your little /"Side Project"/ was never a priority."
-                                                         ^
+File "game/combat/combat define.rpy", line 22: python block expects a non-empty block.
+    python:
+           ^
 
-Ren'Py Version: Ren'Py 8.1.1.23052503+nightly
-Thu Jun 29 03:55:50 2023
+Ren'Py Version: Ren'Py 8.1.1.23060707
+Fri Jun 30 01:42:56 2023

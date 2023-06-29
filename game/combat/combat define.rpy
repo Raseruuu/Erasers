@@ -3,13 +3,13 @@ image breezecombat = At("side breezeside", resize(0.75))
 
 ## Enemies ##
 image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (000, 100, 2200, 3000)), 0.16) #200
-image g1mob = im.FactorScale("images/sprite/grunt1.png", 0.6)
-image g2mob = im.FactorScale("images/sprite/grunt2.png", 0.5)
+image g1mob = im.FactorScale(im.Crop("images/sprite/grunt1.png", (100, 250, 1500, 3250)), 0.15)
+image g2mob = im.FactorScale(im.Crop("images/sprite/grunt2.png", (100, 250, 1500, 3250)), 0.15)
 image ratmob = im.FactorScale("images/sprite/rat.png", 0.6)
 #TODO: image alvmob =
 image alvmob = im.FactorScale("images/sprite/blame-anime.gif", 0.5)
 ## TODO: update AZ
-image azmob = im.FactorScale("images/sprite/Azmaveth/Azmaveth.png", 0.15)
+image azmob = im.FactorScale(im.Crop("images/sprite/Azmaveth/Azmaveth.png", (0, 0, 2597, 4500)), 0.15)
 ## placeholder
 image greenmob = "images/sprite/green.png"
 
@@ -19,14 +19,24 @@ image ice = im.FactorScale("gui/ice.png", 0.05)
 image targetsign = im.FactorScale("gui/target1.png", 0.3)
 
 ## command cards ####################
-image cardblade = "images/combat/cards/enchant-blue-3.png"
-image cardshard = "images/combat/cards/ice-blue-1.png"
-image cardshield = "images/combat/cards/protect-acid-2.png"
-image cardheal = "images/combat/cards/heal-jade-2.png"
-image cardfirebolt = "images/combat/cards/fireball-red-1.png"
-image cardinferno = "images/combat/cards/explosion-red-3.png"
-image cardblizzard = "images/combat/cards/light-blue-3.png"
-image cardiceblock = "images/combat/cards/protect-blue-3.png"
+# python:
+    # for i in ["cardblade", "cardice", "cardblizzard", "cardshield", "cardheal", "cardfirebolt", "cardinferno"]:
+    #     image i = "images/combat/cards/"+i+".png"
+image cardblade = "images/combat/cards/cardblade.png"
+image cardice = "images/combat/cards/cardice.png"
+image cardblizzard = "images/combat/cards/cardblizzard.png"
+image cardshield = "images/combat/cards/cardshield.png"
+image cardheal = "images/combat/cards/cardheal.png"
+image cardfirebolt = "images/combat/cards/cardfirebolt.png"
+image cardinferno = "images/combat/cards/cardinferno.png"
+
+image cardblade2 = im.Blur(im.Grayscale("images/combat/cards/cardblade.png"), 1)
+image cardice2 = im.Blur(im.Grayscale("images/combat/cards/cardice.png"), 1)
+image cardblizzard2 = im.Blur(im.Grayscale("images/combat/cards/cardblizzard.png"), 1)
+image cardshield2 = im.Blur(im.Grayscale("images/combat/cards/cardshield.png"), 1)
+image cardheal2 = im.Blur(im.Grayscale("images/combat/cards/cardheal.png"), 1)
+image cardfirebolt2 = im.Blur(im.Grayscale("images/combat/cards/cardfirebolt.png"), 1)
+image cardinferno2 = im.Blur(im.Grayscale("images/combat/cards/cardinferno.png"), 1)
 
 ## Battle Music #######################################################
 ## First 2, pending replacement
@@ -102,7 +112,8 @@ transform mobhurt: ##not used iirc
 
 transform textpopup: ## for damage numbers
     alpha 0.5
-    linear 0.2 alpha 1.0 yoffset -50
+    ease 0.1 alpha 1.0 yoffset -30
+    ease 0.05 yoffset -20
 
 ########################################
 ## ATK ANIMATIONS ##
@@ -120,8 +131,6 @@ transform atkshard:
     ease 0.1 yoffset +0
     pause 0.55
     linear 0.1 alpha 0.0
-
-
 
 transform atkinferno:
     xanchor 1.0 xpos 0.0 alpha 0.7

@@ -20,8 +20,10 @@ label combattest: ## simulate going into a combat from story.
 
     scene black with dissolve
     "combat end"
+
     $ _skipping = True
     $ _game_menu_screen = "save_screen"
+    $ quick_menu = True
     scene black
 
     # $ renpy.fix_rollback()
@@ -29,14 +31,15 @@ label combattest: ## simulate going into a combat from story.
 
 label combat:
     window hide
-    
+    $ quick_menu = False
+
     python:
         _skipping = timerpause = combattalk = False
         # _game_menu_screen = None ##TODO: uncomment when shipping
 
         ## Breeze's hp/hpmax/shield
         hpmax = hp = 1000
-        shield = 0 #10.00
+        shield = shieldtime = 0
         breezeaction = []
         act = ""
         atkdamage = 0
@@ -116,13 +119,12 @@ label combat:
 
 label sofiphase:
     # $ timerpause = True
-    show screen damageincoming(skillvalues[act]) ##TODO change to green textcolor.
-
+     ##TODO change to green textcolor.
     if act == "Shield":
         $ shield += skillvalues["Shield"]
     if act == "Heal":
         $ hp = min(hpmax, hp+skillvalues["Heal"])
-
+        show screen damageincoming(skillvalues[act], "#00FF00")
     $renpy.pause(2.0)
     hide screen damageincoming
     # $ timerpause = False
@@ -149,7 +151,7 @@ label damagephase: ## damaging enemies
         show screen atkinferno()
 
     call breezeaction ## STATS hp/slow/burn
-
+    $ mobphase == False
     ## End Condition Check ##
     python:
         death = []
@@ -171,6 +173,7 @@ label damagephase: ## damaging enemies
 ## Hurt SEQUENCE ##
 ###################
 label breezeaction:
+    $ mobphase = True
     ## call animation in here
     python:
         if len(breezeaction) != 0:
@@ -186,6 +189,7 @@ label breezeaction:
                 breezeaction.pop(0)
                 target = targettemp
                 renpy.call("mobhurt")
+    $ mobphase = False
     return
 
 label mobhurt: ## INDIVIDUAL mob being hit + animation
@@ -288,7 +292,7 @@ label breezehurt: ## ANIMATION
         $ shield = max(shield-mobdamage, 0)
 
     show screen mobattacking(mobattacker) ## attack indicator
-    show screen damageincoming(mobdamage) ## dmg number
+    show screen damageincoming(mobdamage, "#FF0000") ## dmg number
 
     with vpunch   # show breezecombat at mobhurt ##abandoned
     if encounter != "Az":
@@ -355,15 +359,17 @@ label mobdeath: ## dead replace/removal in group
                         targettemp = i
                         break
             head = []
-
         else:
-            # for i in death:
-            #     # mobstat.pop(i)
-            #     mobstat[i][0] = "None"
             while len(death)>0:
                 mobstat[death[0]][0] = "None"
                 death.pop(0)
             target = 0
+
+        if mobstat[targettemp][0] == "None":
+            for i, j in enumerate(mobstat):
+                if mobstat[i][0] != "None":
+                    targettemp = i
+                    break
 
     ## TODO: goon death narration here
     ## TODO:s Alv 1st death narration here
@@ -372,6 +378,7 @@ label mobdeath: ## dead replace/removal in group
     jump combatloop
 
 label victory:
+    $ timerpause == True
     hide screen combat with dissolve
     stop music fadeout 1.0
 

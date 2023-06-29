@@ -107,8 +107,8 @@ screen say(who, what):
 
         if who is not None: ## if there's name
             window:
-                xoffset 260
-                yoffset 28
+                # xoffset 260
+                # yoffset 28
                 xanchor 0
                 id "namebox"
                 style "namebox"
@@ -142,18 +142,19 @@ style window:
     background Frame("gui/chatbox2.png", xanchor=0.0, xpos=350,  xsize=1550) # xalign=0.5, yalign=1.0
 
 style namebox:
-    xpos 150#gui.name_xpos
-    xanchor 0.5 #gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos-80
+    xpos -25 #150#gui.name_xpos
+    xanchor 1.0 #.5 #gui.name_xalign
+    xsize 380 #gui.namebox_width
+    # ypos 180#-80
+    yalign 1.0
     ysize gui.namebox_height
 
-    background Frame("gui/textbox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding (35, 5, 35, 5)#gui.namebox_borders.padding
+    background Frame(im.Flip("gui/03_lightblue3.png", horizontal=True), gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
+    padding (45, 35, 35, 20)#gui.namebox_borders.padding
 
 style say_label:
     properties gui.text_properties("name", accent=True)
-    xalign gui.name_xalign
+    xpos -5 #gui.name_xalign
     yalign 0.5
 
 style say_dialogue:
@@ -252,12 +253,18 @@ screen quick_menu():
             anchor (1.0, 1.0)
             pos (1900, 840)
             spacing 2
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-
-            textbutton _("Save") action ShowMenu('save')
+            # textbutton _("Back") action Rollback()
+            # textbutton _("History") action ShowMenu('history')
+            # textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
+            #
+            # textbutton _("Save") action ShowMenu('save')
             # textbutton _("Prefs") action ShowMenu('preferences')
+
+            imagebutton idle im.FactorScale(im.Crop("gui/buttons.png",(64, 0, 16, 16)), 2.0) hover im.FactorScale(im.Crop("gui/buttons2.png",(64, 0, 16, 16)), 2.0) action ShowMenu('history') hovered Show("quickhover", i=0) unhovered Hide("quickhover")
+            imagebutton idle im.FactorScale(im.Crop("gui/buttons.png",(64, 32, 16, 16)), 2.0) hover im.FactorScale(im.Crop("gui/buttons2.png",(64, 32, 16, 16)), 2.0)action Preference("auto-forward", "toggle") hovered Show("quickhover", i=1) unhovered Hide("quickhover")
+            imagebutton idle im.FactorScale(im.Crop("gui/buttons.png",(16, 32, 16, 16)), 2.0) hover im.FactorScale(im.Crop("gui/buttons2.png",(16, 32, 16, 16)), 2.0)action Skip() alternate Skip(fast=True, confirm=True) hovered Show("quickhover", i=2) unhovered Hide("quickhover")
+            imagebutton idle im.FactorScale(im.Crop("gui/buttons.png",(32, 0, 16, 16)), 2.0) hover im.FactorScale(im.Crop("gui/buttons2.png",(32, 0, 16, 16)), 2.0) action ShowMenu('preferences') hovered Show("quickhover", i=3) unhovered Hide("quickhover")
+            imagebutton idle im.FactorScale(im.Crop("gui/buttons.png",(48, 16, 16, 16)), 2.0) hover im.FactorScale(im.Crop("gui/buttons2.png",(48, 16, 16, 16)), 2.0)action ShowMenu('save') hovered Show("quickhover", i=4) unhovered Hide("quickhover")
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -277,6 +284,14 @@ style quick_button_text:
     properties gui.button_text_properties("quick_button")
     color "#FFF"
 
+screen quickhover(i):
+    fixed:
+        add "black" alpha 0.8
+        anchor (0.5, 1.0)
+        pos (1816, 840-35)
+        xysize ((5*(16*2+2)-2), 30)
+        # ysize 30 xsize None
+        text str(["History", "Auto", "Skip", "Options", "Save"][i]) size 25 xalign 0.5 yalign 0.5
 ################################################################################
 ## Main and Game Menu Screens
 ################################################################################

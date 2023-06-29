@@ -1,11 +1,11 @@
 
 define b = Character("Breeze", image="breezeside",callback=speaker("Breeze"))
-define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"))
+define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"), who_font="mangat.ttf")
 define f = Character("Flair",image="flairside",callback=speaker("Flair"),)
-define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"),)
+define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"), who_font="mangat.ttf")
 define k = Character("Kizuna",callback=speaker("Kizuna"),)
 define tm = Character("Alverna",callback=speaker("Alverna"),)
-define az = Character("Azmaveth",callback=speaker("Azmaveth"),)
+# define az = Character("Azmaveth",callback=speaker("Azmaveth"),)
 define ke = Character("Kephirah",callback=speaker("Kephirah"),)
 
 define u = Character("???")
@@ -79,6 +79,10 @@ image iceblue:
     Solid("#63D3FF")
 
 image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
+
+## UI buttons
+image quickauto = im.Crop("gui/buttons.png",(0, 0, 16, 16))
+$ quickhover = ["History", "Auto"]
 ################
 ## MUSIC ##
 ################

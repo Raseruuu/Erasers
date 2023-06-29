@@ -16,6 +16,7 @@ init -50 python:
         global soficd
         global flaircd
         global shield
+        global shieldtime
 
         global encounter
         global aztimer
@@ -43,8 +44,14 @@ init -50 python:
                 soficd +=0.05
             if flaircd <max(flair.cost):
                 flaircd +=0.05
-            if shield > 0: ## Shield Decay
-                shield -=0.05
+            ## Shield Decay
+            if shield > 0:
+                if shieldtime <80:
+                    shieldtime += 1
+                else:
+                    shield -= (shield//10)
+            if shield == 0:
+                shieldtime = 0
 
             ## Rat respawn ##
             if encounter == "Rat":
@@ -105,26 +112,26 @@ init -50 python:
             self.cost = cost
 
     breeze = fighter("Breeze", ["Attack", "Shard"], [2.5, 5.0])
-    sofi = fighter("Sofi", ["Shield", "Heal"], [6.0, 10.0])
-    flair = fighter("Flair", ["Firebolt", "Inferno"], [3.0, 8.0]) ##2, 20
+    sofi = fighter("Sofi", ["Shield", "Heal"], [5.0, 2.5])
+    flair = fighter("Flair", ["Firebolt", "Inferno"], [3.0, 8.0]) ##3, 8
     breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.2, 2.0, 6.0])
 
     skillcard = { "Attack": "cardblade",
-                    "Shard": "cardshard",
-                    "Blizzard": "cardblade",
-                    "Shield": "cardblade",
-                    "Heal": "cardblade",
-                    "Firebolt": "cardblade",
-                    "Inferno": "cardblade"}
+                    "Shard": "cardice",
+                    "Blizzard": "cardblizzard",
+                    "Shield": "cardshield",
+                    "Heal": "cardheal",
+                    "Firebolt": "cardfirebolt",
+                    "Inferno": "cardinferno"}
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
                     "Attack": 125, "Shard": 200,
                     "Blizzard": 0,
-                    "Shield": 50, "Heal": 500,
-                    "Firebolt": 150, "Inferno": 300
+                    "Shield": 500, "Heal": 150,
+                    "Firebolt": 150, "Inferno": 3000
                     }
     skillcd = {"Attack": 2.5, "Shard": 5,
                 "Blizzard": 10,
-                "Shield": 6, "Heal": 10,
+                "Shield": 5, "Heal": 2.5,
                 "Firebolt": 3, "Inferno": 8
                 }
     skilldesc = {
@@ -151,12 +158,13 @@ init -50 python:
 
     # goon = mob("Goon", 300, 120, 50, "goonmob")
     flairmob = mob("Flair", 1200, 100, 220, "flairmob") ## dps 65/7 = 8 ## transit into goons later
-    g1mob = mob("Flair", 1000, 100, 220, "g1mob")
-    g2mob = mob("Flair", 1200, 100, 220, "g2mob")
-    
+    g1mob = mob("Goon 1", 1000, 110, 180, "g1mob")
+    g2mob = mob("Goon 2", 1200, 110, 180, "g2mob")
+
     ratmob = mob("Rat", 350, 70, 40, "ratmob") ## dps 20/5 = 4
-    alvmob = mob("Alv", 3000, 180, 150, "alvmob") ## dps 80/8 = 10
-    azmob = mob("Az", 80000, 80, 300, "azmob") ## 4 unblocked hits
+    alvmob = mob("Alv", 3000, 1800, 150, "alvmob") ## dps 80/8 = 10
+    azmob = mob("Azmaveth", 80000, 80, 300, "azmob") ## 4 unblocked hits
+
     nonemob = mob("None", 800, 20, 65, "alvmob")
 
     ####################################################
