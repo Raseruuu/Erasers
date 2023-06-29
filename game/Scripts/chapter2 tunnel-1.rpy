@@ -109,9 +109,9 @@
     # scene tunnel2 the bg over to the opposite side until the two characters are either out of frame or as far to one side as possible
     play sound "audio/footsteps.mp3"
     show grunt1 at right with move
-    un "I’m telling you, the sensors picked up something!"
+    un "I'm telling you, the sensors picked up something!"
     show grunt2 at halfright with move
-    un "It’s probably just some rats again, or another streamer. Who calibrated those things? They’re more sensitive than you back in school."
+    un "It's probably just some rats again, or another streamer. Who calibrated those things? They’re more sensitive than you back in school."
     un "Okay first of all, up yours. Second of all, we’ve got a job to do, and it’s our duty to secure the area from any prying eyes."
     un "...why do you sound so proud of that?"
     hide grunt1
@@ -155,7 +155,7 @@
     hide sofi
     hide breeze
     show grunt1:
-        xpos 0.8
+        xpos 0.6
     show grunt2:
         xpos 0.6
     show sofi:

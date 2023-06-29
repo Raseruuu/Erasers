@@ -27,8 +27,12 @@ define n = nvl_narrator
 
 # MOVED TO characterimage.rpy
 # image az = im.FactorScale("images/sprite/Azmaveth/Azmaveth.png", 0.25)
-image g1 = im.FactorScale("images/sprite/grunt1.png", 1.0)
-image g2 = im.FactorScale("images/sprite/grunt2.png", 0.8)
+image g1:
+    "images/sprite/grunt1.png"
+    zoom 0.5 yanchor 0.5 ypos 1.0
+image g2:
+    "images/sprite/grunt2.png"
+    zoom 0.5 yanchor 0.5 ypos 1.0
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
@@ -49,10 +53,10 @@ image side azside:
     zoom 0.4
 # image side breezeside = im.FactorScale(im.Crop(breeze, (500, 150, 1000, 1000)), 0.4)
 image side g1side:
-    LiveCrop((00,00, 460,500), "g1")
+    LiveCrop((200,120, 460,500), "g1")
     zoom 0.8
 image side g2side:
-    LiveCrop((00,00, 460,370), "g2")
+    LiveCrop((200,120, 460,500), "g2")
     zoom 0.8
 
 
