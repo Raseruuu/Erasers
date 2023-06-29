@@ -17,7 +17,7 @@ init -3 python:
             speaking = None
     speaker = renpy.curry(speaker_callback)
 
-image z_eyes_blink:
+image Sofi_eyes_blink:
     choice:
         "sprite/Sofi/eyes.png"
         pause 4.0
@@ -562,7 +562,7 @@ layeredimage flair:
     #         alpha 0.7
     zoom 0.5 yanchor 0.5 ypos 1.0
 
-image Sofi_eyes_blink:
+image Alverna_eyes_blink:
     choice:
         "sprite/Alverna/eyes.png"
         pause 4.0
@@ -679,10 +679,8 @@ layeredimage Alverna:
     group eyes:
         attribute open default:
             "Alverna_eyes_blink"
-        # attribute oneclose:
-        #     "sprite/Alverna/Alverna_eyes2.png"
-        attribute midclose:
-            "Alverna_eyes_midclose"
+        attribute up:
+            "Alverna_eyes_up"
         attribute closed:
             "sprite/Alverna/eyes_closed.png"
         # attribute lookaway:
