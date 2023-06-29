@@ -17,7 +17,7 @@ init -3 python:
             speaking = None
     speaker = renpy.curry(speaker_callback)
 
-image Sofi_eyes_blink:
+image z_eyes_blink:
     choice:
         "sprite/Sofi/eyes.png"
         pause 4.0
@@ -560,4 +560,161 @@ layeredimage flair:
     #     attribute blush:
     #         "sprite/Flair/Flair_blush.png"
     #         alpha 0.7
+    zoom 0.5 yanchor 0.5 ypos 1.0
+
+image Sofi_eyes_blink:
+    choice:
+        "sprite/Alverna/eyes.png"
+        pause 4.0
+    choice:
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.07
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.1
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.07
+        "sprite/Alverna/eyes.png"
+        pause 2.0
+    choice:
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.05
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.07
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.05
+        "sprite/Alverna/eyes.png"
+        pause 0.1
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.05
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.07
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.05
+        "sprite/Alverna/eyes.png"
+        pause 2.0
+    repeat
+image Alverna_eyes_crying:
+    choice:
+        "sprite/Alverna/eyes_crying.png"
+        pause 4.0
+    choice:
+        "sprite/Alverna/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.1
+        "sprite/Alverna/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Alverna/eyes_crying.png"
+        pause 2.0
+    choice:
+        "sprite/Alverna/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.07
+        "sprite/Alverna/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Alverna/eyes_crying.png"
+        pause 0.1
+        "sprite/Alverna/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.07
+        "sprite/Alverna/eyes_crying_midclose.png"
+        pause 0.1
+        "sprite/Alverna/eyes_crying.png"
+        pause 2.0
+    repeat
+image Alverna_eyes_midclose:
+    choice:
+        "sprite/Alverna/eyes_midclose.png"
+        pause 4.0
+    choice:
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.07
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.2
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.07
+        "sprite/Alverna/eyes_midclose.png"
+        pause 2.0
+    choice:
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.05
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.07
+        "sprite/Alverna/eyes_midclose.png"
+        pause 0.07
+        "sprite/Alverna/eyes_closed.png"
+        pause 0.07
+        "sprite/Alverna/eyes_midclose.png"
+        pause 2.05
+
+    repeat
+image Alverna_mouth_frown_speaking:
+    "sprite/Alverna/mouth_openfrown.png"
+    pause 0.08
+    "sprite/Alverna/mouth_open.png"
+    pause 0.1
+    "sprite/Alverna/mouth_openfrown.png"
+    pause 0.08
+    "sprite/Alverna/mouth_frown.png"
+    pause 0.08
+    repeat
+image Alverna_mouth_smile_speaking:
+    "sprite/Alverna/mouth_opensmile2.png"
+    pause 0.08
+    "sprite/Alverna/mouth_opensmile.png"
+    pause 0.1
+    "sprite/Alverna/mouth_opensmile2.png"
+    pause 0.08
+    "sprite/Alverna/mouth_smile.png"
+    pause 0.1
+    repeat
+define Alverna_body="normal"
+# $ Alverna_body="battle"
+layeredimage Alverna:
+
+    always:
+        "sprite/Alverna/base_[Alverna_body].png"
+    group eyes:
+        attribute open default:
+            "Alverna_eyes_blink"
+        # attribute oneclose:
+        #     "sprite/Alverna/Alverna_eyes2.png"
+        attribute midclose:
+            "Alverna_eyes_midclose"
+        attribute closed:
+            "sprite/Alverna/eyes_closed.png"
+        # attribute lookaway:
+        #     "Alverna_eyes_lookaway"
+        # attribute crying:
+        #     "Alverna_eyes_crying"
+    group eyebrows:
+        attribute normal default:
+            "sprite/Alverna/eyebrows_normal.png"
+        attribute worried:
+            "sprite/Alverna/eyebrows_up.png"
+        attribute down:
+            "sprite/Alverna/eyebrows_down.png"
+        # attribute default:
+        #     "sprite/Alverna/eyebrows_normal.png"
+    group mouth:
+        attribute frown:
+            WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_frown.png")
+        attribute squiggly:
+            WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_squiggly.png")
+        attribute smile default:
+            WhileSpeaking("Alverna","Alverna_mouth_smile_speaking","sprite/Alverna/mouth_smile.png")
+        attribute openmouth:
+            WhileSpeaking("Alverna","Alverna_mouth_frown_speaking","sprite/Alverna/mouth_open.png")
+        attribute opensmile:
+            WhileSpeaking("Alverna","Alverna_mouth_smile_speaking","sprite/Alverna/mouth_opensmile.png")
+        attribute smug:
+            WhileSpeaking("Alverna","Alverna_mouth_smile_speaking","sprite/Alverna/mouth_smug.png")
+    group blush:
+        attribute noblush default:
+            Null()
+        attribute blush:
+            "sprite/Alverna/Alverna_blush.png"
+            alpha 0.7
     zoom 0.5 yanchor 0.5 ypos 1.0
