@@ -24,10 +24,16 @@ screen combat:
 
     use breeze ##hp bar
     use actbutton
+    # use atkshield
     if desc != None:
         use description(desc, descpos)
 
 screen breeze: ##hp bar
+    fixed:
+        xpos 780 ypos 1100
+        xysize (520, 50)
+        add "black"
+
     fixed: ##Hp Bar
         xpos 790 ypos 1000
         xysize (500, 50)
@@ -37,7 +43,7 @@ screen breeze: ##hp bar
             range hpmax
             xysize (500, 30)
             yoffset 20
-        text "HP: "+str(hp) xpos 10 yalign 1.0 yoffset 3
+        text "HP: "+str(hp) xpos 10 yalign 1.0 yoffset 6 outlines [(2,"#000",0,0)]
 
     ## Shield Bar
         bar:
@@ -96,59 +102,78 @@ screen mob(i, position, animation):
         button: ##mob hp
             align (0.5, 1.0)
             xsize 400 ysize 565
-            # add "white"
-             #If(soficd >= sofi.cost[i] and mobphase == False, true = [
             if mobstat[i][0] != "None":
-                action SetVariable("targettemp", i)
+                action [If(mobstat[i][6]!=69420 or len(mobstat) - len([item for item in mobstat if item[0] == "None"]) == 1, true = SetVariable("targettemp", i))]
                 vbox:
                     yalign 0.5
                     xalign 0.5
 
-                    hbox:
+                    hbox: ##hp bar
                         xalign 0.5
                         fixed:
-                            xalign 0.5
-                            xysize (300, 30)
+                            xalign 0.0 #xpos 50
+                            xysize (300, 45)
                             bar:
                                 value mobstat[i][1]
                                 range mob[i].hp
                                 left_bar "gui/bar/lefthp.png"
                                 right_bar "gui/bar/righthp.png"
                                 xysize (300, 30)
-                            # if encounter != "Az":
-                            #     text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
-                                # text str(mobstat[target][2])+"+"+str(mobstat[target][8]) align (0.5, 0.5)
+                                yalign 1.0
+                            if encounter != "Az":
+                                text str(int(mobstat[i][1]))+"/"+str(mobstat[i][7]) align (0.5, 1.0) yoffset 5
+
+                                # text str(mobstat[i][2])+"+"+str(mobstat[i][9]) align (0.5, 0.5)
+                            if mobstat[i][3]>0:
+                                add "fire" yalign 1.0 xalign 0.0
+
                     null height 15
-                    add mob[i].img xalign 0.5
+                    if mobstat[i][9] > 0: ## if frozen
+                        add mob[i].img+"frozen" xalign 0.5
+                    elif i == mobattacker:
+                        add mob[i].img at mobattacking xalign 0.5
+                    else:
+                        add mob[i].img xalign 0.5
 
                     null height 5
-                    fixed:
+                    hbox:
                         xalign 0.5
-                        xysize (300, 20)
-                        bar:
-                            value mobstat[i][4]
-                            range mobstat[i][6]
-                            xysize (300, 20)
+                        fixed:
+                            xysize (300, 45)
+                            bar:
+                                value mobstat[i][4]
+                                range mobstat[i][6]
+                                xysize (300, 20)
+                                yalign 0.5
+                                xalign 0.0
+
+                            if mobstat[i][2]>0:
+                                add "ice" yalign 1.0 xalign 0.0
                     text mobstat[i][0] style "cardtext" xalign 0.5
+                if mobstat[i][9]>0:
+                    add "iceblue" alpha 0.7 ysize 600
 
             ## TESTING. Respawn counter
-            if encounter == "Rat" and mobstat[i][0] == "None":
-                text "Respawn counter: " + str(int(30-(mobstat[i][8]))) xalign 0.5 yalign 0.5
+            if encounter == "Alv" or "Rat" and mobstat[i][0] == "None":
+                text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
 
     # fixed: ## mob debuff icons
-    #     at combat2 xpos position yoffset -175 xoffset -50
+    #     # at combat2 xpos position yoffset -175 xoffset -50
     #     xysize (300, 300)
-    #     if mobstat[i][3]>0:
-    #         add "fire" xoffset 360 yoffset -10
-    #     if mobstat[i][2]>0:
-    #         add "ice"
+    #     at combat2 yoffset 0 xpos position xoffset 100
+    #     hbox:
+    #         if mobstat[i][3]>0:
+    #             add "fire"
+    #         if mobstat[i][2]>0:
+    #             add "ice"
+
 
 screen targetting(position): ## indicates which one is being targetted.
     fixed:
         add "targetsign" at combat2 yoffset -80 xpos position
 screen mobattacking(position): ##TODO :fix symbol
     fixed:
-        add "fire" at combat2 xpos mobpos[len(mobstat)][position] yoffset -250
+        add "attacker" at combat2 xpos mobpos[len(mobstat)][position] yoffset -350 xoffset 50
 transform resize(size):
     zoom size
 transform transparent():
@@ -246,6 +271,8 @@ screen flairact:
                     unhovered [SetVariable("desc", None)]
                     vbar:
                         xysize (150, 175)
+                        bottom_bar skillcard[j]
+                        top_bar skillcard[j]+"2"
                         value flaircd range flair.cost[i]
                     # add skillcard[j]
                     text j xalign 0.5 ypos 20 style "cardtext"
@@ -302,6 +329,7 @@ screen damagecalc(value): ##on target
                 size 80 bold False color "#FF0000" outlines [(2,"#000",0,0)]
                 at textpopup
 
+### VFX #######################################################################
 screen atkblade(target):
     fixed:
         add "atkblade":
@@ -315,6 +343,24 @@ screen atkshard(target):
         add "atkshard":
             anchor (0.5, 0.5) ypos 350 xpos mobpos[len(mobstat)][target]
             at atkshard ##total 1s
+screen atkblizzard():
+    fixed:
+        add "iceblue":
+            at atkblizzard
+# screen atkheal:
+screen atkshield:
+    fixed:
+        add "shieldgreen":
+            # xpos 790 ypos 998
+            xanchor 0.5 yanchor 1.0
+            xpos 1040 ypos 1018
+            xysize (500, 20)
+            at atkshield
+screen atkfirebolt(target):
+    fixed:
+        add "atkfirebolt":
+            anchor (0.5, 0.5) ypos 350 xpos mobpos[len(mobstat)][target]
+            at atkfirebolt
 screen atkinferno():
     fixed:
         add "atkinferno":

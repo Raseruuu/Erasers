@@ -77,6 +77,8 @@ image pitchblack:
     Solid("#000")
 image iceblue:
     Solid("#63D3FF")
+image shieldgreen:
+    Solid("#00FF66")
 
 image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
 

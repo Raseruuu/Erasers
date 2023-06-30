@@ -5,18 +5,86 @@ image breezecombat = At("side breezeside", resize(0.75))
 image flairmob = im.FactorScale(im.Crop("images/sprite/flairc.png", (000, 100, 2200, 3000)), 0.16) #200
 image g1mob = im.FactorScale(im.Crop("images/sprite/grunt1.png", (100, 250, 1500, 3250)), 0.15)
 image g2mob = im.FactorScale(im.Crop("images/sprite/grunt2.png", (100, 250, 1500, 3250)), 0.15)
-image ratmob = im.FactorScale("images/sprite/rat.png", 0.6)
-#TODO: image alvmob =
-image alvmob = im.FactorScale("images/sprite/blame-anime.gif", 0.5)
-## TODO: update AZ
+image ratmob:
+    im.FactorScale("images/sprite/rat.png", 0.5)
+    parallel:
+        choice:
+            ease 0.6 rotate 12
+            ease 1.5 rotate -7
+            ease 0.8 rotate 0
+        choice:
+            ease 0.7 rotate -17
+            ease 1.2 rotate +8
+            ease 0.5 rotate 0
+    parallel:
+        ease 0.5 alpha 0.8
+        ease 0.6 alpha 1.0
+    repeat
+
+#image alvmob ############################################################
+image alvheadmob:
+    im.FactorScale(im.Crop("images/sprite/Alverna/Alverna_boss.png", (0, 400, 2597, 2300)), 0.25)
+    yoffset -80
+
+    choice:
+        linear 0.3 xoffset -5 yoffset -85
+    choice:
+        linear 0.3 xoffset +5 yoffset -85
+    choice:
+        linear 0.3 xoffset -5 yoffset -75
+    choice:
+        linear 0.3 xoffset +5 yoffset -75
+    linear 0.3 yoffset -80 xoffset 0
+    repeat
+image alvleftmob:
+    im.FactorScale(im.Crop("images/sprite/Alverna/Alverna hand.png", (150, 1200, 2250, 1900)), 0.2)
+    yoffset +100
+    # if mobstat[1][8] == 0:
+    choice:
+        linear 0.8 xoffset -55 yoffset +55
+    choice:
+        linear 0.8 xoffset +15 yoffset +55
+    choice:
+        linear 0.8 xoffset -55 yoffset +135
+    choice:
+        linear 0.8 xoffset +15 yoffset +135
+    linear 0.5 yoffset +100 xoffset 0
+    repeat
+image alvrightmob:
+    im.Flip(im.FactorScale(im.Crop("images/sprite/Alverna/Alverna hand.png", (150, 1200, 2250, 1900)), 0.2), horizontal = True)
+    yoffset +100 xoffset +20
+    choice:
+        linear 1.0 yoffset +60 xoffset +20
+    choice:
+        linear 1.0 yoffset +140 xoffset +20
+    choice:
+        linear 1.0 xoffset -20
+    choice:
+        linear 1.0 xoffset +60
+
+    linear 1.0 yoffset +100 xoffset +20
+    repeat
+## frozen
+image alvleftmobfrozen:
+    im.FactorScale(im.Crop("images/sprite/Alverna/Alverna hand.png", (150, 1200, 2250, 1900)), 0.2)
+    yoffset +100
+image alvrightmobfrozen:
+    im.Flip(im.FactorScale(im.Crop("images/sprite/Alverna/Alverna hand.png", (150, 1200, 2250, 1900)), 0.2), horizontal = True)
+    yoffset +100 xoffset +20
+image alvheadmobfrozen:
+    im.FactorScale(im.Crop("images/sprite/Alverna/Alverna_boss.png", (0, 400, 2597, 2300)), 0.25)
+    yoffset -80
 image azmob = im.FactorScale(im.Crop("images/sprite/Azmaveth/Azmaveth.png", (0, 0, 2597, 4500)), 0.15)
 ## placeholder
 image greenmob = "images/sprite/green.png"
 
+
+############################################################
 ##debuff signs
-image fire = im.FactorScale("gui/fire.png", 0.3)
-image ice = im.FactorScale("gui/ice.png", 0.05)
+image fire = im.FactorScale("images/combat/burn45.png", 1.5)
+image ice = im.FactorScale("images/combat/iced45.png", 1.5)
 image targetsign = im.FactorScale("gui/target1.png", 0.3)
+image attacker = im.FactorScale("images/combat/vfx/attacker.png", 0.5)
 
 ## command cards ####################
 # python:
@@ -51,12 +119,11 @@ define gameover = "sound/temp/youfulca-Horror-juki_loop.ogg"
 ## ATK VFX ## TODO
 image atkblade = im.FactorScale("images/combat/vfx/blade.png", 0.5)
 image atkshard = im.FactorScale("images/combat/vfx/shard.png", 0.5)
-# image atkshield
-# image atkheal
-# image atkfirebolt
+# image atkshield ## just shieldgreen
+# image atkheal ## meh
+image atkfirebolt = im.FactorScale("images/combat/cards/explosion-red-3.png", 0.5)
 image atkinferno = im.FactorScale("images/combat/vfx/inferno.png", 2.5)
-# image atkblizzard =
-# image atkiceblock =
+# image atkblizzard  ## just iceblue
 
 ## ATK SFX
 define blade = "sound/sfx/pigmyon/swordstrike.mp3"
@@ -67,7 +134,7 @@ define firebolt = "sound/sfx/wowsound/RPG3_FireMagicBall_Projectile04_.mp3"
 define inferno = "sound/sfx/wowsound/RPG3_FireMagic_Drone01_FireTornado_Loop_.mp3" #"sound/sfx/opengameart/foom_0.ogg"
 define blizzard = "sound/sfx/wowsound/RPG3_IceMagic_Cast01_.mp3"
 # define iceblock = "sound/sfx/wowsound/RPG3_MagicCute_P1_Cast_.mp3" #???
-# define hiticeblock = "RPG3_IceMagic2_LightImpact04Critv2_Longer_" ##when hit when iceblock on
+define shattering = "sound/sfx/wowsound/RPG3_IceMagic2_LightImpact04Critv2_Longer_.mp3" ##when hit when iceblock on
 ###############################################################
 
 ## defending sfx
@@ -115,6 +182,10 @@ transform textpopup: ## for damage numbers
     ease 0.1 alpha 1.0 yoffset -30
     ease 0.05 yoffset -20
 
+transform mobattacking:
+    ease 0.1 yoffset +50
+    pause 0.3
+    ease 0.5 yoffset +0
 ########################################
 ## ATK ANIMATIONS ##
 transform atkblade:
@@ -132,6 +203,21 @@ transform atkshard:
     pause 0.55
     linear 0.1 alpha 0.0
 
+transform atkblizzard:
+    alpha 1.0
+    pause 0.1
+    alpha 0.0
+
+transform atkfirebolt:
+    yoffset 1200 zoom 1.0 alpha 1.0
+    linear 0.3 yoffset +0 zoom 0.5
+    ease 0.3 zoom 10 alpha 0.0
+
 transform atkinferno:
     xanchor 1.0 xpos 0.0 alpha 0.7
     ease 0.7 xanchor 0.0 xpos 1.0
+
+
+transform atkshield:
+    zoom 100 alpha 0.0
+    ease 0.2 zoom 1.0 alpha 1.0

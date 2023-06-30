@@ -1,6 +1,7 @@
 ##############################################################
 init -50 python:
     punchwipe = ImageDissolve("images/combat/vfx/grad.png", 0.3)
+    shatterwipe = ImageDissolve("images/shattergrad.png", 1.0)
 
     import pygame
     def ticking():
@@ -17,6 +18,7 @@ init -50 python:
         global flaircd
         global shield
         global shieldtime
+        global targettemp
 
         global encounter
         global aztimer
@@ -24,18 +26,22 @@ init -50 python:
 
         if timerpause == False:
             for i, j in enumerate(mobstat): ## individual timer.
-                if mobstat[i][4] < mobstat[i][6] and mobstat[i][8] == 0:
-                    if mobstat[i][2] > 0: ## if slow
-                        mobstat[i][4]+=0.25 ## 0.25x speed
+                if mobstat[i][6]!=69420:
+                    if mobstat[i][4] < mobstat[i][6]:
+                        if mobstat[i][2] > 0: ## if slow
+                            mobstat[i][4]+=0.25 ## 0.25x speed
+                        else:
+                            mobstat[i][4] += 1
+                if mobstat[i][2] > 0: ## slow
+                    if mobstat[i][9] > 0:
+                        mobstat[i][2] -= 0.5
                     else:
-                        mobstat[i][4] += 1
-            if mobstat[i][2] > 0: ## slow
-                mobstat[i][2] -= 1 ## lasts slow/20 seconds
-            if mobstat[i][3] > 0: ## burn
-                mobstat[i][3] -= 1 #lasts burn/20 seconds
-                mobstat[i][1] -= 0.05 # 1hp/second
-            if mobstat[i][8] > 0: ## FREEZE
-                mobstat[i][8] -= 1 ## 10s = 200
+                        mobstat[i][2] -= 1 ## lasts slow/20 seconds
+                if mobstat[i][3] > 0: ## burn
+                    mobstat[i][3] -= 1 #lasts burn/20 seconds
+                    mobstat[i][1] = max(1, mobstat[i][1]- 0.25) # 5hp/second
+                if mobstat[i][9] > 0: ## FREEZE
+                    mobstat[i][9] -= 0.5 ## 10s = 200
 
             ## Commmand card timers.
             if breezecd < max(breezeex.cost):
@@ -44,6 +50,7 @@ init -50 python:
                 soficd +=0.05
             if flaircd <max(flair.cost):
                 flaircd +=0.05
+
             ## Shield Decay
             if shield > 0:
                 if shieldtime <80:
@@ -56,23 +63,32 @@ init -50 python:
             ## Rat respawn ##
             if encounter == "Rat":
                 for i, j in enumerate(mobstat):
-                    if mobstat[i][0] == "None": ## if rat is dead
-                        # if mobstat[i][8] == 30:
+                    if mobstat[i][0] == "None" and i != 3: ## if rat is dead
                         if mobstat[i][8] < 35:
                             mobstat[i][8] += 1
                         else:
-                            mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0] ## Rat replacement
+                            mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, (mob[i].hp), 0, 0, 0] ## Rat replacement
                             renpy.call("ratrespawn")
+            ## Alv respawn ##
+            if encounter == "Alv":
+                for i, j in enumerate(mobstat):
+                    if mobstat[i][0] == "None": ## if hand  is dead
+                        if mobstat[i][8] < (80+40*alvkill):
+                            mobstat[i][8] += 1
+                        else: ## hand respawn
+                            mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, (mob[i].hp), 0, 0, 0, 0] ## hand replacement
+                            if mobstat[abs(i-3)][0] == "None":
+                                targettemp = i
 
             ## Alv regen ##
             if encounter == "Alv" :
                 for i,j in enumerate(mobstat):
                     if mobstat[i][0] != None:
-                        if mobstat[i][1] < mobstat[i][7] and mobstat[i][8] == 0 :
-                            mobstat[i][9] = 0
-                            mobstat[i][1] = min(mobstat[i][7], mobstat[i][1]+ mobregen)
+                        if mobstat[i][1] < mobstat[i][7] and mobstat[i][9] == 0 :
+                            mobstat[i][10] = 0
+                            mobstat[i][1] = min(mobstat[i][7], mobstat[i][1]+ mobstat[i][11])
                         elif mobstat[i][1] == mobstat[i][7]:
-                            mobstat[i][9] += 0.05
+                            mobstat[i][10] += 0.05
 
 
         ## Assigning mob actions when timer up.
@@ -111,7 +127,7 @@ init -50 python:
             self.list = list
             self.cost = cost
 
-    breeze = fighter("Breeze", ["Attack", "Shard"], [2.5, 5.0])
+    breeze = fighter("Breeze", ["Attack", "Shard"], [2.5, 2.0]) #2.5, 5
     sofi = fighter("Sofi", ["Shield", "Heal"], [5.0, 2.5])
     flair = fighter("Flair", ["Firebolt", "Inferno"], [3.0, 8.0]) ##3, 8
     breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.2, 2.0, 6.0])
@@ -124,12 +140,12 @@ init -50 python:
                     "Firebolt": "cardfirebolt",
                     "Inferno": "cardinferno"}
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 125, "Shard": 200,
+                    "Attack": 12500, "Shard": 200,
                     "Blizzard": 0,
                     "Shield": 500, "Heal": 150,
                     "Firebolt": 150, "Inferno": 3000
                     }
-    skillcd = {"Attack": 2.5, "Shard": 5,
+    skillcd = {"Attack": 2.5, "Shard": 2,
                 "Blizzard": 10,
                 "Shield": 5, "Heal": 2.5,
                 "Firebolt": 3, "Inferno": 8
@@ -138,9 +154,9 @@ init -50 python:
                 "Attack": "Strike it like it's hot.",
                 "Shard": "ice ice baby",
                 "Blizzard": "Freezes all chilled enemies, halting their actions. Frozen enemies can be shattered upon impact.",
-                "Shield": "AT field",
-                "Heal": "recharge",
-                "Firebolt": "magic missile! magic missile!",
+                "Shield": "Decaying magic shield that can block incoming damage.",
+                "Heal": "Replenishes health points",
+                "Firebolt": "Magic missile! Magic missile!",
                 "Inferno": "You see me burning, you hating."
                 }
     # actsound = {"Attack": blade, "Shard": ice,
@@ -162,7 +178,11 @@ init -50 python:
     g2mob = mob("Goon 2", 1200, 110, 180, "g2mob")
 
     ratmob = mob("Rat", 350, 70, 40, "ratmob") ## dps 20/5 = 4
-    alvmob = mob("Alv", 3000, 1800, 150, "alvmob") ## dps 80/8 = 10
+
+    alvheadmob = mob("Vibrant Core", 10000, 69420, 0, "alvheadmob")
+    alvrightmob = mob("Right Hand", 3000, 1800, 150, "alvrightmob")
+    alvleftmob = mob("Left Hand", 3000, 1800, 150, "alvleftmob")
+
     azmob = mob("Azmaveth", 80000, 80, 300, "azmob") ## 4 unblocked hits
 
     nonemob = mob("None", 800, 20, 65, "alvmob")
@@ -171,16 +191,14 @@ init -50 python:
     moblist = { ## for mobs in an encounter
                 "Flair": [flairmob, flairmob],
                 "Goons": [g1mob, g2mob],
-                "Alv": [alvmob, alvmob, nonemob, alvmob],
-                # "Alv1": [alv11, alv12, alv13],
-                # "Alv2": [alv21, alv22, alv23],
+                "Alv": [alvheadmob, alvrightmob, alvleftmob],
                 "Az": [azmob],
-                "Rat": [ratmob, ratmob, ratmob, ratmob]}
+                "Rat": [ratmob, ratmob, ratmob, nonemob]}
 
     ## Mob positioning.
     mobpos = {
             1:[960],
             2: [650, 1270],
-            3: [450, 960, 1470],
-            4: [240, 730, 1200, 1680]
+            3: [960, 450, 1470],
+            4: [450, 960, 1470, 1680],
             }

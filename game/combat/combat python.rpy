@@ -14,20 +14,21 @@ label combattest: ## simulate going into a combat from story.
             $ combatant = [breeze]
         "Az":
             $encounter = "Az"
-            $ combatant = [breeze, flair]
+            $ combatant = [breeze]
 
     call combat
 
-    scene black with dissolve
-    "combat end"
 
-    $ _skipping = True
-    $ _game_menu_screen = "save_screen"
-    $ quick_menu = True
-    scene black
+    label endcombat:
+        $ _skipping = True
+        $ _game_menu_screen = "save_screen"
+        $ quick_menu = True
 
+        scene black with dissolve
+        "combat end"
     # $ renpy.fix_rollback()
     return
+
 
 label combat:
     window hide
@@ -52,22 +53,15 @@ label combat:
         mobstat = []
         alvbuff = []
         for i in mob:
-            mobstat.append([i.name, i.hp, 0, 0, 0, i.dmg, i.cd, i.hp, 0]) ##slow/burn/click/dmg/cdmax/hpmax / freeze(8)
+            mobstat.append([i.name, i.hp, 0, 0, 0, i.dmg, i.cd, i.hp, 0, 0]) ##slow/burn/click/dmg/cdmax/hpmax / respawn(8) / freeze(9) /
         mobdamage = 0 ## each incoming damage
         mobregen = 0
 
-        if encounter == "Alv":
-            mobregen = 0.1
-            alvkill = 0
-            alvheads = [2, 0, 1, 2]
-            alvnone = 0
-            for i, j in enumerate(mobstat):
-                j[1] = j[1]#-100
-                j.extend([0, 0]) ## alvbuff/count (9, 10)
+
 
 
         ##combat related variables
-        mobattacker = 0 #the enemy that's attacking
+        mobattacker = None #the enemy that's attacking
         target = targettemp = 0 ## the enemy being attacked
         hitsound = hit
         atksound = blade
@@ -78,6 +72,16 @@ label combat:
         fighttalk = False
         ratkilled = 0
 
+        if encounter == "Alv":
+            mobregen = 0.1 ##2hp/sec regen
+            alvkill = 0
+            alvheads = [0, 2, 2, 0]
+            alvnone = 0
+            targettemp = 1
+            for i, j in enumerate(mobstat):
+                j[1] = j[1]#-100 (starting hp, buffer before zeal)
+                j.extend([0, 0]) ## alvbuff/regen (10, 11)
+            mobstat[0][11] = 2
         ## Az
         aztimer = 2400 ##2400 in fullgame
         iceshield = 0
@@ -109,8 +113,9 @@ label combat:
         #     # call flairtalk
         #     $ midtalk = "flairtalk"
         #     $ renpy.call("midfight")
-        pass
-    pause ##gameplay here
+            # pass
+        pause ##gameplay here
+
     return
 
 ####################################################################################
@@ -121,12 +126,17 @@ label sofiphase:
     # $ timerpause = True
      ##TODO change to green textcolor.
     if act == "Shield":
+        show screen atkshield
+        pause 0.2
         $ shield += skillvalues["Shield"]
+
     if act == "Heal":
         $ hp = min(hpmax, hp+skillvalues["Heal"])
+        # show screen atkheal
         show screen damageincoming(skillvalues[act], "#00FF00")
     $renpy.pause(2.0)
     hide screen damageincoming
+    hide screen atkshield
     # $ timerpause = False
     jump combatloop
 
@@ -137,18 +147,23 @@ label damagephase: ## damaging enemies
 
         breezeaction = []
         if act == "Inferno":
-            atksound = inferno
+            atksound = None
             for i in mobstat:
                 breezeaction.append("Inferno")
         elif act == "Blizzard":
             # atksound = blizzard
             for i in mobstat:
+                atksound = None
                 breezeaction.append("Blizzard")
         else:
             breezeaction = [act]
 
     if act == "Inferno": ##animation
         show screen atkinferno()
+        play sound inferno
+    if act == "Blizzard":
+        show screen atkblizzard
+        play sound blizzard
 
     call breezeaction ## STATS hp/slow/burn
     $ mobphase == False
@@ -156,7 +171,7 @@ label damagephase: ## damaging enemies
     python:
         death = []
         for i, j in enumerate(mobstat):
-            if mobstat[i][1]<=0 and mobstat[i][0] != "None": ## if there's a death
+            if mobstat[i][1]<=0 and mobstat[i][0] != "None": ## if there's a 0hp
                 death.append(i)
                 if encounter == "Alv":
                     alvkill +=1
@@ -198,21 +213,28 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
 
     if act == "Attack":
         show screen atkblade(target)
-        $ atksound = blade
+        if mobstat[targettemp][9] > 0:
+            $ atksound = shattering
+        else:
+            $ atksound = blade
     if act == "Shard":
         show screen atkshard(target)
         $ atksound = ice
-    # if act == "Attack":
-    #     $ atksound = ice
-    # if act == "Shard":
-    #     $ atksound == blade
+    if act == "Firebolt":
+        show screen atkfirebolt(target)
+        $ atksound = firebolt
+
+    ###################
     play sound atksound
+    ###################
 
     $ atkdamage = skillvalues[act]*sofibuff
-
     ## debuff no stacking, just reset to max
     if act == "Attack":
-        $ atkdamage += mobstat[target][8]*5 ## adjust the modifier later
+        $ atkdamage += mobstat[target][9]*5 ## adjust the modifier later
+        if mobstat[target][9]> 0:
+            call shattering
+            $ mobstat[target][9] = 0
     if act == "Shard":
         if encounter == "Az":
             $ mobstat[target][2] = 50
@@ -220,13 +242,16 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
             $ mobstat[target][2] = 200
         else:
             $ mobstat[target][2] = 100 ## slow for 5s, 0.25rate
+
     if act == "Firebolt":
         $ mobstat[target][3] = 400 ## burn 20s, 20hp
     python:
         if act == "Blizzard":
             for i, j in enumerate(mobstat):
-                # if mobstat[i][0] != "None":
-                mobstat[i][8] = mobstat[i][2]
+                if mobstat[i][2] != 0:
+                    mobstat[i][9] = mobstat[i][2]
+
+
 
     ## TODO: spell/attack animations here
     $ renpy.pause(0.25)
@@ -236,6 +261,8 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
 
     hide screen atkblade
     hide screen atkshard
+    hide screen atkblizzard
+    hide screen atkfirebolt
     hide screen atkinferno
 
     $ timerpause = False
@@ -245,6 +272,8 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
 
     ## HP
     $ mobstat[target][1] = max(0, mobstat[target][1] - atkdamage)
+    $ mobstat[target][7] = max(0, mobstat[target][7] - (atkdamage//2))
+
 
     # show screen targetting(mobpos[len(mobstat)][target])
     jump breezeaction
@@ -274,8 +303,9 @@ label breezehurt: ## ANIMATION
         hide punchpre onlayer screens with Dissolve(0.1)
         hide punchpost onlayer screens with Dissolve(0.1)
         hide screen parry
+
     elif encounter == "Alv":
-        $ mobdamage = mobstat[mobattacker][5] + int(mobstat[mobattacker][9])
+        $ mobdamage = mobstat[mobattacker][5] + int(mobstat[mobattacker][10]) ## buffs
     else:
         $ mobdamage = mobstat[mobattacker][5]
 
@@ -291,7 +321,8 @@ label breezehurt: ## ANIMATION
         $ hp=int(max(min(hp,hp-mobdamage+shield), 0)+0.8)
         $ shield = max(shield-mobdamage, 0)
 
-    show screen mobattacking(mobattacker) ## attack indicator
+    # show mob(mobattacker, mobpos[3][i], textpopup)
+    # show screen mobattacking(mobattacker) ## attack indicator
     show screen damageincoming(mobdamage, "#FF0000") ## dmg number
 
     with vpunch   # show breezecombat at mobhurt ##abandoned
@@ -308,6 +339,7 @@ label breezehurt: ## ANIMATION
         $ parrypause = False
 
     $ timerpause = False
+    $ mobattacker = None
     hide screen damageincoming
     hide screen mobattacking
 
@@ -336,38 +368,58 @@ label mobdeath: ## dead replace/removal in group
                             if j[0] != "None":
                                 targettemp = i
                                 break
+        ## old alv system
+        # elif encounter == "Alv":
+        #     mobstat[death[0]][0] = "None"
+        #     head = []
+        #     for i, j in enumerate(mobstat):
+        #         if mobstat[i][0] == "None":
+        #             head.append(i)
+        #     while len(head) > 0:
+        #         headrespawn = renpy.random.choice(head)
+        #         if alvheads[headrespawn] !=0:
+        #             mobstat[headrespawn] = [mob[0].name, mob[0].hp, 0, 0, 0, mob[0].dmg, mob[0].cd, 0, 0, 0]
+        #             alvheads[headrespawn] = alvheads[headrespawn]-1
+        #             break
+        #         else:
+        #             head.remove(headrespawn)
+        #     if alvkill == 3+(2+0+1+2):
+        #         mobstat[1] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0]
+        #
+        #     if targettemp == death[0]:
+        #         for i, j in enumerate(mobstat):
+        #             if j[0] != "None":
+        #                 targettemp = i
+        #                 break
+        #     head = []
         elif encounter == "Alv":
-            mobstat[death[0]][0] = "None"
-            head = []
-            for i, j in enumerate(mobstat):
-                if mobstat[i][0] == "None":
-                    head.append(i)
-            while len(head) > 0:
-                headrespawn = renpy.random.choice(head)
-                if alvheads[headrespawn] !=0:
-                    mobstat[headrespawn] = [mob[0].name, mob[0].hp, 0, 0, 0, mob[0].dmg, mob[0].cd, 0, 0, 0]
-                    alvheads[headrespawn] = alvheads[headrespawn]-1
-                    break
-                else:
-                    head.remove(headrespawn)
+            for i in death: ## i is positions
+                mobstat[i][0] = "None"
+                alvkill += 1
 
-            if alvkill == 3+(2+0+1+2):
-                mobstat[1] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0]
-            if targettemp == death[0]:
-                for i, j in enumerate(mobstat):
-                    if j[0] != "None":
-                        targettemp = i
-                        break
-            head = []
+                ## retargetting ##
+                if targettemp == i:
+                    if len(mobstat) - len([item for item in mobstat if item[0] == "None"]) == 1: ## only alv remaining:
+                        targettemp = 0
+                    else:
+                        targettemp = abs(i-3)
+                        # for i, j in enumerate(mobstat):
+                        #     if j[0] != "None" and j[0]!= "Alv":
+                        #         targettemp = i
+                        #         break
+
+
+
         else:
             while len(death)>0:
                 mobstat[death[0]][0] = "None"
                 death.pop(0)
             target = 0
 
+        ## Retargetting
         if mobstat[targettemp][0] == "None":
             for i, j in enumerate(mobstat):
-                if mobstat[i][0] != "None":
+                if mobstat[i][0] != "None" and mobstat[i][6] != 69420:
                     targettemp = i
                     break
 
@@ -385,6 +437,7 @@ label victory:
     ## TODO: have encounter specific victory
     "You win"
 
+    # jump endcombat
     return
 label gameover:
     hide screen combat
@@ -399,3 +452,12 @@ label gameover:
             jump combat
         "No":
             return
+
+label shattering:
+    show screen shattering(mobpos[len(mobstat)][targettemp]) #with shatterwipe
+    pause 0.8
+    hide screen shattering
+    return
+screen shattering(position):
+    fixed:
+        add im.FactorScale("images/shattering.png", 0.5) at combat2 yoffset -80 xpos position
