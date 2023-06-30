@@ -241,6 +241,7 @@
     # [Fight scene aftermath]
 
     # open with the goon sprites tilted on the floor
+label postgoonfight:
     scene tunnel_int with fade
     show breeze:
         xpos 0.15

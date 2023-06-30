@@ -14,19 +14,28 @@ screen combat:
 
     if encounter == "Az": #and aztimer > 0:
         fixed:
-            xpos 1550
-            ypos 20
-            text "Time Remaining: " + str(aztimer//20)
+            # xpos 1550
+            # ypos 20
+            xysize(1920, 20)
+            yalign 1.0
+
+            bar:
+                value aztimer
+                range 2400
+                xysize(1920, 20)
+                yalign 1.0
+            text "Until Escape: " + str(aztimer//20) xalign 0.5 yalign 0.5 outlines [(1,"#000",0,0)] size 20
     ##display breeze hp and enemys, and the commands
     for i, j in enumerate(mobstat):
-        use mob(i, mobpos[len(mobstat)][i], None)
+        use mobenemy(i, mobpos[len(mobstat)][i], None)
     use targetting(mobpos[len(mobstat)][targettemp])
 
     use breeze ##hp bar
     use actbutton
     if desc != None:
         use description(desc, descpos)
-    # use tutorial
+    if nowplaying != "11":
+        use nowplaying
 
 screen breeze: ##hp bar
     fixed:
@@ -34,10 +43,10 @@ screen breeze: ##hp bar
         xysize (520, 50)
         add "black"
 
-    fixed: ##Hp Bar
+    fixed:
         xpos 790 ypos 1000
         xysize (500, 50)
-        ## Hp bar
+    ## Hp bar
         bar:
             value hp
             range hpmax
@@ -46,7 +55,6 @@ screen breeze: ##hp bar
             xysize (500, 30)
             yoffset 20
         text "HP: "+str(hp)+"/1000" xpos 10 yalign 1.0 yoffset 6 outlines [(2,"#000",0,0)]
-
     ## Shield Bar
         bar:
             value shield
@@ -95,17 +103,19 @@ screen breeze: ##hp bar
 #         add mob[i].img xalign 0.5 yalign 1.0 yoffset -50
 #         button: ##to assign target
 #             action SetVariable("target", i)
-screen mob(i, position, animation):
+
+screen mobenemy(i, position, animation): ## each enemy
     fixed:
         xanchor 0.5 xpos position
         yanchor 0.5 ypos 350
         ysize 565
 
-        button: ##mob hp
+        button:
             align (0.5, 1.0)
             xsize 400 ysize 565
             if mobstat[i][0] != "None":
                 action [If(mobstat[i][6]!=69420 or len(mobstat) - len([item for item in mobstat if item[0] == "None"]) == 1, true = SetVariable("targettemp", i))]
+
                 vbox:
                     yalign 0.5
                     xalign 0.5
@@ -116,25 +126,27 @@ screen mob(i, position, animation):
                             xalign 0.0 #xpos 50
                             xysize (300, 45)
                             bar:
-                                value mobstat[i][1]
-                                range mob[i].hp
-                                left_bar "gui/bar/lefthp.png"
-                                right_bar "gui/bar/righthp.png"
+                                value mobstat[i][1] range mobstat[i][7]
+                                left_bar "gui/bar/lefthp.png" right_bar "gui/bar/righthp.png"
                                 xysize (300, 30)
                                 yalign 1.0
-                            if encounter != "Az":
-                                # text str(int(mobstat[i][1]))+"/"+str(mobstat[i][7]) align (0.5, 1.0) yoffset 5 ## hp
-                                text str(mobstat[i][2])+"+"+str(mobstat[i][9]) align (0.5, 0.5)  ##slow and freeze
+                            # if encounter != "Az":
+                            #     # text str(int(mobstat[i][1]))+"/"+str(mobstat[i][7]) align (0.5, 1.0) yoffset 5 ## hp
+                            #     text str(mobstat[i][2])+"+"+str(mobstat[i][9]) align (0.5, 0.5)  ##slow and freeze
                             if mobstat[i][3]>0:
                                 add "fire" yalign 1.0 xalign 0.0
 
                     null height 15
-                    if mobstat[i][9] > 0: ## if frozen
-                        add mob[i].img+"frozen" xalign 0.5
-                    elif i == mobattacker:
-                        add mob[i].img at mobattacking xalign 0.5
+
+                    if encounter == "Alv" and mobstat[1][0] != "None" and mobstat[2][0] !=0 and i == 0:
+                        add mobcopy[i].img at corefade
+
+                    elif mobstat[i][9] > 0: ## if frozen
+                        add mobcopy[i].img+"frozen" xalign 0.5
+                    elif i == mobattacker: ## attacking animation.
+                        add mobcopy[i].img at mobattacking xalign 0.5
                     else:
-                        add mob[i].img xalign 0.5
+                        add mobcopy[i].img xalign 0.5
 
                     null height 5
                     hbox:
@@ -152,13 +164,17 @@ screen mob(i, position, animation):
                                 add "ice" yalign 1.0 xalign 0.0
                     text mobstat[i][0] style "cardtext" xalign 0.5
                 if mobstat[i][9]>0:
+                    vbar:
+                        xalign 0.5 yalign 0.5
+                        xysize (20, 250)
+                        value mobstat[i][9]
+                        range 200
                     add "iceblue" alpha 0.7 ysize 600
 
             ## TESTING. Respawn counter
-            # if encounter == "Alv" or "Rat" and mobstat[i][0] == "None":
-            #     text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
-
-
+            # if encounter == "Alv" or encounter == "Rat":
+            if mobstat[i][0] == "None":
+                text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
 screen targetting(position): ## indicates which one is being targetted.
     fixed:
         add "targetsign" at combat2 yoffset -80 xpos position
@@ -197,7 +213,8 @@ screen sofiact:
                                                                                     Call("sofiphase")],
                                                                             false = NullAction()
                                                                                     )]
-                    hovered [SetVariable("desc", j), SetVariable("descpos", 50+150//2+50+200*i)]
+                    if mobphase == False:
+                        hovered [SetVariable("desc", j), SetVariable("descpos", 50+150//2+50+200*i)]
                     unhovered [SetVariable("desc", None)]
                     vbar:
                         value soficd
@@ -205,11 +222,11 @@ screen sofiact:
                         bottom_bar skillcard[j]
                         top_bar skillcard[j]+"2"
                         xysize (150, 175)
-                    # add skillcard[j]
-                    text j xalign 0.5 ypos 15 xoffset 5 style "cardtext"
-                    # text str(int(sofi.cost[i])) xalign 0.5 yoffset 5
+                    text j xalign 0.5 ypos 7 xoffset 5 style "cardtext"
                     if soficd <= sofi.cost[i]:
                         text str(int(sofi.cost[i]-soficd)) align (0.5, 1.0) offset (5, -5) style "cardtext"
+                    if mobphase == True:
+                        add skillcard[j]+"2" alpha 0.6
 screen breezeact:
     fixed: ##Breeze action buttons
         pos (780, 780)
@@ -226,21 +243,21 @@ screen breezeact:
                                                                     SetVariable("act", j), ## for the damagephase to sort out.
                                                                     Call("damagephase")])]
 
-                        hovered [SetVariable("desc", j), SetVariable("descpos", 750+75+200*i)]
+                        if mobphase == False:
+                            hovered [SetVariable("desc", j), SetVariable("descpos", 750+75+200*i)]
                         unhovered [SetVariable("desc", None)]
 
                         vbar: ## to show cd
                             xysize (150, 175)
                             bottom_bar skillcard[j]
                             top_bar skillcard[j]+"2"
-                            # top_bar im.Grayscale(skillcard[j])
                             value breezecd range breeze.cost[i]
-                        # add skillcard[j] ## image, to be updated into bars later
-                        text j style "cardtext":
-                            xalign 0.5 ypos 15 xoffset 5
-                        if breezecd <= breeze.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
+                        text j xalign 0.5 ypos 7 xoffset 5 style "cardtext"
+                        if breezecd <= breeze.cost[i]:
                             text str(int(breeze.cost[i]-breezecd)) style "cardtext":
                                 align (0.5, 1.0) offset (5, -25)
+                        if mobphase == True:
+                            add skillcard[j]+"2" alpha 0.6
 screen flairact:
     # add "side flairside down frown" at resize(0.75):
     #         yoffset -200
@@ -258,18 +275,20 @@ screen flairact:
                                                                 SetVariable("timerpause", True),
                                                                 SetVariable("act", j),
                                                                 Call("damagephase")])]
-                    hovered [SetVariable("desc", j), SetVariable("descpos", 1350+150//2+200*i)]
+                    if mobphase == False:
+                        hovered [SetVariable("desc", j), SetVariable("descpos", 1350+150//2+200*i)]
                     unhovered [SetVariable("desc", None)]
                     vbar:
                         xysize (150, 175)
                         bottom_bar skillcard[j]
                         top_bar skillcard[j]+"2"
                         value flaircd range flair.cost[i]
-                    # add skillcard[j]
-                    text j xalign 0.5 ypos 20 style "cardtext"
+                    text j xalign 0.5 ypos 7 xoffset 5 style "cardtext"
                     if flaircd <= flair.cost[i]:
                         text str(int(flair.cost[i]-flaircd)) align (1.0, 1.0) offset (-10, -10) style "cardtext"
-screen breezeexact: ## TODO: change to EX lineup
+                    if mobphase == True:
+                        add skillcard[j]+"2" alpha 0.6
+screen breezeexact:
     fixed: ##Breeze action buttons
         pos (780, 780)
         hbox:
@@ -285,20 +304,20 @@ screen breezeexact: ## TODO: change to EX lineup
                                                                 SetVariable("timerpause", True),
                                                                 SetVariable("act", j), ## for the damagephase to sort out.
                                                                 Call("damagephase")])]
-                    hovered [SetVariable("desc", j), SetVariable("descpos", 750+75+200*i)]
+                    if mobphase == False:
+                        hovered [SetVariable("desc", j), SetVariable("descpos", 750+75+200*i)]
                     unhovered [SetVariable("desc", None)]
                     vbar: ## to show cd
                         xysize (150, 175)
                         bottom_bar skillcard[j]
                         top_bar skillcard[j]+"2"
                         value breezecd range breezeex.cost[i]
-
-                    # add skillcard[j]
-                    text j style "cardtext" xalign 0.5 ypos 10  xoffset 5
-
-                    if breezecd <= breezeex.cost[i]: ## show how much cd used TODO: should be reversed if we keep this.
+                    text j xalign 0.5 ypos 7 xoffset 5 style "cardtext"
+                    if breezecd <= breezeex.cost[i]:
                         text str(int(breezeex.cost[i]-breezecd)) style "cardtext":
                             align (0.5, 1.0) yoffset-10
+                    if mobphase == True:
+                        add skillcard[j]+"2" alpha 0.6
 style cardtext:
     color "#FFF" bold True outlines [(3,"#000",0,0)] #font "mangat.ttf"
 
@@ -328,21 +347,18 @@ screen atkblade(target):
             yzoom 1.5
             rotate 45
             at atkblade
-            # with punchwipe
 screen atkshard(target):
     fixed:
         add "atkshard":
             anchor (0.5, 0.5) ypos 350 xpos mobpos[len(mobstat)][target]
             at atkshard ##total 1s
-screen atkblizzard():
+screen atktundra():
     fixed:
         add "iceblue":
-            at atkblizzard
-# screen atkheal:
+            at atktundra
 screen atkshield:
     fixed:
         add "shieldgreen":
-            # xpos 790 ypos 998
             xanchor 0.5 yanchor 1.0
             xpos 1040 ypos 1018
             xysize (500, 20)
@@ -360,7 +376,6 @@ screen atkinferno():
 
 screen pausing:
     fixed:
-        # xysize (200, 100)
         add "black" alpha 0.5
         text "PAUSING" size 200 bold True align (0.5, 0.5)
 
@@ -368,37 +383,46 @@ screen description(i, descpos):
     fixed:
         xysize (300, 150)
         anchor (0.5, 1.0)
-        # pos (descpos, 850)  ## 750+75+10+400
         pos (80+180, 850)
-        add "black" alpha 0.7
-        text i offset (10, 10) bold True size 30 ## Name
-        text str(skillvalues[i])+"/"+str(skillcd[i])+"s" xalign 1.0 offset (-10, 10) size 25
-        # text "1.5s" align (1.0, 1.0) offset (-5, -5) size 20
+        add "black" alpha 0.8
+        text i offset (15, 10) bold True size 30 ## Name
+        text str(skillcd[i])+"s" xalign 1.0 offset (-10, 10) size 25
         fixed:
             xysize (280, 100)
             pos (10, 45)
             text str(skilldesc[i]) size 20 yalign 0.5
 
+screen combatstart:
+    frame:
+        align (0.5, 0.5)
+        padding (50, 30, 50, 30)
+        # add "gui/textbox.png" alpha 0.5
+        text "Combat Start" size 160 bold True align (0.5, 0.5) font "mangat.ttf"
+
+screen combatwin:
+    fixed:
+        add "gui/textbox.png" alpha 0.5
+        text "Victory!" size 160 bold True align (0.5, 0.5)
+
+##########################################################################
+screen goonleft:
+    for i, j in enumerate([goonleftover]):
+        use mobenemy(i, [650, 1270][notdead], None)
+
 screen alvintro:
     for i, j in enumerate(mobstat):
-        use mob(i, mobpos[len(mobstat)][i], None)
+        use mobenemy(i, mobpos[len(mobstat)][i], None)
+screen alvhead:
+    for i, j in enumerate([alvheadmob]):
+        use mobenemy(i, 960, None)
 
 screen tutorial:
     fixed:
         xysize (1920, 1080)
         add "combat/tutorial.png"
         button action [SetVariable("timerpause", False), Hide("tutorial")]
-        #Call("confirm", (message=__("Finished with the Instructions?"), yes_action=[SetVariable("timerpause", False), Hide("tutorial")], no_action=[Hide("confirm")]))
 
-        # add "black" alpha 0.5
-        # add Frame("gui/frame-1-blue.png"):
-            # alpha 0.5
-            # Border (5, 5, 5, 5)
-        # text "Hi" align (0.5, 0.5)
-
-screen tute1:
+screen nowplaying:
     fixed:
-        # button action NullAction()
-        add "black" alpha 0.8
-        use breeze
-        use breezeact
+        pos (10, 10)
+        text "♫ Now Playing: "+ nowplaying + " ♫" color "#D7D7D7" size 25 outlines [(2,"#000",1,1)]

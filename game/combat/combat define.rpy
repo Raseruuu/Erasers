@@ -74,7 +74,10 @@ image alvrightmobfrozen:
 image alvheadmobfrozen:
     im.FactorScale(im.Crop("images/sprite/Alverna/Alverna_boss.png", (0, 400, 2597, 2300)), 0.25)
     yoffset -80
-image azmob = im.FactorScale(im.Crop("images/sprite/Azmaveth/Azmaveth.png", (0, 0, 2597, 4500)), 0.15)
+
+###########################################################
+image azmob = im.FactorScale(im.Crop("images/sprite/Azmaveth/Azmaveth.png", (0, 0, 2597, 2250)), 0.3)
+image azparry = im.Flip(im.FactorScale(im.Crop("images/sprite/Azmaveth/Azmaveth.png", (950, 0, 1550, 850)), 1.2), horizontal = True)
 ## placeholder
 image greenmob = "images/sprite/green.png"
 
@@ -88,11 +91,11 @@ image attacker = im.FactorScale("images/combat/vfx/attacker.png", 0.5)
 
 ## command cards ####################
 # python:
-    # for i in ["cardblade", "cardice", "cardblizzard", "cardshield", "cardheal", "cardfirebolt", "cardinferno"]:
+    # for i in ["cardblade", "cardice", "cardtundra", "cardshield", "cardheal", "cardfirebolt", "cardinferno"]:
     #     image i = "images/combat/cards/"+i+".png"
 image cardblade = "images/combat/cards/cardblade.png"
 image cardice = "images/combat/cards/cardice.png"
-image cardblizzard = "images/combat/cards/cardblizzard.png"
+image cardtundra = "images/combat/cards/cardtundra.png"
 image cardshield = "images/combat/cards/cardshield.png"
 image cardheal = "images/combat/cards/cardheal.png"
 image cardfirebolt = "images/combat/cards/cardfirebolt.png"
@@ -100,7 +103,7 @@ image cardinferno = "images/combat/cards/cardinferno.png"
 
 image cardblade2 = im.Blur(im.Grayscale("images/combat/cards/cardblade.png"), 1)
 image cardice2 = im.Blur(im.Grayscale("images/combat/cards/cardice.png"), 1)
-image cardblizzard2 = im.Blur(im.Grayscale("images/combat/cards/cardblizzard.png"), 1)
+image cardtundra2 = im.Blur(im.Grayscale("images/combat/cards/cardtundra.png"), 1)
 image cardshield2 = im.Blur(im.Grayscale("images/combat/cards/cardshield.png"), 1)
 image cardheal2 = im.Blur(im.Grayscale("images/combat/cards/cardheal.png"), 1)
 image cardfirebolt2 = im.Blur(im.Grayscale("images/combat/cards/cardfirebolt.png"), 1)
@@ -120,10 +123,10 @@ define gameover = "sound/temp/youfulca-Horror-juki_loop.ogg"
 image atkblade = im.FactorScale("images/combat/vfx/blade.png", 0.5)
 image atkshard = im.FactorScale("images/combat/vfx/shard.png", 0.5)
 # image atkshield ## just shieldgreen
-# image atkheal ## meh
+# image atkheal ## just number
 image atkfirebolt = im.FactorScale("images/combat/cards/explosion-red-3.png", 0.5)
 image atkinferno = im.FactorScale("images/combat/vfx/inferno.png", 2.5)
-# image atkblizzard  ## just iceblue
+# image atktundra  ## just iceblue
 
 ## ATK SFX
 define blade = "sound/sfx/pigmyon/swordstrike.mp3"
@@ -132,7 +135,7 @@ define healing = "sound/sfx/wowsound/RPG_Buff_08.mp3"
 define shielding = "sound/sfx/wowsound/RPG3_MagicCute_P1_Cast_.mp3"
 define firebolt = "sound/sfx/wowsound/RPG3_FireMagicBall_Projectile04_.mp3"
 define inferno = "sound/sfx/wowsound/RPG3_FireMagic_Drone01_FireTornado_Loop_.mp3" #"sound/sfx/opengameart/foom_0.ogg"
-define blizzard = "sound/sfx/wowsound/RPG3_IceMagic_Cast01_.mp3"
+define tundra = "sound/sfx/wowsound/RPG3_IceMagic_Cast01_.mp3"
 # define iceblock = "sound/sfx/wowsound/RPG3_MagicCute_P1_Cast_.mp3" #???
 define shattering = "sound/sfx/wowsound/RPG3_IceMagic2_LightImpact04Critv2_Longer_.mp3" ##when hit when iceblock on
 ###############################################################
@@ -187,6 +190,10 @@ transform mobattacking:
     # pause 0.05
     ease 0.15 yoffset +0
 
+transform corefade:
+    alpha 1.0 blur None
+    ease 0.3 alpha 0.7 blur 3.0
+
 ########################################
 ## ATK ANIMATIONS ##
 transform atkblade:
@@ -204,7 +211,7 @@ transform atkshard:
     pause 0.55
     linear 0.1 alpha 0.0
 
-transform atkblizzard:
+transform atktundra:
     alpha 1.0
     pause 0.1
     alpha 0.0

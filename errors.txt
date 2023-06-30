@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 319: unmatched ')'
-    mobdamage = mobstat[mobattacker][5]*(mobstat[mobattacker][2]//200))
-                                                                       ^
+File "game/combat/combat python.rpy", line 322: expected 'comma or end of line' not found.
+    with azparry
+    ^
 
 Ren'Py Version: Ren'Py 8.1.1.23060707
-Fri Jun 30 14:05:22 2023
+Sat Jul  1 06:11:15 2023

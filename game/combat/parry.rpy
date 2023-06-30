@@ -10,11 +10,16 @@ init python:
         global tickmax
         global parrypause
         global mobstat
+        global aztimer
+
+        tickspeed = 1
+        if aztimer <110*20:
+            tickspeed = 1.2
         if parrypause == False and tick<tickmax:
-            if mobstat[target][2] > 0:
-                tick +=0.5
+            if mobstat[target][2] > 0: ## if slowed
+                tick += tickspeed-0.5
             else:
-                tick +=1
+                tick +=tickspeed
 
     def parrygo():
         global parrypause
@@ -32,25 +37,27 @@ screen parry:
 
     fixed:
         anchor (0.5, 0.5)
-        pos (0.65, 0.5)
+        pos (0.55, 0.55)
         xysize (600, 200)
         bar:
-            xysize (500, 60)
-            xpos 50 yalign 0.5
-            value tick
-            range tickmax
+            xysize (600, 100)
+            xpos 0 yalign 0.5
+
+            value tick range tickmax
+
             right_bar "gui/bar/parry.png"
             left_bar "gui/bar/parry.png" ## 500x40 (30 buffer above)
             thumb "gui/bar/thumb.png" ## 80x4
-            thumb_offset 2
+            thumb_offset  2
     fixed:
         button action [If(tick>20, true = Function(parrygo))] alternate [If(tick>20, true = Function(parrygo))]
         if tick < tickmax:
-            text "Parry" at parrybutton size 50
+            text "Click anywhere to Parry" at parrybutton size 50
         else:
             text "Take the Hit" at parrybutton size 50
+
 transform parrybutton:
-    xanchor 0.5 yalign 0.6 xpos 0.65
+    xanchor 0.5 yalign 0.65 xpos 0.55
 
 screen textoutcome(tt):
     frame:
@@ -59,7 +66,7 @@ screen textoutcome(tt):
 
 label parryoutcome: ##animation.
     if tick>=75 and tick <=80:
-        $ mobdamage = 10
+        $ mobdamage = 0
         $ hitsound = swordclash
         show punchparry onlayer screens
         show screen textoutcome("PARRIED!")

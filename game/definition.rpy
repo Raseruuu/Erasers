@@ -23,6 +23,8 @@ define n = nvl_narrator
 
 init -100 python:
     persistent.firsttime = True
+
+    config.use_cpickle = False
 ################
 ## SPRITES ##
 # ###############
@@ -85,7 +87,7 @@ image iceblue:
 image shieldgreen:
     Solid("#00FF66")
 
-image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
+# image bgcafesepia = im.Sepia("images/bg/temp_bg_cafe.webp")
 
 ## UI buttons
 image quickauto = im.Crop("gui/buttons.png",(0, 0, 16, 16))
