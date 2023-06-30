@@ -1,18 +1,18 @@
 label combattest: ## simulate going into a combat from story.
     "entering combat"
-    $ encounter = "Goons"
-    call precombat
-    return
-    # menu:
-    #     # "Pick encounter"
-    #     "Goons":
-    #         $ encounter = "Goons"
-    #     "Rats":
-    #         $ encounter = "Rats"
-    #     "Corrupted":
-    #         $encounter = "Alv"
-    #     "Az":
-    #         $encounter = "Az"
+    # $ encounter = "Goons"
+    # call precombat
+    # return
+    menu:
+        # "Pick encounter"
+        "Goons":
+            $ encounter = "Goons"
+        "Rats":
+            $ encounter = "Rats"
+        "Corrupted":
+            $encounter = "Alv"
+        "Az":
+            $encounter = "Az"
 
 label precombat:
     $ combatant = combatantlist[encounter]
