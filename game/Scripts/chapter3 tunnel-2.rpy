@@ -31,7 +31,8 @@
     ms "Good, now get to your posts."
     ms "Seriously. Go. Now."
 
-    show ms at offscreenright with move
+    show ms with move:
+        xpos 1.5
 
     # Hold on the goons 1 and 2 sprites, have one turn to look at the other
     # If possible, spin the sprites and then replace with the breeze and sofi sprites. If not possible, just do a fade in or something
@@ -133,7 +134,7 @@
         xpos -0.05 yrotate 180
     hide sofi with fade
     show g2 at center:
-        xpos 0.25 yrotate 180
+        xpos 0.35 yrotate 180
     s "As soon as we heard the alert come on over the intercom, we're-engaged our disguises. Looks like we wouldn’t be be able to just casually walk around anymore."
     s "Did they find us out? I wasn’t sure until I saw a couple of guards literally run past us."
     b "Might be another Vibrant breakout?"
@@ -189,10 +190,13 @@
     s "You jerk."
     show azmaveth:
         yrotate 0
-    show Alverna at offscreenright
+    show Alverna:
+        xpos 1.0
     play sound "audio/footsteps.mp3"
     show azmaveth at extremeright with move
     un "Why do you keep trying to go off on your own, and make my life harder, Dr Alverna?"
+    show azmaveth with move:
+        xpos 0.9
     show Alverna at right with move
     # Show Alverna sprite coming after that line
     tm "Mr Azma, I swear, I wasn’t trying to-"

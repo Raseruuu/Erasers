@@ -33,6 +33,9 @@ image g1:
 image g2:
     "images/sprite/grunt2.png"
     zoom 0.5 yanchor 0.5 ypos 1.0
+image ms:
+    "images/sprite/ms.png"
+    zoom 0.5 yanchor 0.5 ypos 1.0
 image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
