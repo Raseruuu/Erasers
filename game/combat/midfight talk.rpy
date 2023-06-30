@@ -7,22 +7,53 @@ label midfight:
     $ timerpause = False
     $ mobphase = False
     return
+#
+# ## Demo fight
+# label flairtalk:
+#     $ timerpause = True
+#     $ combattalk = True
+#
+#     $ fighttalk = True
+#     f "Oh no"
+#     b "Haha"
+#     window hide
+#
+#     $ combattalk = False
+#     $ timerpause = False
+#     return
 
-## Demo fight
-label flairtalk:
+label goontute:
+    # $ mobphase == False
+    # $ combattalk == False
+    # show screen tute1
+    b "haha. So what you gotta do, is to slash at your target"
+    $ act = "Heal"
     $ timerpause = True
-    $ combattalk = True
-
-    $ fighttalk = True
-    f "Oh no"
-    b "Haha"
-    window hide
-
-    $ combattalk = False
+    $ hp = min(hpmax, hp+150)
+    show screen damageincoming(150, "#00FF00")
+    b "Yo thanks"
+    hide screen damageincoming
+    s "Gee couldn't you please take it more seriously?"
+    b "I know you got my back."
+    s "Good grief..."
+    $ combatant.append(sofi)
+    $ soficd = 0
     $ timerpause = False
+    # pause
+    $ tutorial = 2
     return
-
-
+label goontute2 :
+    python:
+        for i in mobstat:
+            if i[0] != "None":
+                goodleft = i
+    # $ goonleft = g1
+    goonleft "Oh no"
+    $ targettemp = abs(death[0]-1)
+    $ mobstat[death[0]][0] = "None"
+    $ death.pop(0)
+    $ tutorial = 3
+    return
 ################
 ## RATS FIGHT ##
 ################
@@ -76,8 +107,11 @@ label ratlast:
 ## ALV FIGHT ##
 ####################
 label alvstart:
-    b "It's okay, I've got this."
     hide screen combat
+    show screen alvintro
+    hide breezecombat
+    b "It's okay, I've got this."
+    hide screen alvintro
     hide black
     hide breezecombat
     with dissolve

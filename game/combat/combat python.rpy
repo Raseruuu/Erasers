@@ -1,23 +1,23 @@
 label combattest: ## simulate going into a combat from story.
     "entering combat"
+    $ encounter = "Goons"
+    call precombat
+    return
+    # menu:
+    #     # "Pick encounter"
+    #     "Goons":
+    #         $ encounter = "Goons"
+    #     "Rats":
+    #         $ encounter = "Rats"
+    #     "Corrupted":
+    #         $encounter = "Alv"
+    #     "Az":
+    #         $encounter = "Az"
 
-    menu:
-        "Pick encounter"
-        "Flair":
-            $ encounter = "Goons"
-            $ combatant = [breeze, sofi]
-        "Rats":
-            $ encounter = "Rat"
-            $ combatant = [breeze, sofi, flair]
-        "Corrupted":
-            $encounter = "Alv"
-            $ combatant = [breeze]
-        "Az":
-            $encounter = "Az"
-            $ combatant = [breeze]
-
+label precombat:
+    $ combatant = combatantlist[encounter]
+    $ tutorial = 1 ##remove later
     call combat
-
 
     label endcombat:
         $ _skipping = True
@@ -32,6 +32,8 @@ label combattest: ## simulate going into a combat from story.
 
 label combat:
     window hide
+    hide screen skip_indicator
+    hide screen quickhover
     $ quick_menu = False
 
     python:
@@ -86,12 +88,12 @@ label combat:
         aztimer = 2400 ##2400 in fullgame
         iceshield = 0
 
+
     ## Arts
-    scene bg_city_destroyed
+    # scene bg_city_destroyed
     show black:
         alpha 0.8
 
-    hide screen quickmenu
     show screen combat ## main screen
     show breezecombat: ## breeze icon
         xpos 490 yanchor 1.0 ypos 1050
@@ -103,6 +105,10 @@ label combat:
         call midfight
     else:
         play music battle volume 1.0 fadein 0.5
+
+    if persistent.firsttime == True and encounter == "Goons":
+        $ timerpause = True
+        show screen tutorial
     ##########################################################################################
     ## the main label where things goes ##
     label combatloop:
@@ -123,7 +129,7 @@ label combat:
 ####################################################################################
 
 label sofiphase:
-    # $ timerpause = True
+    $ timerpause = True
      ##TODO change to green textcolor.
     if act == "Shield":
         show screen atkshield
@@ -134,10 +140,10 @@ label sofiphase:
         $ hp = min(hpmax, hp+skillvalues["Heal"])
         # show screen atkheal
         show screen damageincoming(skillvalues[act], "#00FF00")
-    $renpy.pause(2.0)
+    $renpy.pause(1.0)
     hide screen damageincoming
     hide screen atkshield
-    # $ timerpause = False
+    $ timerpause = False
     jump combatloop
 
 label damagephase: ## damaging enemies
@@ -175,6 +181,9 @@ label damagephase: ## damaging enemies
                 death.append(i)
                 if encounter == "Alv":
                     alvkill +=1
+                if encounter == "Goon":
+                    midtalk = "goontute2"
+                    renpy.call("midfight")
 
     if len(death) >=1: ##if there's death
         if len(mobstat) - len([item for item in mobstat if item[0] == "None"]) == 1: ## single enemy remaining
@@ -305,7 +314,10 @@ label breezehurt: ## ANIMATION
         hide screen parry
 
     elif encounter == "Alv":
-        $ mobdamage = mobstat[mobattacker][5] + int(mobstat[mobattacker][10]) ## buffs
+        # $ mobdamage = mobstat[mobattacker][5] + int(mobstat[mobattacker][10]) ## buffs
+        # $ mobdamage = mobstat[mobattacker][5]*(mobstat[mobattacker][1]//500)+100
+        $ mobdamage = int(mobstat[mobattacker][5]*(1-((mobstat[mobattacker][2])/200.00)))
+        # $ mobdamage = mobstat[mobattacker][5]
     else:
         $ mobdamage = mobstat[mobattacker][5]
 
@@ -356,6 +368,14 @@ label mobdeath: ## dead replace/removal in group
     hide screen combat
     hide screen targetting
     python:
+        if encounter == "Goons":
+            for i in death:
+                goonleft = [g1, g2][abs(i-1)]
+                midtalk = "goontute2"
+                renpy.call("midfight")
+
+            # target = 0
+
         if encounter == "Rat":
             if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]) and ratkilled >=9 : ## when all 3 are dead after killing 9
                 renpy.jump("victory")

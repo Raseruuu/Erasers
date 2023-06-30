@@ -46,7 +46,7 @@
     s "He closed his eyes, and took a breath, as if the entire world just melted away. And then... I blinked."
     play sound "audio/icesword.mp3" volume 1.5
     # sliding ice sound if we have it, otherwise we don’t need it
-    s "I... can’t say that I wasn’t impressed. I knew he was an experienced field agent, but I don’t think I’ve ever seen someone with that kind of mastery of magic." 
+    s "I... can’t say that I wasn’t impressed. I knew he was an experienced field agent, but I don’t think I’ve ever seen someone with that kind of mastery of magic."
     s "Who was this man? Where’d he learn these skills? Even with my own training, I only ever learned support spells. I can heal and make a barrier but against this man... I might as well have been a child playing at being a mage."
     b "If it comes to that, I’ll protect us."
     b "Rule one of being in the guild: Everyone comes back alive."
@@ -78,7 +78,7 @@
     # show sofi phone, I guess it’s implied that she’s scanning the area
     show breeze with move:
         xpos -1.0
-    show sofi at right with move 
+    show sofi at right with move
 
     s "Okay, let’s see... trail, trail, gotta pick up a trail."
     s "Vibrants are monsters that ooze magic corruption... it’s kind of like a viscous red substance that hardens into crystalline pellets. Scan the area for the substance. Nothing?"
@@ -103,7 +103,7 @@
     play sound "audio/alert.mp3"
     s "Ah, I think I see what you’re getting at..."
     s "But if that’s the case, then-"
-    hide sofi 
+    hide sofi
     hide breeze
     with fade
     # scene tunnel2 the bg over to the opposite side until the two characters are either out of frame or as far to one side as possible
@@ -118,7 +118,7 @@
     hide g2 with fade
     # pan the bg back to Sofi and Breeze
     show breeze at left with move:
-    show sofi at halfleft with move 
+    show sofi at halfleft with move
     s "Voices, two of them, were coming from around the corner. We needed to hide and-"
     s "Mmrph!"
     show breeze at halfleft with move
@@ -232,6 +232,12 @@
     g2 "Was your mother a slasher villain or something?!"
     g1 "...Please don’t kill us."
     # [Fight scene here]
+    hide breeze
+    hide sofi
+    hide g2
+    hide g1
+    $ encounter = "Goons"
+    call precombat
     # [Fight scene aftermath]
 
     # open with the goon sprites tilted on the floor
@@ -276,7 +282,7 @@
             b "Alright, good luck then."
             # Breeze slides off to the side. leaving Sofi to try to get into character
             s "Interrogations. To be honest, I don’t really consider myself all that scary of a person. Whenever I imagine a master interrogator, I usually imagine someone terrifying beyond all reason."
-            s "A person who seems outwardly calm but gives off an aura of an unhinged lunatic who would shake your hand and then shoot you in the face without skipping a beat." 
+            s "A person who seems outwardly calm but gives off an aura of an unhinged lunatic who would shake your hand and then shoot you in the face without skipping a beat."
             s "The kind of person who exudes danger, that makes you think that this person is the only one standing between you and your continued existence..."
             s "I, Sofi am not that kinda person. However..."
             # sofi eyes closed, show screen darkening as if Sofi is reaching into her inner mind

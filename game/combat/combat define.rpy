@@ -13,8 +13,8 @@ image ratmob:
             ease 1.5 rotate -7
             ease 0.8 rotate 0
         choice:
-            ease 0.7 rotate -17
-            ease 1.2 rotate +8
+            ease 0.7 rotate +8
+            ease 1.2 rotate -17
             ease 0.5 rotate 0
     parallel:
         ease 0.5 alpha 0.8
@@ -183,9 +183,10 @@ transform textpopup: ## for damage numbers
     ease 0.05 yoffset -20
 
 transform mobattacking:
-    ease 0.1 yoffset +50
-    pause 0.3
-    ease 0.5 yoffset +0
+    ease 0.05 yoffset +50
+    # pause 0.05
+    ease 0.15 yoffset +0
+
 ########################################
 ## ATK ANIMATIONS ##
 transform atkblade:
@@ -216,8 +217,6 @@ transform atkfirebolt:
 transform atkinferno:
     xanchor 1.0 xpos 0.0 alpha 0.7
     ease 0.7 xanchor 0.0 xpos 1.0
-
-
 transform atkshield:
     zoom 100 alpha 0.0
     ease 0.2 zoom 1.0 alpha 1.0

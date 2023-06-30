@@ -1128,8 +1128,7 @@ style confirm_button_text:
 
 ## Skip indicator screen #######################################################
 ##
-## The skip_indicator screen is displayed to indicate that skipping is in
-## progress.
+## The skip_indicator screen is displayed to indicate that skipping is in progress.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#skip-indicator
 

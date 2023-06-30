@@ -24,9 +24,9 @@ screen combat:
 
     use breeze ##hp bar
     use actbutton
-    # use atkshield
     if desc != None:
         use description(desc, descpos)
+    # use tutorial
 
 screen breeze: ##hp bar
     fixed:
@@ -41,9 +41,11 @@ screen breeze: ##hp bar
         bar:
             value hp
             range hpmax
+            left_bar "gui/bar/lefthp.png"
+            right_bar "gui/bar/righthp.png"
             xysize (500, 30)
             yoffset 20
-        text "HP: "+str(hp) xpos 10 yalign 1.0 yoffset 6 outlines [(2,"#000",0,0)]
+        text "HP: "+str(hp)+"/1000" xpos 10 yalign 1.0 yoffset 6 outlines [(2,"#000",0,0)]
 
     ## Shield Bar
         bar:
@@ -121,9 +123,8 @@ screen mob(i, position, animation):
                                 xysize (300, 30)
                                 yalign 1.0
                             if encounter != "Az":
-                                text str(int(mobstat[i][1]))+"/"+str(mobstat[i][7]) align (0.5, 1.0) yoffset 5
-
-                                # text str(mobstat[i][2])+"+"+str(mobstat[i][9]) align (0.5, 0.5)
+                                # text str(int(mobstat[i][1]))+"/"+str(mobstat[i][7]) align (0.5, 1.0) yoffset 5 ## hp
+                                text str(mobstat[i][2])+"+"+str(mobstat[i][9]) align (0.5, 0.5)  ##slow and freeze
                             if mobstat[i][3]>0:
                                 add "fire" yalign 1.0 xalign 0.0
 
@@ -154,18 +155,8 @@ screen mob(i, position, animation):
                     add "iceblue" alpha 0.7 ysize 600
 
             ## TESTING. Respawn counter
-            if encounter == "Alv" or "Rat" and mobstat[i][0] == "None":
-                text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
-
-    # fixed: ## mob debuff icons
-    #     # at combat2 xpos position yoffset -175 xoffset -50
-    #     xysize (300, 300)
-    #     at combat2 yoffset 0 xpos position xoffset 100
-    #     hbox:
-    #         if mobstat[i][3]>0:
-    #             add "fire"
-    #         if mobstat[i][2]>0:
-    #             add "ice"
+            # if encounter == "Alv" or "Rat" and mobstat[i][0] == "None":
+            #     text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
 
 
 screen targetting(position): ## indicates which one is being targetted.
@@ -377,7 +368,8 @@ screen description(i, descpos):
     fixed:
         xysize (300, 150)
         anchor (0.5, 1.0)
-        pos (descpos, 850)  ## 750+75+10+400
+        # pos (descpos, 850)  ## 750+75+10+400
+        pos (80+180, 850)
         add "black" alpha 0.7
         text i offset (10, 10) bold True size 30 ## Name
         text str(skillvalues[i])+"/"+str(skillcd[i])+"s" xalign 1.0 offset (-10, 10) size 25
@@ -387,7 +379,26 @@ screen description(i, descpos):
             pos (10, 45)
             text str(skilldesc[i]) size 20 yalign 0.5
 
-screen ubw:
+screen alvintro:
+    for i, j in enumerate(mobstat):
+        use mob(i, mobpos[len(mobstat)][i], None)
+
+screen tutorial:
     fixed:
         xysize (1920, 1080)
-        # add Frame("images/combat/frame-7-blue.png", Border(5, 5, 5, 5))
+        add "combat/tutorial.png"
+        button action [SetVariable("timerpause", False), Hide("tutorial")]
+        #Call("confirm", (message=__("Finished with the Instructions?"), yes_action=[SetVariable("timerpause", False), Hide("tutorial")], no_action=[Hide("confirm")]))
+
+        # add "black" alpha 0.5
+        # add Frame("gui/frame-1-blue.png"):
+            # alpha 0.5
+            # Border (5, 5, 5, 5)
+        # text "Hi" align (0.5, 0.5)
+
+screen tute1:
+    fixed:
+        # button action NullAction()
+        add "black" alpha 0.8
+        use breeze
+        use breezeact

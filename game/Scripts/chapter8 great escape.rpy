@@ -30,7 +30,7 @@ f "There we go, big sister’s got you now."
 
 "In other words, we’d gotten her out of the biomass, at least… most of her."
 
-# Flair’s sprite should be lower to the ground as if she’s crouching. 
+# Flair’s sprite should be lower to the ground as if she’s crouching.
 # Show Sofi’s sprite crouching next to her.
 # Show breeze walking off-screen
 
@@ -370,7 +370,7 @@ b "I can’t even see his smile, but I can just feel it. Like a million centiped
 
 f "....."
 
-f "...Hey, you’ve known this guy for a while right?" 
+f "...Hey, you’ve known this guy for a while right?"
 
 b "Unfortunately, yeah."
 
@@ -391,5 +391,8 @@ b "Yeah, I’d feel the same."
 # Everyone gets into their battle stance
 
 #[ Azma Boss Fight Here]
+$ encounter = "Az"
+call precombat
+
 jump chapter9
 return

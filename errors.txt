@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat screen.rpy", line 149: fixed expects a non-empty block.
-    if mobstat[i][2]>0:
-                       ^
+File "game/combat/combat python.rpy", line 319: unmatched ')'
+    mobdamage = mobstat[mobattacker][5]*(mobstat[mobattacker][2]//200))
+                                                                       ^
 
 Ren'Py Version: Ren'Py 8.1.1.23060707
-Fri Jun 30 07:47:37 2023
+Fri Jun 30 14:05:22 2023

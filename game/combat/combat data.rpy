@@ -11,8 +11,6 @@ init -50 python:
         global mobattacker ## which incoming attack.
         global mobaction ## for attempting queuing up mob actions.
 
-        global mobregen
-
         global breezecd
         global soficd
         global flaircd
@@ -23,11 +21,12 @@ init -50 python:
         global encounter
         global aztimer
         global midtalk
+        global tutorial
 
         if timerpause == False:
             for i, j in enumerate(mobstat): ## individual timer.
-                if mobstat[i][6]!=69420:
-                    if mobstat[i][4] < mobstat[i][6]:
+                if mobstat[i][6]!=69420: ##i.e. not VibCore
+                    if mobstat[i][4] < mobstat[i][6]: ##cd charging
                         if mobstat[i][2] > 0: ## if slow
                             mobstat[i][4]+=0.25 ## 0.25x speed
                         else:
@@ -56,7 +55,7 @@ init -50 python:
                 if shieldtime <80:
                     shieldtime += 1
                 else:
-                    shield -= (shield//10)
+                    shield -= 10
             if shield == 0:
                 shieldtime = 0
 
@@ -79,7 +78,6 @@ init -50 python:
                             mobstat[i] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, (mob[i].hp), 0, 0, 0, 0] ## hand replacement
                             if mobstat[abs(i-3)][0] == "None":
                                 targettemp = i
-
             ## Alv regen ##
             if encounter == "Alv" :
                 for i,j in enumerate(mobstat):
@@ -90,16 +88,20 @@ init -50 python:
                         elif mobstat[i][1] == mobstat[i][7]:
                             mobstat[i][10] += 0.05
 
-
         ## Assigning mob actions when timer up.
         for i,j in enumerate(mobstat):
-            if mobstat[i][4] >= mobstat[i][6] and mobstat[i][0] != "None":
+            if mobstat[i][4] >= mobstat[i][6] and mobstat[i][0] != "None": ## if alive
                 timerpause = True
                 for i,j in enumerate(mobstat):
                     if mobstat[i][4] >= mobstat[i][6] and mobstat[i][0] != "None":
                         mobaction.append(i)
                         mobstat[i][4] = 0
                 renpy.call("mobaction")
+
+        if encounter == "Goons":
+            if tutorial == 1 and hp < 650:
+                midtalk = "goontute"
+                renpy.call("midfight")
 
         ## az timer
         if encounter == "Az" and timerpause == False:
@@ -127,7 +129,7 @@ init -50 python:
             self.list = list
             self.cost = cost
 
-    breeze = fighter("Breeze", ["Attack", "Shard"], [2.5, 2.0]) #2.5, 5
+    breeze = fighter("Breeze", ["Attack", "Shard"], [2.5, 5.0]) #2.5, 5
     sofi = fighter("Sofi", ["Shield", "Heal"], [5.0, 2.5])
     flair = fighter("Flair", ["Firebolt", "Inferno"], [3.0, 8.0]) ##3, 8
     breezeex = fighter("Breeze", ["Attack", "Shard", "Blizzard"], [1.2, 2.0, 6.0])
@@ -140,24 +142,24 @@ init -50 python:
                     "Firebolt": "cardfirebolt",
                     "Inferno": "cardinferno"}
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 12500, "Shard": 200,
+                    "Attack": 125, "Shard": 200,
                     "Blizzard": 0,
                     "Shield": 500, "Heal": 150,
-                    "Firebolt": 150, "Inferno": 3000
+                    "Firebolt": 150, "Inferno": 300,
                     }
-    skillcd = {"Attack": 2.5, "Shard": 2,
-                "Blizzard": 10,
+    skillcd = {"Attack": 2.5, "Shard": 5,
+                "Blizzard": 6,
                 "Shield": 5, "Heal": 2.5,
                 "Firebolt": 3, "Inferno": 8
                 }
     skilldesc = {
-                "Attack": "Strike it like it's hot.",
-                "Shard": "ice ice baby",
-                "Blizzard": "Freezes all chilled enemies, halting their actions. Frozen enemies can be shattered upon impact.",
-                "Shield": "Decaying magic shield that can block incoming damage.",
-                "Heal": "Replenishes health points",
-                "Firebolt": "Magic missile! Magic missile!",
-                "Inferno": "You see me burning, you hating."
+                "Attack": "Deals {color=#FF0000}125{/color} damage to target enemy",#"Strike it like it's hot.",
+                "Shard": "Deals {color=#FF0000}200{/color} {color=#4285F4}chill{/color} damage to target enemy, slowing their actions.",#"Ice Ice baby",
+                "Blizzard": "{color=#4285F4}Freezes{/color} all chilled enemies, halting their actions. Frozen enemies can be shattered upon impact.",
+                "Shield": "Decaying magic shield that can block up to {color=#00FF00}500{/color} incoming damage.",
+                "Heal": "Replenishes {color=#00FF00}150{/color} health points",
+                "Firebolt": "Deals {color=#FF0000}150{/color} damage to target enemy.\nApplies {color=#FF0000}burn{/color} effect.", #"Magic missile! Magic missile!",
+                "Inferno": "Deals {color=#FF0000}300{/color} damage to all enemies on the field."#"You see me burning, you hating."
                 }
     # actsound = {"Attack": blade, "Shard": ice,
     #             "Shield": blade, "Heal": blade,
@@ -173,27 +175,27 @@ init -50 python:
             self.img = img ## icon image
 
     # goon = mob("Goon", 300, 120, 50, "goonmob")
-    flairmob = mob("Flair", 1200, 100, 220, "flairmob") ## dps 65/7 = 8 ## transit into goons later
+    # flairmob = mob("Flair", 1200, 100, 220, "flairmob") ## dps 65/7 = 8 ## transit into goons later
     g1mob = mob("Goon 1", 1000, 110, 180, "g1mob")
     g2mob = mob("Goon 2", 1200, 110, 180, "g2mob")
 
     ratmob = mob("Rat", 350, 70, 40, "ratmob") ## dps 20/5 = 4
 
-    alvheadmob = mob("Vibrant Core", 10000, 69420, 0, "alvheadmob")
-    alvrightmob = mob("Right Hand", 3000, 1800, 150, "alvrightmob")
-    alvleftmob = mob("Left Hand", 3000, 1800, 150, "alvleftmob")
+    alvheadmob = mob("Vibrant Core", 5000, 69420, 0, "alvheadmob")
+    alvrightmob = mob("Right Hand", 1500, 240, 280, "alvrightmob")
+    alvleftmob = mob("Left Hand", 1500, 240, 280, "alvleftmob")
 
-    azmob = mob("Azmaveth", 80000, 80, 300, "azmob") ## 4 unblocked hits
+    azmob = mob("Azmaveth", 80000, 80, 320, "azmob") ## 4 unblocked hits
 
     nonemob = mob("None", 800, 20, 65, "alvmob")
 
     ####################################################
     moblist = { ## for mobs in an encounter
-                "Flair": [flairmob, flairmob],
+                # "Flair": [flairmob, flairmob],
                 "Goons": [g1mob, g2mob],
                 "Alv": [alvheadmob, alvrightmob, alvleftmob],
                 "Az": [azmob],
-                "Rat": [ratmob, ratmob, ratmob, nonemob]}
+                "Rats": [ratmob, ratmob, ratmob, nonemob]}
 
     ## Mob positioning.
     mobpos = {
@@ -202,3 +204,8 @@ init -50 python:
             3: [960, 450, 1470],
             4: [450, 960, 1470, 1680],
             }
+    combatantlist = {"Goons": [breeze],
+                    "Rats": [breeze, sofi],
+                    "Alv": [breeze],
+                    "Az": [breeze],
+                    }

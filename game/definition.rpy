@@ -1,12 +1,12 @@
 
-define b = Character("Breeze", image="breezeside",callback=speaker("Breeze"))
+define b = Character("Breeze", image="breezeside",callback=speaker("Breeze"), who_font="mangat.ttf",)
 define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"), who_font="mangat.ttf")
-define f = Character("Flair",image="flairside",callback=speaker("Flair"),)
+define f = Character("Flair",image="flairside",callback=speaker("Flair"), who_font="mangat.ttf",)
 define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"), who_font="mangat.ttf")
-define k = Character("Kizuna",callback=speaker("Kizuna"),)
-define tm = Character("Alverna",callback=speaker("Alverna"),)
+define k = Character("Kizuna",callback=speaker("Kizuna"), who_font="mangat.ttf",)
+define tm = Character("Alverna",callback=speaker("Alverna"), who_font="mangat.ttf",)
 # define az = Character("Azmaveth",callback=speaker("Azmaveth"),)
-define ke = Character("Kephirah",callback=speaker("Kephirah"),)
+define ke = Character("Kephirah",callback=speaker("Kephirah"), who_font="mangat.ttf",)
 
 define u = Character("???")
 define cc = Character("Cafe Cashier")
@@ -21,6 +21,8 @@ define un = Character("? ? ? ? ?")
 
 define n = nvl_narrator
 
+init -100 python:
+    persistent.firsttime = True
 ################
 ## SPRITES ##
 # ###############
@@ -33,7 +35,6 @@ image g1:
 image g2:
     "images/sprite/grunt2.png"
     zoom 0.5 yanchor 0.5 ypos 1.0
-image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
 # image side sofiside = im.FactorScale(im.Crop(sofi, (400, 265, 1000, 1000)), 0.4)

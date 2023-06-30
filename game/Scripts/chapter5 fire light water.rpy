@@ -1,9 +1,9 @@
-label chapter5: 
+label chapter5:
     scene ElevatorOutside
 
     fl "CONTAINMENT BREACH IN SECTOR 16 through 27!"
     fl "EXODUS PROTOCOL IS IN EFFECT!"
-    
+
     # Show Alverna’s sprite lower than Sofi’s to give the impression that she is crouching down, Sofi’s sprite is probably still using the goon sprite
     ## show alverna at center
     show g2 at left
@@ -44,7 +44,7 @@ label chapter5:
     s "This is an Icarus Industries auto-injection device, yeah?"
     tm "...Yes, how… do you know?"
     s "....."
-    s "I’m familiar with them." 
+    s "I’m familiar with them."
     s "Let me see your arm?"
 
     # Show Alverna sprite shake + turn away (the turn away might look awkward given the angle she’s at so it can be skipped if it looks weird)
@@ -150,7 +150,7 @@ label chapter5:
     s "Okay, rude."
     f "But… he said…"
     b "He was obviously lying, you unhinged pyromaniac!"
-    f "Bite me, you walking snow cone" 
+    f "Bite me, you walking snow cone"
     # fire and ice sfx
     play sound "audio/icesword.mp3"
     ## queue sound "audio/flames.mp3"
@@ -231,18 +231,18 @@ label chapter5:
     b "Besides, we both know this situation is the arsonist’s fault."
     f "Arsoni- are you talking about me, you jackass?"
     b "Gee, I don’t know, is there another fire girl who blasted holes through the facility and caused this chain reaction?"
-    f "Okay, first of all, up yours. Secondly, my name is Flair. Not fire girl, not pyromaniac, not arsonist, it’s FLAIR!" 
+    f "Okay, first of all, up yours. Secondly, my name is Flair. Not fire girl, not pyromaniac, not arsonist, it’s FLAIR!"
     s "Both of you, please! Just… like… can you direct your anger to the vibrants? They’re gonna break through that ice wall at any moment. And I’m feeling really, really, really, REALLY nervous right now because it may have just dawned at me that these things are triggering a deep primordial fear in me."
     # Show Sofi shake
     b "Alright, I hear you. Listen, just like we did earlier, all you have to do is focus on backing me up, and I’ll do my part to keep you safe. Got it?"
     s "Okay… okay… I got it, I trust you."
-    s "Ms Flair, this is a strange time for an introduction, but I’m Sofi. And in case I die here, I’d like you to remember my name… because I feel like Breeze will not remember what to put on my tombstone." 
+    s "Ms Flair, this is a strange time for an introduction, but I’m Sofi. And in case I die here, I’d like you to remember my name… because I feel like Breeze will not remember what to put on my tombstone."
     b "Gimme some credit, I’m not that bad with names."
-    s "Oh yeah?" 
+    s "Oh yeah?"
     s "What’s my full name?"
     b "....."
     s ".....well?"
-    b "........No." 
+    b "........No."
     b "I sense I’ve made a mistake of some kind."
     s "Anyways, this is an usual first meeting in a stressful situation, so… forgive me if I mess something up. Humor… kinda helps me relax a little, if that makes sense?"
     f "...."
@@ -254,7 +254,8 @@ label chapter5:
     play sound "audio/shatter.mp3"
     b "Alright, witty banter time is over! Here they come!"
 
-    # [Insert Battle sequence here]
+    $ encounter = "Rats"
+    call precombat
 
     jump chapter6
     return

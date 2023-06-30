@@ -42,7 +42,7 @@ label chapter7:
 
     # hissing noise, like the one used to open a door but probably softer since it’s like… a concoction finishing. A "ding" sound would also suffice.
 
-    f "Alverna? What was that noise, was it the hatch opening?" 
+    f "Alverna? What was that noise, was it the hatch opening?"
 
     tm "....."
 
@@ -65,7 +65,7 @@ label chapter7:
 
     f "Alverna, what is this!?"
 
-    tm "...I need you to stay put for a while." 
+    tm "...I need you to stay put for a while."
 
     # Alverna weary sighing noise
 
@@ -77,7 +77,7 @@ label chapter7:
 
     tm "Just gonna blast your way out with the entire MRF on our heels? Maybe do some kinda heroic last stand like some kinda tragic heroic figure?"
 
-    tm "Screw that. No, we’re not going anywhere, not yet at least." 
+    tm "Screw that. No, we’re not going anywhere, not yet at least."
 
     f "What are you saying, I don’t understand what’s going on! I’m an idiot, you know this, so if you don’t explain it to me clearly, I can’t understand!"
 
@@ -87,7 +87,7 @@ label chapter7:
 
     b "She hasn’t been kidnapped by the MRF, she’s working with them."
 
-    f "But… that can’t…" 
+    f "But… that can’t…"
 
     f "Alverna, it’s not true, is it? Tell me it’s not true."
 
@@ -130,7 +130,7 @@ label chapter7:
 
     # show cut-in of a laser gun on the ceiling, I can draw that. But it might not be necessary, so it’s a "nice to have but not strictly necessary"
 
-    tm "First, this is a lab that specifically handles some of the most dangerous creatures on the planet. Did you think I wouldn’t have some kinda defensive system constructed?" 
+    tm "First, this is a lab that specifically handles some of the most dangerous creatures on the planet. Did you think I wouldn’t have some kinda defensive system constructed?"
 
     tm "And secondly…"
     # Play electrical buzzing sound
@@ -264,7 +264,7 @@ label chapter7:
 
     f "Umbra… what… what is that?"
 
-    s "It’s… a disease that can occur when someone loses the ability to filter excess mana from their bodies. It usually results in an accumulation of mana over time which can cause various health complications, and one of the symptoms of it are… dark, scaly, red patches on the victim’s skin. One of the last physical changes that happens is the eyes." 
+    s "It’s… a disease that can occur when someone loses the ability to filter excess mana from their bodies. It usually results in an accumulation of mana over time which can cause various health complications, and one of the symptoms of it are… dark, scaly, red patches on the victim’s skin. One of the last physical changes that happens is the eyes."
 
     s "Yours are crimson so… I’m sorry."
 
@@ -386,7 +386,7 @@ label chapter7:
 
     tm "Does that sound good to you all?"
 
-    f "Are you really okay with this Alverna?" 
+    f "Are you really okay with this Alverna?"
 
     f "Imprisoning your own sister?"
 
@@ -495,7 +495,7 @@ label chapter7:
 
     tm "I have come too far just to be told to start over right at the finish line!"
 
-    ke "...Dr. Alverna." 
+    ke "...Dr. Alverna."
 
     ke "You are to evacuate the lab is less than 15 minutes, otherwise we will be forced to abandon you."
 
@@ -507,13 +507,13 @@ label chapter7:
 
     ke "That’s not my concern, they’ve made the decision-"
 
-    tm "No! I’m not letting things end this way just because your bosses are short-sighted cowards!" 
+    tm "No! I’m not letting things end this way just because your bosses are short-sighted cowards!"
 
     "Dr. Alverna began to furiously operate the control console."
 
     tm "After being ostracized by everyone close to me, I learned that I needed a backup plan in case I was ever betrayed again!"
 
-    tm "So I’ve been compiling some files." 
+    tm "So I’ve been compiling some files."
 
     tm "I have evidence, dossiers, recordings, EVERYTHING that any half decent legal professional could use to bring down this whole operation and put everyone involved behind bars for a very long time!."
 
@@ -521,7 +521,7 @@ label chapter7:
 
     ke "......."
 
-    tm "Now listen, we don’t have to scuttle the operation. All we have to do is contain the samples, imprison the intruders, and then slowly work to move shop while continuing the research. It’s honestly not a big ask, I just need a little more time and I can get the Overseers their Siren, hell I’ll get them a hundred sirens if they want!" 
+    tm "Now listen, we don’t have to scuttle the operation. All we have to do is contain the samples, imprison the intruders, and then slowly work to move shop while continuing the research. It’s honestly not a big ask, I just need a little more time and I can get the Overseers their Siren, hell I’ll get them a hundred sirens if they want!"
 
     tm "Whatever they want, whatever they need, look! My reports on the previous experiments prove how close we are to a breakthrough on Project Siren! I just can’t have this facility and my supply shut down. Please! Just one more chance, I promise I can fix this, if you’ll just let me try!"
 
@@ -807,7 +807,7 @@ label chapter7:
 
     s "I should’ve just become a journalist instead, when was the last time a journalist had to fight a body horror monster?"
 
-    b "...great last words, guys." 
+    b "...great last words, guys."
 
     "The three of us got ready for battle as Alverna finally succumbed to her mutation."
 
@@ -815,7 +815,8 @@ label chapter7:
 
     "Help Me"
 
-    # [Inset Alverna Boss Fight Here]
+    $ encounter = "Alv"
+    call precombat
 
     #-----------------------------------------
     jump chapter8
