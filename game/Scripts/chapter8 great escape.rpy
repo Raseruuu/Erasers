@@ -392,7 +392,7 @@ b "Yeah, I’d feel the same."
 
 #[ Azma Boss Fight Here]
 $ encounter = "Az"
-call precombat
+call precombat from _call_precombat_3
 
 jump chapter9
 return

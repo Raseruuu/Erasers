@@ -2,9 +2,9 @@
 define b = Character("Breeze", image="breezeside",callback=speaker("Breeze"), who_font="mangat.ttf",)
 define s = Character("Sofi",image="sofiside",callback=speaker("Sofi"), who_font="mangat.ttf")
 define f = Character("Flair",image="flairside",callback=speaker("Flair"), who_font="mangat.ttf",)
-define a = Character("Azmaveth",image="azside", callback=speaker("Azmaveth"), who_font="mangat.ttf")
-define k = Character("Kizuna",callback=speaker("Kizuna"), who_font="mangat.ttf",)
-define tm = Character("Alverna",callback=speaker("Alverna"), who_font="mangat.ttf",)
+define a = Character("Azmaveth",image="azmavethside", callback=speaker("Azmaveth"), who_font="mangat.ttf")
+define k = Character("Kizuna",image="kizunaside",callback=speaker("Kizuna"), who_font="mangat.ttf",)
+define tm = Character("Alverna",image="alvernaside",callback=speaker("Alverna"), who_font="mangat.ttf",)
 # define az = Character("Azmaveth",callback=speaker("Azmaveth"),)
 define ke = Character("Kephirah",callback=speaker("Kephirah"), who_font="mangat.ttf",)
 
@@ -12,11 +12,11 @@ define u = Character("???")
 define cc = Character("Cafe Cashier")
 define g1 = Character("Goon 1", image="g1side")
 define g2 = Character("Goon 2", image="g2side")
-define ms = Character("Magic Scientist")
+define ms = Character("Mag. Scientist")
 define fl = Character("Intercom")
 define fi = Character("Intercom") ## it's written as FL and FI in the script. duplicate is to save time from having to fix all occurrences.
-define e = Character("Evan@HorizonsNetwork", who_color="#c8ffc8")
-define noa = Character("Noa from Twisted Fates")
+define e = Character("Evan", who_color="#c8ffc8")
+define noa = Character("Noa")
 define un = Character("? ? ? ? ?")
 
 define n = nvl_narrator
@@ -46,9 +46,12 @@ image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=
 #     LiveCrop((220,80, 460,500), LayeredImageProxy("sofi"))
 #     zoom 0.8
 
-image side sofiside = LayeredImageProxy("sofi", Transform(crop=(220, 80, 460, 500), zoom=0.8))
+image side sofiside = LayeredImageProxy("sofi", Transform(crop=(220, 120, 460, 500), zoom=0.8))
 image side breezeside =  LayeredImageProxy("breeze", Transform(crop=(260, 80, 460, 500), zoom=0.8))
 image side flairside =  LayeredImageProxy("flair", Transform(crop=(260, 80, 460, 500), zoom=0.8))
+image side alvernaside =  LayeredImageProxy("Alverna", Transform(crop=(260, 140, 460, 500), zoom=0.8))
+image side kizunaside =  LayeredImageProxy("Kizuna", Transform(crop=(200, 80, 460, 500), zoom=0.8))
+image side azmavethside =  LayeredImageProxy("azmaveth", Transform(crop=(280, 0, 460, 500), zoom=0.8))
 
 # s down openmouth ""
 

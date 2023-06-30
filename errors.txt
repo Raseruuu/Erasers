@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/combat/combat python.rpy", line 319: unmatched ')'
-    mobdamage = mobstat[mobattacker][5]*(mobstat[mobattacker][2]//200))
-                                                                       ^
+File "game/definition.rpy", line 6: invalid syntax
+    Character("Kizuna",image="kizunaside",,callback=speaker("Kizuna"), who_font="mangat.ttf",)
+                                           ^
 
 Ren'Py Version: Ren'Py 8.1.1.23060707
-Fri Jun 30 14:05:22 2023
+Fri Jun 30 20:35:02 2023

@@ -17,7 +17,7 @@ label combattest: ## simulate going into a combat from story.
 label precombat:
     $ combatant = combatantlist[encounter]
     $ tutorial = 1 ##remove later
-    call combat
+    call combat from _call_combat
 
     label endcombat:
         $ _skipping = True
@@ -102,7 +102,7 @@ label combat:
         play music overtheblood volume 1.0 fadein 1
     elif encounter == "Alv":
         $ midtalk = "alvstart"
-        call midfight
+        call midfight from _call_midfight
     else:
         play music battle volume 1.0 fadein 0.5
 
@@ -171,7 +171,7 @@ label damagephase: ## damaging enemies
         show screen atkblizzard
         play sound blizzard
 
-    call breezeaction ## STATS hp/slow/burn
+    call breezeaction from _call_breezeaction ## STATS hp/slow/burn
     $ mobphase == False
     ## End Condition Check ##
     python:
@@ -242,7 +242,7 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
     if act == "Attack":
         $ atkdamage += mobstat[target][9]*5 ## adjust the modifier later
         if mobstat[target][9]> 0:
-            call shattering
+            call shattering from _call_shattering
             $ mobstat[target][9] = 0
     if act == "Shard":
         if encounter == "Az":
@@ -306,7 +306,7 @@ label breezehurt: ## ANIMATION
         show punchpre onlayer screens
         play sound swish9 volume 5.0
 
-        call parry
+        call parry from _call_parry
         play sound hitsound
         hide punchparry onlayer screens with Dissolve(0.2)
         hide punchpre onlayer screens with Dissolve(0.1)

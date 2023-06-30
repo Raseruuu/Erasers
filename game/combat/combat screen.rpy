@@ -123,8 +123,8 @@ screen mob(i, position, animation):
                                 xysize (300, 30)
                                 yalign 1.0
                             if encounter != "Az":
-                                # text str(int(mobstat[i][1]))+"/"+str(mobstat[i][7]) align (0.5, 1.0) yoffset 5 ## hp
-                                text str(mobstat[i][2])+"+"+str(mobstat[i][9]) align (0.5, 0.5)  ##slow and freeze
+                                text str(int(mobstat[i][1]))+"/"+str(mobstat[i][7]) align (0.5, 1.0) yoffset 5 ## hp
+                                # text str(mobstat[i][2])+"+"+str(mobstat[i][9]) align (0.5, 0.5)  ##slow and freeze
                             if mobstat[i][3]>0:
                                 add "fire" yalign 1.0 xalign 0.0
 
