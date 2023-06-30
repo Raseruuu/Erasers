@@ -172,9 +172,9 @@ screen mobenemy(i, position, animation): ## each enemy
                     add "iceblue" alpha 0.7 ysize 600
 
             ## TESTING. Respawn counter
-            # if encounter == "Alv" or encounter == "Rat":
-            if mobstat[i][0] == "None":
-                text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
+            # # if encounter == "Alv" or encounter == "Rat":
+            # if mobstat[i][0] == "None":
+            #     text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
 screen targetting(position): ## indicates which one is being targetted.
     fixed:
         add "targetsign" at combat2 yoffset -80 xpos position

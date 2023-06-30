@@ -1,0 +1,118 @@
+So the order of the images are written in the script, but there's some things I should probably explain.
+
+So in order to assemble the BG, you'll need to make use of layering images.
+The layer order should go:
+
+[From the top up]
+
+- BG-StageEmpty
+- BG-StageCurtains
+- SofiPuppet
+- All the non-BG Assets
+- BG-StageBack
+
+Basically:
+BG-StageBack should be at the lowest layer, no image should ever be behind/under it.
+In contrast, BG-StageEmpty should be at the highest layer, nothing should ever be infront of it (except, possibly, the camera asset at the end of that scene)
+
+These are how things should play out, there's some room for interpretation though:
+
+
+01 - Start with all the assets labeled " BG- " and place them accordingly. It should look like the example image labeled: Instructions01.
+What you'll want to do next is have the curtain rise up, out of the screen. It will no longer be used except maybe at the end to close the show.
+
+
+02 - At the center of the image, display SofiPuppetStart. You may want to gray her out or make her slightly transparent to make it seem like she's inert at the moment. Start her off in the center, then swap to SofiPuppetMain, that will be the puppet that is used for the rest of the prologue.
+
+
+03 - Have her move around the stage if you want while she talks, or just move her off to the far left of the stage if you don't want to do that. For the non-BG assets, it may be more interesting to have them move around a little bit since presumably Sofi is holding them with her hands or using magic. Not necessary though, so just a static image works too.
+
+
+04 - In the Prologue Part 1 folder, sort the order by date. That'll make this part a lot easier... probably. The assets will likely be displayed via a slide-up from the bottom of the screen if possible, remember to keep them BEHIND BG-StageEmpty. 
+
+The Line Sofi says:
+-----
+“Tales of great heroes, monstrous creatures, of love and romance, of heartbreak and tragedy. I’ve heard them all, committed them to memory, and I have come to pass them on to you.”
+----
+You'll want to illustrate that using the heroic figure, monstrous creature, love and romance, love and heartbreak. You can show them one at a time or on screen at the same time, it depends on what's easier.
+
+
+05 -
+In this section here:
+----
+	“Stories, after all, are made to be told. For if we keep them to ourselves…”
+
+	# Light going out
+
+	
+	# hold on the scene
+
+#  a small spark of fire starts up
+
+	“But… what story should I tell you?”
+
+“Hmmmm….”
+
+“Ah, I have one here.
+---
+
+The assets you'll want to use are the blackscreen. Unlike the previous rule, this one should make the entire screen go black. The transition should be sudden.
+After that, show the spark asset while the black screen is there. Then let it fade away for the next scene.
+
+
+06 - 
+The line:
+---
+	“The Story of Magic.”
+---
+
+Place the MagicalCircleAsset in the center of the image, then replace it with the earth image. Or leave it underneath things. It doesn't matter.
+
+
+07 - 
+The EvilHumansAsset should be shown before this line:
+---
+	# show the world being covered in red
+---
+
+
+08 -
+Speaking of that line, you'll want to use the EarthCrimsonCalamity and Vibrant assets. I didn't draw humans getting attacked, because I didn't want to. So just have like several of the vibrant assets on screen around the EarthCrimsonCalamity asset. Or just one. Or none. Whichever.
+
+
+09 -
+Just show things fading out to blackness, but then have the Eraser Asset fade in along with the stage bgs. You might want several of the vibrants to also be on screen. There's limited space though so keep that in mind. Wish I would've drawn a boss vibrant.
+
+
+10 - 
+The rest should be pretty self explanatory, honestly. Just have Eraser and the HumansRisingUp asset on screen with vibrants around. Or just the humansrisingup with vibrants around. Or just the humansrisingup assset.
+
+
+11 - 
+When the battle is won, I don't know if it's possible, but have the eraser asset dissintegrate. If not possible, a fade away also works.
+
+
+12 -
+The order of the passage of time afterwards is:
+Ancient
+Modern
+MagicReturns
+Vibrants Return
+
+It'll be up to you to decide if you want them to play sequentially or appear on sceen together.
+
+
+13 -
+The last scene is probably the most important because it depicts Umbra corruption, which is an element in the story. I numbered the order already. It's up to you to decide how you want to present it:
+One at a time
+One replacing the other on screen
+Or, sequentially, all on screen at the same time
+
+
+12. 
+Fade to black on the Vibrant. Since there's no BG behind it, you can either have normal Sofi in a black void or in front of the stage.
+
+
+13. The Camera is watching Sofi, it's off in the corner, this is the one asset that would be above the stage layers. Hold on the scene for a bit, then replace the CameraWatchingSofi asset with CameraNotRecording asset, probably with a fade in.
+
+-----------------------------------------------------------

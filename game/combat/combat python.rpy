@@ -190,7 +190,7 @@ label damagephase: ## damaging enemies
         show screen atktundra
         play sound tundra
 
-    call breezeaction ## STATS hp/slow/burn
+    call breezeaction from _call_breezeaction ## STATS hp/slow/burn
     $ mobphase == False
     ## End Condition Check ##
     python:
@@ -258,7 +258,7 @@ label mobhurt: ## INDIVIDUAL mob being hit + animation
     if act == "Attack":
         $ atkdamage += mobstat[target][9]*5 ## adjust the modifier later
         if mobstat[target][9]> 0:
-            call shattering
+            call shattering from _call_shattering
             $ mobstat[target][9] = 0
     if act == "Shard":
         if encounter == "Az":
@@ -323,7 +323,7 @@ label breezehurt: ## ANIMATION
             blur 2.5
         play sound swish9 volume 5.0
 
-        call parry
+        call parry from _call_parry
         play sound hitsound
         hide azparry onlayer screens
         hide punchparry onlayer screens

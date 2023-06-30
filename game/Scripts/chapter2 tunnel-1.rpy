@@ -237,7 +237,7 @@
     hide g2
     hide g1
     $ encounter = "Goons"
-    call precombat
+    call precombat from _call_precombat
     # [Fight scene aftermath]
 
     # open with the goon sprites tilted on the floor

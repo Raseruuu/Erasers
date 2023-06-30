@@ -361,7 +361,7 @@ label pretunnel:
     ## From both phones, something starts to form between them. A small projection of a humanoid shape.
     s "I stared blankly at the figure until recognition started to form. I’d only ever seen her once before, but this would probably be the first time I’ve seen her up close."
     s "A small hologram of the leader of the guild, in a small and cute form, appeared on the table."
-    show kizuna1 at center
+    # show Kizuna at center
     # Kizuna’s sprite should be visible now. I don’t know if we’re using a chibi kizuna or just a shrunken down version of her full sprite
     s "Ms Kizuna."
     k "Greetings agents, I hope you’re doing well this evening."
@@ -404,7 +404,7 @@ label pretunnel:
     scene rendezvous with fade
     show breeze at left
     show sofi at right
-    show kizuna1 at center
+    # show kizuna1 at center
     b "..."
     show breeze at slightright with move
     # Breeze gets closer to the image

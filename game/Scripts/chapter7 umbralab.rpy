@@ -816,7 +816,7 @@ label chapter7:
     "Help Me"
 
     $ encounter = "Alv"
-    call precombat
+    call precombat from _call_precombat_2
 
     #-----------------------------------------
     jump chapter8
