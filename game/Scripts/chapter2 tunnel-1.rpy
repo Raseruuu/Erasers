@@ -157,7 +157,7 @@
     show g1:
         xpos 0.6
     show g2:
-        xpos 0.6
+        xpos 0.4
     show sofi:
         xpos -0.5 ypos 1.5
     show breeze:
@@ -246,9 +246,9 @@
         xpos 0.15
     show sofi at left
     show g1:
-        xpos 0.8
+        xpos 0.65
     show g2:
-        xpos 0.6
+        xpos 0.45
     # slide bg over to sofi and breeze
     s "...Honestly, I almost feel bad for them."
     b "Hey, I did give them a choice. I can’t be held responsible for people making dumb decisions."

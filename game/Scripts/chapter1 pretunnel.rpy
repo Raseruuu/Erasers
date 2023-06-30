@@ -115,7 +115,7 @@ label pretunnel:
     scene black with fade 
 
     ## Meeting Breeze
-    scene cafe1
+    scene cafe
     play sound "audio/cafe.mp3"
     show sofi at left with fade
     # Show sofi trying to look inconspicuous, maybe with both eyes closed, or one eye closed
@@ -177,7 +177,7 @@ label pretunnel:
     
     # transition scene to her sitting at her table
     # Show Sofi suffering 
-    scene cafe2 with fade
+    scene cafe with fade
     show sofi at right
     play sound "audio/drinksip.mp3"
     s "......"

@@ -6,7 +6,9 @@ label meetingflair:
     fl "EMERGENCY LOCKDOWN PROTOCOLS ARE NOW IN EFFECT!"
 
     #Hold on the black screen
-    # scene hallway with fade
+    scene hallway with fade
+    show g1 at right
+    show azmaveth at center
     # Open with a hallway bg, I think we have an extra somewhere that was in the original sketch work
     # Have Breeze and Azma walking down the hall, I don’t know if we’re still using the goon sprite to represent Breeze though
 
@@ -26,17 +28,17 @@ label meetingflair:
     # Azma annoyed groan
     a "The things I have to put up with..."
 
-    s "...he hasn’t changed."
-    s "This man... after all these times, he’s still the bastard he’s always been."
-    s "I promised the rookie that I wouldn’t blow my cover but... seeing him here, his guard down... could I take him out now?"
+    b "...he hasn’t changed."
+    b "This man... after all these times, he’s still the bastard he’s always been."
+    b "I promised the rookie that I wouldn’t blow my cover but... seeing him here, his guard down... could I take him out now?"
     play sound "audio/icesword.mp3" volume 0.5
     # ice sword forming noise, but softer, quieter
-    s "We’re in the middle of an attack, he doesn’t know it’s me, maybe in that brief moment I can strike him down. Create a dagger of ice that can be easily hidden. Then a quick strike to a vital organ, it’d be done and over with in 5 seconds. They’d probably find his body and assume that either the intruders or a vibrant got him."
-    s "....."
-    s "No. He’d be able to survive that. This man has survived far worse than a stab wound. I’d only have one shot, and right now it’s too much of a risk."
+    b "We’re in the middle of an attack, he doesn’t know it’s me, maybe in that brief moment I can strike him down. Create a dagger of ice that can be easily hidden. Then a quick strike to a vital organ, it’d be done and over with in 5 seconds. They’d probably find his body and assume that either the intruders or a vibrant got him."
+    b "....."
+    b "No. He’d be able to survive that. This man has survived far worse than a stab wound. I’d only have one shot, and right now it’s too much of a risk."
     play sound "audio/icesword.mp3" volume 0.5
     # Sound of ice sword deforming, I guess it’s like a defrosting sound or just the same sound as the forming
-    s "She was right; now’s not the time for this. My chance will appear, but it’s not now."
+    b "She was right; now’s not the time for this. My chance will appear, but it’s not now."
     a "Did you hear me, guard?"
     b "Huh? Sorry, I was just a bit nervous about the intruders."
     a "What for? It’s just another fight. Just kill them before they kill you."
@@ -46,19 +48,13 @@ label meetingflair:
     a "...."
     a "Have you never killed anyone before?"
     a "They say that after your first kill, it gets easier. But there must be something wrong with me, because I’ve never felt anything from it. Not once. Perhaps I’ve just rationalized it as something that can’t be helped. I mean, I don’t wanna die, so... only option is to kill them before they kill me, right?"
-    a "You hit me first, so I’ll kill you before you kill me."
-    a "You failed your job and forced me to have to clean up after you, so I’ll kill you before you kill me."
-    a "I don’t like the way you look at me, so I’ll kill you before you kill me."
-
     # Azma shrug noise
 
     b "And how many people have you killed, sir?"
     a "......"
-
     # Azma thinking, then evil smile
-
     a "...Enough."
-    s "...I’m going to kill him. I swear it."
+    b "...I’m going to kill him. I swear it."
     a "Speaking of which, that’s five."
 
     #Azma sigh
@@ -72,7 +68,7 @@ label meetingflair:
     a "Hmmmmm, perhaps. Well, maybe I should break it anyways."
     b "I could also run down to Operations, see what the deal is. It’s not like I can do much here anyways."
 
-    s "A quick lie, laced with elements of the truth. He’s an evil bastard, but he’s not an idiot. So this should work to at least get me away from him so I can regroup with the rookie."
+    b "A quick lie, laced with elements of the truth. He’s an evil bastard, but he’s not an idiot. So this should work to at least get me away from him so I can regroup with the rookie."
     b "I mean, let’s be honest, I don’t stand a chance if we run into a problem. Worst case scenario, I just get in your way. So, running down to Ops to get a situation report is the least I can do."
     a "...."
     a "What was your name again, guard?"
@@ -89,7 +85,9 @@ label meetingflair:
     # Stop Breeze’s sprite, think about it... play breeze thinking sfx
 
     b "Tell her: I’m sorry, but I’ll have to take a rain check on date night."
-    a "Right.. oh, Herbert. One more thing..."
+    a "Right... oh, Herbert. One more thing..."
+    show azmaveth:
+        yrotate 180
     play sound "audio/punch.mp3"
     play sound "audio/icesword.mp3"
     # play Azma strike SFX + Breeze Ice SFX, the intention here is that Breeze blocked a ranged attack from Azma with an ice-wall
@@ -100,8 +98,9 @@ label meetingflair:
 
     # Breeze undoes the goon disguise since he’s been made / TN: "To be made is spy talk for cover being blown, being discovered, essentially"
     hide g1 with fade 
-    show breeze with fade
-
+    show breeze:
+        xpos 0.6
+    show azmaveth at left with move
     b "What gave it away?"
 
     # Hold......
@@ -119,29 +118,29 @@ label meetingflair:
 
     # Hold on the scene as the two sprites step further apart
 
-    s "I should’ve escaped soon or struck first, this setup was not in my favor at all;. It’s too cramped, he’s fully alert, and reinforcements could come at any minute."
-    s "I don’t have a snowball’s chance in hell of beating him in these conditions, I just need to survive then find an opening to make a break for it."
-    s "Speaking of hell, was it getting hotter in here?"
-    s "Taking a moment to realize that the room really was getting hotter, I notice in the corner of my eye, the wall glowing when suddenly-"
+    b "I should’ve escaped soon or struck first, this setup was not in my favor at all;. It’s too cramped, he’s fully alert, and reinforcements could come at any minute."
+    b "I don’t have a snowball’s chance in hell of beating him in these conditions, I just need to survive then find an opening to make a break for it."
+    b "Speaking of hell, was it getting hotter in here?"
+    b "Taking a moment to realize that the room really was getting hotter, I notice in the corner of my eye, the wall glowing when suddenly-"
     play sound "audio/explosion.mp3"
     # play breeze ice sfx
     queue sound "audio/icesword.mp3"
     # Hold on the scene, then play footsteps
     queue sound "audio/footsteps.mp3"
-    s "That was too close."
-    s "If I hadn’t noticed the rising heat, then I might’ve been burned to a crisp."
-    s "Next to where I’d been standing was now a hole burn straight through the wall. A fire-haired woman stepped through the hole, carrying with her an air of confidence and power."
+    b "That was too close."
+    b "If I hadn’t noticed the rising heat, then I might’ve been burned to a crisp."
+    b "Next to where I’d been standing was now a hole burn straight through the wall. A fire-haired woman stepped through the hole, carrying with her an air of confidence and power."
     show flair at halfright
     un "Pardon the intrusion, but you didn’t have a doorbell."
-    s "Ah, this person was likely the intruder that’s been causing trouble. A fire mage huh, not a good match up against me and-"
+    b "Ah, this person was likely the intruder that’s been causing trouble. A fire mage huh, not a good match up against me and-"
     play sound "audio/ding.mp3"
     # turn Flair sprite towards Breeze if it isn’t already
     # Play a ringing sound, probably the same sound used during the tunnel investigation
 
-    s "This girl..." 
-    s "Why did I feel like this wasn’t the first time we’ve met?"
-    s "Something from my past? No. No, I've never seen this girl in my life but... I know her, from somewhere?"
-    s "Flair... Her name is Flair. Why did I know that?"
+    b "This girl..." 
+    b "Why did I feel like this wasn’t the first time we’ve met?"
+    b "Something from my past? No. No, I've never seen this girl in my life but... I know her, from somewhere?"
+    b "Flair... Her name is Flair. Why did I know that?"
 
     # Turn Flair to Azma
 
@@ -154,9 +153,7 @@ label meetingflair:
     a ".....are you messing with me?"
     a "You just... strolled into a facility, burned through several layers of defenses... to pick up one person?"
     a "Heh...ha...hahahahahaha. Okay then, I’ll humor you. Who, exactly, are you looking for?"
-
-    # f "[Alverna’s full name here or a nickname, something familiar]"
-
+    f "Alverna."
     a "... I have no idea who you’re-"
     a "Wait..."
     a "Dr Alverna? You’re here for that Alverna?"
@@ -172,7 +169,7 @@ label meetingflair:
     play sound "audio/doorbeep.mp3"
     a "Oh, now it’s open. Just when things were getting interesting."
 
-    "Suddenly, Azma pointed directly at me."
+    "Suddenly, Azma pointed directly at Breeze."
 
     a "Kill her for me, will you? I’ve got something else to take care of."
 
@@ -189,11 +186,10 @@ label meetingflair:
     f "Oh yeah, sure, you just happen to be a totally unrelated person in the middle of a secret underground facility- do you think I’m stupid?"
     b "....I’m not gonna answer that."
     b "I will say though, I’m not your enemy, but..."
-
     play sound "audio/icesword.mp3"
     b "I’m not about to lay down and die either. So, if you won’t listen to reason, then you’re not giving me much of a choice."
 
-    # Flair fire sfx
+    play sound "audio/flairfire.mp3"
     f "Better men than you have tried."
 
     # Show the two sprites rushing at each other as it fades to black
