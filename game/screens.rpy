@@ -367,13 +367,14 @@ screen main_menu():
     #         text "[config.version]":
     #             style "main_menu_version"
     # add Fog().sm alpha 0.8
+    add "gui/demotitle.png"
+    # fixed:
+    #     xalign 0.2
+    #     yanchor 0.5 ypos 0.25
+    #     xysize (1280, 1024)
+    #     add "images/ErasersLogo_copy.png"
     fixed:
-        xalign 0.2
-        yanchor 0.5 ypos 0.25
-        xysize (1280, 1024)
-        add "images/ErasersLogo_copy.png"
-    fixed:
-        xpos 940 ypos 0.8
+        xpos 1240 ypos 0.5
         hbox:
             spacing 10
             textbutton "Start" action Start()
@@ -381,12 +382,13 @@ screen main_menu():
             textbutton "Load" action ShowMenu("load")
             # text "|"
             textbutton "Options" action ShowMenu("preferences")
-            if persistent.combatunlock = True:
-                textbutton "???" action Call("combatroom")
+            if persistent.combatunlock == True:
+                textbutton "???" action [Call("combatroom")]
     fixed:
-        xpos 10 ypos 1040
+        xpos 1750 ypos 1040
         offset (10, -10)
-        textbutton "Credits" action Call("credits")
+        if persistent.combatunlock == True:
+            textbutton "Credits" action Call("credits")
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox

@@ -54,11 +54,12 @@
     s "I was thinking that he’s a bit of a lazy slacker type, but... maybe I can rely on him just a little bit?"
     b "Rookie, pick up the pace!"
     s "He could be a little nicer to me though!"
-
+    stop music fadeout 1.0
     scene black with fade
     with Pause (0.5)
 
     scene tunnel_int with fade
+    play music complexthemeunused fadein 1.0
     show breeze at left
     show sofi at slightright
 
@@ -231,6 +232,7 @@
     # show the goon sprites shaking from fear
     g2 "Was your mother a slasher villain or something?!"
     g1 "...Please don’t kill us."
+    stop music fadeout 2.0
     # [Fight scene here]
     hide breeze
     hide sofi
@@ -243,6 +245,8 @@
     # open with the goon sprites tilted on the floor
 label postgoonfight:
     scene tunnel_int with fade
+    play music breezeintro fadein 1.0
+    queue music breezeloop
     show breeze:
         xpos 0.15
     show sofi at left

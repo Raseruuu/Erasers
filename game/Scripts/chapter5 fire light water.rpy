@@ -1,6 +1,6 @@
 label chapter5:
     scene ElevatorOutside
-
+    play music complextheme fadein 1.0
     fl "CONTAINMENT BREACH IN SECTOR 16 through 27!"
     fl "EXODUS PROTOCOL IS IN EFFECT!"
 
@@ -99,7 +99,9 @@ label chapter5:
     # play explosion sound from Alverna’s fire
     # show Breeze sprite sliding out from the side
     # show breeze dodging at least two shots of fire, then shoot back some ice
-
+    stop music fadeout 0.5
+    play music breezeintro fadein 1.0
+    queue music breezeloop
     s "What the-"
     s "Breeze?!"
     s "What happened to your cover!"
@@ -162,6 +164,7 @@ label chapter5:
     "But before any more words could be said, the tension was abruptly interrupted by a blood-curdling sound"
     "ROOOOAAAAARRRRR!!!"
     with vpunch
+    play music vibranttheme
     "We all turn to the direction of the noise, and at the end of the hall was something truly horrendous."
 
     # switch to the other corridor BG and slide in the vibrants

@@ -97,9 +97,33 @@ $ quickhover = ["History", "Auto"]
 ################
 ## MUSIC ##
 ################
-define flairtheme = "sound/Flairs_Theme_2_ogg.ogg"
-define guildtheme = "sound/Guild_Theme_ogg.ogg"
-define tomotheme = "sound/Tomos_Theme_ogg.ogg"
+# define flairtheme = "sound/Flairs_Theme_2_ogg.ogg"
+# define guildtheme = "sound/Guild_Theme_ogg.ogg"
+# define tomotheme = "sound/Tomos_Theme_ogg.ogg"
+
+define breezetheme = "sound/music/01_Breezes_Theme.ogg"
+define battletheme = "sound/music/02_Battle_Theme.ogg"
+define flairtheme = "sound/music/03_Flairs_Theme.ogg"
+define vibranttheme = "sound/music/04_Vibrant_Theme.ogg"
+define tomostheme = "sound/music/05_Tomos_Theme.ogg"
+define complextheme = "sound/music/06_Complex_Theme.ogg"
+define bosstheme = "sound/music/07_Boss_Theme.ogg"
+define guildtheme = "sound/music/08_Guild_Theme.ogg"
+define flairthemeunused = "sound/music/09_Unused_-_Flairs_Theme.ogg"
+define complexthemeunused = "sound/Music/10_Unused_-_Complex_Theme.ogg"
+define complexthemecreepy = "sound/music/11_Complex_Theme_Creepy_ogg.wav"
+define tomosthemecreepy = "sound/music/12_Tomos_Theme_Creepy_ogg.ogg"
+define breezesacloop = "sound/music/13_Breezes_Sacrifice_Loop_Only.ogg"
+
+define battleintro = "sound/music/Battle_Theme_Intro.ogg"
+define battleloop = "sound/music/Battle_Theme_Loop.ogg"
+define breezeintro = "sound/music/Breezes_Theme_Intro.ogg"
+define breezeloop = "sound/music/Breezes_Theme_Loop.ogg"
+define complexloop = "sound/music/Complex_Theme_Loop_Only.ogg"
+define flairintro = "sound/music/Flairs_Theme_Intro.ogg"
+define flairloop = "sound/music/Flairs_Theme_Loop.ogg"
+
+
 
 ###############
 ## Transform ##

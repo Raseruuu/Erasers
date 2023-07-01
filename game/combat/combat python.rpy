@@ -14,7 +14,7 @@ label combattest:
 
 label precombat:
     $ combatant = combatantlist[encounter]
-    call combat
+    call combat from _call_combat
 
     label endcombat:
         $ _skipping = True
@@ -107,12 +107,13 @@ label combat:
 
     if encounter == "Alv":
         $ midtalk = "alvstart"
-        call midfight
+        call midfight from _call_midfight
     elif encounter == "Az":
         play music overtheblood volume 1.0
         $ nowplaying = "Over the Blood - Youfulca"
     else:
-        play music battle volume 1.0 fadein 0.5
+        play music battleintro volume 1.0 fadein 0.5 noloop
+        queue music battleloop volume 1.0
         $ nowplaying = "Battle"
 
     if persistent.firsttime == True and encounter == "Goons":

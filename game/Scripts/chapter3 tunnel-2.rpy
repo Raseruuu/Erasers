@@ -1,5 +1,7 @@
 ﻿label facility:
+    stop music fadeout 1.0
     scene magicfacility with Dissolve(2.0)
+    play music complextheme fadein 1.0
     show ms at left:
         yrotate 180
     show g1:

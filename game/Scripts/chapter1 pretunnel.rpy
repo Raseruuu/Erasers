@@ -1,6 +1,6 @@
 label pretunnel:
     scene black
-    play sound "trainmoving.mp3" volume 0.2
+    play sound complexthemeunused volume 0.2
     scene train
     show sofi with fade
     # Sofi has her eyes closed
@@ -296,11 +296,13 @@ label pretunnel:
     show breeze with move:
         xpos 2.0
     s "...That’s not a no."
+    stop music fadeout 1.0
 
     scene black with fade
 
     # Fade in to private room upstairs, there’s nothing particularly special about it, it’s just a normal room
     scene rendezvous with fade
+    play music guildtheme fadein 1.0
     show sofi at right
     show breeze at center
     # Show Breeze in the corner while Sofi’s sprite is pacing around

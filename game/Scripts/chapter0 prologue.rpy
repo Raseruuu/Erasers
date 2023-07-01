@@ -1,6 +1,6 @@
 label prologue:
     scene black
-    play music tomotheme volume 0.1
+    play music complexthemeunused volume 1.0
     play sound "audio/crowd.mp3" fadeout 1.0
     u "Welcome!"
     pause 1

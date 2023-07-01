@@ -1,6 +1,6 @@
 ﻿label start:
     $ combatroom = False
-    jump prologue=
+    jump prologue
     return
 
 ## CREDITS

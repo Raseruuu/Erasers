@@ -86,12 +86,13 @@ label meetingflair:
 
     b "Tell her: I’m sorry, but I’ll have to take a rain check on date night."
     a "Right... oh, Herbert. One more thing..."
+    stop music fadeout 0.5
     show azmaveth:
         yrotate 180
     play sound "audio/punch.mp3"
     play sound "audio/icesword.mp3"
     # play Azma strike SFX + Breeze Ice SFX, the intention here is that Breeze blocked a ranged attack from Azma with an ice-wall
-
+    play music bosstheme fadein 1.0
     # Hold on the scene
     with Pause (3.0)
     a "I see you managed to survive... Breeze."
@@ -122,11 +123,14 @@ label meetingflair:
     b "I don’t have a snowball’s chance in hell of beating him in these conditions, I just need to survive then find an opening to make a break for it."
     b "Speaking of hell, was it getting hotter in here?"
     b "Taking a moment to realize that the room really was getting hotter, I notice in the corner of my eye, the wall glowing when suddenly-"
+    stop music fadeout 1.0
     play sound "audio/explosion.mp3"
     # play breeze ice sfx
     queue sound "audio/icesword.mp3"
     # Hold on the scene, then play footsteps
     queue sound "audio/footsteps.mp3"
+    play music flairintro fadein 1.0
+    queue music flairloop
     b "That was too close."
     b "If I hadn’t noticed the rising heat, then I might’ve been burned to a crisp."
     b "Next to where I’d been standing was now a hole burn straight through the wall. A fire-haired woman stepped through the hole, carrying with her an air of confidence and power."
