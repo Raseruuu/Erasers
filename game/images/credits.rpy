@@ -3,7 +3,7 @@ label credits:
     show black with dissolve
     pause 1.0
 
-    centered "{size=+30}{cps=30}Raseruuu{/cps}{/size} {cps=20}{size=+10}\n\nSprite Artist \n\nCharacters \n\nStory Concept{/cps}{/size}{p=5.0}{nw}" with dissolve
+    centered "{size=+30}{cps=30}Raseruuu{/cps}{/size} {cps=20}{size=+10}\n\nSprite Artist \n\nCharacters \n\nStory Concept{/cps}{/size}{p=3.0}{nw}" with dissolve
 
     centered "{size=+30}{cps=30}Dusk{/cps}{/size} {cps=20}{size=+10}\n\nWriter \n\nSequence of Events Director \n\nStory Revisions \n\nActual Monster{/cps}{/size}{p=3.0}{nw}" with dissolve
 
@@ -26,3 +26,8 @@ label credits:
     centered "{size=+30}{cps=30}Sayaka Mashiro{/cps}{/size} {cps=20}{size=+10}\n\nFlair{/cps}{/size}{p=3.0}{nw}" with dissolve
 
     centered "{size=+30}{cps=30}Alverna{/cps}{/size} {cps=20}{size=+10}\n\nRedVelvetVA{/cps}{/size}{p=3.0}{nw}" with dissolve
+
+    centered "{size=+30}{cps=30}Thanks For Playing{/cps}{/size} {cps=20}{size=+10}\n\nUpdate Coming Soon{/cps}{/size}{p=3.0}{nw} {cps=20}{size=+5}\n\...Probably{p=1.0}" with dissolve
+    pause 2
+
+    return
