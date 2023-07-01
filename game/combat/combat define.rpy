@@ -1,4 +1,3 @@
-# image breezecombat = im.FactorScale(im.Crop("images/sprite/breeze2.png", (600, 150, 850, 1000)), 0.3)
 image breezecombat = At("side breezeside", resize(0.75))
 
 ## Enemies ##
@@ -81,18 +80,13 @@ image azparry = im.Flip(im.FactorScale(im.Crop("images/sprite/Azmaveth/Azmaveth.
 ## placeholder
 image greenmob = "images/sprite/green.png"
 
-
 ############################################################
 ##debuff signs
 image fire = im.FactorScale("images/combat/burn45.png", 1.5)
 image ice = im.FactorScale("images/combat/iced45.png", 1.5)
 image targetsign = im.FactorScale("gui/target1.png", 0.3)
-image attacker = im.FactorScale("images/combat/vfx/attacker.png", 0.5)
 
 ## command cards ####################
-# python:
-    # for i in ["cardblade", "cardice", "cardtundra", "cardshield", "cardheal", "cardfirebolt", "cardinferno"]:
-    #     image i = "images/combat/cards/"+i+".png"
 image cardblade = "images/combat/cards/cardblade.png"
 image cardice = "images/combat/cards/cardice.png"
 image cardtundra = "images/combat/cards/cardtundra.png"

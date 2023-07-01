@@ -1,6 +1,6 @@
 ##############################################################
 init -50 python:
-    punchwipe = ImageDissolve("images/combat/vfx/grad.png", 0.3)
+    punchwipe = ImageDissolve("images/combat/vfx/grad.webp", 0.3)
     shatterwipe = ImageDissolve("images/shattergrad.png", 1.0)
 
     import pygame
@@ -136,7 +136,7 @@ init -50 python:
                     "Firebolt": "cardfirebolt",
                     "Inferno": "cardinferno"}
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 12500, "Shard": 200,
+                    "Attack": 125, "Shard": 200,
                     "Tundra": 0,
                     "Shield": 500, "Heal": 150,
                     "Firebolt": 150, "Inferno": 300,

@@ -305,10 +305,8 @@ screen navigation():
 
     vbox:
         style_prefix "navigation"
-
         xpos gui.navigation_xpos
         yalign 0.5
-
         spacing gui.navigation_spacing
 
         if main_menu:
@@ -324,7 +322,6 @@ screen navigation():
             textbutton _("Main Menu") action MainMenu()
 
         if renpy.variant("pc"):
-            ## The quit button is banned on iOS and unnecessary on Android and Web.
             textbutton _("Quit") action Quit(confirm=not main_menu)
 
 
@@ -371,22 +368,25 @@ screen main_menu():
     #             style "main_menu_version"
     # add Fog().sm alpha 0.8
     fixed:
-        xalign 0.75
+        xalign 0.2
         yanchor 0.5 ypos 0.25
         xysize (1280, 1024)
         add "images/ErasersLogo_copy.png"
     fixed:
-        xalign 0.75
-        ypos 0.8
-        xsize 800
+        xpos 940 ypos 0.8
         hbox:
-            xalign 0.5
             spacing 10
             textbutton "Start" action Start()
-            text "|"
-            textbutton "Continue" action ShowMenu("load")
-            text "|"
+            # text "|"
+            textbutton "Load" action ShowMenu("load")
+            # text "|"
             textbutton "Options" action ShowMenu("preferences")
+            if persistent.combatunlock = True:
+                textbutton "???" action Call("combatroom")
+    fixed:
+        xpos 10 ypos 1040
+        offset (10, -10)
+        textbutton "Credits" action Call("credits")
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox

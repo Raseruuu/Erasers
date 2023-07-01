@@ -1,11 +1,6 @@
 ﻿label start:
-    menu:
-        "Start":
-            jump prologue
-        "Combat":
-            jump combattest
-        "ui":
-            jump testingui
+    $ combatroom = False
+    jump prologue=
     return
 
 ## CREDITS
@@ -15,3 +10,5 @@
 # debuff icon: https://opengameart.org/content/95-game-icons sbed
 #######
 # Music:
+# Over the Blood by Youfulca
+# Tanzanite by bitter sweet entertainment

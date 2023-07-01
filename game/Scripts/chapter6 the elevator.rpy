@@ -5,10 +5,14 @@ label chapter6:
     "Upon hearing the signal, the three of us immediately retreated towards our destination."
     "With the remaining Vibrants in hot pursuit, we booked it as hard as our legs could carry us until we crossed the elevator’s threshold, the doors snapping shut just before the remaining vibrants could so much as cross one of their deformed snouts past the door."
     "Only once we felt the elevator moving, and the sound of the vibrants scratching at the door growing silent, did we finally breathe a unanimous sigh of relief."
-    
-    
+
+
     "DEMO OVER"
-    return 
+    pause 1
+    if persistent.combatunlock == False:
+        "Combat Room Unlocked"
+        $ persistent.combatunlock = True
+    return
     # All characters let out a sigh of relief
     # btw for character positioning… breze and sofi should be next to each other, while Alverna and flair are next to each other, so it should go something like: B S F T
 
@@ -54,7 +58,7 @@ label chapter6:
     tm "Since I was busy you know… being kidnapped."
     f "See, I knew you were kidnapped! The moment I saw you with those shady guys, I knew you were caught under a trap."
     tm "I won’t deny that."
-    tm "I was offered a cushy government job by one of my mentors in the scientific community. Apparently, someone was retiring and they floated my name as a replacement, I think they were trying to put together a report on Vibrant migratory patterns? Since my degree had to do with the study of magical creatures and vibrants… seemed like a natural fit." 
+    tm "I was offered a cushy government job by one of my mentors in the scientific community. Apparently, someone was retiring and they floated my name as a replacement, I think they were trying to put together a report on Vibrant migratory patterns? Since my degree had to do with the study of magical creatures and vibrants… seemed like a natural fit."
     tm "But when I arrived at the location, they took me to a room, and they must’ve gassed the room or something, because I started to feel very sleepy. I thought it was because of the all-nighter I pulled preparing for the interview, but I fell unconscious and found myself here when I woke up."
     tm "I was then threatened to help develop some sort of bio-weapon for these people. I wasn’t exactly sure what, since I was mostly kept in the dark."
     b "Hmmm, the project’s name they had you working on, it was called…"
@@ -91,7 +95,7 @@ label chapter6:
     s "Okay I know you don’t like the manual, but this is obviously a time whe-- Wait what?"
     b "Was there something wrong with what I said?"
     s "Oh, i-it’s nothing. I was just surprised you actually agreed with me for once."
-    b "Don’t get used to it rookie." 
+    b "Don’t get used to it rookie."
     b "Relying solely on the manual makes you a predictable agent. However, in this instance, the manual is correct."
     b "The right move here would be to fall back for now."
     s "Oh… Ok…"
@@ -112,7 +116,7 @@ label chapter6:
     b "Look, we’ve just met and all, but you’re asking for something pretty big, and you’re not telling us why. So-"
     f "Hey, lay off!"
     "Flair stood between Breeze and Alverna, acting as a makeshift shield for the doctor."
-    f "I admit, that this does sound suspicious, I get why you’d be hesitant, and yes maybe this is a mistake." 
+    f "I admit, that this does sound suspicious, I get why you’d be hesitant, and yes maybe this is a mistake."
     f "But Alverna is my friend!"
     f "And we promised to always trust each other when we were kids. I always keep my promises, and I know Alverna wouldn’t ask this if it wasn’t important."
     ". . . . . "

@@ -13,19 +13,20 @@ label midfight:
 #####################################################################
 
 label goontute:  ## Sofi Join
-    b "haha. So what you gotta do, is to slash at your target"
+    b "Damn those guys do hit hard."
 
     $ act = "Heal"
     $ hp = min(hpmax, hp+150)
     play sound healing
     show screen damageincoming(150, "#00FF00")
 
-    b "Cheers."
+    b "Appreciated."
     hide screen damageincoming
 
     s "Gee couldn't you please take it more seriously?"
     b "You've got my back don't you?"
     s "Good grief..."
+    b "Counting on you, newbie."
 
     $ combatant.append(sofi)
     $ soficd = 0
@@ -45,9 +46,10 @@ label goontute2:
     hide screen combat
     hide breezecombat
     show screen goonleft
-    b "ha"
-    goonleft "Oh no the other Frank"
+    b "Ha!"
+    goonleft "Oh no the other Frank!"
     b "Yep."
+    goonleft "You'll pay for this!"
 
 
     $ targettemp = abs(death[0]-1)
@@ -85,7 +87,8 @@ label ratrespawn:
 label ratnew:
     show screen combat
     "New Vibrant infested Rat appears!"
-    b "Tssk"
+    s "Eeek!"
+    b "Tssk..."
     window hide
     return
 
@@ -94,8 +97,8 @@ label rattalk:
     $ fighttalk = 1
 
     s "there's just no end to them!"
-    b "gdi what's this bs"
-    f "Can I help now?"
+    b "Now that's troublesome..."
+    f "Hey, can I help now?"
     b "..."
     s "Breeze! Now's not the time for this!"
     f "Seriously!"
@@ -113,11 +116,11 @@ label rattalk:
 
 label ratlast:
     show screen combat
-    s "There's not many left!"
-    b "There should be an opening if we can clear them all out in one go. \nFire girl do your thing!"
-    f "What did you just call me?"
-    b "Counting on ya!"
-    f "Don't just ignore me!"
+    s "There're not many left!"
+    b "There should be an opening if we can clear those all out in one go. \nFire girl do your thing!"
+    f "Seriously?"
+    b "Thank you!"
+    f "What was that for!?"
     $ fighttalk = 2
     window hide
     return
@@ -141,6 +144,7 @@ label alvstart:
     show iceblue with Dissolve(1.5):
         alpha 0.5
     $ combatant[0] = breezeex
+    b "Alright... Time to get you out."
     show screen combat
     show breezecombat: ## breeze icon
         xpos 450 yanchor 1.0 ypos 1050
@@ -152,8 +156,8 @@ label alvcore: ##when first exposed
     hide breezecombat
     show screen alvhead
     s "Hey look the core is exposed!"
-    f "Alvy!"
-    b "Just what I wanted. Hang in there I'm going to get you out!"
+    f "Hang in there!!"
+    b "Perfect. Hang in there!"
     hide screen alvhead
     show screen combat
     show breezecombat: ## breeze icon
@@ -168,13 +172,17 @@ label alvcore: ##when first exposed
 label aztalk: ## triggered half-time
 
     $ fighttalk = True
-    b "This guy is tough"
-    f "Hang in there!"
-    a "Damn, you really like those girls huh?"
+    b "You've gotten sloppy."
+    a "You're one to talk. What were all those attacks?"
+    a "The one I remember wasn't as pitiful as this."
+    a "Damn, those girls made you all sloppy huh? Already moved on from her already?"
+    b "..."
+    a "Ooooooh. Did I struck a nerve?"
+    a "Guess I'll take it up a notch then."
     "He flexes, adopting a more agile stance."
     "Something tells Breeze that this will only get more difficult."
     show screen textoutcome("Azmaveth speeds up")
-    a "Time to ramp it up!"
+    a "Don't disappoint me."
     b "Tssk!"
     hide screen textoutcome
     window hide
@@ -190,7 +198,8 @@ label azwin:
     hide screen parry
     show azmob at combat2:
         xpos 960
-    b "Did we win?"
+    b "Ha....ha...."
+    a "Damn it. Next time maybe."
     hide azmob with dissolve
 
     jump victory

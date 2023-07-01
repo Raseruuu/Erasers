@@ -12,10 +12,8 @@ screen combat:
     ## Main ticker. This is where all the timing stuff happens. ##
     #############################################################################################
 
-    if encounter == "Az": #and aztimer > 0:
+    if encounter == "Az" and aztimer > 0:
         fixed:
-            # xpos 1550
-            # ypos 20
             xysize(1920, 20)
             yalign 1.0
 
@@ -25,13 +23,14 @@ screen combat:
                 xysize(1920, 20)
                 yalign 1.0
             text "Until Escape: " + str(aztimer//20) xalign 0.5 yalign 0.5 outlines [(1,"#000",0,0)] size 20
-    ##display breeze hp and enemys, and the commands
+
     for i, j in enumerate(mobstat):
         use mobenemy(i, mobpos[len(mobstat)][i], None)
     use targetting(mobpos[len(mobstat)][targettemp])
 
     use breeze ##hp bar
     use actbutton
+
     if desc != None:
         use description(desc, descpos)
     if nowplaying != "11":
@@ -65,44 +64,6 @@ screen breeze: ##hp bar
             yoffset -2
         if shield >=1:
             text "Shield: "+str(int(shield)) xalign 0.5 yoffset -4 size 20 color "#000"
-
-# screen mob(i, position):
-#     fixed: ##mob hp
-#         xysize (300, 20)
-#         at combat2 yoffset -300 xpos position ## ymid 100 ybot 110
-#         bar:
-#             value mobstat[i][1]
-#             range mob[i].hp
-#             xysize (300, 20)
-#         text str(int(mobstat[i][1]))+"/"+str(mob[i].hp) align (0.5, 0.5)
-#
-#     use mobicon(i, position) ## mob image
-#
-#     if mobstat[i][4]> 0: ##hides bar during mobaction
-#         fixed: ##mob click
-#             xysize (300, 30)
-#             at combat2 yoffset 250 xpos position
-#             bar:
-#                 value mobstat[i][4]
-#                 range mobstat[i][6]
-#                 xysize (300, 30)
-#             # text "(enemy attack cooldown)" xalign 0.5 yalign 0.5
-#
-#     fixed: ## mob debuff icons
-#         at combat2 xpos position yoffset -175 xoffset -50
-#         xysize (300, 300)
-#         if mobstat[i][3]>0:
-#             add "fire" xoffset 360 yoffset -10
-#         if mobstat[i][2]>0:
-#             add "ice"
-# screen mobicon(i, position): ## ybuttom 625 ytop 125
-#     fixed:
-#         xysize (400, 550)
-#         at combat2 xpos position
-#         add "white" ## for testing use
-#         add mob[i].img xalign 0.5 yalign 1.0 yoffset -50
-#         button: ##to assign target
-#             action SetVariable("target", i)
 
 screen mobenemy(i, position, animation): ## each enemy
     fixed:
@@ -162,6 +123,9 @@ screen mobenemy(i, position, animation): ## each enemy
 
                             if mobstat[i][2]>0:
                                 add "ice" yalign 1.0 xalign 0.0
+                                fixed:
+                                    yalign 10 xpos 15
+                                    text str(int(mobstat[i][2]/20)) color "#fff" outlines [(2,"#000",0,0)]
                     text mobstat[i][0] style "cardtext" xalign 0.5
                 if mobstat[i][9]>0:
                     vbar:
@@ -172,15 +136,13 @@ screen mobenemy(i, position, animation): ## each enemy
                     add "iceblue" alpha 0.7 ysize 600
 
             ## TESTING. Respawn counter
-            # # if encounter == "Alv" or encounter == "Rat":
             # if mobstat[i][0] == "None":
             #     text "Respawn counter: " + str(int(mobstat[i][8])) xalign 0.5 yalign 0.5
+
 screen targetting(position): ## indicates which one is being targetted.
     fixed:
         add "targetsign" at combat2 yoffset -80 xpos position
-screen mobattacking(position): ##TODO :fix symbol
-    fixed:
-        add "attacker" at combat2 xpos mobpos[len(mobstat)][position] yoffset -350 xoffset 50
+
 transform resize(size):
     zoom size
 transform transparent():

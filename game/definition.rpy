@@ -8,16 +8,16 @@ define tm = Character("Alverna",image="alvernaside",callback=speaker("Alverna"),
 # define az = Character("Azmaveth",callback=speaker("Azmaveth"),)
 define ke = Character("Kephirah",callback=speaker("Kephirah"), who_font="mangat.ttf",)
 
-define u = Character("???")
-define cc = Character("Cafe Cashier")
-define g1 = Character("Goon 1", image="g1side")
-define g2 = Character("Goon 2", image="g2side")
+define u = Character("???", who_font="mangat.ttf",)
+define cc = Character("Cafe Cashier", who_font="mangat.ttf",)
+define g1 = Character("Goon 1", image="g1side", who_font="mangat.ttf",)
+define g2 = Character("Goon 2", image="g2side", who_font="mangat.ttf",)
 define ms = Character("Mag. Scientist")
 define fl = Character("Intercom")
 define fi = Character("Intercom") ## it's written as FL and FI in the script. duplicate is to save time from having to fix all occurrences.
-define e = Character("Evan", who_color="#c8ffc8")
-define noa = Character("Noa")
-define un = Character("? ? ? ? ?")
+define e = Character("Evan", who_color="#c8ffc8", who_font="mangat.ttf",)
+define noa = Character("Noa", who_font="mangat.ttf",)
+define un = Character("? ? ? ? ?", who_font="mangat.ttf",)
 
 define n = nvl_narrator
 
@@ -40,7 +40,6 @@ image g2:
 image ms:
     "images/sprite/ms.png"
     zoom 0.5 yanchor 0.5 ypos 1.0
-image cc = im.Flip(im.FactorScale("images/sprite/cc-temp.png", 1.5), horizontal=True)
 
 ##sideimage xanchor 0.5 xpos 250 yalign 1.0
 # image side sofiside = im.FactorScale(im.Crop(sofi, (400, 265, 1000, 1000)), 0.4)
@@ -101,10 +100,6 @@ $ quickhover = ["History", "Auto"]
 define flairtheme = "sound/Flairs_Theme_2_ogg.ogg"
 define guildtheme = "sound/Guild_Theme_ogg.ogg"
 define tomotheme = "sound/Tomos_Theme_ogg.ogg"
-
-
-define horror = "sound/temp-youfulca/youfulca-Horror-ginen_loop.ogg"
-define daily = "sound/temp-youfulca/youfulca-tea-time_loop.ogg"
 
 ###############
 ## Transform ##

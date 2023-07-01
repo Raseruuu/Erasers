@@ -1,8 +1,6 @@
 label combattest:
     "entering combat"
-    # $ encounter = "Goons"
-    # call precombat
-    # return
+    $ combatroom = True
     menu:
         "Pick encounter"
         "Goons":
@@ -39,7 +37,7 @@ label combat:
     python:
         _skipping = timerpause = combattalk = False
         nowplaying = "11"
-        # _game_menu_screen = None ##TODO: uncomment when shipping
+        _game_menu_screen = None ##TODO: uncomment when shipping
 
         ## Breeze's hp/hpmax/shield
         hpmax = hp = 1000
@@ -92,7 +90,7 @@ label combat:
         iceshield = 0
 
     ## Arts
-    scene bgpark
+    # scene bgpark
     show black:
         alpha 0.8
 
@@ -120,21 +118,17 @@ label combat:
     if persistent.firsttime == True and encounter == "Goons":
         $ timerpause = True
         show screen tutorial
+
     ##########################################################################################
     ## the main label where things goes ##
     label combatloop:
-        # $ renpy.block_rollback() ##stops rollback from here on ##TODO: remove when ship
+        $ renpy.block_rollback() ##stops rollback from here on ##TODO: remove when ship
         python:
             if encounter == "Goons":
                 if fighttalk == False and hp < 700:
                     midtalk = "goontute"
                     renpy.call("midfight")
-        ## Midfight Narration trigger
-        # if encounter == "Flair" and mobstat[0][1] < (flairmob.hp)//2 and fighttalk == False:
-        #     # call flairtalk
-        #     $ midtalk = "flairtalk"
-        #     $ renpy.call("midfight")
-            # pass
+
         pause ##gameplay here
 
     return
@@ -369,7 +363,6 @@ label breezehurt: ## ANIMATION
     $ timerpause = False
     $ mobattacker = None
     hide screen damageincoming
-    hide screen mobattacking
 
     ## gameover check
     if hp ==0:
@@ -404,30 +397,6 @@ label mobdeath: ## dead replace/removal in group
                                 targettemp = i
                                 break
 
-         ## old alv system ##########################################
-        # elif encounter == "Alv":
-        #     mobstat[death[0]][0] = "None"
-        #     head = []
-        #     for i, j in enumerate(mobstat):
-        #         if mobstat[i][0] == "None":
-        #             head.append(i)
-        #     while len(head) > 0:
-        #         headrespawn = renpy.random.choice(head)
-        #         if alvheads[headrespawn] !=0:
-        #             mobstat[headrespawn] = [mob[0].name, mob[0].hp, 0, 0, 0, mob[0].dmg, mob[0].cd, 0, 0, 0]
-        #             alvheads[headrespawn] = alvheads[headrespawn]-1
-        #             break
-        #         else:
-        #             head.remove(headrespawn)
-        #     if alvkill == 3+(2+0+1+2):
-        #         mobstat[1] = [mob[i].name, (mob[i].hp), 0, 0, 0, mob[i].dmg, mob[i].cd, 0, 0]
-        #
-        #     if targettemp == death[0]:
-        #         for i, j in enumerate(mobstat):
-        #             if j[0] != "None":
-        #                 targettemp = i
-        #                 break
-        #     head = []
         elif encounter == "Alv":
             for i in death: ## i is positions
                 mobstat[i][0] = "None"
@@ -435,7 +404,7 @@ label mobdeath: ## dead replace/removal in group
 
                 ## retargetting ##
                 if targettemp == i:
-                    if len([item for item in mobstat if item[0] == "None"]) == 2: ## only alv remaining:
+                    if len([item for item in mobstat if item[0] == "None"]) == 2: ## only core remaining:
                         targettemp = 0
                     else:
                         targettemp = abs(i-3)
@@ -461,12 +430,13 @@ label mobdeath: ## dead replace/removal in group
 
 label victory:
     $ timerpause == True
-    show screen combatwin
-    pause 2.0
     stop music fadeout 1.0
-    hide screen combatwin
     hide screen combat
     with dissolve
+
+    if combatroom == True:
+        $ combatroom = False
+        return
 
     if encounter == "Goons":
         jump postgoonfight
@@ -500,6 +470,7 @@ label gameover:
             stop music fadeout 1.0
             jump combat
         "Give Up":
+            $ combatroom = False
             return
 
 label shattering:

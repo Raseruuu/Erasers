@@ -6,7 +6,7 @@ label pretunnel:
     # Sofi has her eyes closed
     # She opens her eyes and stretches
 
-    s "Wha- huh?"  
+    s "Wha- huh?"
 
     # show sofi surprised
 
@@ -17,15 +17,15 @@ label pretunnel:
         xpos 0.48
     show sofi at center with move
     s "Oh there's my phone!"
-   
+
     # show sofi, sigh of relief
 
     s "Phew..."
     s "Okay, still on time... still... on time."
     s "......"
-    
+
     # Sofi wearily sighs, like she’s regretting her life choices
-    
+
     s "Sofi you stupid idiot, are you really gonna go through with this?"
     s "Is this what I should be doing? I mean, what am I trying to accomplish here?"
     s "I was mad back then, angrier than I’ve ever been. I was in a really vulnerable place, and I just... I didn’t want to just sit there and accept it. No. I wanted to strike back, even if it cost me everything, I wanted to..."
@@ -43,23 +43,23 @@ label pretunnel:
     show sofi:
         xpos 2.0
     # Sofi paces
-    show sofi at right with move 
-    s "I could skip my stop, keep going, take a bus, another train. Maybe even get a plane ticket to somewhere far outside of the city." 
+    show sofi at right with move
+    s "I could skip my stop, keep going, take a bus, another train. Maybe even get a plane ticket to somewhere far outside of the city."
     show sofi at left with move:
         yrotate 180
-    s "I don’t carry much with me, so I can just abandon my life, make them think that I just had an accident or something." 
+    s "I don’t carry much with me, so I can just abandon my life, make them think that I just had an accident or something."
     show sofi at right with move:
         yrotate 0
-    s "It’s not like I owe them anything, right?" 
+    s "It’s not like I owe them anything, right?"
     show sofi at left with move:
         yrotate 180
-    s "Sure they did train me, yes I memorized the manual front to back, and yes there were lots of friends I made along the way but..." 
+    s "Sure they did train me, yes I memorized the manual front to back, and yes there were lots of friends I made along the way but..."
     show sofi at right with move:
         yrotate 0
-    s "what I’m about to do could amount to treason. And what if this whole thing is some kinda trap, some kinda deep cover operation to stop dissenters before they carry out their plans?" 
+    s "what I’m about to do could amount to treason. And what if this whole thing is some kinda trap, some kinda deep cover operation to stop dissenters before they carry out their plans?"
     show sofi at left with move:
         yrotate 180
-    s "But then why would they go through the trouble of training me? There were so many chances they could’ve had?" 
+    s "But then why would they go through the trouble of training me? There were so many chances they could’ve had?"
     show sofi at right with move:
         yrotate 0
     s "But then what do I really know about how this whole thing works, and furthermore-"
@@ -86,7 +86,7 @@ label pretunnel:
     s "I don’t know."
     e "Honestly, this may not sound PC, but I hope they execute her. We can’t have people like her wandering freely."
     s "Right... Listen, I gotta go so I’ll talk later."
-    e "Btw, I was talking to the bosses and they seem willing to overlook the... outburst from last year. Now, they can’t give you back your old position, but since the kids loved your story, and Mary’s gonna probably rot in a federal prison... maybe you could apply for her old job?" 
+    e "Btw, I was talking to the bosses and they seem willing to overlook the... outburst from last year. Now, they can’t give you back your old position, but since the kids loved your story, and Mary’s gonna probably rot in a federal prison... maybe you could apply for her old job?"
     e "I can definitely put in a good word for you!"
     s "Thanks, I'll give it some thought!"
     e "Sounds good! Best of lu-"
@@ -112,7 +112,7 @@ label pretunnel:
     ## train announcement
     play sound "audio/trainstop.mp3"
     s "Sounds like it's time for my stop."
-    scene black with fade 
+    scene black with fade
 
     ## Meeting Breeze
     scene cafe
@@ -121,7 +121,7 @@ label pretunnel:
     # Show sofi trying to look inconspicuous, maybe with both eyes closed, or one eye closed
     play sound "audio/ringtone.mp3" volume 0.1
     s "I'm getting a call from... Twisted Fates Dating Service?"
-    play sound "audio/phonebeep.mp3" 
+    play sound "audio/phonebeep.mp3"
     s "Hello?"
     noa "Hi, this is Noa, from Twisted Fates Dating Service!"
     noa "We set up a lovely date for you this evening at a lovely cafe at Cafe Haven, 13th Lakestreet!"
@@ -137,7 +137,7 @@ label pretunnel:
 
     # Sofi slaps her cheeks, face cheeks obviously, fuckin’ degenerates
     s "Okay, for real now. Inconspicuous, spy mode on. Let’s do this!"
-    s "Scan your surroundings, but obviously don’t make it LOOK like you’re scanning!" 
+    s "Scan your surroundings, but obviously don’t make it LOOK like you’re scanning!"
     s "What do you see?"
 
     # These do not need images and can use theater of the mind or silhouettes
@@ -157,7 +157,7 @@ label pretunnel:
 
     s "What, yes, I-I’m Sofi, yes, that’s me, what’s up, what’s good bro, what do you need?"
     cc "I... need to know what you want to order?"
-    s "Huh, o-oh right, cafe, right. I’m just here to order... um... something... to drink!" 
+    s "Huh, o-oh right, cafe, right. I’m just here to order... um... something... to drink!"
     s "Which, I’m going to do."
     s "Riiiiight now."
     cc "...?"
@@ -174,9 +174,9 @@ label pretunnel:
     s "...yes, please, thank you."
     show sofi with move:
         xpos 1.5
-    
+
     # transition scene to her sitting at her table
-    # Show Sofi suffering 
+    # Show Sofi suffering
     scene cafe with fade
     show sofi at right
     play sound "audio/drinksip.mp3"
@@ -197,10 +197,10 @@ label pretunnel:
     # Possibly show quick sketch of Sofi’s imagination
     s "Does he look like maybe... an old wizard? Too inconspicuous?"
     s "Wait, no, he probably fights monsters so maybe a badass monster hunter?"
-    s "Wait... what if... he’s pretty handsome? Like, a prince from a faraway land come to redeem his family name?" 
+    s "Wait... what if... he’s pretty handsome? Like, a prince from a faraway land come to redeem his family name?"
 
     # Sofi girl blush and squeal
-    s "Ahhhhhh!" 
+    s "Ahhhhhh!"
     show breeze:
         xpos -1.0
     s "No, no, no, calm down, Sofi! Professionalism! Professionalism."
@@ -297,7 +297,7 @@ label pretunnel:
         xpos 2.0
     s "...That’s not a no."
 
-    scene black with fade 
+    scene black with fade
 
     # Fade in to private room upstairs, there’s nothing particularly special about it, it’s just a normal room
     scene rendezvous with fade
@@ -313,12 +313,12 @@ label pretunnel:
     show sofi at right with move
     s "Breeze huh? That is a wonderful name that your parents gave to you. Nice and… airy?"
     show sofi at left with move
-    s "And, my name is Sofi, of course. My parents told me that it means Wisdom, I guess they wanted me to grow up to be a wise girl." 
+    s "And, my name is Sofi, of course. My parents told me that it means Wisdom, I guess they wanted me to grow up to be a wise girl."
     show sofi at right with move
     s "Though, I also heard that it might also mean pure? Name meanings are weird like that."
-    show sofi at left with move 
+    show sofi at left with move
     s "Ha… I’m not sure if I really live up to either of those names."
-    show sofi at right with move 
+    show sofi at right with move
     s "I mean, I came upstairs to a private room with a boy I just met for the first time today."
     show sofi at left with move
     s "I don’t usually do things like this, you know?"
@@ -352,7 +352,7 @@ label pretunnel:
     show sofi at right with move
     s "What are you gonna do with it?"
     b "I need to start the mission briefing."
-    
+
     # Breeze pulls out his own phone, obviously he doesn't have a sprite for that
     b "Your phone’s newer than mine. No problem, no problem, lemme just… figure this out..."
     # beeping noise
@@ -418,14 +418,14 @@ label pretunnel:
     k "If that is indeed a vibrant, it is not one we’ve ever seen before."
     k "In the best case scenario, it is either an animal or a fabrication."
     s "And, worst case scenario?"
-    k "...A mutant strain, a new breed, a hybrid, whether it’s a solitary predator or part of a larger nest. There is no record of such a creature in our database, that means this creature, if it is a vibrant is an anomaly of sorts." 
+    k "...A mutant strain, a new breed, a hybrid, whether it’s a solitary predator or part of a larger nest. There is no record of such a creature in our database, that means this creature, if it is a vibrant is an anomaly of sorts."
     k "And that, my dear agents, are what you are to uncover."
-    b "So, this is a recon mission, essentially?" 
+    b "So, this is a recon mission, essentially?"
     b "Alright. Where that video was filmed?"
     k "Our people did a thorough investigation from analyzing the video, and we believe we have triangulated a general location based on reports from our undercover assets in the city."
-    k "From there, we narrowed down places where a potential nest could be, and that leads us… here." 
-    k "An old service tunnel that has been in disuse since the city came under new management." 
-    k "Your mission is to conduct a reconnaissance operation. Go to the destination marked on your devices, determine if it's a single vibrant, a nest, or something more sinister, then report in." 
+    k "From there, we narrowed down places where a potential nest could be, and that leads us… here."
+    k "An old service tunnel that has been in disuse since the city came under new management."
+    k "Your mission is to conduct a reconnaissance operation. Go to the destination marked on your devices, determine if it's a single vibrant, a nest, or something more sinister, then report in."
     k "If luck is on our side, it will have only been an elaborate ruse from a man desperate for the attention of the faceless masses."
     k "I will also remind you to exercise extreme caution. If this is indeed a new strain, then its capabilities are unknown."
     k "And Breeze, if I may…"
