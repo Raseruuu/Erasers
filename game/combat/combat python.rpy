@@ -14,17 +14,10 @@ label combattest:
 
 label precombat:
     $ combatant = combatantlist[encounter]
+
     call combat from _call_combat
 
-    label endcombat:
-        $ _skipping = True
-        $ _game_menu_screen = "save_screen"
-        $ quick_menu = True
-        scene black with dissolve
-        # "combat end"
-        pause 0.1
 
-    $ renpy.fix_rollback()
     return
 
 
@@ -385,7 +378,7 @@ label mobdeath: ## dead replace/removal in group
                 renpy.call("midfight")
         ############################################
         if encounter == "Rats":
-            if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]) and ratkilled >=12: ## when all 3 are dead after killing 9
+            if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]) and ratkilled >=11: ## when all 3 are dead after killing 9
                 renpy.jump("victory")
             else:
                 for i in death: ## i is positions
@@ -434,6 +427,18 @@ label victory:
     stop music fadeout 1.0
     hide screen combat
     with dissolve
+
+    label endcombat:
+        $ _skipping = True
+        $ _game_menu_screen = "save_screen"
+        $ quick_menu = True
+        show screen quick_menu
+        scene black with dissolve
+        # "combat end"
+        pause 0.1
+
+    $ renpy.fix_rollback()
+    $ quick_menu = True
 
     if combatroom == True:
         $ combatroom = False

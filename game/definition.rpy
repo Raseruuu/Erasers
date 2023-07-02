@@ -23,8 +23,6 @@ define n = nvl_narrator
 
 init -100 python:
     persistent.firsttime = True
-
-    config.use_cpickle = False
 ################
 ## SPRITES ##
 # ###############
@@ -67,6 +65,9 @@ image side g1side:
 image side g2side:
     LiveCrop((200,120, 460,500), "g2")
     zoom 0.8
+
+
+image ElevatorOutside = "images/bg/ElevatorOutside.png"
 
 
 transform left:

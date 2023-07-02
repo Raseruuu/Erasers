@@ -7,16 +7,8 @@ label chapter6:
     "With the remaining Vibrants in hot pursuit, we booked it as hard as our legs could carry us until we crossed the elevator’s threshold, the doors snapping shut just before the remaining vibrants could so much as cross one of their deformed snouts past the door."
     "Only once we felt the elevator moving, and the sound of the vibrants scratching at the door growing silent, did we finally breathe a unanimous sigh of relief."
 
-    scene black
-    centered "To be continued..."
-    stop sound
-    stop music fadeout 1.0
-    # "DEMO OVER"
-    pause 1
-    if persistent.combatunlock == False:
-        "Combat Room Unlocked"
-        $ persistent.combatunlock = True
-    return
+    jump startend ## at script.rpy
+    
     # All characters let out a sigh of relief
     # btw for character positioning… breze and sofi should be next to each other, while Alverna and flair are next to each other, so it should go something like: B S F T
 

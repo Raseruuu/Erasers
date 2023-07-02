@@ -136,7 +136,7 @@ init -50 python:
                     "Firebolt": "cardfirebolt",
                     "Inferno": "cardinferno"}
     skillvalues = { ## how much damage/heal for each command. used in damagephase.
-                    "Attack": 125, "Shard": 200,
+                    "Attack": 12500, "Shard": 200,
                     "Tundra": 0,
                     "Shield": 500, "Heal": 150,
                     "Firebolt": 150, "Inferno": 300,
@@ -144,7 +144,7 @@ init -50 python:
     skillcd = {"Attack": 2.5, "Shard": 5,
                 "Tundra": 6,
                 "Shield": 5, "Heal": 2.5,
-                "Firebolt": 3, "Inferno": 8
+                "Firebolt": 3.0, "Inferno": 8.0
                 }
     skilldesc = {
                 "Attack": "Deals {color=#FF0000}125{/color} damage to target enemy",#"Strike it like it's hot.",

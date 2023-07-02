@@ -256,7 +256,7 @@ label chapter5:
     # Ice breaking sound
     play sound "audio/shatter.mp3"
     b "Alright, witty banter time is over! Here they come!"
-    scene black
+    scene pitchblack
     $ encounter = "Rats"
     call precombat from _call_precombat_1
 

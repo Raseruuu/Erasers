@@ -3,6 +3,7 @@ screen combat:
     if combattalk == False:
         button:
             action NullAction()
+            alternate [SetVariable("timerpause", True), Show("pausing")]
     #############################################################################################
     ## Main ticker. This is where all the timing stuff happens. ##
 ##############################################################
@@ -169,7 +170,7 @@ screen sofiact:
             for i, j in enumerate(sofi.list):
                 button:
                     xysize (150, 175)
-                    action [If(soficd >= sofi.cost[i] and mobphase == False, true = [
+                    action [If(soficd >= sofi.cost[i] and mobphase == False and timerpause == False, true = [
                                                                                     SetVariable("soficd", max(soficd-sofi.cost[i]-3, 0)),
                                                                                     SetVariable("act", j),
                                                                                     Call("sofiphase")],
@@ -200,7 +201,7 @@ screen breezeact:
 
                     button:
                         xysize (150, 175)
-                        action [If(breezecd >= breeze.cost[i] and mobphase == False, true = [SetVariable("breezecd", 0),
+                        action [If(breezecd >= breeze.cost[i] and mobphase == False and timerpause == False, true = [SetVariable("breezecd", 0),
                                                                     SetVariable("timerpause", True),
                                                                     SetVariable("act", j), ## for the damagephase to sort out.
                                                                     Call("damagephase")])]
@@ -233,7 +234,7 @@ screen flairact:
             for i, j in enumerate(flair.list):
                 button:
                     xysize (150, 175)
-                    action [If(flaircd >= flair.cost[i] and mobphase == False, true = [SetVariable("flaircd", max(flaircd-flair.cost[i]-2, 0)),
+                    action [If(flaircd >= flair.cost[i] and mobphase == False and timerpause == False, true = [SetVariable("flaircd", max(flaircd-flair.cost[i]-2, 0)),
                                                                 SetVariable("timerpause", True),
                                                                 SetVariable("act", j),
                                                                 Call("damagephase")])]
@@ -262,7 +263,7 @@ screen breezeexact:
                 button:
                     # xoffset -15 yoffset -15
                     xysize (150, 175)
-                    action [If(breezecd >= breezeex.cost[i] and mobphase == False, true = [SetVariable("breezecd", max(breezecd-breezeex.cost[i], 0)),
+                    action [If(breezecd >= breezeex.cost[i] and mobphase == False and timerpause == False, true = [SetVariable("breezecd", max(breezecd-breezeex.cost[i], 0)),
                                                                 SetVariable("timerpause", True),
                                                                 SetVariable("act", j), ## for the damagephase to sort out.
                                                                 Call("damagephase")])]
@@ -340,6 +341,10 @@ screen pausing:
     fixed:
         add "black" alpha 0.5
         text "PAUSING" size 200 bold True align (0.5, 0.5)
+        button:
+            xysize (1920, 1080)
+            action [Hide("pausing"), SetVariable("timerpause", False)]
+            alternate [Hide("pausing"), SetVariable("timerpause", False)]
 
 screen description(i, descpos):
     fixed:
