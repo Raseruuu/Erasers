@@ -258,7 +258,8 @@ label chapter5:
     b "Alright, witty banter time is over! Here they come!"
     scene pitchblack
     $ encounter = "Rats"
-    call precombat from _call_precombat_1
+    
+    jump precombat
 
     jump chapter6
     return

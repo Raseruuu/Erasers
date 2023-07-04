@@ -15,7 +15,7 @@ label combattest:
 label precombat:
     $ combatant = combatantlist[encounter]
 
-    call combat from _call_combat
+    jump combat
 
 
     return
@@ -378,7 +378,7 @@ label mobdeath: ## dead replace/removal in group
                 renpy.call("midfight")
         ############################################
         if encounter == "Rats":
-            if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]) and ratkilled >=11: ## when all 3 are dead after killing 9
+            if all([mobstat[i][1] == 0 for i, j in enumerate(mobstat)]) and ratkilled >=9: ## when all 3 are dead after killing 9
                 renpy.jump("victory")
             else:
                 for i in death: ## i is positions

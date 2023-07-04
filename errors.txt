@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 65: unexpected EOF while parsing
-    tomostheme, volume 0.5
-                        ^
+File "game/Scripts/chapter2 tunnel-1.rpy", line 242: end of line expected.
+    jump precombat from _call_precombat
+                   ^
 
 Ren'Py Version: Ren'Py 8.1.1.23060707
-Sat Jul  1 10:18:26 2023
+Mon Jul  3 20:56:26 2023
