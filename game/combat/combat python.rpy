@@ -14,7 +14,7 @@ label combattest:
 
 label precombat:
     $ combatant = combatantlist[encounter]
-
+    
     jump combat
 
 

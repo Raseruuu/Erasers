@@ -382,8 +382,7 @@ screen main_menu():
             textbutton "Load" action ShowMenu("load")
             # text "|"
             textbutton "Options" action ShowMenu("preferences")
-            if persistent.combatunlock == True:
-                textbutton "???" action [Call("combatroom")]
+            textbutton "???" action [Call("combatroom")]
     fixed:
         xpos 1750 ypos 1040
         offset (10, -10)

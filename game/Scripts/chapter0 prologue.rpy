@@ -1,5 +1,6 @@
 label prologue:
     scene black
+    $ combatroom = False
     play music complexthemeunused volume 1.0
     play sound "audio/crowd.mp3" fadeout 1.0
     u "Welcome!"

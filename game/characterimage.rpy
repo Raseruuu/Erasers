@@ -713,5 +713,5 @@ layeredimage Kizuna:
 
     always:
         "sprite/Kizuna/Kizuna.png"
-        
+
     zoom 0.5 yanchor 0.5 ypos 1.0

@@ -12,8 +12,6 @@ label startend: ## DEMO END
     stop music fadeout 1.0
     pause 1
     if persistent.combatunlock == None:
-        "Combat Room Unlocked"
-        "Go check out the title menu for extra content."
         $ persistent.combatunlock = True
     return
 

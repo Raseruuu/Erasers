@@ -8,7 +8,7 @@ label chapter6:
     "Only once we felt the elevator moving, and the sound of the vibrants scratching at the door growing silent, did we finally breathe a unanimous sigh of relief."
 
     jump startend ## at script.rpy
-    
+
     # All characters let out a sigh of relief
     # btw for character positioning… breze and sofi should be next to each other, while Alverna and flair are next to each other, so it should go something like: B S F T
 
